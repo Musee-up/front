@@ -1,16 +1,9 @@
 <template>
   <v-app dark :style="image">
     <Navbar/>
-    <v-main 
-      fluid>
-      <v-container pa-0 fluid>
-        <!-- <div> -->
-        <!--   <h1>  Le monde est un musée, découvrez-le ! </h1> -->
-        <!-- </div> -->
-        <!-- <div style="background-color:red"> -->
-        <!--   <h1>  Ceci est le deuxieme test ! </h1> -->
-        <!-- </div> -->
-      </v-container>
+    <v-main fluid>
+    <SearchBar/>
+        
     </v-main>
     <v-footer
       app
