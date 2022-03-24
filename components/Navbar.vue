@@ -1,14 +1,63 @@
+<!-- <img src="~/assets/image.png" /> -->
 <template>
   <v-app-bar
+    flat
     center
-    dark
+    app
+    style="background:transparent"
     >
     <v-spacer />
+      <NuxtLink tag="img"
+                style="height:inherit;width:inherit"
+                :src="require('assets/logo_musee_up.svg')" to="#">
+      </NuxtLink>
+      <v-menu
+        pa-0
+        ma-0
+        offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            style="background-color: transparent;"
+            elevation="0"
+            v-bind="attrs"
+            v-on="on"
+            >
+            Trouver une expérience
+            <v-icon
+              color="grey"
+              >
+              mdi-chevron-down
+            </v-icon>
+          </v-btn>
+        </template>
+        <v-list >
+          <v-list-item
+            v-for="(item, index) in experiences"
+            :key="index"
+            >
+            <NuxtLink to="#">  {{item.text}} </NuxtLink>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
       <ul>
-        <li v-for="link in links" :key="link.id">
+        <li v-for="link in links" :key="link.title">
           <NuxtLink to="`link.link`"> {{ link.title }}</NuxtLink>
         </li>
       </ul>
+      <div>
+        <NuxtLink to="#">
+        <v-icon
+          color="white"
+          >
+          mdi-account-circle
+        </v-icon>
+
+        Se connecter </NuxtLink>
+        <v-btn class="rounded-lg" style="background-color:#064888">
+          <NuxtLink to="#">  Publier votre annonce </NuxtLink>
+        </v-btn>
+      </div>
       <v-spacer />
   </v-app-bar>
 </template>
@@ -17,11 +66,15 @@
 export default {
   data: () => {
     return {
+      experiences: [
+        {link:"#", text:"Expérience partagées" },
+        {link:"#", text:"Expérience privées" },
+        {link:"#", text:"Expérience Musée up'" },
+      ],
       links: [
-        {ling:"#", title:"exp" },
-        {ling:"#", title:"mesure"},
-        {ling:"#", title:"about"},
-        {ling:"#", title:"blog"},
+        {link:"#", title:"Votre expérience sur mesure"},
+        {link:"#", title:"Qui sommes nous?"},
+        {link:"#", title:"Blog"},
       ]
     }
   }
@@ -30,39 +83,26 @@ export default {
 </script>
 
 <style>
-:root {
-  --primary-color: #00c58e;
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+* {
+  text-transform: none !important;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size:14px;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-  Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-  Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  margin: 0;
+
+#app {
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
-  color: white;
+  color: white !important;
   text-decoration: none;
 }
+
 nav a:hover {
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-main {
-  margin: 0 auto;
-  margin-top: 100px;
-  padding: 0 1rem;
-  max-width: 1280px;
-  text-align: center;
-}
-
-img {
-  margin-bottom: 1rem;
 }
 
 ul {
@@ -75,7 +115,6 @@ ul {
 li {
   margin: 0 0.5rem;
   padding: 0.25rem;
-  font-size: 1.2rem;
 }
 
 nav {
