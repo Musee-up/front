@@ -1,4 +1,3 @@
-<!-- <img src="~/assets/image.png" /> -->
 <template>
   <v-app-bar flat center app style="background: transparent">
     <v-spacer />

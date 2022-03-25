@@ -1,7 +1,7 @@
 <template>
   <v-container pa-0 fluid center fill-height>
     <v-row align="center" justify="center">
-      <h1 style="font-size: 65px; text-align: left">
+      <h1 style="font-size: 65px; text-align: left; color:white">
         Le monde est un musée,<br />découvrez-le !
       </h1>
     </v-row>
@@ -17,8 +17,6 @@
           }
         "
       >
-        <!-- add model here -->
-        <!-- <v-date-picker no-title scrollable> </v-date-picker> -->
         <v-autocomplete
           filled
           solo
