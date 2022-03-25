@@ -6,21 +6,44 @@
       </h1>
     </v-row>
     <v-row align="center" justify="center">
-      <v-card align="center" justify="center" class="d-flex rounded-pill"
-              style="{background-color:white;width:1000px;}">
+      <v-card
+        align="center"
+        justify="center"
+        class="d-flex rounded-pill"
+        style="
+           {
+            background-color: white;
+            width: 1000px;
+          }
+        "
+      >
         <!-- add model here -->
         <!-- <v-date-picker no-title scrollable> </v-date-picker> -->
-        <v-autocomplete filled solo hide-details="auto" class="pa-4 rounded-pill" label="Ou souhaitez vous allez ?"></v-autocomplete>
-        <DateMenu/>
+        <v-autocomplete
+          filled
+          solo
+          hide-details="auto"
+          class="pa-4 rounded-pill"
+          label="Ou souhaitez vous allez ?"
+        ></v-autocomplete>
+        <DateMenu />
         <v-select
           :items="peopleNumber"
           type="number"
-          solo hide-details="auto"
+          solo
+          hide-details="auto"
           class="pa-4 rounded-pill"
-          label="Nombres de visiteurs"></v-select>
+          label="Nombres de visiteurs"
+        ></v-select>
 
-        <v-btn icon x-large color="blue" class="pr-4" style="align-self:center">
-        <v-icon color="blue"> mdi-magnify </v-icon>
+        <v-btn
+          icon
+          x-large
+          color="blue"
+          class="pr-4"
+          style="align-self: center"
+        >
+          <v-icon color="blue"> mdi-magnify </v-icon>
         </v-btn>
       </v-card>
     </v-row>
@@ -28,12 +51,11 @@
 </template>
 
 <script>
-
 export default {
   data: () => {
     return {
-      peopleNumber: [...Array(5).keys()]
-  }
-  }
+      peopleNumber: [...Array(5).keys()],
+    }
+  },
 }
 </script>
