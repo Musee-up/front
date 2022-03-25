@@ -64,7 +64,7 @@ export default {
       //   success: colors.green.accent3,
       // },
       light: {
-        primary: colors.black,
+        primary: colors.white,
         secondary: colors.grey.darken1,
         accent: colors.shades.black,
         error: colors.red.accent3,

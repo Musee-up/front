@@ -83,10 +83,6 @@ a {
   text-decoration: none;
 }
 
-nav a:hover {
-  text-decoration: none;
-}
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -94,6 +90,7 @@ ul {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 li {
   margin: 0 0.5rem;
   padding: 0.25rem;
