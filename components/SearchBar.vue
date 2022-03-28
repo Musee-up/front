@@ -2,8 +2,12 @@
   <v-container pa-0 fluid center fill-height>
     <v-divider></v-divider>
     <v-row align="center" justify="center">
-      <h1 style="font-size: 65px; text-align: left; color: white">
+      <h1 style="font-size: 65px;
+        text-align: left;
+        " >
         Le monde est un musée,<br />découvrez-le !
+        <!-- {{$t('message')}} -->
+        {{$vuetify.theme.dark}}
       </h1>
     </v-row>
     <v-row align="center" justify="center">
