@@ -36,36 +36,25 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
-  // vite: {
-  //   build: true,
-  //   /* options for vite */
-  //   // ssr: true // enable unstable server-side rendering for development (false by default)
-  //   // experimentWarning: false // hide experimental warning message (disabled by default for tests)
-  //   vue: {
-  //     /* options for vite-plugin-vue2 */
-  //   },
-  // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    [
       '@nuxtjs/i18n',
-      {
-        locales: ['en', 'es'],
-        defaultLocale: 'en',
-        vueI18n: {
-          fallbackLocale: 'en',
-          messages: {
-            en: {
-              greeting: 'Hello world!'
-            },
-            es: {
-              greeting: 'ÁHola mundo!'
-            }
-          }
-        }
-      }
-    ]
   ],
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en.json'
+      },
+      {
+        code: 'fr',
+        file: 'fr.json'
+      }
+    ],
+    lazy: true,
+    langDir: 'locales/',
+    defaultLocale: 'en'
+  },
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     optionsPath: "./vuetify.options.js"

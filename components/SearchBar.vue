@@ -16,10 +16,8 @@
         justify="center"
         class="d-flex rounded-pill"
         style="
-           {
             background-color: white;
             width: 1000px;
-          }
         "
       >
         <v-autocomplete

@@ -83,12 +83,13 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 #app {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
 }
+
 * {
   text-transform: none !important;
   text-decoration: none !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: bold;
   font-size: 14px;
   color: #064888 !important;

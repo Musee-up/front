@@ -69,14 +69,14 @@ export default {
 
 * {
   text-transform: none !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: bold;
   font-size: 14px;
   color: white !important;
 }
 
 #app {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 a {
