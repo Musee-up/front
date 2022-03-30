@@ -21,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/i18n'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -37,27 +37,25 @@ export default {
     '@nuxtjs/vuetify',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-      '@nuxtjs/i18n',
-  ],
+  modules: ['@nuxtjs/i18n'],
   i18n: {
     locales: [
       {
         code: 'en',
-        file: 'en.json'
+        file: 'en.js',
       },
       {
         code: 'fr',
-        file: 'fr.json'
-      }
+        file: 'fr.js',
+      },
     ],
     lazy: true,
     langDir: 'locales/',
-    defaultLocale: 'en'
+    defaultLocale: 'en',
   },
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
-    optionsPath: "./vuetify.options.js"
+    customVariables: ['~/assets/variables.scss'],
+    optionsPath: './vuetify.options.js',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

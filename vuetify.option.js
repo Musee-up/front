@@ -1,9 +1,9 @@
-import colors from "vuetify/es5/util/colors";
+import colors from 'vuetify/es5/util/colors'
 
 export default {
-   lang: {
-      t: (key, ...params) => app.i18n.t(key, params)
-    },
+  lang: {
+    t: (key, ...params) => app.i18n.t(key, params),
+  },
   theme: {
     themes: {
       dark: {

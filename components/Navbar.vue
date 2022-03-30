@@ -16,7 +16,7 @@
           v-bind="attrs"
           v-on="on"
         >
-          Trouver une expérience
+          {{ $t('Trouver une expérience') }}
           <v-icon color="grey"> mdi-chevron-down </v-icon>
         </v-btn>
       </template>
@@ -35,10 +35,10 @@
     <div>
       <NuxtLink to="#">
         <v-icon color="white"> mdi-account-circle </v-icon>
-        Se connecter
+        {{ $t('Se connecter') }}
       </NuxtLink>
       <v-btn class="rounded-lg" style="background-color: #064888">
-        <NuxtLink to="#"> Publier votre annonce </NuxtLink>
+        <NuxtLink to="#"> {{ $t('Publier votre annonce') }} </NuxtLink>
       </v-btn>
     </div>
     <v-spacer />
@@ -47,17 +47,17 @@
 
 <script>
 export default {
-  data: () => {
+  data() {
     return {
       experiences: [
-        { link: '#', text: 'Expérience partagées' },
-        { link: '#', text: 'Expérience privées' },
-        { link: '#', text: "Expérience Musée up'" },
+        { link: '#', text: this.$t('Expérience partagées') },
+        { link: '#', text: this.$t('Expérience privées') },
+        { link: '#', text: this.$t("Expérience Musée up'") },
       ],
       links: [
-        { link: '#', title: 'Votre expérience sur mesure' },
-        { link: '#', title: 'Qui sommes nous?' },
-        { link: '#', title: 'Blog' },
+        { link: '#', title: this.$t('Votre expérience sur mesure') },
+        { link: '#', title: this.$t('Qui sommes nous?') },
+        { link: '#', title: this.$t('Blog') },
       ],
     }
   },

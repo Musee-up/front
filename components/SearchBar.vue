@@ -2,12 +2,8 @@
   <v-container pa-0 fluid center fill-height>
     <v-divider></v-divider>
     <v-row align="center" justify="center">
-      <h1 style="font-size: 65px;
-        text-align: left;
-        " >
-        Le monde est un musée,<br />découvrez-le !
-        {{$t('message')}}
-        {{$vuetify.theme.dark}}
+      <h1 style="font-size: 65px; text-align: left">
+        {{ $t('Le monde est un musée,') }}<br />{{ $t('découvrez-le !') }}
       </h1>
     </v-row>
     <v-row align="center" justify="center">
@@ -15,10 +11,7 @@
         align="center"
         justify="center"
         class="d-flex rounded-pill"
-        style="
-            background-color: white;
-            width: 1000px;
-        "
+        style="background-color: white; width: 1000px"
       >
         <v-autocomplete
           filled
