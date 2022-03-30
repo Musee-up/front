@@ -26,18 +26,22 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  target: 'static',
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // 'nuxt-vite',
+    '@nuxt/image',
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+
+    '@nuxtjs/vuetify'
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/i18n'],
+  modules: [
+    '@nuxtjs/i18n',
+  ],
   i18n: {
     locales: [
       {

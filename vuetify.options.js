@@ -1,10 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  lang: {
-    t: (key, ...params) => app.i18n.t(key, params),
-  },
   theme: {
+    dark: false,
     themes: {
       dark: {
         primary: colors.blue.darken2,
@@ -16,7 +14,7 @@ export default {
         success: colors.green.accent3,
       },
       light: {
-        primary: colors.white,
+        primary: colors.green.accent3,
         secondary: colors.grey.darken1,
         accent: colors.shades.black,
         error: colors.red.accent3,

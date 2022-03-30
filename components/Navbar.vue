@@ -4,9 +4,9 @@
     <NuxtLink
       tag="img"
       style="height: inherit; width: inherit"
-      :src="require('assets/logo_musee_up.svg')"
       to="#"
     >
+    <nuxt-img src='/logo_musee_up.svg' />
     </NuxtLink>
     <v-menu pa-0 ma-0 offset-y>
       <template #activator="{ on, attrs }">
@@ -17,6 +17,7 @@
           v-on="on"
         >
           {{ $t('Trouver une expérience') }}
+          {{ $vuetify.theme.dark }}
           <v-icon color="grey"> mdi-chevron-down </v-icon>
         </v-btn>
       </template>
@@ -26,6 +27,8 @@
         </v-list-item>
       </v-list>
     </v-menu>
+
+      <button v-on:click="change_color">change color</button>
 
     <ul>
       <li v-for="link in links" :key="link.title">
@@ -47,12 +50,17 @@
 
 <script>
 export default {
+  methods: {
+    change_color() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    }
+  },
   data() {
     return {
       experiences: [
         { link: '#', text: this.$t('Expérience partagées') },
         { link: '#', text: this.$t('Expérience privées') },
-        { link: '#', text: this.$t("Expérience Musée up'") },
+        { link: '#', text: this.$t('Expérience Musée up\'') },
       ],
       links: [
         { link: '#', title: this.$t('Votre expérience sur mesure') },

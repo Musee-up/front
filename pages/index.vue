@@ -1,5 +1,5 @@
 <template>
-  <v-app dark :style="image">
+  <v-app :style="image">
     <v-main fluid>
       <SearchBar />
     </v-main>
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import bg_path from 'assets/joseph-barrientos-KV7n8nARXng-unsplash.jpeg'
+import bg_path from '@/assets/joseph-barrientos-KV7n8nARXng-unsplash.jpeg'
 
 export default {
   data() {
