@@ -28,7 +28,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    'nuxt-vite',
+    // 'nuxt-vite',
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
@@ -36,22 +36,36 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
-  vite: {
-    build: true,
-    /* options for vite */
-    // ssr: true // enable unstable server-side rendering for development (false by default)
-    // experimentWarning: false // hide experimental warning message (disabled by default for tests)
-    vue: {
-      /* options for vite-plugin-vue2 */
-    },
-  },
+  // vite: {
+  //   build: true,
+  //   /* options for vite */
+  //   // ssr: true // enable unstable server-side rendering for development (false by default)
+  //   // experimentWarning: false // hide experimental warning message (disabled by default for tests)
+  //   vue: {
+  //     /* options for vite-plugin-vue2 */
+  //   },
+  // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-  //   "@/plugins/vuetify",
-    "@/plugins/i18n"
+    [
+      '@nuxtjs/i18n',
+      {
+        locales: ['en', 'es'],
+        defaultLocale: 'en',
+        vueI18n: {
+          fallbackLocale: 'en',
+          messages: {
+            en: {
+              greeting: 'Hello world!'
+            },
+            es: {
+              greeting: 'ÁHola mundo!'
+            }
+          }
+        }
+      }
+    ]
   ],
-
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     optionsPath: "./vuetify.options.js"
