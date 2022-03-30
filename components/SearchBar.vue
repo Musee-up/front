@@ -6,7 +6,7 @@
         text-align: left;
         " >
         Le monde est un musée,<br />découvrez-le !
-        <!-- {{$t('message')}} -->
+        {{$t('message')}}
         {{$vuetify.theme.dark}}
       </h1>
     </v-row>

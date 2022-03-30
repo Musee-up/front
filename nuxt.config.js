@@ -46,26 +46,10 @@ export default {
     },
   },
   // Modules: https://go.nuxtjs.dev/config-modules
-  // modules: [
-  //   [
-  //     '@nuxtjs/i18n',
-  //     {
-  //       locales: ['en', 'es'],
-  //       defaultLocale: 'en',
-  //       vueI18n: {
-  //         fallbackLocale: 'en',
-  //         messages: {
-  //           en: {
-  //             greeting: 'Hello world!'
-  //           },
-  //           es: {
-  //             greeting: 'ÁHola mundo!'
-  //           }
-  //         }
-  //       }
-  //     }
-  //   ]
-  // ],
+  modules: [
+  //   "@/plugins/vuetify",
+    "@/plugins/i18n"
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
