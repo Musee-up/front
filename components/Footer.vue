@@ -35,8 +35,10 @@
           </v-list>
         </v-col>
       </v-row>
-      <v-row>
-         {{ $t("Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales | Musée Up’ vous rapproche de la culture.") }}
+      <v-row class="description">
+        {{ $t("Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |")}}
+        <span>Musée Up’</span>
+        {{$t("vous rapproche de la culture.") }}
       </v-row>
     </v-container>
   </v-footer>

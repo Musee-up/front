@@ -1,12 +1,8 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
 @import '~vuetify/src/styles/main.sass';
-
-// The variables you want to modify
-// $font-size-root: 20px;
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 $font-family: lato;
-// Color system
 
 a {
 	text-transform: none;
@@ -18,7 +14,7 @@ h1 {
 }
 
 .v-app-bar * {
-	font-weight:bold;
+	font-weight: bold;
 	color:white !important;
 }
 
@@ -28,10 +24,9 @@ h1 {
 
 .v-footer * {
 	font-weight:bold;
-	color:blue !important;
 	font-weight: bold;
 	font-size: 14px;
-	color: #064888 !important;
+	color: #064888;
 }
 
 ul {
@@ -50,3 +45,4 @@ li {
 nav {
   padding: 0 1rem;
 }
+
