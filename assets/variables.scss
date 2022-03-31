@@ -5,28 +5,28 @@
 $font-family: lato;
 
 a {
-	text-transform: none;
-	text-decoration: none;
+  text-transform: none;
+  text-decoration: none;
 }
 
 h1 {
-	font-size: 70px;
+  font-size: 70px;
 }
 
 .v-app-bar * {
-	font-weight: bold;
-	color:white !important;
+  font-weight: bold;
+  color: white !important;
 }
 
 .v-footer {
-	background-color: white !important;
+  background-color: white !important;
 }
 
 .v-footer * {
-	font-weight:bold;
-	font-weight: bold;
-	font-size: 14px;
-	color: #064888;
+  font-weight: bold;
+  font-weight: bold;
+  font-size: 14px;
+  color: #064888;
 }
 
 ul {
@@ -45,4 +45,3 @@ li {
 nav {
   padding: 0 1rem;
 }
-

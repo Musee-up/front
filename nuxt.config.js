@@ -39,12 +39,9 @@ export default {
     '@nuxtjs/vuetify',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/style-resources',
-    '@nuxtjs/i18n'
-  ],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/i18n'],
   styleResources: {
-    scss: ['@/assets/scss/*.scss']
+    scss: ['@/assets/scss/*.scss'],
   },
   i18n: {
     locales: [
@@ -76,5 +73,5 @@ export default {
         implementation: require('sass'),
       },
     },
-  }
+  },
 }

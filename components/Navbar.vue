@@ -2,7 +2,7 @@
   <v-app-bar flat center app style="background: transparent">
     <v-spacer />
     <NuxtLink tag="img" style="height: inherit; width: inherit" to="#">
-      <nuxt-img src='/logo_musee_up.svg' />
+      <nuxt-img src="/logo_musee_up.svg" />
     </NuxtLink>
     <v-menu pa-0 ma-0 offset-y>
       <template #activator="{ on, attrs }">
@@ -32,7 +32,7 @@
     </ul>
     <div>
       <NuxtLink to="#">
-        <v-icon > mdi-account-circle </v-icon>
+        <v-icon> mdi-account-circle </v-icon>
         {{ $t('Se connecter') }}
       </NuxtLink>
       <v-btn class="rounded-lg" style="background-color: #064888">
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     change_color() {
-      //this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      // this.$vuetify.theme.dark = !this.$vuetify.theme.dark
     },
   },
 }
