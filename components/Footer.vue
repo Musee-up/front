@@ -1,11 +1,11 @@
 <template>
-  <v-footer app center flat style="background: white">
+  <v-footer app center flat >
     <v-container pa-0 fluid class="justify-space-between">
       <v-row>
         <v-col>test</v-col>
         <v-col v-for="(category, i) in categories" :key="i">
           <v-list>
-            <v-list-item v-for="(item, index) in category" :key="index">
+            <v-list-item v-for="(item, index) in category" :key="index" >
               <NuxtLink to="#"> {{ item.title }} </NuxtLink>
             </v-list-item>
           </v-list>
@@ -27,11 +27,7 @@
                 filled
                 rounded
                 class="ma-2"
-                style="
-                  color: white !important;
-                  background-color: #064888;
-                  align-self: center;
-                "
+                style="align-self: center;"
               >
                 S'abonner
               </v-btn>
@@ -40,8 +36,7 @@
         </v-col>
       </v-row>
       <v-row>
-        Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |
-        Musée Up’ vous rapproche de la culture.
+         {{ $t("Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales | Musée Up’ vous rapproche de la culture.") }}
       </v-row>
     </v-container>
   </v-footer>
@@ -49,49 +44,32 @@
 
 <script>
 export default {
-  data: () => {
+  data() {
     return {
       categories: [
         [
-          { link: '#', title: 'Support' },
-          { link: '#', title: 'Conditions Générales' },
-          { link: '#', title: "Politique d'annulation" },
-          { link: '#', title: 'Politique de confidentialité' },
-          { link: '#', title: "Centre d'aide" },
+          { link: '#', title: this.$t('Support') },
+          { link: '#', title: this.$t('Conditions Générales') },
+          { link: '#', title: this.$t('Politique d\'annulation') },
+          { link: '#', title: this.$t('Politique de confidentialité') },
+          { link: '#', title: this.$t('Centre d\'aide') },
         ],
         [
-          { link: '#', title: 'Notre Équipe' },
-          { link: '#', title: 'Qui sommes nous' },
-          { link: '#', title: 'Notre histoire' },
-          { link: '#', title: 'On recrute' },
-          { link: '#', title: 'Blog' },
+          { link: '#', title: this.$t('Notre Équipe') },
+          { link: '#', title: this.$t('Qui sommes nous') },
+          { link: '#', title: this.$t('Notre histoire') },
+          { link: '#', title: this.$t('On recrute') },
+          { link: '#', title: this.$t('Blog') },
         ],
         [
-          { link: '#', title: 'Nous contacter' },
-          { link: '#', title: 'Contact' },
-          { link: '#', title: 'Presse' },
-          { link: '#', title: 'Partenaires et entreprises' },
-          { link: '#', title: 'Influenceurs' },
+          { link: '#', title: this.$t('Nous contacter') },
+          { link: '#', title: this.$t('Contact') },
+          { link: '#', title: this.$t('Presse') },
+          { link: '#', title: this.$t('Partenaires et entreprises') },
+          { link: '#', title: this.$t('Influenceurs') },
         ],
       ],
     }
   },
 }
 </script>
-
-<style scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-
-#app {
-  font-family: Roboto, sans-serif;
-}
-
-* {
-  text-transform: none !important;
-  text-decoration: none !important;
-  font-family: Roboto, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  color: #064888 !important;
-}
-</style>

@@ -18,7 +18,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/scss/custom.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/i18n'],
@@ -36,12 +36,16 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
 
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/i18n',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/i18n'
   ],
+  styleResources: {
+    scss: ['@/assets/scss/*.scss']
+  },
   i18n: {
     locales: [
       {
@@ -63,5 +67,14 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    loaders: {
+      sass: {
+        implementation: require('sass'),
+      },
+      scss: {
+        implementation: require('sass'),
+      },
+    },
+  }
 }

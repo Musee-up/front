@@ -2,8 +2,7 @@
   <v-container pa-0 fluid center fill-height>
     <v-divider></v-divider>
     <v-row align="center" justify="center">
-      <h1 style="font-size: 65px; text-align: left" class="primary--text" >
-        {{this.$vuetify.theme.currentTheme.primary}}
+      <h1 style="text-align: left" class="primary--text">
         {{ $t('Le monde est un musée,') }}<br />{{ $t('découvrez-le !') }}
       </h1>
     </v-row>

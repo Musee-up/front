@@ -1,22 +1,52 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
+@import '~vuetify/src/styles/main.sass';
+
 // The variables you want to modify
 // $font-size-root: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$font-family: lato;
+// Color system
 
-// $material-dark: (
-//   'app-bar': #121212,
-//   'bottom-navigation': #121212,
-//   'background': #121212,
-//   'cards': #121212,
-//   'navigation-drawer': #121212,
-//   'toolbar': #121212
-// );
+a {
+	text-transform: none;
+	text-decoration: none;
+}
 
-// $material-light: (
-//   'app-bar': #FAFAFA,
-//   'bottom-navigation': #FAFAFA,
-//   'background': #FAFAFA,
-//   'cards': #FAFAFA,
-//   'navigation-drawer': #FAFAFA,
-//   'toolbar': #FAFAFA
-// );
+h1 {
+	font-size: 70px;
+}
+
+.v-app-bar * {
+	font-weight:bold;
+	color:white !important;
+}
+
+.v-footer {
+	background-color: white !important;
+}
+
+.v-footer * {
+	font-weight:bold;
+	color:blue !important;
+	font-weight: bold;
+	font-size: 14px;
+	color: #064888 !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+li {
+  margin: 0 0.5rem;
+  padding: 0.25rem;
+}
+
+nav {
+  padding: 0 1rem;
+}

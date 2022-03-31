@@ -16,12 +16,12 @@
       "@/*": ["./*"]
     },
     "types": [
-		"@nuxt/types",
-		"@types/node",
-		"@nuxtjs/vuetify",
-		"@nuxtjs/i18n",
-		"@nuxt/image"
-	]
+      "@nuxt/types",
+      "@types/node",
+      "@nuxtjs/vuetify",
+      "@nuxtjs/i18n",
+      "@nuxt/image"
+    ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
