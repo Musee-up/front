@@ -26,9 +26,14 @@
                   type="email"
                   color="$white"
                   label="Écrivez votre mail ici..."
-                  ></v-text-field>
-                <v-btn filled rounded class="ma-2 blue-filled" style="align-self: center">
-                  {{ $t('S\'abonner') }}
+                ></v-text-field>
+                <v-btn
+                  filled
+                  rounded
+                  class="ma-2 blue-filled"
+                  style="align-self: center"
+                >
+                  {{ $t("S'abonner") }}
                 </v-btn>
               </v-flex>
             </v-list-item>
@@ -37,9 +42,9 @@
       </v-row>
       <v-row class="description">
         {{
-        $t(
-        'Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |'
-        )
+          $t(
+            'Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |'
+          )
         }}
         <span>Musée Up’</span>
         {{ $t('vous rapproche de la culture.') }}
