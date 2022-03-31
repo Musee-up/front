@@ -1,5 +1,5 @@
-import { mount } from '@vue/test-utils'
-import Navbar from '@/components/Navbar.vue'
+// import { mount } from '@vue/test-utils'
+// import Navbar from '@/components/Navbar.vue'
 
 describe('NuxtLogo', () => {
   test('is a Vue instance', () => {

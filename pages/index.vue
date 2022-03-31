@@ -1,18 +1,18 @@
 <template>
   <v-app :style="image">
     <v-main fluid>
-      <SearchBar />
+      <HomeSearchBar />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import bg_path from '@/assets/joseph-barrientos-KV7n8nARXng-unsplash.jpeg'
+import bgPath from '@/assets/joseph-barrientos-KV7n8nARXng-unsplash.jpeg'
 
 export default {
   data() {
     return {
-      image: { backgroundImage: `url(${bg_path})` },
+      image: { backgroundImage: `url(${bgPath})` },
     }
   },
 }

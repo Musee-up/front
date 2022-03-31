@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Navbar />
+    <HomeNavbar />
     <!-- <v-container></v-container> -->
     <!-- <v-divider inset></v-divider> -->
-    <Footer />
+    <HomeFooter />
     <Nuxt />
   </div>
 </template>
