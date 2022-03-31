@@ -2,7 +2,7 @@
   <v-container pa-0 fluid center fill-height>
     <v-divider></v-divider>
     <v-row align="center" justify="center">
-      <h1 style="text-align: left" class="primary--text">
+      <h1 style="text-align: left">
         {{ $t('Le monde est un musée,') }}<br />{{ $t('découvrez-le !') }}
       </h1>
     </v-row>
@@ -10,7 +10,7 @@
       <v-card
         align="center"
         justify="center"
-        class="d-flex rounded-pill primary"
+        class="d-flex rounded-pill"
         style="width: 1000px"
       >
         <v-autocomplete

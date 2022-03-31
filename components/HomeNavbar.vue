@@ -1,8 +1,8 @@
 <template>
   <v-app-bar flat center app style="background: transparent">
     <v-spacer />
-    <NuxtLink tag="img" style="height: inherit; width: inherit" to="#">
-      <nuxt-img src="/logo_musee_up.svg" />
+    <NuxtLink style="height: inherit; width: inherit" to="#">
+      <nuxt-img fit="cover" src="/logo_musee_up.svg" />
     </NuxtLink>
     <v-menu pa-0 ma-0 offset-y>
       <template #activator="{ on, attrs }">
@@ -35,7 +35,7 @@
         <v-icon> mdi-account-circle </v-icon>
         {{ $t('Se connecter') }}
       </NuxtLink>
-      <v-btn class="rounded-lg" style="background-color: #064888">
+      <v-btn class="rounded-lg" background="blue">
         <NuxtLink to="#"> {{ $t('Publier votre annonce') }} </NuxtLink>
       </v-btn>
     </div>

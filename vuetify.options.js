@@ -21,7 +21,7 @@ export default {
         variant: '#FC206C',
         dark_text: '#45535F',
         title: '#404259',
-        description: '#63686E',
+        description: '#b1b1b1',
         // 'secondary--text': 'colors.blue.darken2',
         secondary: colors.grey.darken1,
         accent: colors.shades.black,

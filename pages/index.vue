@@ -1,18 +1,17 @@
 <template>
-  <v-app :style="image">
+  <v-app>
+    <nuxt-img fit="cover" src="/home_bg.svg">
     <v-main fluid>
-      <HomeSearchBar />
+      <HomeSearchbar />
     </v-main>
+    </nuxt-img>
   </v-app>
 </template>
 
 <script>
-import bgPath from '@/assets/joseph-barrientos-KV7n8nARXng-unsplash.jpeg'
-
 export default {
   data() {
     return {
-      image: { backgroundImage: `url(${bgPath})` },
     }
   },
 }
