@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from '@nuxt/bridge'
+
+export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - museé up',
@@ -24,20 +26,21 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  target: 'static',
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // 'nuxt-vite',
     '@nuxt/image',
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
 
     '@nuxtjs/vuetify',
+    '@nuxtjs/strapi',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+  },
   styleResources: {
     scss: ['@/assets/scss/*.scss'],
   },
@@ -72,4 +75,9 @@ export default {
       },
     },
   },
-}
+  target: 'static',
+  // bridge:false,
+  bridge: {
+    // vite: true,
+  },
+})

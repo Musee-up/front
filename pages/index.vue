@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <nuxt-img fit="cover" src="/home_bg.svg">
-      <v-main fluid>
+      <v-main>
+        <RegisterForm />
         <HomeSearchbar />
       </v-main>
     </nuxt-img>
@@ -10,8 +11,5 @@
 
 <script>
 export default {
-  data() {
-    return {}
-  },
 }
 </script>
