@@ -1,10 +1,8 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - musee_up',
-    title: 'musee_up',
+    titleTemplate: '%s - museé up',
+    title: 'museé up',
     htmlAttrs: {
       lang: 'en',
     },
@@ -18,61 +16,60 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/scss/custom.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/i18n'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  target: 'static',
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    'nuxt-vite',
+    // 'nuxt-vite',
+    '@nuxt/image',
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/vuetify
+
     '@nuxtjs/vuetify',
   ],
-  vite: {
-    build: true,
-    /* options for vite */
-    // ssr: true // enable unstable server-side rendering for development (false by default)
-    // experimentWarning: false // hide experimental warning message (disabled by default for tests)
-    vue: {
-      /* options for vite-plugin-vue2 */
-    },
-  },
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  styleResources: {
+    scss: ['@/assets/scss/*.scss'],
+  },
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en.js',
+      },
+      {
+        code: 'fr',
+        file: 'fr.js',
+      },
+    ],
+    lazy: true,
+    langDir: 'locales/',
+    defaultLocale: 'en',
+  },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {
-      light: true,
-      // themes: {
-      // dark: {
-      //   primary: colors.blue.darken2,
-      //   accent: colors.grey.darken3,
-      //   secondary: colors.amber.darken3,
-      //   info: colors.teal.lighten1,
-      //   warning: colors.amber.base,
-      //   error: colors.deepOrange.accent4,
-      //   success: colors.green.accent3,
-      // },
-      light: {
-        primary: colors.black,
-        secondary: colors.grey.darken1,
-        accent: colors.shades.black,
-        error: colors.red.accent3,
-      },
-      // },
-    },
+    optionsPath: './vuetify.options.js',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    loaders: {
+      sass: {
+        implementation: require('sass'),
+      },
+      scss: {
+        implementation: require('sass'),
+      },
+    },
+  },
 }
