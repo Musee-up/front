@@ -3,3 +3,5 @@
 . "$(dirname "$0")/common.sh"
 
 yarn commitlint --edit $1
+yarn lintfix
+yarn lint
