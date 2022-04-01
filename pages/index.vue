@@ -2,8 +2,8 @@
   <v-app>
     <nuxt-img fit="cover" src="/home_bg.svg">
       <!-- <v-main> -->
-        <!-- <RegisterForm /> -->
-        <!-- <HomeSearchbar /> -->
+      <!-- <RegisterForm /> -->
+      <!-- <HomeSearchbar /> -->
       <!-- </v-main> -->
     </nuxt-img>
   </v-app>
