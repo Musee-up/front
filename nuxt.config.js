@@ -34,16 +34,16 @@ export default defineNuxtConfig({
     '@nuxtjs/stylelint-module',
 
     '@nuxtjs/vuetify',
-    '@nuxtjs/strapi',
+    // '@nuxtjs/strapi',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/style-resources', '@nuxtjs/i18n'],
-  strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337',
-    prefix: '/api',
-    version: 'v4',
-    cookie: {},
-  },
+  // strapi: {
+  //   url: process.env.STRAPI_URL || 'http://localhost:1337',
+  //   prefix: '/api',
+  //   version: 'v4',
+  //   cookie: {},
+  // },
   styleResources: {
     scss: ['@/assets/scss/*.scss'],
   },
@@ -79,8 +79,8 @@ export default defineNuxtConfig({
     },
   },
   target: 'static',
-  // bridge:false,
-  bridge: {
+  bridge:false,
+  // bridge: {
     // vite: true,
-  }
+  // }
 })
