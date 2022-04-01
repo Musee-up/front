@@ -4,4 +4,3 @@
 
 yarn commitlint --edit $1
 yarn lintfix
-yarn lint
