@@ -3,6 +3,7 @@
 @import '~vuetify/src/styles/main.sass';
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 $font-family: lato;
+$btn-text-transform: none !default;
 
 a {
   text-transform: none;
