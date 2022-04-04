@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat center app style="background: transparent">
+  <v-app-bar flat center app style="background: black">
     <v-spacer />
     <NuxtLink style="height: inherit; width: inherit" to="#">
       <nuxt-img fit="cover" src="/logo_musee_up.svg" />
@@ -25,7 +25,7 @@
 
     <ul>
       <li v-for="link in links" :key="link.title">
-        <NuxtLink to="`link.link`"> {{ link.title }}</NuxtLink>
+        <NuxtLink :to="link.link"> {{ link.title }}</NuxtLink>
       </li>
     </ul>
     <div>
@@ -67,7 +67,7 @@ export default {
         { link: '#', text: this.$t("Expérience Musée up'") },
       ],
       links: [
-        { link: '#', title: this.$t('Votre expérience sur mesure') },
+        { link: '/experienceslist', title: this.$t('Votre expérience sur mesure') },
         { link: '#', title: this.$t('Qui sommes nous?') },
         { link: '#', title: this.$t('Blog') },
       ],

@@ -1,5 +1,5 @@
 <template>
-  <v-footer app center flat>
+  <v-footer app center flat bottom fixed>
     <v-container pa-0 fluid class="justify-space-between">
       <v-row>
         <v-col>test</v-col>

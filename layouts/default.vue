@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <v-app>
     <HomeNavbar />
+    <v-main>
+      <Nuxt />
+    </v-main>
     <HomeFooter />
-    <Nuxt />
-  </div>
+  </v-app>
 </template>

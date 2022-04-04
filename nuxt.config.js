@@ -1,6 +1,9 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
 export default defineNuxtConfig({
+  alias: {
+    tslib: 'tslib/tslib.es6.js',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - museé up',
@@ -35,11 +38,24 @@ export default defineNuxtConfig({
 
     '@nuxtjs/vuetify',
     '@nuxtjs/strapi',
+    '@nuxtjs/moment',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/apollo', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  moment: {
+    defaultLocale: 'fr',
+    locales: ['fr'],
+  },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint:
+          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
+      },
+    },
   },
   styleResources: {
     scss: ['@/assets/scss/*.scss'],

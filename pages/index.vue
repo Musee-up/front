@@ -1,14 +1,23 @@
 <template>
-  <v-app>
-    <nuxt-img fit="cover" src="/home_bg.svg">
-      <!-- <v-main> -->
-      <!-- <RegisterForm /> -->
-      <!-- <HomeSearchbar /> -->
-      <!-- </v-main> -->
-    </nuxt-img>
-  </v-app>
+  <!-- <v-layout column justify-center align-center> -->
+  <v-main>
+    <!-- <nuxt-img fit="cover" src="/home_bg.svg"> -->
+    <v-container>
+      <HomeSearchbar />
+    </v-container>
+    <!-- </nuxt-img> -->
+  </v-main>
+  <!-- </v-layout> -->
 </template>
 
 <script>
 export default {}
 </script>
+
+<style scoped>
+.v-main {
+  background: url('@/static/home_bg.svg');
+  background-size: cover;
+  height: 100vh;
+}
+</style>
