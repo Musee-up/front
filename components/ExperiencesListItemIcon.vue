@@ -9,7 +9,6 @@
 const props = defineProps({
   experience: Object,
   icon: String,
-  iconValue: String
+  iconValue: String,
 })
 </script>
-

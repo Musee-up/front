@@ -33,8 +33,8 @@ export default defineNuxtConfig({
   watchers: {
     webpack: {
       aggregateTimeout: 300,
-      poll: 1000
-    }
+      poll: 1000,
+    },
   },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
     clientConfigs: {
       default: {
         httpEndpoint:
-        process.env.BACKEND_URL || 'http://localhost:1337/graphql',
+          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
       },
     },
   },

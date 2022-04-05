@@ -1,7 +1,7 @@
 <template>
   <v-footer app center flat bottom fixed>
     <v-container pa-0 fluid class="justify-space-between">
-    <v-divider class="my-4"></v-divider>
+      <v-divider class="my-4"></v-divider>
       <v-row>
         <v-col>test</v-col>
         <v-col v-for="(category, i) in categories" :key="i">
@@ -27,8 +27,8 @@
                   type="email"
                   color="$white"
                   label="Écrivez votre mail ici..."
-                  ></v-text-field>
-                <base-blue-button :text="$t('S\'abonner')"/>
+                ></v-text-field>
+                <base-blue-button :text="$t('S\'abonner')" />
               </v-flex>
             </v-list-item>
           </v-list>
@@ -36,9 +36,9 @@
       </v-row>
       <v-row class="description">
         {{
-        $t(
-        'Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |'
-        )
+          $t(
+            'Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |'
+          )
         }}
         <span>Musée Up’</span>
         {{ $t('vous rapproche de la culture.') }}

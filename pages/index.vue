@@ -1,5 +1,4 @@
 <template>
-  <!-- <v-layout column justify-center align-center> -->
   <v-main>
     <!-- <nuxt-img fit="cover" src="/home_bg.svg"> -->
     <v-container>
@@ -7,7 +6,6 @@
     </v-container>
     <!-- </nuxt-img> -->
   </v-main>
-  <!-- </v-layout> -->
 </template>
 
 <script>

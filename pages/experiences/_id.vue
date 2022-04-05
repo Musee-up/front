@@ -1,6 +1,9 @@
 <template>
-  <!-- <h1>{{ experience.data }}</h1> -->
-  <experiences-list-item :experience="experience.data.attributes" :id="experience.data.id"/>
+  <v-container class="" fluid>
+  <v-row>
+    <h1 style="color:black"> {{ experience.data.attributes.title }} </h1>
+  </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -14,7 +17,7 @@ export default {
   apollo: {
     experience: {
       query: eventQuery,
-      variables () {
+      variables() {
         return { id: parseInt(this.$route.params.id) }
       },
     },
