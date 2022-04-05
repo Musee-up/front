@@ -22,6 +22,7 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/scss/custom.scss'],
+  extractCSS: true,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/i18n'],
@@ -29,6 +30,12 @@ export default defineNuxtConfig({
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
+  },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // 'nuxt-vite',
@@ -53,7 +60,7 @@ export default defineNuxtConfig({
     clientConfigs: {
       default: {
         httpEndpoint:
-          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
+        process.env.BACKEND_URL || 'http://localhost:1337/graphql',
       },
     },
   },

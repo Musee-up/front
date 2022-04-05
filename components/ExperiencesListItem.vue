@@ -1,55 +1,74 @@
 <template>
-  <v-card rounded class="d-flex" fluid>
-    <nuxt-img fit="cover" src="/demo_list.svg" width="514" height="340">
-    </nuxt-img>
-    <v-container class="d-flex flex-column flex-wrap">
-      <v-container fluid class="d-flex justify-space-between">
-        <h2>{{ props.experience.title }}</h2>
-        <v-btn> Réserver </v-btn>
-      </v-container>
-      {{ $t("Présentation de l'experience: ") + props.experience.description }}
+  <v-container rounded class="d-flex" fluid style="height:414px">
+    <v-col cols="3">
+      <nuxt-img src="/demo_list.svg" >
+      </nuxt-img>
+    </v-col>
+
+
+    <v-col class="d-flex flex-column align-content-space-between flex-wrap">
+      <v-row justify="space-between">
+        <v-col >
+          <h2>{{ props.experience.title }}</h2>
+        </v-col>
+        <v-col class="text-right">
+          <nuxt-link :to="`/experiences/${props.id}`">
+            <base-blue-button :text="$t('Réserver')">
+            </base-blue-button>
+          </nuxt-link>
+        </v-col>
+      </v-row>
+
+      <v-row >
+        <v-col cols="10">
+          {{ $t("Présentation de l'experience: ") + props.experience.description }}
+        </v-col>
+        <v-col style="text-align:center;">
+          <v-icon color="primary">mdi-camera</v-icon>
+        </v-col>
+      </v-row>
       <v-spacer></v-spacer>
-      <v-container fluid class="d-flex justify-space-between">
-        <p>
-          {{
+
+      <v-row style="height:15px">
+        <v-col cols="8">
+          <p>
+            {{
             $t('A partir de ') +
             props.experience.price +
             '€ ' +
             $t('par personne')
-          }}
-        </p>
+            }}
+          </p>
+        </v-col>
 
-        <div class="d-flex justify-space-between justify-center">
-          <p>{{ props.experience.duration.match(/\d\d:\d\d/)[0] }}</p>
-          <v-icon color="primary">mdi-alarm</v-icon>
-        </div>
+        <ExperiencesListItemIcon
+          :iconValue="props.experience.duration.match(/\d\d:\d\d/)[0]"
+          icon="mdi-alarm"
+          />
 
-        <div class="d-flex justify-space-between">
-          <p>{{ props.experience.transportation }}</p>
-          <v-icon color="primary">mdi-walk</v-icon>
-        </div>
+        <ExperiencesListItemIcon
+          :iconValue="props.experience.transportation"
+          icon="mdi-walk"
+          />
 
-        <div
+        <ExperiencesListItemIcon
+          :iconValue="$t('Handifriendly')"
+          icon="mdi-human-wheelchair"
           v-if="props.experience.handifriendly"
-          class="d-flex justify-space-between"
-        >
-          <p>{{ $t('Handifriendly') }}</p>
-          <v-icon color="primary">mdi-human-wheelchair</v-icon>
-        </div>
-      </v-container>
-    </v-container>
-  </v-card>
+          />
+      </v-row>
+    </v-col>
+  </v-container>
 </template>
 
 <script setup>
 const props = defineProps({
   experience: Object,
+  id: Number,
 })
-// const pretty_duration = (value) => {
-//  return this.$moment(String(value)).format('hh:mm')
-// }
 </script>
-<style>
+<style scoped>
+
 .v-icon {
   align-items: inherit !important;
 }

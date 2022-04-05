@@ -67,7 +67,10 @@ export default {
         { link: '#', text: this.$t("Expérience Musée up'") },
       ],
       links: [
-        { link: '/experienceslist', title: this.$t('Votre expérience sur mesure') },
+        {
+          link: '/experienceslist',
+          title: this.$t('Votre expérience sur mesure'),
+        },
         { link: '#', title: this.$t('Qui sommes nous?') },
         { link: '#', title: this.$t('Blog') },
       ],
