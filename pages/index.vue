@@ -16,6 +16,6 @@ export default {}
 .v-main {
   background: url('@/static/home_bg.svg');
   background-size: cover;
-  height: 100vh;
+  height: 905px;
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <v-list class="pa-16">
+  <v-container>
+    <v-list>
       <v-list-item v-for="event in experiences.data" :key="parseInt(event.id)">
         <v-card class="ma-6 rounded-xl" rounded>
           <experiences-list-item
-            :id="event.id"
+            :id="parseInt(event.id)"
             :experience="event.attributes"
           />
         </v-card>
       </v-list-item>
     </v-list>
-  </div>
+  </v-container>
 </template>
 
 <script>

@@ -1,9 +1,29 @@
 <template>
-  <v-footer app center flat bottom fixed>
+  <v-footer app center flat bottom fixed absolute>
     <v-container pa-0 fluid class="justify-space-between">
       <v-divider class="my-4"></v-divider>
-      <v-row>
-        <v-col>test</v-col>
+      <v-row style="align-self: center">
+        <v-col>
+          <NuxtLink
+            tag="img"
+            style="height: 3em"
+            :src="require('@/static/logo_blue.png')"
+            to="/"
+          >
+          </NuxtLink>
+          <v-row class="description--text pa-4">
+            {{ $t('vous rapproche de la culture.') }}
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-icon class="px-2" color="blue--text"> mdi-facebook </v-icon>
+            <v-icon class="px-2" color="blue--text"> mdi-instagram </v-icon>
+            <v-icon class="px-2" color="blue--text"> mdi-twitter </v-icon>
+            <v-icon class="px-2" color="blue--text"> mdi-linkedin </v-icon>
+            <v-icon class="px-2" color="blue--text"> mdi-youtube </v-icon>
+            <!-- <v-icon color="grey"> mdi-facebook </v-icon> -->
+          </v-row>
+        </v-col>
         <v-col v-for="(category, i) in categories" :key="i">
           <v-list>
             <v-list-item v-for="(item, index) in category" :key="index">
@@ -26,6 +46,7 @@
                   prepend-inner-icon="mdi-email"
                   type="email"
                   color="$white"
+                  class="description--text"
                   label="Écrivez votre mail ici..."
                 ></v-text-field>
                 <base-blue-button :text="$t('S\'abonner')" />
@@ -34,7 +55,7 @@
           </v-list>
         </v-col>
       </v-row>
-      <v-row class="description">
+      <v-row class="description--text">
         {{
           $t(
             'Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |'

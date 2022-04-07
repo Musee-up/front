@@ -1,23 +1,23 @@
 <template>
-  <v-container rounded class="d-flex" fluid style="height: 414px">
-    <v-col cols="3">
-      <nuxt-img src="/demo_list.svg"> </nuxt-img>
+  <v-container rounded class="d-flex">
+    <v-col cols="3" style="align-self: center">
+      <nuxt-img style="width: inherit" src="/demo_list.svg"> </nuxt-img>
     </v-col>
 
     <v-col class="d-flex flex-column align-content-space-between flex-wrap">
       <v-row justify="space-between">
-        <v-col>
+        <v-col class="black--text font-weight-bold">
           <h2>{{ props.experience.title }}</h2>
         </v-col>
         <v-col class="text-right">
-          <nuxt-link :to="`/experiences/${props.id}`">
+          <nuxt-link :to="`/experiences/${parseInt(props.id)}`">
             <base-blue-button :text="$t('Réserver')"> </base-blue-button>
           </nuxt-link>
         </v-col>
       </v-row>
 
       <v-row>
-        <v-col cols="10">
+        <v-col cols="10" class="description-list--text">
           {{
             $t("Présentation de l'experience: ") + props.experience.description
           }}
@@ -26,11 +26,10 @@
           <v-icon color="primary">mdi-camera</v-icon>
         </v-col>
       </v-row>
-      <v-spacer></v-spacer>
 
-      <v-row style="height: 15px">
-        <v-col cols="8">
-          <p>
+      <v-row style="height: 15%">
+        <v-col style="align-self: center">
+          <p class="bold attributes-text font-weight-bold">
             {{
               $t('A partir de ') +
               props.experience.price +
@@ -40,21 +39,23 @@
           </p>
         </v-col>
 
-        <ExperiencesListItemIcon
-          :icon-value="props.experience.duration.match(/\d\d:\d\d/)[0]"
-          icon="mdi-alarm"
-        />
+        <v-col style="display: inline-flex; max-width: fit-content">
+          <ExperiencesListItemIcon
+            :icon-value="props.experience.duration.match(/\d\d:\d\d/)[0]"
+            icon="mdi-alarm"
+          />
 
-        <ExperiencesListItemIcon
-          :icon-value="props.experience.transportation"
-          icon="mdi-walk"
-        />
+          <ExperiencesListItemIcon
+            :icon-value="props.experience.transportation"
+            icon="mdi-walk"
+          />
 
-        <ExperiencesListItemIcon
-          v-if="props.experience.handifriendly"
-          :icon-value="$t('Handifriendly')"
-          icon="mdi-human-wheelchair"
-        />
+          <ExperiencesListItemIcon
+            v-if="props.experience.handifriendly"
+            :icon-value="$t('Handifriendly')"
+            icon="mdi-human-wheelchair"
+          />
+        </v-col>
       </v-row>
     </v-col>
   </v-container>

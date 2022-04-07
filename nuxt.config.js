@@ -6,8 +6,8 @@ export default defineNuxtConfig({
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - museé up',
-    title: 'museé up',
+    titleTemplate: '%s - musée up',
+    title: 'musée up',
     htmlAttrs: {
       lang: 'en',
     },

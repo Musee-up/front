@@ -1,12 +1,12 @@
 <template>
-  <v-container pa-0 fluid center fill-height>
-    <v-divider></v-divider>
-    <v-row align="center" justify="center">
+  <v-container pa-0 center>
+    <v-row style="height: 200px"> </v-row>
+    <v-row justify="center">
       <h1 style="text-align: left">
         {{ $t('Le monde est un musée,') }}<br />{{ $t('découvrez-le !') }}
       </h1>
     </v-row>
-    <v-row align="center" justify="center">
+    <v-row justify="center">
       <v-card
         align="center"
         justify="center"

@@ -5,6 +5,14 @@
 $font-family: lato;
 $btn-text-transform: none !default;
 
+$toolbar-collapsed-max-width: 100% !default;
+
+.v-toolbar__content,
+.v-toolbar__extension {
+  width: 100%;
+  justify-content: space-between;
+}
+
 a {
   text-transform: none;
   text-decoration: none;
