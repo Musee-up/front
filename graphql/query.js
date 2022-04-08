@@ -45,6 +45,7 @@ const eventQuery = gql`
           stars
           groupSize
           handifriendly
+          location
           themes {
             data {
               attributes {

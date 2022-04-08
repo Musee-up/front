@@ -71,8 +71,8 @@
       </v-col>
 
       <v-col>
-        <v-row class="justify-end">
-          <ExperiencesRegistrationForm />
+        <v-row class="justify-end" >
+          <ExperiencesRegistrationForm style="width:auto"/>
         </v-row>
       </v-col>
     </v-row>
@@ -103,7 +103,12 @@ export default {
             text: data.experience.data.attributes.location,
             icon: 'mdi-map-marker',
           },
-          { text: data.experience.data.attributes.duration.match(/\d\d:\d\d/)[0], icon: 'mdi-timer' },
+          {
+            text: data.experience.data.attributes.duration.match(
+              /\d\d:\d\d/
+            )[0],
+            icon: 'mdi-timer',
+          },
           {
             text: data.experience.data.attributes.transportation,
             icon: 'mdi-walk',
