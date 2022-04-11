@@ -13,7 +13,7 @@
       <DateMenu style="width: 50px" />
     </v-card-text>
     <v-card-actions>
-      <base-blue-button text="Réserver" />
+      <base-blue-button :text="$t('Réserver')" />
     </v-card-actions>
   </v-card>
 </template>

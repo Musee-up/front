@@ -71,8 +71,8 @@
       </v-col>
 
       <v-col>
-        <v-row class="justify-end" >
-          <ExperiencesRegistrationForm style="width:auto"/>
+        <v-row class="justify-end">
+          <ExperiencesRegistrationForm style="width: auto" />
         </v-row>
       </v-col>
     </v-row>
