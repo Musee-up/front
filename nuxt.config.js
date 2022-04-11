@@ -1,10 +1,13 @@
-import colors from 'vuetify/es5/util/colors'
+import { defineNuxtConfig } from '@nuxt/bridge'
 
-export default {
+export default defineNuxtConfig({
+  alias: {
+    tslib: 'tslib/tslib.es6.js',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - musee_up',
-    title: 'musee_up',
+    titleTemplate: '%s - musée up',
+    title: 'musée up',
     htmlAttrs: {
       lang: 'en',
     },
@@ -18,55 +21,86 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/scss/custom.scss'],
+  extractCSS: true,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/i18n'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    'nuxt-vite',
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
-  ],
-  vite: {
-    build: true,
-    /* options for vite */
-    // ssr: true // enable unstable server-side rendering for development (false by default)
-    // experimentWarning: false // hide experimental warning message (disabled by default for tests)
-    vue: {
-      /* options for vite-plugin-vue2 */
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
     },
   },
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // 'nuxt-vite',
+    '@nuxt/image',
+    // https://go.nuxtjs.dev/stylelint
+    '@nuxtjs/stylelint-module',
 
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
+    '@nuxtjs/vuetify',
+    '@nuxtjs/strapi',
+    '@nuxtjs/moment',
+  ],
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: ['@nuxtjs/apollo', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  moment: {
+    defaultLocale: 'fr',
+    locales: ['fr'],
+  },
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint:
+          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
       },
     },
   },
+  styleResources: {
+    scss: ['@/assets/scss/*.scss'],
+  },
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en.js',
+      },
+      {
+        code: 'fr',
+        file: 'fr.js',
+      },
+    ],
+    lazy: true,
+    langDir: 'locales/',
+    defaultLocale: 'en',
+  },
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    optionsPath: './vuetify.options.js',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
-}
+  build: {
+    loaders: {
+      sass: {
+        implementation: require('sass'),
+      },
+      scss: {
+        implementation: require('sass'),
+      },
+    },
+  },
+  target: 'static',
+  // bridge:false,
+  bridge: {
+    // vite: true,
+  },
+})

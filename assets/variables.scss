@@ -1,4 +1,36 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
-// The variables you want to modify
-// $font-size-root: 20px;
+@import '~vuetify/src/styles/main.sass';
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$font-family: lato;
+$btn-text-transform: none !default;
+
+$toolbar-collapsed-max-width: 100% !default;
+
+.v-toolbar__content,
+.v-toolbar__extension {
+  width: 100%;
+  justify-content: space-between;
+}
+
+a {
+  text-transform: none;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+li {
+  margin: 0 0.5rem;
+  padding: 0.25rem;
+}
+
+nav {
+  padding: 0 1rem;
+}
