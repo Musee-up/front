@@ -28,15 +28,9 @@
   </v-menu>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-      .toISOString()
-      .substr(0, 10),
-    menu: false,
-    modal: false,
-    menu2: false,
-  }),
-}
+<script setup type="ts">
+const date = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+  .toISOString()
+  .substr(0, 10)
+const menu = false
 </script>

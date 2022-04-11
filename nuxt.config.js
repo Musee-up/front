@@ -1,10 +1,13 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
 export default defineNuxtConfig({
+  alias: {
+    tslib: 'tslib/tslib.es6.js',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - museé up',
-    title: 'museé up',
+    titleTemplate: '%s - musée up',
+    title: 'musée up',
     htmlAttrs: {
       lang: 'en',
     },
@@ -19,6 +22,7 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/scss/custom.scss'],
+  extractCSS: true,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/i18n'],
@@ -26,6 +30,12 @@ export default defineNuxtConfig({
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
+    },
+  },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // 'nuxt-vite',
@@ -35,11 +45,24 @@ export default defineNuxtConfig({
 
     '@nuxtjs/vuetify',
     '@nuxtjs/strapi',
+    '@nuxtjs/moment',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/apollo', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  moment: {
+    defaultLocale: 'fr',
+    locales: ['fr'],
+  },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint:
+          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
+      },
+    },
   },
   styleResources: {
     scss: ['@/assets/scss/*.scss'],
