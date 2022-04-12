@@ -66,7 +66,9 @@ const props = defineProps({
   experience: Object,
   id: Number,
 })
+
 </script>
+
 <style scoped>
 .v-icon {
   align-items: inherit !important;

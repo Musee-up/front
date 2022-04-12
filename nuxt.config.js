@@ -1,5 +1,7 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
+const backendUrl = process.env.API_URL || 'http://localhost:1337'
+
 export default defineNuxtConfig({
   alias: {
     tslib: 'tslib/tslib.es6.js',
@@ -48,19 +50,21 @@ export default defineNuxtConfig({
     '@nuxtjs/moment',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/apollo', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  modules: [
+    '@nuxtjs/axios',
+  '@nuxt/http','@nuxtjs/apollo', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
   moment: {
     defaultLocale: 'fr',
     locales: ['fr'],
   },
   strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+    url: process.env.STRAPI_URL || `${backendUrl}/api`,
   },
   apollo: {
     clientConfigs: {
       default: {
         httpEndpoint:
-          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
+          process.env.BACKEND_URL || `${backendUrl}/graphql`,
       },
     },
   },
@@ -98,8 +102,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  http: {
+    baseURL: `${backendUrl}/api`,
+    browserBaseURL: `${backendUrl}/api`,
+  },
   target: 'static',
-  // bridge:false,
   bridge: {
     // vite: true,
   },

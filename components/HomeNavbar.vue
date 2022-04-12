@@ -52,14 +52,24 @@
             <v-icon> mdi-account-circle </v-icon>
           </v-btn>
         </template>
-        <v-list>
+        <v-list
+            v-if="$strapi.user"
+          >
+          <v-list-item
+            class="justify-center">
+            <v-btn
+            @click.prevent="logout"
+              > Logout </v-btn>
+          </v-list-item>
+        </v-list>
+        <v-list v-else>
           <v-list-item>
             <RegisterForm />
           </v-list-item>
-          <v-list-item v-for="(item, index) in account" :key="index">
-            <NuxtLink to="#"> {{ item.text }} </NuxtLink>
+          <v-list-item>
+            <HomeLogin />
           </v-list-item>
-        </v-list>
+        </v-list >
       </v-menu>
       <v-btn class="rounded-lg blue-filled" background="blue">
         <NuxtLink to="#"> {{ $t('Publier votre annonce') }} </NuxtLink>
@@ -68,7 +78,7 @@
   </v-app-bar>
 </template>
 
-<script>
+<script >
 export default {
   data() {
     return {
@@ -89,5 +99,11 @@ export default {
       account: [{ link: '#', text: this.$t("M'inscrire?") }],
     }
   },
+  methods: {
+    async logout () {
+      console.log(this.$strapi.user)
+        await this.$strapi.logout()
+    }
+  }
 }
 </script>
