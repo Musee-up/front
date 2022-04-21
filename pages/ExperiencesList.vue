@@ -1,5 +1,5 @@
 <template>
-  <ExperiencesList />
+  <ExperienceList />
 </template>
 
 <script>

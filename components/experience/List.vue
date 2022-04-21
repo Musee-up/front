@@ -3,7 +3,7 @@
     <v-list>
       <v-list-item v-for="event in experiences.data" :key="parseInt(event.id)">
         <v-card class="ma-6 rounded-xl" rounded>
-          <experiences-list-item
+          <experience-list-item
             :id="parseInt(event.id)"
             :experience="event.attributes"
           />

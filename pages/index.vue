@@ -2,7 +2,7 @@
   <v-main>
     <!-- <nuxt-img fit="cover" src="/home_bg.svg"> -->
     <v-container>
-      <HomeSearchbar />
+      <!-- <HomeSearchbar /> -->
     </v-container>
     <!-- </nuxt-img> -->
   </v-main>

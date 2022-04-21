@@ -40,17 +40,17 @@
         </v-col>
 
         <v-col style="display: inline-flex; max-width: fit-content">
-          <ExperiencesListItemIcon
+          <ExperienceListItemIcon
             :icon-value="props.experience.duration.match(/\d\d:\d\d/)[0]"
             icon="mdi-alarm"
           />
 
-          <ExperiencesListItemIcon
+          <ExperienceListItemIcon
             :icon-value="props.experience.transportation"
             icon="mdi-walk"
           />
 
-          <ExperiencesListItemIcon
+          <ExperienceListItemIcon
             v-if="props.experience.handifriendly"
             :icon-value="$t('Handifriendly')"
             icon="mdi-human-wheelchair"
@@ -61,12 +61,17 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
-  experience: Object,
-  id: Number,
+  experience: {
+    type: Object,
+    default: null,
+  },
+  id: {
+    type: Number,
+    default: 0,
+  },
 })
-
 </script>
 
 <style scoped>

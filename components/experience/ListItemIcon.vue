@@ -9,8 +9,17 @@
 
 <script setup>
 const props = defineProps({
-  experience: Object,
-  icon: String,
-  iconValue: String,
+  experience: {
+    type: Object,
+    default: null,
+  },
+  icon: {
+    type: String,
+    default: '',
+  },
+  iconValue: {
+    type: String,
+    default: '',
+  },
 })
 </script>

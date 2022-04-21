@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" persistent max-width="600px">
     <template #activator="{ on, attrs }">
       <v-btn v-bind="attrs" v-on="on">
-        {{ $t("Me connecter") }}
+        {{ $t('Me connecter') }}
       </v-btn>
     </template>
 
@@ -13,14 +13,14 @@
         </v-card-title>
         <v-row>
           <v-col>
-            <v-text-field
-              v-model="email"
-              label="email" required></v-text-field>
+            <v-text-field v-model="email" label="email" required></v-text-field>
           </v-col>
           <v-col>
             <v-text-field
               v-model="password"
-              label="password" required></v-text-field>
+              label="password"
+              required
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-card-actions>
@@ -31,7 +31,7 @@
             color="fill_button"
             class="white-filled"
             @click="dialog = false"
-            >
+          >
             Close
           </v-btn>
           <v-btn
@@ -40,7 +40,7 @@
             outlined
             class="white-filled"
             @click.prevent="onSubmit"
-            >
+          >
             Save
           </v-btn>
         </v-card-actions>
@@ -54,8 +54,8 @@ export default {
   data: () => ({
     dialog: false,
     router: useRouter(),
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   }),
   methods: {
     async onSubmit() {
@@ -63,13 +63,13 @@ export default {
       try {
         await this.$strapi.login({
           identifier: this.email,
-          password: this.password
+          password: this.password,
         })
         router.push('/')
       } catch (e) {
         console.log(e)
       }
-    }
-  }
+    },
+  },
 }
 </script>

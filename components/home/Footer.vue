@@ -68,34 +68,33 @@
   </v-footer>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      categories: [
-        [
-          { link: '#', title: this.$t('Support') },
-          { link: '#', title: this.$t('Conditions Générales') },
-          { link: '#', title: this.$t("Politique d'annulation") },
-          { link: '#', title: this.$t('Politique de confidentialité') },
-          { link: '#', title: this.$t("Centre d'aide") },
-        ],
-        [
-          { link: '#', title: this.$t('Notre Équipe') },
-          { link: '#', title: this.$t('Qui sommes nous') },
-          { link: '#', title: this.$t('Notre histoire') },
-          { link: '#', title: this.$t('On recrute') },
-          { link: '#', title: this.$t('Blog') },
-        ],
-        [
-          { link: '#', title: this.$t('Nous contacter') },
-          { link: '#', title: this.$t('Contact') },
-          { link: '#', title: this.$t('Presse') },
-          { link: '#', title: this.$t('Partenaires et entreprises') },
-          { link: '#', title: this.$t('Influenceurs') },
-        ],
-      ],
-    }
-  },
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class HomeFooter extends Vue {
+  private categories: Array<Object> = [
+    [
+      { link: '#', title: this.$t('Support') },
+      { link: '#', title: this.$t('Conditions Générales') },
+      { link: '#', title: this.$t("Politique d'annulation") },
+      { link: '#', title: this.$t('Politique de confidentialité') },
+      { link: '#', title: this.$t("Centre d'aide") },
+    ],
+    [
+      { link: '#', title: this.$t('Notre Équipe') },
+      { link: '#', title: this.$t('Qui sommes nous') },
+      { link: '#', title: this.$t('Notre histoire') },
+      { link: '#', title: this.$t('On recrute') },
+      { link: '#', title: this.$t('Blog') },
+    ],
+    [
+      { link: '#', title: this.$t('Nous contacter') },
+      { link: '#', title: this.$t('Contact') },
+      { link: '#', title: this.$t('Presse') },
+      { link: '#', title: this.$t('Partenaires et entreprises') },
+      { link: '#', title: this.$t('Influenceurs') },
+    ],
+  ]
 }
 </script>

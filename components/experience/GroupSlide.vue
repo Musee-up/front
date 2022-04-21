@@ -33,8 +33,11 @@
   </v-slide-group>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const photos = defineProps({
-  photos: Object,
+  photos: {
+    type: Object,
+    default: null,
+  },
 })
 </script>

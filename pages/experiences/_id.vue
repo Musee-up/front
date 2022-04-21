@@ -22,18 +22,20 @@
 
     <v-row>
       <v-col cols="8">
-        <v-list dense>
-          <v-list-item-group>
-            <v-list-item v-for="(item, i) in items" :key="i">
-              <v-list-item-icon>
-                <v-icon color="primary" v-text="item.icon"></v-icon>
-              </v-list-item-icon>
-              <v-list-item-content color="primary">
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
+        <v-row>
+          <v-list dense>
+            <v-list-item-group>
+              <v-list-item v-for="(item, i) in experiencesAttributes" :key="i">
+                <v-list-item-icon>
+                  <v-icon color="primary" v-text="item.icon"></v-icon>
+                </v-list-item-icon>
+                <v-list-item-content color="primary">
+                  <v-list-item-title v-text="item.text"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-row>
 
         <v-divider class="my-9"></v-divider>
 
@@ -72,7 +74,7 @@
 
       <v-col>
         <v-row class="justify-end">
-          <ExperiencesRegistrationForm style="width: auto" />
+          <ExperienceRegistrationForm style="width: auto" />
         </v-row>
       </v-col>
     </v-row>
@@ -86,7 +88,7 @@ export default {
     return {
       experience: [],
       selectedItem: 1,
-      items: [],
+      experiencesAttributes: [],
     }
   },
   apollo: {
@@ -96,33 +98,44 @@ export default {
         return { id: parseInt(this.$route.params.id) }
       },
       update(data) {
+        if (!data.experience.data.attributes) return
+        const exp = data.experience.data.attributes
+        const languages = exp.languages.data
+          .map((x) => x.attributes.value)
+          .join(', ')
+        const themes = exp.themes.data.map((x) => x.attributes.name).join(', ')
         const groupSizeSyntax = (groupSize) =>
           `Jusqu'a ${groupSize} personnes (visite partagée)`
-        this.items = [
+        this.experiencesAttributes = [
           {
-            text: data.experience.data.attributes.location,
+            text: exp.location,
             icon: 'mdi-map-marker',
           },
           {
-            text: data.experience.data.attributes.duration.match(
-              /\d\d:\d\d/
-            )[0],
+            text: exp.duration.match(/\d\d:\d\d/)[0],
             icon: 'mdi-timer',
           },
           {
-            text: data.experience.data.attributes.transportation,
+            text: exp.transportation,
             icon: 'mdi-walk',
           },
           {
-            text: groupSizeSyntax(data.experience.data.attributes.groupSize),
+            text: groupSizeSyntax(exp.groupSize),
             icon: 'mdi-account-group',
           },
+          {
+            text: themes,
+            icon: 'mdi-palette',
+          },
+          {
+            text: languages,
+            icon: 'mdi-earth',
+          },
           // { text: 'experience.data.attributes.', icon: 'mdi-camera' },
-          // { text: 'experience.data.attributes.themes', icon: 'mdi-palette' },
-          // { text: 'experience.data.attributes.languages', icon: 'mdi-earth' },
         ]
-        if (data.experience.data.attributes.handifriendly)
-          this.items.push({
+        console.log(exp.languages.data)
+        if (exp.handifriendly)
+          this.experiencesAttributes.push({
             text: 'Handifriendly',
             icon: 'mdi-human-wheelchair',
           })

@@ -52,7 +52,11 @@ export default defineNuxtConfig({
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-  '@nuxt/http','@nuxtjs/apollo', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
+    '@nuxt/http',
+    '@nuxtjs/apollo',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/i18n',
+  ],
   moment: {
     defaultLocale: 'fr',
     locales: ['fr'],
@@ -63,8 +67,7 @@ export default defineNuxtConfig({
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint:
-          process.env.BACKEND_URL || `${backendUrl}/graphql`,
+        httpEndpoint: process.env.BACKEND_URL || `${backendUrl}/graphql`,
       },
     },
   },

@@ -17,11 +17,12 @@
                 <v-col cols="12" sm="6">
                   <v-text-field
                     v-model="username"
-                    :label="$t('Nom') + '*'" required></v-text-field>
+                    :label="$t('Nom') + '*'"
+                    required
+                  ></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6">
-                  <v-text-field
-                    :label="$t('Prénom') + '*'"></v-text-field>
+                  <v-text-field :label="$t('Prénom') + '*'"></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
@@ -29,7 +30,7 @@
                     :label="$t('Addresse Mail') + '*'"
                     persistent-hint
                     required
-                    ></v-text-field>
+                  ></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
@@ -37,7 +38,7 @@
                     label="Password*"
                     type="password"
                     required
-                    ></v-text-field>
+                  ></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6"> </v-col>
               </v-row>
@@ -52,7 +53,7 @@
               color="fill_button"
               class="white-filled"
               @click="dialog = false"
-              >
+            >
               Close
             </v-btn>
             <v-btn
@@ -61,7 +62,7 @@
               outlined
               class="white-filled"
               @click.prevent="validate"
-              >
+            >
               Save
             </v-btn>
           </v-card-actions>
@@ -74,15 +75,15 @@
 <script>
 export default {
   data: () => ({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: '',
     dialog: false,
   }),
 
   methods: {
     async validate() {
-      this.dialog = false;
+      this.dialog = false
       try {
         await this.$strapi.register({
           username: this.username,
