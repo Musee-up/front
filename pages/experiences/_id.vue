@@ -22,21 +22,7 @@
 
     <v-row>
       <v-col cols="8">
-        <v-row>
-          <v-list dense>
-            <v-list-item-group>
-              <v-list-item v-for="(item, i) in experiencesAttributes" :key="i">
-                <v-list-item-icon>
-                  <v-icon color="primary" v-text="item.icon"></v-icon>
-                </v-list-item-icon>
-                <v-list-item-content color="primary">
-                  <v-list-item-title v-text="item.text"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </v-row>
-
+        <experience-attributes :attributes="experiencesAttributes"/> 
         <v-divider class="my-9"></v-divider>
 
         <v-row>
@@ -49,27 +35,7 @@
         </v-row>
 
         <v-divider class="my-9"></v-divider>
-
-        <v-row>
-          <h3 class="black--text py-4">{{ $t('Votre guide') }}</h3>
-        </v-row>
-        <v-row>
-          <v-col cols="3" style="align-self: center">
-            <nuxt-img style="width: inherit" src="/portrait.png"> </nuxt-img>
-            <h4>Héloïse Doiteau</h4>
-          </v-col>
-          <v-col>
-            <p class="description-list--text">
-              Bonjour, je m’appelle Héloïse et je serais peut-être votre guide
-              pour cette merveilleuse expérience culturelle :) Diplômée en
-              littérature et de l’école du Louvre en médiation culturelle, cela
-              fait bientôt 3 ans que j’exerce le métier de guide-conférencière
-              en Île-de-France. Je suis passionnée par l’histoire de l’art, la
-              littérature française du XIXe siècle et par le partage, notamment
-              avec les enfants.
-            </p>
-          </v-col>
-        </v-row>
+        <experience-guide-profile/> 
       </v-col>
 
       <v-col>
@@ -83,6 +49,7 @@
 
 <script>
 import { eventQuery } from '@/graphql/query'
+
 export default {
   data() {
     return {
@@ -133,7 +100,6 @@ export default {
           },
           // { text: 'experience.data.attributes.', icon: 'mdi-camera' },
         ]
-        console.log(exp.languages.data)
         if (exp.handifriendly)
           this.experiencesAttributes.push({
             text: 'Handifriendly',
