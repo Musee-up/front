@@ -1,27 +1,27 @@
 import gql from 'graphql-tag'
 
 const themesQuery = gql`
-query {
-  themes {
-    data {
-      attributes {
-        name
+  query {
+    themes {
+      data {
+        attributes {
+          name
+        }
       }
     }
   }
-}
 `
 
 const languagesQuery = gql`
-query {
-  languages {
-    data {
-      attributes {
-        value
+  query {
+    languages {
+      data {
+        attributes {
+          value
+        }
       }
     }
   }
-}
 `
 
 const allEventQuery = gql`

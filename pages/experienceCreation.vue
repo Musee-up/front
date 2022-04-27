@@ -6,14 +6,18 @@
     <v-row class="justify-center">
       <v-col class="text-left">
         <v-text-field
-          :label="$t('Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)')"
+          :label="
+            $t(
+              'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)'
+            )
+          "
         ></v-text-field>
       </v-col>
     </v-row>
 
     <v-row>
       <v-container fluid>
-      <experience-creation-slide-group style="height:100px"/>
+        <experience-creation-slide-group style="height: 100px" />
       </v-container>
     </v-row>
 
@@ -21,7 +25,7 @@
 
     <v-row>
       <v-col cols="8">
-        <experience-creation-attributes/>
+        <experience-creation-attributes />
 
         <v-divider class="my-9"></v-divider>
 
@@ -32,13 +36,17 @@
         </v-row>
         <v-row>
           <v-text-field
-            :label="$t('Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).')"
+            :label="
+              $t(
+                'Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).'
+              )
+            "
           ></v-text-field>
         </v-row>
 
         <v-divider class="my-9"></v-divider>
 
-        <experience-guide-profile/>
+        <experience-guide-profile />
       </v-col>
 
       <v-col>

@@ -22,7 +22,7 @@
 
     <v-row>
       <v-col cols="8">
-        <experience-attributes :attributes="experiencesAttributes"/> 
+        <experience-attributes :attributes="experiencesAttributes" />
         <v-divider class="my-9"></v-divider>
 
         <v-row>
@@ -35,7 +35,7 @@
         </v-row>
 
         <v-divider class="my-9"></v-divider>
-        <experience-guide-profile/> 
+        <experience-guide-profile />
       </v-col>
 
       <v-col>

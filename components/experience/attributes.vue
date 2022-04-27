@@ -19,8 +19,7 @@
 const props = defineProps({
   attributes: {
     type: Array,
-    default: null
-  }
+    default: null,
+  },
 })
-
 </script>
