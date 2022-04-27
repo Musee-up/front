@@ -1,0 +1,9 @@
+  query {
+    languages {
+      data {
+        attributes {
+          value
+        }
+      }
+    }
+  }

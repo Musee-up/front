@@ -1,0 +1,10 @@
+query {
+  themes {
+    data {
+      attributes {
+        name
+      }
+    }
+  }
+}
+
