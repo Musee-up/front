@@ -2,9 +2,10 @@
   <v-row>
     <v-list dense>
       <v-list-item-group>
-        {{ languages }}
         <v-slide-item>
-          <v-select :items="languages"></v-select>
+          <v-select
+            label="Choisissez 3 thèmes maximum parmi la liste"
+            :items="languages"></v-select>
         </v-slide-item>
         <v-slide-item>
           <v-select :items="themes"></v-select>

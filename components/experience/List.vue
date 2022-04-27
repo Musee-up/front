@@ -14,7 +14,8 @@
 </template>
 
 <script>
-import { allEventQuery } from '@/graphql/query'
+import experiencesQuery from '@/graphql/queries/experiences'
+
 export default {
   data() {
     return {
@@ -23,7 +24,7 @@ export default {
   },
   apollo: {
     experiences: {
-      query: allEventQuery,
+      query: experiencesQuery,
     },
   },
 }

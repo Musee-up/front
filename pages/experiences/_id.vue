@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { eventQuery } from '@/graphql/query'
+import experienceQuery from '@/graphql/queries/experience'
 
 export default {
   data() {
@@ -60,7 +60,7 @@ export default {
   },
   apollo: {
     experience: {
-      query: eventQuery,
+      query: experienceQuery,
       variables() {
         return { id: parseInt(this.$route.params.id) }
       },
