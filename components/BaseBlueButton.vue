@@ -13,9 +13,8 @@ const props = defineProps({
 })
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .test {
   background-color: $_teal;
 }
-  
 </style>

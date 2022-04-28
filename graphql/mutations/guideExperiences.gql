@@ -1,11 +1,9 @@
-mutation updateGuide($input: GuideInput!){
-  updateGuide(id: "1",
-  data: $input)
-  {
+mutation updateGuide($input: GuideInput!) {
+  updateGuide(id: "1", data: $input) {
     data {
       id
       attributes {
-        experiences{
+        experiences {
           data {
             id
             attributes {

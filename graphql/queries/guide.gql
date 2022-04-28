@@ -1,9 +1,9 @@
 query guide($id: ID!) {
-  guide(id: $id){
+  guide(id: $id) {
     data {
       id
       attributes {
-        experiences{
+        experiences {
           data {
             id
           }
