@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/scss/custom.scss'],
+  css: ['@/assets/scss/custom.scss', '@/assets/scss/colors.scss'],
   extractCSS: true,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
