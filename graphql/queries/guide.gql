@@ -3,6 +3,15 @@ query guide($id: ID!) {
     data {
       id
       attributes {
+        experience_slots {
+          data {
+            id
+            attributes {
+              start
+              end
+            }
+          }
+        }
         experiences {
           data {
             id

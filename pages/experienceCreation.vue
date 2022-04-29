@@ -3,7 +3,10 @@
     class="justify-center"
     style="padding-right: 5%; padding-left: 5%"
   >
-    <experience-slot-calendar v-if="guide" :guide="guide"></experience-slot-calendar>
+    <experience-slot-calendar
+      v-if="guide"
+      :guide="guide"
+    ></experience-slot-calendar>
     <v-btn @click.prevent="createExperience" />
     <v-row class="justify-center">
       <v-col class="text-left">
@@ -73,14 +76,14 @@ export default {
       title: '',
     }
   },
-  async mounted () {
+  async mounted() {
     const user = await this.$apollo.query({
-        query: singleUserQuery,
-        variables: {
-          id: this.$strapi.user.id,
-        },
-      })
-      this.guide = user.data.me.guide
+      query: singleUserQuery,
+      variables: {
+        id: this.$strapi.user.id,
+      },
+    })
+    this.guide = user.data.me.guide
   },
   methods: {
     async createExperience() {

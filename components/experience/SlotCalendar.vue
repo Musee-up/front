@@ -16,14 +16,14 @@
           @mousemove:time="mouseMove"
           @mouseup:time="endDrag"
           @mouseleave.native="cancelDrag"
-        >
+          >
           <template #event="{ event, timed, eventSummary }">
             <div class="v-event-draggable" v-html="eventSummary()"></div>
             <div
               v-if="timed"
               class="v-event-drag-bottom"
               @mousedown.stop="extendBottom(event)"
-            ></div>
+              ></div>
           </template>
         </v-calendar>
       </v-sheet>
@@ -34,9 +34,10 @@
 <script>
 import experienceSlotMutation from '@/graphql/mutations/ExperienceSlot'
 import guideExperienceSlotMutation from '@/graphql/mutations/guideExperienceSlot'
+import guideQuery from '@/graphql/queries/guide'
 
 export default {
-  props: ["guide"],
+  props: ['guide'],
   data: () => ({
     value: '',
     default_color: '#673AB7',
@@ -49,31 +50,11 @@ export default {
     extendOriginal: null,
   }),
   watch: {
-    async events(events) {
-      const event = events[0]
-      const start = new Date(event.start).toISOString()
-      const end = new Date(event.end).toISOString()
-      const result = await this.$apollo.mutate({
-        mutation: experienceSlotMutation,
-        variables: {
-          input: {
-            start,
-            end,
-          },
-        },
-      })
-      const slots = [result.data.createExperienceSlot.data.id.toString()]
-      await this.$apollo.mutate({
-       mutation: guideExperienceSlotMutation,
-       variables: {
-         id: this.guide.data.id,
-         input: {
-           experience_slots: slots,
-         },
-       },
-      })
-      console.log(result)
+    events() {
     },
+  },
+  mounted () {
+    console.log(this.guide)
   },
   methods: {
     startDrag({ event, timed }) {
@@ -94,13 +75,13 @@ export default {
         this.createStart = this.roundTime(mouse)
         this.createEvent = {
           name: `Event #${this.events.length}`,
-          color: '#673AB7',
           start: this.createStart,
           end: this.createStart,
           timed: true,
         }
 
         this.events.push(this.createEvent)
+        this.createApiSlot()
       }
     },
     extendBottom(event) {
@@ -129,6 +110,56 @@ export default {
         this.createEvent.start = min
         this.createEvent.end = max
       }
+    },
+    updateEvents(slots) {
+      this.events = slots
+        .map(f => {
+          const x = f.attributes
+          const s = (new Date(x.start).getTime())
+          const e = (new Date(x.end).getTime())
+          return {
+            start: s,
+            end: e,
+            timed: true,
+            name: "tmp"
+          }
+        })
+    },
+    linkToGuide() {
+      await this.$apollo.mutate({
+        mutation: guideExperienceSlotMutation,
+        variables: {
+          id: this.guide.data.id,
+          input: {
+            experience_slots: slots,
+          },
+        },
+      })
+      const guide = await this.$apollo.query({
+        query: guideQuery,
+        variables: {
+          id: this.guide.data.id.toString(),
+        }
+      })
+      this.updateEvents(guide.data.guide.data.attributes.experience_slots)
+    },
+    createApiSlot() {
+      const slots = await Promise.all(this.events.map(async(event) => {
+        const start = new Date(event.start).toISOString()
+        const end = new Date(event.end).toISOString()
+
+        const result = await this.$apollo.mutate({
+          mutation: experienceSlotMutation,
+          variables: {
+            input: {
+              start,
+              end,
+            },
+          },
+        })
+        return result.data.createExperienceSlot.data.id.toString()
+      }))
+      this.linkToGuide(slots)
     },
     endDrag() {
       this.dragTime = null
