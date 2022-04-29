@@ -1,6 +1,7 @@
 mutation createExperienceSlot($input: ExperienceSlotInput!) {
   createExperienceSlot(data: $input) {
     data {
+      id
       attributes {
         start
         end

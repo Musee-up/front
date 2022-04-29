@@ -3,7 +3,7 @@
     class="justify-center"
     style="padding-right: 5%; padding-left: 5%"
   >
-    <experience-slot-calendar></experience-slot-calendar>
+    <experience-slot-calendar v-if="guide" :guide="guide"></experience-slot-calendar>
     <v-btn @click.prevent="createExperience" />
     <v-row class="justify-center">
       <v-col class="text-left">
@@ -69,8 +69,18 @@ import singleUserQuery from '@/graphql/queries/user'
 export default {
   data() {
     return {
+      guide: null,
       title: '',
     }
+  },
+  async mounted () {
+    const user = await this.$apollo.query({
+        query: singleUserQuery,
+        variables: {
+          id: this.$strapi.user.id,
+        },
+      })
+      this.guide = user.data.me.guide
   },
   methods: {
     async createExperience() {
@@ -86,6 +96,7 @@ export default {
       })
       const guideExperiences =
         user.data.me.guide.data.attributes.experiences.data.map((x) => x.id)
+      this.guide = user.data.me.guide
       const result = await this.$apollo.mutate({
         mutation: experienceMutation,
         variables: {

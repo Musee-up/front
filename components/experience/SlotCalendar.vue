@@ -33,8 +33,10 @@
 
 <script>
 import experienceSlotMutation from '@/graphql/mutations/ExperienceSlot'
+import guideExperienceSlotMutation from '@/graphql/mutations/guideExperienceSlot'
 
 export default {
+  props: ["guide"],
   data: () => ({
     value: '',
     default_color: '#673AB7',
@@ -49,20 +51,29 @@ export default {
   watch: {
     async events(events) {
       const event = events[0]
-      const start = (new Date(event.start).toISOString())
-      const end = (new Date(event.end).toISOString())
-      console.log(start, end)
+      const start = new Date(event.start).toISOString()
+      const end = new Date(event.end).toISOString()
       const result = await this.$apollo.mutate({
         mutation: experienceSlotMutation,
         variables: {
           input: {
             start,
-            end
-          }
-        }
+            end,
+          },
+        },
+      })
+      const slots = [result.data.createExperienceSlot.data.id.toString()]
+      await this.$apollo.mutate({
+       mutation: guideExperienceSlotMutation,
+       variables: {
+         id: this.guide.data.id,
+         input: {
+           experience_slots: slots,
+         },
+       },
       })
       console.log(result)
-    }
+    },
   },
   methods: {
     startDrag({ event, timed }) {

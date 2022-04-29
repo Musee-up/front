@@ -3,11 +3,12 @@ mutation updateGuide($input: GuideInput!) {
     data {
       id
       attributes {
-        experiences {
+        experience_slots {
           data {
             id
             attributes {
-              title
+              start
+              end
             }
           }
         }
