@@ -16,14 +16,14 @@
           @mousemove:time="mouseMove"
           @mouseup:time="endDrag"
           @mouseleave.native="cancelDrag"
-          >
+        >
           <template #event="{ event, timed, eventSummary }">
             <div class="v-event-draggable" v-html="eventSummary()"></div>
             <div
               v-if="timed"
               class="v-event-drag-bottom"
               @mousedown.stop="extendBottom(event)"
-              ></div>
+            ></div>
           </template>
         </v-calendar>
       </v-sheet>
@@ -50,10 +50,9 @@ export default {
     extendOriginal: null,
   }),
   watch: {
-    events() {
-    },
+    events() {},
   },
-  mounted () {
+  mounted() {
     console.log(this.guide)
   },
   methods: {
@@ -112,20 +111,19 @@ export default {
       }
     },
     updateEvents(slots) {
-      this.events = slots
-        .map(f => {
-          const x = f.attributes
-          const s = (new Date(x.start).getTime())
-          const e = (new Date(x.end).getTime())
-          return {
-            start: s,
-            end: e,
-            timed: true,
-            name: "tmp"
-          }
-        })
+      this.events = slots.map((f) => {
+        const x = f.attributes
+        const s = new Date(x.start).getTime()
+        const e = new Date(x.end).getTime()
+        return {
+          start: s,
+          end: e,
+          timed: true,
+          name: 'tmp',
+        }
+      })
     },
-    linkToGuide() {
+    async linkToGuide() {
       await this.$apollo.mutate({
         mutation: guideExperienceSlotMutation,
         variables: {
@@ -139,26 +137,28 @@ export default {
         query: guideQuery,
         variables: {
           id: this.guide.data.id.toString(),
-        }
+        },
       })
       this.updateEvents(guide.data.guide.data.attributes.experience_slots)
     },
-    createApiSlot() {
-      const slots = await Promise.all(this.events.map(async(event) => {
-        const start = new Date(event.start).toISOString()
-        const end = new Date(event.end).toISOString()
+    async createApiSlot() {
+      const slots = await Promise.all(
+        this.events.map(async (event) => {
+          const start = new Date(event.start).toISOString()
+          const end = new Date(event.end).toISOString()
 
-        const result = await this.$apollo.mutate({
-          mutation: experienceSlotMutation,
-          variables: {
-            input: {
-              start,
-              end,
+          const result = await this.$apollo.mutate({
+            mutation: experienceSlotMutation,
+            variables: {
+              input: {
+                start,
+                end,
+              },
             },
-          },
+          })
+          return result.data.createExperienceSlot.data.id.toString()
         })
-        return result.data.createExperienceSlot.data.id.toString()
-      }))
+      )
       this.linkToGuide(slots)
     },
     endDrag() {
