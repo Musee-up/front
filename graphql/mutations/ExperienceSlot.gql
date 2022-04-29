@@ -1,0 +1,10 @@
+mutation createExperienceSlot($input: ExperienceSlotInput!) {
+  createExperienceSlot(data: $input) {
+    data {
+      attributes {
+        start
+        end
+      }
+    }
+  }
+}

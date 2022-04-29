@@ -6,10 +6,10 @@
           ref="calendar"
           v-model="value"
           color="primary"
-          :weekdays="[1, 2, 3, 4, 5, 6, 0]"
+          :weekdays="weekdays"
           type="week"
           :events="events"
-          :event-color="getEventColor"
+          :event-color="default_color"
           :event-ripple="false"
           @mousedown:event="startDrag"
           @mousedown:time="startTime"
@@ -32,35 +32,38 @@
 </template>
 
 <script>
+import experienceSlotMutation from '@/graphql/mutations/ExperienceSlot'
+
 export default {
   data: () => ({
     value: '',
+    default_color: '#673AB7',
+    weekdays: [1, 2, 3, 4, 5, 6, 0],
     events: [],
-    colors: [
-      '#2196F3',
-      '#3F51B5',
-      '#673AB7',
-      '#00BCD4',
-      '#4CAF50',
-      '#FF9800',
-      '#757575',
-    ],
-    names: [
-      'Meeting',
-      'Holiday',
-      'PTO',
-      'Travel',
-      'Event',
-      'Birthday',
-      'Conference',
-      'Party',
-    ],
     dragEvent: null,
     dragStart: null,
     createEvent: null,
     createStart: null,
     extendOriginal: null,
   }),
+  watch: {
+    async events(events) {
+      const event = events[0]
+      const start = (new Date(event.start).toISOString())
+      const end = (new Date(event.end).toISOString())
+      console.log(start, end)
+      const result = await this.$apollo.mutate({
+        mutation: experienceSlotMutation,
+        variables: {
+          input: {
+            start,
+            end
+          }
+        }
+      })
+      console.log(result)
+    }
+  },
   methods: {
     startDrag({ event, timed }) {
       if (event && timed) {
@@ -80,7 +83,7 @@ export default {
         this.createStart = this.roundTime(mouse)
         this.createEvent = {
           name: `Event #${this.events.length}`,
-          color: this.rndElement(this.colors),
+          color: '#673AB7',
           start: this.createStart,
           end: this.createStart,
           timed: true,
@@ -156,50 +159,6 @@ export default {
         tms.hour,
         tms.minute
       ).getTime()
-    },
-    getEventColor(event) {
-      const rgb = parseInt(event.color.substring(1), 16)
-      const r = (rgb >> 16) & 0xff
-      const g = (rgb >> 8) & 0xff
-      const b = (rgb >> 0) & 0xff
-
-      return event === this.dragEvent
-        ? `rgba(${r}, ${g}, ${b}, 0.7)`
-        : event === this.createEvent
-        ? `rgba(${r}, ${g}, ${b}, 0.7)`
-        : event.color
-    },
-    getEvents({ start, end }) {
-      const events = []
-
-      const min = new Date(`${start.date}T00:00:00`).getTime()
-      const max = new Date(`${end.date}T23:59:59`).getTime()
-      const days = (max - min) / 86400000
-      const eventCount = this.rnd(days, days + 20)
-
-      for (let i = 0; i < eventCount; i++) {
-        const timed = this.rnd(0, 3) !== 0
-        const firstTimestamp = this.rnd(min, max)
-        const secondTimestamp = this.rnd(2, timed ? 8 : 288) * 900000
-        const start = firstTimestamp - (firstTimestamp % 900000)
-        const end = start + secondTimestamp
-
-        events.push({
-          name: this.rndElement(this.names),
-          color: this.rndElement(this.colors),
-          start,
-          end,
-          timed,
-        })
-      }
-
-      this.events = events
-    },
-    rnd(a, b) {
-      return Math.floor((b - a + 1) * Math.random()) + a
-    },
-    rndElement(arr) {
-      return arr[this.rnd(0, arr.length - 1)]
     },
   },
 }
