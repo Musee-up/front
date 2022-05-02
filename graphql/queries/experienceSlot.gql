@@ -1,0 +1,17 @@
+query experienceSlot($id: ID!) {
+  experienceSlot(id: $id) {
+    data {
+      id
+      attributes {
+        experience {
+          data {
+            attributes {
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

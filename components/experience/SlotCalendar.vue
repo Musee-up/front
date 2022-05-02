@@ -17,17 +17,17 @@
           @mousemove:time="mouseMove"
           @mouseup:time="endDrag"
           @mouseleave.native="cancelDrag"
-          >
+        >
           <template #event="{ event, timed, eventSummary }">
             <div class="v-event-draggable" v-html="eventSummary()"></div>
             <div
               v-if="timed"
               class="v-event-drag-bottom"
               @mousedown.stop="extendBottom(event)"
-              ></div>
+            ></div>
           </template>
         </v-calendar>
-        {{  }}
+        {{}}
         <experience-slot-calendar-item
           v-if="selectedEvent && selectedOpen"
           :experiences="getExperiencesTitle()"
@@ -35,7 +35,7 @@
           :selected-event="selectedEvent"
           :open="selectedOpen"
           @delete="update"
-          >
+        >
         </experience-slot-calendar-item>
       </v-sheet>
     </v-col>
@@ -55,15 +55,15 @@ export default {
       query: guideQuery,
       variables() {
         return {
-          id: this.guide?.data.id.toString()
+          id: this.guide?.data.id.toString(),
         }
       },
       update(data) {
         const posts = data?.guide.data.attributes.experience_slots.data
         this.updateEvents(posts)
         return data
-      }
-    }
+      },
+    },
   },
   data: () => ({
     value: '',
@@ -81,13 +81,14 @@ export default {
   }),
   methods: {
     getExperiencesTitle() {
-      const experiences = this.guideProfile.guide.data.attributes.experiences.data
-      return experiences.map(x => x.attributes?.title)
+      const experiences =
+        this.guideProfile.guide.data.attributes.experiences.data
+      return experiences
     },
-    update () {
-      const index = this.events.indexOf(this.selectedEvent);
+    update() {
+      const index = this.events.indexOf(this.selectedEvent)
       if (index > -1) {
-        this.events.splice(index, 1);
+        this.events.splice(index, 1)
       }
     },
     startDrag({ event, timed }) {
@@ -145,8 +146,7 @@ export default {
       }
     },
     updateEvents(slots) {
-      if (!slots)
-        return
+      if (!slots) return
       this.events = slots.map((f) => {
         const x = f.attributes
         const s = new Date(x.start).getTime()
@@ -169,8 +169,9 @@ export default {
       })
     },
     async linkToGuide(slotId) {
-      const currentSlots = (await this.getGuide())
-        .data.guide.data.attributes.experience_slots.data.map(x => x?.id)
+      const currentSlots = (
+        await this.getGuide()
+      ).data.guide.data.attributes.experience_slots.data.map((x) => x?.id)
       currentSlots.push(slotId)
       await this.$apollo.mutate({
         mutation: createGuideExperienceSlot,
@@ -200,7 +201,7 @@ export default {
       return id
     },
     async updateEvent(event) {
-      if (!event.id) return ;
+      if (!event.id) return
 
       const start = new Date(event.start).toISOString()
       const end = new Date(event.end).toISOString()
@@ -210,17 +211,18 @@ export default {
           id: event.id.toString(),
           input: {
             start,
-            end
+            end,
           },
         },
       })
     },
-    showEvent ({ nativeEvent, event }) {
+    showEvent({ nativeEvent, event }) {
       const open = () => {
         this.selectedEvent = event
         this.selectedElement = nativeEvent.target
         requestAnimationFrame(() =>
-          requestAnimationFrame(() => (this.selectedOpen = true)))
+          requestAnimationFrame(() => (this.selectedOpen = true))
+        )
       }
 
       if (this.selectedOpen) {
