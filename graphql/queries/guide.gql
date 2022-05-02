@@ -15,6 +15,9 @@ query guide($id: ID!) {
         experiences {
           data {
             id
+            attributes {
+              title
+            }
           }
         }
       }
