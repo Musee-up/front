@@ -3,10 +3,10 @@
     class="justify-center"
     style="padding-right: 5%; padding-left: 5%"
   >
-    <experience-slot-calendar
-      v-if="guide"
-      :guide="guide"
-    ></experience-slot-calendar>
+    <!-- <experience-slot-calendar -->
+    <!--   v-if="guide" -->
+    <!--   :guide="guide" -->
+    <!-- ></experience-slot-calendar> -->
     <!-- <v-btn @click.prevent="createExperience" /> -->
     <v-row class="justify-center">
       <v-col class="text-left">

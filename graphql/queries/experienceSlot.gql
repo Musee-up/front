@@ -1,3 +1,12 @@
+fragment ExperiencePart on ExperienceEntityResponse {
+  data {
+    id
+    attributes {
+      title
+    }
+  }
+}
+
 query experienceSlot($id: ID!) {
   experienceSlot(id: $id) {
     data {

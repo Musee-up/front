@@ -5,4 +5,3 @@ fragment LanguagePart on LanguageRelationResponseCollection {
     }
   }
 }
-

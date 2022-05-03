@@ -7,7 +7,7 @@ query guide($id: ID!) {
       id
       attributes {
         experience_slots {
-         ...ExperiencelotsPart 
+          ...ExperienceSlotPart
         }
         experiences {
           ...ExperiencePart

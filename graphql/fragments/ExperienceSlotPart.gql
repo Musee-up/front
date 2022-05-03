@@ -2,8 +2,8 @@ fragment ExperienceSlotPart on ExperienceSlotRelationResponseCollection {
   data {
     id
     attributes {
-      title
+      start
+      end
     }
   }
 }
-

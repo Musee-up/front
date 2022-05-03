@@ -20,7 +20,8 @@
             multiple
             prepend-icon="mdi-earth"
             :label="$t('Indiquez les langues displonibles')"
-            :items="languages"></v-select>
+            :items="languages"
+          ></v-select>
         </v-slide-item>
 
         <v-list-item v-for="(item, i) in []" :key="i">
@@ -41,10 +42,10 @@ import languagesQuery from '@/graphql/queries/languages'
 import themesQuery from '@/graphql/queries/themes'
 
 export default {
-  data () {
+  data() {
     return {
       selectedLanguages: [],
-      selectedThemes: []
+      selectedThemes: [],
     }
   },
   apollo: {
