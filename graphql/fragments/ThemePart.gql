@@ -1,0 +1,7 @@
+fragment ThemePart on ThemeRelationResponseCollection {
+  data {
+    attributes {
+      name
+    }
+  }
+}

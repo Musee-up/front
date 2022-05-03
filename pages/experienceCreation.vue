@@ -7,7 +7,7 @@
       v-if="guide"
       :guide="guide"
     ></experience-slot-calendar>
-    <v-btn @click.prevent="createExperience" />
+    <!-- <v-btn @click.prevent="createExperience" /> -->
     <v-row class="justify-center">
       <v-col class="text-left">
         <v-text-field

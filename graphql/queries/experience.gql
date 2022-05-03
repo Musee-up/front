@@ -1,37 +1,22 @@
+#import "../fragments/ThemePart.gql"
+#import "../fragments/LanguagePart.gql"
+#import "../fragments/CoreExperiencePart.gql"
+#import "../fragments/PhotoPart.gql"
+
 query experience($id: ID!) {
   experience(id: $id) {
     data {
+      id
       attributes {
-        title
-        duration
-        price
-        transportation
-        description
-        stars
-        groupSize
-        handifriendly
-        location
+        ...CoreExperiencePart
+        photos {
+          ...PhotoPart
+        }
         themes {
-          data {
-            attributes {
-              name
-            }
-          }
+          ...ThemePart
         }
         languages {
-          data {
-            attributes {
-              value
-            }
-          }
-        }
-        photos {
-          data {
-            attributes {
-              previewUrl
-              url
-            }
-          }
+          ...LanguagePart
         }
       }
     }

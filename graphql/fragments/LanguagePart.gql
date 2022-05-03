@@ -1,0 +1,8 @@
+fragment LanguagePart on LanguageRelationResponseCollection {
+  data {
+    attributes {
+      value
+    }
+  }
+}
+

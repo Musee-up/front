@@ -1,24 +1,16 @@
+#import "../fragments/ExperiencePart.gql"
+#import "../fragments/ExperienceSlotPart.gql"
+
 query guide($id: ID!) {
   guide(id: $id) {
     data {
       id
       attributes {
         experience_slots {
-          data {
-            id
-            attributes {
-              start
-              end
-            }
-          }
+         ...ExperiencelotsPart 
         }
         experiences {
-          data {
-            id
-            attributes {
-              title
-            }
-          }
+          ...ExperiencePart
         }
       }
     }

@@ -2,16 +2,6 @@ mutation updateGuide($input: GuideInput!) {
   updateGuide(id: "1", data: $input) {
     data {
       id
-      attributes {
-        experiences {
-          data {
-            id
-            attributes {
-              title
-            }
-          }
-        }
-      }
     }
   }
 }

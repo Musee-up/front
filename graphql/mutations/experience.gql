@@ -2,39 +2,6 @@ mutation createExperience($input: ExperienceInput!) {
   createExperience(data: $input) {
     data {
       id
-      attributes {
-        title
-        duration
-        price
-        transportation
-        description
-        stars
-        groupSize
-        handifriendly
-        location
-        themes {
-          data {
-            attributes {
-              name
-            }
-          }
-        }
-        languages {
-          data {
-            attributes {
-              value
-            }
-          }
-        }
-        photos {
-          data {
-            attributes {
-              previewUrl
-              url
-            }
-          }
-        }
-      }
     }
   }
 }

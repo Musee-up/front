@@ -22,7 +22,7 @@
           item-value="id"
           :items="experiences"
           @change="associateExperience"
-          ></v-select>
+        ></v-select>
         <!-- <v-btn icon> -->
         <!--   <v-icon>mdi-dots-vertical</v-icon> -->
         <!-- </v-btn> -->
@@ -55,29 +55,29 @@ export default {
   apollo: {
     experienceSlot: {
       query: experienceSlotQuery,
-      variables () {
+      variables() {
         return {
-          id: this.selectedEvent.id.toString()
+          id: this.selectedEvent.id.toString(),
         }
       },
-      update (data) {
-        const exp = data.experienceSlot.data.attributes.experience.data.attributes.title
+      update(data) {
+        const exp =
+          data.experienceSlot.data.attributes.experience.data.attributes.title
         return exp
-      }
-    }
+      },
+    },
   },
   methods: {
-    async associateExperience (id) {
-      await this.$apollo
-        .mutate({
-          mutation: updateExperience,
-          variables: {
-            id: id.toString(),
-            input: {
-              experience_slots: [this.selectedEvent.id]
-            }
+    async associateExperience(id) {
+      await this.$apollo.mutate({
+        mutation: updateExperience,
+        variables: {
+          id: id.toString(),
+          input: {
+            experience_slots: [this.selectedEvent.id],
           },
-        })
+        },
+      })
     },
     deleteSlot() {
       this.$apollo

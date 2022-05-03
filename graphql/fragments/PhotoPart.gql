@@ -1,0 +1,8 @@
+fragment PhotoPart on UploadFileRelationResponseCollection {
+  data {
+    attributes {
+      previewUrl
+      url
+    }
+  }
+}

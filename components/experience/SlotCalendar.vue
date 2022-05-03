@@ -27,7 +27,6 @@
             ></div>
           </template>
         </v-calendar>
-        {{}}
         <experience-slot-calendar-item
           v-if="selectedEvent && selectedOpen"
           :experiences="getExperiencesTitle()"
@@ -315,3 +314,4 @@ export default {
   }
 }
 </style>
+

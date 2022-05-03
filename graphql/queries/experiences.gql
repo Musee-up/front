@@ -1,29 +1,18 @@
+#import "../fragments/ThemePart.gql"
+#import "../fragments/LanguagePart.gql"
+#import "../fragments/CoreExperiencePart.gql"
+
 query {
   experiences {
     data {
       id
       attributes {
-        title
-        duration
-        price
-        transportation
-        description
-        stars
-        handifriendly
-        groupSize
+        ...CoreExperiencePart
         themes {
-          data {
-            attributes {
-              name
-            }
-          }
+          ...ThemePart
         }
         languages {
-          data {
-            attributes {
-              value
-            }
-          }
+          ...LanguagePart
         }
       }
     }

@@ -4,18 +4,29 @@
       <v-list-item-group>
         <v-slide-item>
           <v-select
-            label="Choisissez 3 thèmes maximum parmi la liste"
-            :items="languages"
+            v-model="selectedThemes"
+            flat
+            solo
+            multiple
+            :label="$t('Choisissez 3 thèmes maximum parmi la liste')"
+            :items="themes"
           ></v-select>
         </v-slide-item>
         <v-slide-item>
-          <v-select :items="themes"></v-select>
+          <v-select
+            v-model="selectedLanguages"
+            flat
+            solo
+            multiple
+            prepend-icon="mdi-earth"
+            :label="$t('Indiquez les langues displonibles')"
+            :items="languages"></v-select>
         </v-slide-item>
+
         <v-list-item v-for="(item, i) in []" :key="i">
           <v-list-item-icon>
             <v-icon color="primary" v-text="item.icon"></v-icon>
           </v-list-item-icon>
-
           <v-list-item-content color="primary">
             <v-list-item-title v-text="item.text"></v-list-item-title>
           </v-list-item-content>
@@ -30,6 +41,12 @@ import languagesQuery from '@/graphql/queries/languages'
 import themesQuery from '@/graphql/queries/themes'
 
 export default {
+  data () {
+    return {
+      selectedLanguages: [],
+      selectedThemes: []
+    }
+  },
   apollo: {
     languages: {
       query: languagesQuery,

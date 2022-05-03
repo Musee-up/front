@@ -4,14 +4,9 @@ query experienceSlot($id: ID!) {
       id
       attributes {
         experience {
-          data {
-            attributes {
-              title
-            }
-          }
+          ...ExperiencePart
         }
       }
     }
   }
 }
-
