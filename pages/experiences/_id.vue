@@ -54,8 +54,8 @@ export default {
   data() {
     return {
       experience: [],
-      selectedItem: 1,
       experiencesAttributes: [],
+      selectedItem: 1,
     }
   },
   apollo: {

@@ -1,5 +1,8 @@
 <template>
-  <v-btn filled rounded class="ma-2 test" style="align-self: center">
+  <v-btn
+    filled
+    rounded
+    class="ma-2 test">
     {{ props.text }}
   </v-btn>
 </template>
@@ -15,6 +18,8 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .test {
-  background-color: $_teal;
+  background-color: $_blue !important;
+  color: $white !important;
+  align-self: center;
 }
 </style>

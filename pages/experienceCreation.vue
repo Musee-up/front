@@ -16,7 +16,7 @@
               'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)'
             )
           "
-        ></v-text-field>
+        > test 131324 </v-text-field>
       </v-col>
     </v-row>
 
@@ -40,14 +40,14 @@
           </h3>
         </v-row>
         <v-row>
-          <v-text-field
+          <v-textarea
             v-model="title"
             :label="
               $t(
                 'Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).'
               )
             "
-          ></v-text-field>
+          ></v-textarea>
         </v-row>
 
         <v-divider class="my-9"></v-divider>
@@ -57,7 +57,7 @@
 
       <v-col>
         <v-row class="justify-end">
-          <ExperienceRegistrationForm style="width: auto" />
+          <experience-creation-price-picker></experience-creation-price-picker>
         </v-row>
       </v-col>
     </v-row>

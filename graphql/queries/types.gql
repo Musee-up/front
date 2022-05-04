@@ -1,0 +1,9 @@
+query {
+	experienceTypes{
+    data {
+      attributes {
+        name
+     }
+    }
+  }
+}
