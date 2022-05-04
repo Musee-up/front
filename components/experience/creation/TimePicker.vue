@@ -1,9 +1,6 @@
 <template>
   <v-row>
-    <v-col
-      cols="11"
-      sm="5"
-      >
+    <v-col cols="11" sm="5">
       <v-menu
         ref="menu"
         v-model="menu2"
@@ -14,7 +11,7 @@
         offset-y
         max-width="290px"
         min-width="290px"
-        >
+      >
         <template #activator="{ on, attrs }">
           <v-text-field
             v-model="time"
@@ -23,28 +20,24 @@
             readonly
             v-bind="attrs"
             v-on="on"
-            ></v-text-field>
+          ></v-text-field>
         </template>
         <v-time-picker
           v-if="menu2"
           v-model="time"
           full-width
           @click:minute="$refs.menu.save(time)"
-          ></v-time-picker>
+        ></v-time-picker>
       </v-menu>
     </v-col>
     <v-spacer></v-spacer>
-    <v-col
-      cols="11"
-      sm="5"
-      >
-    </v-col>
+    <v-col cols="11" sm="5"> </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       time: null,
       menu2: false,

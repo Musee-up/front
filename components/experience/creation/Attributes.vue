@@ -11,7 +11,7 @@
             prepend-icon="mdi-camera"
             :label="$t('Choisissez le type de l\'experience parmi la liste')"
             :items="types"
-            ></v-select>
+          ></v-select>
         </v-slide-item>
 
         <v-slide-item>
@@ -23,7 +23,7 @@
             prepend-icon="mdi-palette"
             :label="$t('Choisissez 3 thèmes maximum parmi la liste')"
             :items="themes"
-            ></v-select>
+          ></v-select>
         </v-slide-item>
 
         <v-slide-item>
@@ -35,13 +35,11 @@
             prepend-icon="mdi-earth"
             :label="$t('Indiquez les langues displonibles')"
             :items="languages"
-            ></v-select>
+          ></v-select>
         </v-slide-item>
 
         <v-slide-item>
-          <experience-creation-time-picker>
-
-          </experience-creation-time-picker>
+          <experience-creation-time-picker> </experience-creation-time-picker>
         </v-slide-item>
 
         <v-slide-item>
@@ -52,7 +50,7 @@
             prepend-icon="mdi-account-group"
             :label="$t('Indiquez le nombre de personne maximum')"
             :items="peopleNumber"
-            ></v-select>
+          ></v-select>
         </v-slide-item>
 
         <v-list-item v-for="(item, i) in []" :key="i">
@@ -79,7 +77,7 @@ export default {
       selectedLanguages: [],
       selectedThemes: [],
       selectedNumberPeople: [],
-      peopleNumber: [...Array(5).keys()]
+      peopleNumber: [...Array(5).keys()],
     }
   },
   apollo: {

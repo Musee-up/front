@@ -1,7 +1,7 @@
 fragment ExperienceTypePart on ExperienceTypeRelationResponseCollection {
-    data {
-      attributes {
-        name
-      }
+  data {
+    attributes {
+      name
     }
+  }
 }

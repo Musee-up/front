@@ -16,7 +16,9 @@
               'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)'
             )
           "
-        > test 131324 </v-text-field>
+        >
+          test 131324
+        </v-text-field>
       </v-col>
     </v-row>
 

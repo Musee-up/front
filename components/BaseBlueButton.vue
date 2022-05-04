@@ -1,8 +1,5 @@
 <template>
-  <v-btn
-    filled
-    rounded
-    class="ma-2 test">
+  <v-btn filled rounded class="ma-2 test">
     {{ props.text }}
   </v-btn>
 </template>
