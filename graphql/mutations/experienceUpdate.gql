@@ -1,4 +1,4 @@
-mutation updateExperience($id:ID!, $input: ExperienceInput!) {
+mutation updateExperience($id: ID!, $input: ExperienceInput!) {
   updateExperience(id: $id, data: $input) {
     data {
       id

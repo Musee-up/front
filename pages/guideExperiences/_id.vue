@@ -4,7 +4,7 @@
     :id="$route.params.id"
     :experience="experience"
     :mutation-query="experienceUpdate"
-    >
+  >
   </experience-creation-template>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       experience: null,
-      experienceUpdate
+      experienceUpdate,
     }
   },
   async mounted() {

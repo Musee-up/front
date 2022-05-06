@@ -5,10 +5,19 @@
   >
     <v-row class="mt-4 justify-space-between">
       <div>
-        <v-btn rounded @click.prevent="createExperience"> Ajouter </v-btn>
+        <v-btn
+          rounded
+          @click.prevent="createExperience">
+          Ajouter
+        </v-btn>
         <v-chip> Incomplète </v-chip>
       </div>
-      <v-btn rounded color="red" class="white--text"> Suprimer </v-btn>
+      <v-btn
+        rounded
+        color="red"
+        class="white--text">
+        Suprimer
+      </v-btn>
     </v-row>
     <v-row class="justify-center">
       <v-col class="text-left">
@@ -71,10 +80,6 @@
 </template>
 
 <script>
-// import experienceMutation from '@/graphql/mutations/experience'
-import guideExperiencesMutation from '@/graphql/mutations/guideExperiences'
-import singleUserQuery from '@/graphql/queries/user'
-
 export default {
   props: ['experience', 'mutationQuery', 'id'],
   data() {
@@ -85,38 +90,27 @@ export default {
       },
       att: [],
       model_att: [],
-      guide: null,
     }
   },
-  async mounted() {
+  mounted() {
     this.model = this.$props.experience.data.attributes
-
-    const user = await this.$apollo.query({
-      query: singleUserQuery,
-      variables: {
-        id: this.$strapi.user.id,
-      },
-    })
     let { languages, themes, types } = this.model
-    this.model_att = { languages, themes, types };
+    this.model_att = { languages, themes, types }
 
-    ([ languages, themes, types ] = Object.values(this.model_att)
-      .map(a => (a?.data.map((x) => x.id))));
+    ;[languages, themes, types] =
+      Object.values(this.model_att).map((a) =>
+      a?.data.map((x) => x.id)
+    )
 
-    this.model_att = ({ languages, themes, types })
+    this.model_att = { languages, themes, types }
     this.att = this.model_att
-
-    // att will be send as update later, initialize now
-    this.guide = user.data.me.guide
   },
   methods: {
     updateAttribute(att) {
       this.att = att
       delete this.att.people
-      // this.model = Object.assign({}, this.model, this.att)
     },
     createExperience() {
-      console.log(this.model)
       return this.$apollo.mutate({
         mutation: this.$props.mutationQuery,
         variables: {
@@ -129,45 +123,6 @@ export default {
           },
         },
       })
-    },
-    getUser() {
-      return this.$apollo.query({
-        query: singleUserQuery,
-        variables: {
-          id: this.$strapi.user.id,
-        },
-      })
-    },
-    updateGuideExperiences(id, experiences) {
-      this.$apollo.mutate({
-        mutation: guideExperiencesMutation,
-        variables: {
-          id,
-          input: {
-            experiences,
-          },
-        },
-      })
-    },
-    async addGuideExperience() {
-      if (!this.$strapi.user) return
-
-      await this.$apolloHelpers.onLogin(this.$strapi.getToken())
-
-      const user = await this.getUser()
-
-      this.guide = user.data.me.guide
-
-      const result = await this.createExperience()
-
-      const guideExperiences =
-        user.data.me.guide.data.attributes.experiences.data.map((x) => x.id)
-      guideExperiences.push(result.data.createExperience.data.id)
-
-      await this.updateGuideExperiences(
-        user.data.me.guide.data.id,
-        guideExperiences
-      )
     },
   },
 }

@@ -77,9 +77,8 @@ export default {
   watch: {
     att() {
       Object.entries(this.$props.att).forEach(
-        ([k, v]) => (this.attributes[k].model = v))
-      // console.log(this.$props.att)
-      // console.log(this.attributes)
+        ([k, v]) => (this.attributes[k].model = v)
+      )
     },
   },
   methods: {
