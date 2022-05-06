@@ -39,7 +39,7 @@ import themesQuery from '@/graphql/queries/themes'
 import typesQuery from '@/graphql/queries/types'
 
 export default {
-  props:['att'],
+  props: ['att'],
   data() {
     return {
       handifriendly: {
@@ -74,12 +74,13 @@ export default {
       },
     }
   },
-  watch:{
-    att () {
-      Object.entries(this.$props.att)
-        .forEach(([k, v]) =>
-          (this.attributes[k].model = v?.data.map(x => x.id)))
-    }
+  watch: {
+    att() {
+      Object.entries(this.$props.att).forEach(
+        ([k, v]) => (this.attributes[k].model = v))
+      // console.log(this.$props.att)
+      // console.log(this.attributes)
+    },
   },
   methods: {
     emit() {

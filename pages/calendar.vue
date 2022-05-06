@@ -2,7 +2,7 @@
   <experience-slot-calendar
     v-if="guide"
     :guide="guide"
-    ></experience-slot-calendar>
+  ></experience-slot-calendar>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ import singleUserQuery from '@/graphql/queries/user'
 export default {
   data() {
     return {
-      guide: null
+      guide: null,
     }
   },
   async mounted() {

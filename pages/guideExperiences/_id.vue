@@ -1,18 +1,22 @@
 <template>
   <experience-creation-template
     v-if="experience"
-    :experience="experience">
+    :id="$route.params.id"
+    :experience="experience"
+    :mutation-query="experienceUpdate"
+    >
   </experience-creation-template>
 </template>
 
 <script>
-
 import experienceQuery from '@/graphql/queries/experience'
+import experienceUpdate from '@/graphql/mutations/experienceUpdate'
 
 export default {
-  data () {
+  data() {
     return {
-      experience: null
+      experience: null,
+      experienceUpdate
     }
   },
   async mounted() {
@@ -20,8 +24,8 @@ export default {
       await this.$apollo.query({
         query: experienceQuery,
         variables: {
-          id: this.$route.params.id
-        }
+          id: this.$route.params.id,
+        },
       })
     ).data.experience
   },

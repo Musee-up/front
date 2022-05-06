@@ -5,7 +5,7 @@
   >
     <v-row class="mt-4 justify-space-between">
       <div>
-        <v-btn rounded @click.prevent="addGuideExperience"> Ajouter </v-btn>
+        <v-btn rounded @click.prevent="createExperience"> Ajouter </v-btn>
         <v-chip> Incomplète </v-chip>
       </div>
       <v-btn rounded color="red" class="white--text"> Suprimer </v-btn>
@@ -35,7 +35,8 @@
       <v-col cols="8">
         <experience-creation-attributes
           :att="model_att"
-          @update="updateAttribute" />
+          @update="updateAttribute"
+        />
 
         <v-divider class="my-9"></v-divider>
 
@@ -70,16 +71,17 @@
 </template>
 
 <script>
-import experienceMutation from '@/graphql/mutations/experience'
+// import experienceMutation from '@/graphql/mutations/experience'
 import guideExperiencesMutation from '@/graphql/mutations/guideExperiences'
 import singleUserQuery from '@/graphql/queries/user'
 
 export default {
-  props: ['experience'],
+  props: ['experience', 'mutationQuery', 'id'],
   data() {
     return {
       model: {
-        title: null
+        title: null,
+        description: null,
       },
       att: [],
       model_att: [],
@@ -95,22 +97,34 @@ export default {
         id: this.$strapi.user.id,
       },
     })
-    const {languages, themes, types} = this.model
-    this.model_att = {languages, themes, types} 
+    let { languages, themes, types } = this.model
+    this.model_att = { languages, themes, types };
+
+    ([ languages, themes, types ] = Object.values(this.model_att)
+      .map(a => (a?.data.map((x) => x.id))));
+
+    this.model_att = ({ languages, themes, types })
+    this.att = this.model_att
+
+    // att will be send as update later, initialize now
     this.guide = user.data.me.guide
   },
   methods: {
     updateAttribute(att) {
       this.att = att
       delete this.att.people
+      // this.model = Object.assign({}, this.model, this.att)
     },
     createExperience() {
+      console.log(this.model)
       return this.$apollo.mutate({
-        mutation: experienceMutation,
+        mutation: this.$props.mutationQuery,
         variables: {
+          id: this.id,
           input: {
             ...this.att,
             title: this.model.title,
+            description: this.model.description,
             duration: '00:03:00.000',
           },
         },
