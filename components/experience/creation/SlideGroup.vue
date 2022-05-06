@@ -1,23 +1,19 @@
 <template>
-  <v-slide-group>
-    <v-slide-item class="slide-item">
-      <experience-creation-photo-input />
+  <v-slide-group
+    show-arrows
+    class="pa-4" style="height: 100%">
+    <v-slide-item class="slide-item pa-2">
+      <experience-creation-photo-input class="ma-2"/>
     </v-slide-item>
-    <v-slide-item class="mx-4 slide-item">
-      <v-container
-        fluid
-        class="align-content-space-between"
-        style="display: grid"
-      >
-        <v-row
-          ><experience-creation-photo-input class="slide-item-middle"
-        /></v-row>
-        <v-row
-          ><experience-creation-photo-input class="slide-item-middle"
-        /></v-row>
-      </v-container>
-    </v-slide-item>
-    <v-slide-item class="slide-item">
+    <div class="d-flex flex-column middle-item">
+      <v-slide-item class="slide-item-2 ma-2">
+        <experience-creation-photo-input />
+      </v-slide-item>
+      <v-slide-item class="slide-item-2 ma-2">
+        <experience-creation-photo-input />
+      </v-slide-item>
+    </div>
+    <v-slide-item class="slide-item ma-2">
       <experience-creation-photo-input />
     </v-slide-item>
   </v-slide-group>
@@ -37,13 +33,17 @@ export default {
 </script>
 
 <style scoped>
-.slide-item {
-  height: 100% !important;
-  width: 30%;
+.middle-item {
+  height: 94%;
+  width: 33%;
 }
 
-.slide-item-middle {
-  width: 100% !important;
-  height: 40%;
+.slide-item-2 {
+  height: 50% !important;
+}
+
+.slide-item {
+  height: 98% !important;
+  width: 33%;
 }
 </style>

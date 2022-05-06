@@ -10,7 +10,7 @@
 
             <template #link>
               <nuxt-link
-                :to="`/experiences/${parseInt(props.id)}`">
+                :to="`/experiences/1`">
                 <base-blue-button :text="$t('Réserver')"> </base-blue-button>
               </nuxt-link>
             </template>
@@ -22,18 +22,22 @@
 </template>
 
 <script>
+import singleUserQuery from '@/graphql/queries/user'
 
 export default {
-  props: ['query'],
   data() {
     return {
       experiences: [],
     }
   },
   async mounted () {
-    this.experiences = (await this.$apollo.query({
-      query:this.query
-    })).data.experiences
+    const user = await this.$apollo.query({
+      query: singleUserQuery,
+      variables: {
+        id: this.$strapi.user.id,
+      },
+    })
+    this.experiences = user.data.me.guide.data.attributes.experiences
   }
 }
 </script>

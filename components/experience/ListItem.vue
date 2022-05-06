@@ -10,9 +10,8 @@
           <h2>{{ props.experience.title }}</h2>
         </v-col>
         <v-col class="text-right">
-          <nuxt-link :to="`/experiences/${parseInt(props.id)}`">
-            <base-blue-button :text="$t('Réserver')"> </base-blue-button>
-          </nuxt-link>
+          <slot name="link">
+          </slot>
         </v-col>
       </v-row>
 

@@ -1,9 +1,9 @@
 <template>
-  <ExperienceList />
+  <ExperienceList :query="experiencesQuery" />
 </template>
 
-<script>
-export default {}
+<script setup lang='ts'>
+import experiencesQuery from '@/graphql/queries/experiences'
 </script>
 
 <style scoped>

@@ -1,3 +1,5 @@
+#import "../fragments/CoreExperiencePart.gql"
+
 query {
   me {
     guide {
@@ -7,6 +9,9 @@ query {
           experiences {
             data {
               id
+              attributes {
+                ...CoreExperiencePart
+              }
             }
           }
         }

@@ -1,6 +1,13 @@
 <template>
   <v-btn outlined @click="chooseFile">
-    <v-img max-width="500px" :src="filePreview ? filePreview : ''">
+    <v-img
+      contain
+      max-width="100%"
+      max-height="100%"
+      class="justify-center align-center"
+      aspect-ratio="1"
+      :src="filePreview ? filePreview : ''"
+    >
       <v-icon v-if="!filePreview" color="primary">mdi-download</v-icon>
       <input
         ref="fileInput"

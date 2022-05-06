@@ -1,6 +1,7 @@
 query {
   languages {
     data {
+      id
       attributes {
         value
       }

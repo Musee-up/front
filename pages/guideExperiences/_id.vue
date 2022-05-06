@@ -7,32 +7,42 @@
     <!--   v-if="guide" -->
     <!--   :guide="guide" -->
     <!-- ></experience-slot-calendar> -->
-    <!-- <v-btn @click.prevent="createExperience" /> -->
+    <v-row class="mt-4 justify-space-between">
+      <div>
+      <v-btn rounded @click.prevent="addGuideExperience">
+        Ajouter
+      </v-btn>
+      <!-- <base-blue-button></base-blue-button> -->
+      <v-chip> Incomplète </v-chip>
+      </div>
+      <v-btn rounded color="red" class="white--text">
+        Suprimer
+      </v-btn>
+    </v-row>
     <v-row class="justify-center">
       <v-col class="text-left">
         <v-text-field
+          v-model="title"
+          style="font-size:27px"
           :label="
             $t(
               'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)'
             )
           "
         >
-          test 131324
         </v-text-field>
       </v-col>
     </v-row>
 
-    <v-row>
-      <v-container fluid>
-        <experience-creation-slide-group style="height: 100px" />
-      </v-container>
-    </v-row>
+    <div style="height: 500px">
+      <experience-creation-slide-group />
+    </div>
 
     <v-divider class="my-9"></v-divider>
 
     <v-row>
       <v-col cols="8">
-        <experience-creation-attributes />
+        <experience-creation-attributes @update="updateAttribute" />
 
         <v-divider class="my-9"></v-divider>
 
@@ -74,6 +84,7 @@ import singleUserQuery from '@/graphql/queries/user'
 export default {
   data() {
     return {
+      att: [],
       guide: null,
       title: '',
     }
@@ -88,39 +99,60 @@ export default {
     this.guide = user.data.me.guide
   },
   methods: {
-    async createExperience() {
-      if (!this.$strapi.user) return
-
-      await this.$apolloHelpers.onLogin(this.$strapi.getToken())
-
-      const user = await this.$apollo.query({
-        query: singleUserQuery,
-        variables: {
-          id: this.$strapi.user.id,
-        },
-      })
-      const guideExperiences =
-        user.data.me.guide.data.attributes.experiences.data.map((x) => x.id)
-      this.guide = user.data.me.guide
-      const result = await this.$apollo.mutate({
+    updateAttribute(att) {
+      this.att = att
+      delete this.att.people
+    },
+    createExperience() {
+      return this.$apollo.mutate({
         mutation: experienceMutation,
         variables: {
           input: {
+            ...this.att,
             title: this.title,
             duration: '00:03:00.000',
           },
         },
       })
-      guideExperiences.push(result.data.createExperience.data.id)
-      await this.$apollo.mutate({
+    },
+    getUser() {
+      return this.$apollo.query({
+        query: singleUserQuery,
+        variables: {
+          id: this.$strapi.user.id,
+        },
+      })
+    },
+    updateGuideExperiences(id, experiences) {
+      this.$apollo.mutate({
         mutation: guideExperiencesMutation,
         variables: {
-          id: user.data.me.guide.data.id,
+          id,
           input: {
-            experiences: guideExperiences,
+            experiences,
           },
         },
       })
+    },
+    async addGuideExperience() {
+      if (!this.$strapi.user) return
+
+      await this.$apolloHelpers.onLogin(this.$strapi.getToken())
+
+      const user = await this.getUser()
+
+      this.guide = user.data.me.guide
+
+      const result = await this.createExperience()
+
+      const guideExperiences =
+        user.data.me.guide.data.attributes.experiences.data.map((x) => x.id)
+      guideExperiences.push(result.data.createExperience.data.id)
+
+      await this.updateGuideExperiences(
+        user.data.me.guide.data.id,
+        guideExperiences
+      )
     },
   },
 }
