@@ -2,7 +2,7 @@
   <ExperienceList :query="experiencesQuery" />
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import experiencesQuery from '@/graphql/queries/experiences'
 </script>
 

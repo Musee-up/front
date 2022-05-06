@@ -6,12 +6,10 @@
           <experience-list-item
             :id="parseInt(event.id)"
             :experience="event.attributes"
-            >
-
+          >
             <template #link>
-              <nuxt-link
-                :to="`/experiences/1`">
-                <base-blue-button :text="$t('Réserver')"> </base-blue-button>
+              <nuxt-link :to="`/guideexperiences/${parseInt(event.id)}`">
+                <base-blue-button :text="$t('Modifier')"> </base-blue-button>
               </nuxt-link>
             </template>
           </experience-list-item>
@@ -30,7 +28,7 @@ export default {
       experiences: [],
     }
   },
-  async mounted () {
+  async mounted() {
     const user = await this.$apollo.query({
       query: singleUserQuery,
       variables: {
@@ -38,6 +36,6 @@ export default {
       },
     })
     this.experiences = user.data.me.guide.data.attributes.experiences
-  }
+  },
 }
 </script>

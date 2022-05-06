@@ -2,6 +2,7 @@
 #import "../fragments/LanguagePart.gql"
 #import "../fragments/CoreExperiencePart.gql"
 #import "../fragments/PhotoPart.gql"
+#import "../fragments/ExperienceTypePart.gql"
 
 query experience($id: ID!) {
   experience(id: $id) {
@@ -17,6 +18,9 @@ query experience($id: ID!) {
         }
         languages {
           ...LanguagePart
+        }
+        types {
+          ...ExperienceTypePart
         }
       }
     }

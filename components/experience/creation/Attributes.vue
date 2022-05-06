@@ -39,6 +39,7 @@ import themesQuery from '@/graphql/queries/themes'
 import typesQuery from '@/graphql/queries/types'
 
 export default {
+  props:['att'],
   data() {
     return {
       handifriendly: {
@@ -71,6 +72,13 @@ export default {
           label: this.$t("Choisissez le type de l'experience parmi la liste"),
         },
       },
+    }
+  },
+  watch:{
+    att () {
+      Object.entries(this.$props.att)
+        .forEach(([k, v]) =>
+          (this.attributes[k].model = v?.data.map(x => x.id)))
     }
   },
   methods: {

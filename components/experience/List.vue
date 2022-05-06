@@ -6,11 +6,9 @@
           <experience-list-item
             :id="parseInt(event.id)"
             :experience="event.attributes"
-            >
-
+          >
             <template #link>
-              <nuxt-link
-                :to="`/experiences/${parseInt(props.id)}`">
+              <nuxt-link :to="`/experiences/${parseInt(event.id)}`">
                 <base-blue-button :text="$t('Réserver')"> </base-blue-button>
               </nuxt-link>
             </template>
@@ -22,7 +20,6 @@
 </template>
 
 <script>
-
 export default {
   props: ['query'],
   data() {
@@ -30,10 +27,12 @@ export default {
       experiences: [],
     }
   },
-  async mounted () {
-    this.experiences = (await this.$apollo.query({
-      query:this.query
-    })).data.experiences
-  }
+  async mounted() {
+    this.experiences = (
+      await this.$apollo.query({
+        query: this.query,
+      })
+    ).data.experiences
+  },
 }
 </script>

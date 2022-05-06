@@ -10,8 +10,7 @@
           <h2>{{ props.experience.title }}</h2>
         </v-col>
         <v-col class="text-right">
-          <slot name="link">
-          </slot>
+          <slot name="link"> </slot>
         </v-col>
       </v-row>
 

@@ -1,5 +1,6 @@
 fragment LanguagePart on LanguageRelationResponseCollection {
   data {
+    id
     attributes {
       value
     }

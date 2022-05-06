@@ -1,5 +1,6 @@
 fragment PhotoPart on UploadFileRelationResponseCollection {
   data {
+    id
     attributes {
       previewUrl
       url

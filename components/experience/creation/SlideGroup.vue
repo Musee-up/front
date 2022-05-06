@@ -1,9 +1,7 @@
 <template>
-  <v-slide-group
-    show-arrows
-    class="pa-4" style="height: 100%">
+  <v-slide-group show-arrows class="pa-4" style="height: 100%">
     <v-slide-item class="slide-item pa-2">
-      <experience-creation-photo-input class="ma-2"/>
+      <experience-creation-photo-input class="ma-2" />
     </v-slide-item>
     <div class="d-flex flex-column middle-item">
       <v-slide-item class="slide-item-2 ma-2">

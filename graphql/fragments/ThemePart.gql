@@ -1,5 +1,6 @@
 fragment ThemePart on ThemeRelationResponseCollection {
   data {
+    id
     attributes {
       name
     }
