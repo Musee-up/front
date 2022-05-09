@@ -5,6 +5,7 @@
         <v-calendar
           ref="calendar"
           v-model="value"
+          class="rounded-xl"
           color="primary"
           :weekdays="weekdays"
           type="week"
@@ -27,7 +28,7 @@
             ></div>
           </template>
         </v-calendar>
-        <experience-slot-calendar-item
+        <experience-calendar-slot-item
           v-if="selectedEvent && selectedOpen"
           :experiences="getExperiencesTitle()"
           :selected-element="selectedElement"
@@ -35,16 +36,15 @@
           :open="selectedOpen"
           @delete="update"
         >
-        </experience-slot-calendar-item>
+        </experience-calendar-slot-item>
       </v-sheet>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import experienceSlotMutation from '@/graphql/mutations/ExperienceSlot'
-import createGuideExperienceSlot from '@/graphql/mutations/guideExperienceSlot'
-import updateExperienceSlot from '@/graphql/mutations/UpdateExperienceSlot'
+import createSlot from '@/graphql/mutations/createExperienceSlot'
+import updateSlot from '@/graphql/mutations/updateExperienceSlot'
 import guideQuery from '@/graphql/queries/guide'
 
 export default {
@@ -140,8 +140,6 @@ export default {
 
         this.createEvent.start = min
         this.createEvent.end = max
-        // console.log(this.createEvent)
-        this.updateEvent(this.createEvent)
       }
     },
     updateEvents(slots) {
@@ -167,36 +165,21 @@ export default {
         },
       })
     },
-    async linkToGuide(slotId) {
-      const currentSlots = (
-        await this.getGuide()
-      ).data.guide.data.attributes.experience_slots.data.map((x) => x?.id)
-      currentSlots.push(slotId)
-      await this.$apollo.mutate({
-        mutation: createGuideExperienceSlot,
-        variables: {
-          id: this.guide.data.id,
-          input: {
-            experience_slots: currentSlots,
-          },
-        },
-      })
-    },
     async createApiSlot(event) {
       const start = new Date(event.start).toISOString()
       const end = new Date(event.end).toISOString()
 
       const result = await this.$apollo.mutate({
-        mutation: experienceSlotMutation,
+        mutation: createSlot,
         variables: {
           input: {
+            guide: this.guide.data.id.toString(),
             start,
             end,
           },
         },
       })
       const id = result.data.createExperienceSlot.data.id
-      this.linkToGuide(id)
       return id
     },
     async updateEvent(event) {
@@ -205,7 +188,7 @@ export default {
       const start = new Date(event.start).toISOString()
       const end = new Date(event.end).toISOString()
       await this.$apollo.mutate({
-        mutation: updateExperienceSlot,
+        mutation: updateSlot,
         variables: {
           id: event.id.toString(),
           input: {
@@ -234,6 +217,8 @@ export default {
       nativeEvent.stopPropagation()
     },
     endDrag() {
+      if (this.createEvent)
+        this.updateEvent(this.createEvent)
       this.dragTime = null
       this.dragEvent = null
       this.createEvent = null

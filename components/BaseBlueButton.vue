@@ -1,5 +1,5 @@
 <template>
-  <v-btn filled rounded class="ma-2 test">
+  <v-btn filled rounded class="ma-2 btn">
     {{ props.text }}
   </v-btn>
 </template>
@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.test {
+.btn {
   background-color: $_blue !important;
   color: $white !important;
   align-self: center;

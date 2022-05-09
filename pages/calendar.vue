@@ -1,8 +1,12 @@
 <template>
-  <experience-slot-calendar
-    v-if="guide"
-    :guide="guide"
-  ></experience-slot-calendar>
+  <v-container>
+    <experience-calendar-form>
+    </experience-calendar-form>
+    <experience-calendar-slot
+      v-if="guide"
+      :guide="guide"
+      ></experience-calendar-slot>
+  </v-container>
 </template>
 
 <script>

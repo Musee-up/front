@@ -5,19 +5,10 @@
   >
     <v-row class="mt-4 justify-space-between">
       <div>
-        <v-btn
-          rounded
-          @click.prevent="createExperience">
-          Ajouter
-        </v-btn>
+        <v-btn rounded @click.prevent="createExperience"> Ajouter </v-btn>
         <v-chip> Incomplète </v-chip>
       </div>
-      <v-btn
-        rounded
-        color="red"
-        class="white--text">
-        Suprimer
-      </v-btn>
+      <v-btn rounded color="red" class="white--text"> Suprimer </v-btn>
     </v-row>
     <v-row class="justify-center">
       <v-col class="text-left">
@@ -80,8 +71,12 @@
 </template>
 
 <script>
+import singleUserQuery from '@/graphql/queries/user'
+import createExperience from '@/graphql/mutations/createExperience'
+import updateExperience from '@/graphql/mutations/updateExperience'
+
 export default {
-  props: ['experience', 'mutationQuery', 'id'],
+  props: ['experience', 'currentId'],
   data() {
     return {
       model: {
@@ -93,12 +88,16 @@ export default {
     }
   },
   mounted() {
+    this.id = this.currentId
+
+    if (!this.$props.experience)
+      return
     this.model = this.$props.experience.data.attributes
     let { languages, themes, types } = this.model
-    this.model_att = { languages, themes, types }
+    this.model_att = { languages, themes, types };
 
-    ;[languages, themes, types] =
-      Object.values(this.model_att).map((a) =>
+    [languages, themes, types] = Object.values(this.model_att)
+      .map((a) =>
       a?.data.map((x) => x.id)
     )
 
@@ -106,23 +105,41 @@ export default {
     this.att = this.model_att
   },
   methods: {
+    getUser() {
+      return this.$apollo.query({
+        query: singleUserQuery,
+        variables: {
+          id: this.$strapi.user.id,
+        },
+      })
+    },
     updateAttribute(att) {
       this.att = att
       delete this.att.people
     },
-    createExperience() {
-      return this.$apollo.mutate({
-        mutation: this.$props.mutationQuery,
+    getMutationQuery(){
+      return this.id ? updateExperience : createExperience
+    },
+    async createExperience() {
+      const user = await this.getUser()
+      const guide = user.data.me.guide
+
+      const mutation = this.getMutationQuery()
+      const exp = await this.$apollo.mutate({
+        mutation,
         variables: {
           id: this.id,
           input: {
             ...this.att,
+            guide: guide.data.id,
             title: this.model.title,
             description: this.model.description,
             duration: '00:03:00.000',
           },
         },
       })
+      console.log(exp)
+      this.id = exp.data[this.id?'updateExperience':'createExperience'].data.id
     },
   },
 }

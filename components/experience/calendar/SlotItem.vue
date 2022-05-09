@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import deleteSlot from '@/graphql/mutations/DeleteExperienceSlot'
-import updateExperience from '@/graphql/mutations/UpdateExperience'
+import deleteSlot from '@/graphql/mutations/deleteExperienceSlot'
+import updateExperience from '@/graphql/mutations/updateExperience'
 import experienceSlotQuery from '@/graphql/queries/ExperienceSlot'
 
 export default {
@@ -62,7 +62,7 @@ export default {
       },
       update(data) {
         const exp =
-          data.experienceSlot.data.attributes.experience.data.attributes.title
+          data.experienceSlot.data.attributes.experience.data?.attributes.title || 'tmp'
         return exp
       },
     },

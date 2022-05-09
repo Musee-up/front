@@ -1,5 +1,5 @@
-mutation createExperience($input: ExperienceInput!) {
-  createExperience(data: $input) {
+mutation updateExperienceSlot($id: ID!, $input: ExperienceSlotInput!) {
+  updateExperienceSlot(id: $id, data: $input) {
     data {
       id
     }

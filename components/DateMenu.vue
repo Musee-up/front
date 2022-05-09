@@ -4,6 +4,8 @@
     v-model="menu"
     offset-y
     nudge-bottom="10px"
+    nudge-right="60"
+    min-width="0"
     :return-value.sync="date"
     transition="scale-transition"
   >
@@ -34,3 +36,4 @@ const date = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
   .substr(0, 10)
 const menu = false
 </script>
+
