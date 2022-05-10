@@ -1,9 +1,17 @@
-fragment ExperienceSlotPart on ExperienceSlotRelationResponseCollection {
-  data {
-    id
-    attributes {
-      start
-      end
+#import "./CoreExperiencePart.gql"
+
+fragment ExperienceSlotPart on ExperienceSlotEntity {
+  id
+  attributes {
+    start
+    end
+    experience {
+      data {
+        id
+        attributes {
+        ...CoreExperiencePart
+        }
+      }
     }
   }
 }

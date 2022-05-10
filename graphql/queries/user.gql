@@ -1,4 +1,5 @@
 #import "../fragments/CoreExperiencePart.gql"
+#import "../fragments/ExperienceSlotPart.gql"
 
 query {
   me {
@@ -6,6 +7,11 @@ query {
       data {
         id
         attributes {
+          experience_slots {
+            data {
+              ...ExperienceSlotPart
+            }
+          }
           experiences {
             data {
               id

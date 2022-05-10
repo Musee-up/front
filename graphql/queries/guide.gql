@@ -1,4 +1,4 @@
-#import "../fragments/ExperiencePart.gql"
+#import "../fragments/CoreExperiencePart.gql"
 #import "../fragments/ExperienceSlotPart.gql"
 
 query guide($id: ID!) {
@@ -7,10 +7,17 @@ query guide($id: ID!) {
       id
       attributes {
         experience_slots {
-          ...ExperienceSlotPart
+          data {
+            ...ExperienceSlotPart
+          }
         }
         experiences {
-          ...ExperiencePart
+          data {
+            id
+            attributes {
+              ...CoreExperiencePart
+            }
+          }
         }
       }
     }

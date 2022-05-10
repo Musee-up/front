@@ -1,21 +1,8 @@
-fragment ExperiencePart on ExperienceEntityResponse {
-  data {
-    id
-    attributes {
-      title
-    }
-  }
-}
-
+#import "../fragments/ExperienceSlotPart.gql"
 query experienceSlot($id: ID!) {
   experienceSlot(id: $id) {
     data {
-      id
-      attributes {
-        experience {
-          ...ExperiencePart
-        }
-      }
+      ...ExperienceSlotPart
     }
   }
 }

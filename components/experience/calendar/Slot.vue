@@ -30,11 +30,10 @@
         </v-calendar>
         <experience-calendar-slot-item
           v-if="selectedEvent && selectedOpen"
-          :experiences="getExperiencesTitle()"
           :selected-element="selectedElement"
           :selected-event="selectedEvent"
           :open="selectedOpen"
-          @delete="update"
+          @update="update"
         >
         </experience-calendar-slot-item>
       </v-sheet>
@@ -43,33 +42,17 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 import createSlot from '@/graphql/mutations/createExperienceSlot'
 import updateSlot from '@/graphql/mutations/updateExperienceSlot'
-import guideQuery from '@/graphql/queries/guide'
 
 export default {
-  props: ['guide'],
-  apollo: {
-    guideProfile: {
-      query: guideQuery,
-      variables() {
-        return {
-          id: this.guide?.data.id.toString(),
-        }
-      },
-      update(data) {
-        const posts = data?.guide.data.attributes.experience_slots.data
-        this.updateEvents(posts)
-        return data
-      },
-    },
-  },
+  props: [],
   data: () => ({
     value: '',
     default_color: '#673AB7',
     weekdays: [1, 2, 3, 4, 5, 6, 0],
     events: [],
-    guideProfile: null,
     selectedOpen: false,
     selectedEvent: null,
     dragEvent: null,
@@ -78,16 +61,25 @@ export default {
     createStart: null,
     extendOriginal: null,
   }),
+  computed:{
+    ...mapState(['guide']),
+    ...mapGetters({
+      slots: 'guide/getExperiencesSlot'
+    })
+  },
+  watch: {
+    slots() {
+      this.updateEvents(this.slots)
+    }
+  },
+  mounted() {
+      this.updateEvents(this.slots)
+  },
   methods: {
-    getExperiencesTitle() {
-      const experiences =
-        this.guideProfile.guide.data.attributes.experiences.data
-      return experiences
-    },
     update() {
       const index = this.events.indexOf(this.selectedEvent)
       if (index > -1) {
-        this.events.splice(index, 1)
+       this.events.splice(index, 1)
       }
     },
     startDrag({ event, timed }) {
@@ -144,25 +136,19 @@ export default {
     },
     updateEvents(slots) {
       if (!slots) return
+
       this.events = slots.map((f) => {
         const x = f.attributes
         const s = new Date(x.start).getTime()
         const e = new Date(x.end).getTime()
+        const name = x.experience.data?.attributes.title || 'Non défini'
         return {
           id: f.id,
           start: s,
           end: e,
           timed: true,
-          name: 'tmp',
+          name
         }
-      })
-    },
-    async getGuide() {
-      return await this.$apollo.query({
-        query: guideQuery,
-        variables: {
-          id: this.guide.data.id.toString(),
-        },
       })
     },
     async createApiSlot(event) {
@@ -173,7 +159,7 @@ export default {
         mutation: createSlot,
         variables: {
           input: {
-            guide: this.guide.data.id.toString(),
+            guide: this.guide.guide.data.id.toString(),
             start,
             end,
           },
@@ -217,8 +203,7 @@ export default {
       nativeEvent.stopPropagation()
     },
     endDrag() {
-      if (this.createEvent)
-        this.updateEvent(this.createEvent)
+      if (this.createEvent) this.updateEvent(this.createEvent)
       this.dragTime = null
       this.dragEvent = null
       this.createEvent = null

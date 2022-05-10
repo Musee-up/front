@@ -90,14 +90,12 @@ export default {
   mounted() {
     this.id = this.currentId
 
-    if (!this.$props.experience)
-      return
+    if (!this.$props.experience) return
     this.model = this.$props.experience.data.attributes
     let { languages, themes, types } = this.model
-    this.model_att = { languages, themes, types };
+    this.model_att = { languages, themes, types }
 
-    [languages, themes, types] = Object.values(this.model_att)
-      .map((a) =>
+    ;[languages, themes, types] = Object.values(this.model_att).map((a) =>
       a?.data.map((x) => x.id)
     )
 
@@ -117,7 +115,7 @@ export default {
       this.att = att
       delete this.att.people
     },
-    getMutationQuery(){
+    getMutationQuery() {
       return this.id ? updateExperience : createExperience
     },
     async createExperience() {
@@ -139,7 +137,8 @@ export default {
         },
       })
       console.log(exp)
-      this.id = exp.data[this.id?'updateExperience':'createExperience'].data.id
+      this.id =
+        exp.data[this.id ? 'updateExperience' : 'createExperience'].data.id
     },
   },
 }

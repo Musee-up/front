@@ -2,30 +2,23 @@
   <v-container>
     <experience-calendar-form>
     </experience-calendar-form>
-    <experience-calendar-slot
-      v-if="guide"
-      :guide="guide"
-      ></experience-calendar-slot>
+    <experience-calendar-slot v-if="loaded"
+    ></experience-calendar-slot>
   </v-container>
 </template>
 
 <script>
-import singleUserQuery from '@/graphql/queries/user'
 
 export default {
   data() {
     return {
-      guide: null,
+      loaded:false
     }
   },
   async mounted() {
-    const user = await this.$apollo.query({
-      query: singleUserQuery,
-      variables: {
-        id: this.$strapi.user.id,
-      },
-    })
-    this.guide = user.data.me.guide
+    await this.$store.dispatch('guide/load')
+    this.loaded = true
   },
+
 }
 </script>

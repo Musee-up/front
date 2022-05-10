@@ -13,7 +13,6 @@
     <template #activator="{ on, attrs }">
       <v-text-field
         v-model="time"
-        prepend-icon="mdi-clock-time-four-outline"
         style="align-self: center"
         hide-details="auto"
         rounded
@@ -28,19 +27,19 @@
     <v-time-picker
       v-model="time"
       format="24hr"
-      @click:minute="$refs.menu.save(time)">
+      @click:minute="$refs.menu.save(time); $emit('time', time)"
+    >
     </v-time-picker>
   </v-menu>
 </template>
-
 
 <script>
 export default {
   data() {
     return {
       time: null,
-      menu2: false
+      menu2: false,
     }
-  }
+  },
 }
 </script>

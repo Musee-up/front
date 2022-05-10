@@ -4,7 +4,7 @@
     :close-on-content-click="false"
     :activator="selectedElement"
     offset-x
-  >
+    >
     <v-card color="grey lighten-4" min-width="350px" flat>
       <v-toolbar :color="selectedEvent.color" dark>
         <!-- <v-btn icon> -->
@@ -22,7 +22,7 @@
           item-value="id"
           :items="experiences"
           @change="associateExperience"
-        ></v-select>
+          ></v-select>
         <!-- <v-btn icon> -->
         <!--   <v-icon>mdi-dots-vertical</v-icon> -->
         <!-- </v-btn> -->
@@ -40,17 +40,23 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import deleteSlot from '@/graphql/mutations/deleteExperienceSlot'
 import updateExperience from '@/graphql/mutations/updateExperience'
 import experienceSlotQuery from '@/graphql/queries/ExperienceSlot'
 
 export default {
-  props: ['experiences', 'selectedEvent', 'open', 'selectedElement'],
+  props: ['selectedEvent', 'open', 'selectedElement'],
   data() {
     return {
       experienceSlot: null,
       selectedOpen: this.open,
     }
+  },
+  computed:{
+    ...mapGetters({
+      experiences: 'guide/getExperiences'
+    })
   },
   apollo: {
     experienceSlot: {
@@ -62,14 +68,15 @@ export default {
       },
       update(data) {
         const exp =
-          data.experienceSlot.data.attributes.experience.data?.attributes.title || 'tmp'
+          data.experienceSlot.data.attributes.experience.data?.attributes
+          .title || 'tmp'
         return exp
       },
     },
   },
   methods: {
-    async associateExperience(id) {
-      await this.$apollo.mutate({
+     associateExperience(id) {
+      this.$apollo.mutate({
         mutation: updateExperience,
         variables: {
           id: id.toString(),
@@ -87,7 +94,7 @@ export default {
             id: this.selectedEvent.id.toString(),
           },
         })
-        .then(() => this.$emit('delete', this.selectedEvent.id))
+        .then(() => this.$emit('update', this.selectedEvent.id))
     },
   },
 }
