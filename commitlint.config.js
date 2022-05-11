@@ -1,3 +1,5 @@
+const e = ['@commitlint/config-conventional']
+
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
+  extends: e
 }

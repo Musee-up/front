@@ -12,5 +12,9 @@
     <NuxtLink to="/calendar">
       {{ $t('Voir votre calendrier') }}
     </NuxtLink>
+
+    <NuxtLink to="/chat">
+      {{ $t('Voir votre chat') }}
+    </NuxtLink>
   </v-container>
 </template>

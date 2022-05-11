@@ -1,0 +1,4 @@
+<template>
+  <chat>
+  </chat>
+</template>
