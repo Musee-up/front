@@ -61,25 +61,25 @@ export default {
     createStart: null,
     extendOriginal: null,
   }),
-  computed:{
+  computed: {
     ...mapState(['guide']),
     ...mapGetters({
-      slots: 'guide/getExperiencesSlot'
-    })
+      slots: 'guide/getExperiencesSlot',
+    }),
   },
   watch: {
     slots() {
       this.updateEvents(this.slots)
-    }
+    },
   },
   mounted() {
-      this.updateEvents(this.slots)
+    this.updateEvents(this.slots)
   },
   methods: {
     update() {
       const index = this.events.indexOf(this.selectedEvent)
       if (index > -1) {
-       this.events.splice(index, 1)
+        this.events.splice(index, 1)
       }
     },
     startDrag({ event, timed }) {
@@ -147,7 +147,7 @@ export default {
           start: s,
           end: e,
           timed: true,
-          name
+          name,
         }
       })
     },

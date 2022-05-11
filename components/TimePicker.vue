@@ -27,7 +27,10 @@
     <v-time-picker
       v-model="time"
       format="24hr"
-      @click:minute="$refs.menu.save(time); $emit('time', time)"
+      @click:minute="
+        $refs.menu.save(time)
+        $emit('time', time)
+      "
     >
     </v-time-picker>
   </v-menu>

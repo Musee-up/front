@@ -3,6 +3,7 @@ import { defineNuxtConfig } from '@nuxt/bridge'
 const backendUrl = process.env.API_URL || 'http://localhost:1337'
 
 export default defineNuxtConfig({
+  ssr:true,
   alias: {
     tslib: 'tslib/tslib.es6.js',
   },

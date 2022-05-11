@@ -4,7 +4,7 @@
     :close-on-content-click="false"
     :activator="selectedElement"
     offset-x
-    >
+  >
     <v-card color="grey lighten-4" min-width="350px" flat>
       <v-toolbar :color="selectedEvent.color" dark>
         <!-- <v-btn icon> -->
@@ -22,7 +22,7 @@
           item-value="id"
           :items="experiences"
           @change="associateExperience"
-          ></v-select>
+        ></v-select>
         <!-- <v-btn icon> -->
         <!--   <v-icon>mdi-dots-vertical</v-icon> -->
         <!-- </v-btn> -->
@@ -53,10 +53,10 @@ export default {
       selectedOpen: this.open,
     }
   },
-  computed:{
+  computed: {
     ...mapGetters({
-      experiences: 'guide/getExperiences'
-    })
+      experiences: 'guide/getExperiences',
+    }),
   },
   apollo: {
     experienceSlot: {
@@ -69,13 +69,13 @@ export default {
       update(data) {
         const exp =
           data.experienceSlot.data.attributes.experience.data?.attributes
-          .title || 'tmp'
+            .title || 'tmp'
         return exp
       },
     },
   },
   methods: {
-     associateExperience(id) {
+    associateExperience(id) {
       this.$apollo.mutate({
         mutation: updateExperience,
         variables: {

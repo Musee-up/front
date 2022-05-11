@@ -8,9 +8,7 @@
       </template>
 
       <v-card>
-        <v-card-title>
-          Ajout d’un créneau de visite partagée
-        </v-card-title>
+        <v-card-title> Ajout d’un créneau de visite partagée </v-card-title>
         <v-card-text>
           <v-container class="px-4">
             <v-row>
@@ -28,7 +26,9 @@
                 required
                 item-value="id"
                 item-text="attributes.title"
-                :items="experiences"> </v-select>
+                :items="experiences"
+              >
+              </v-select>
             </v-row>
 
             <v-row>
@@ -40,9 +40,7 @@
             </v-row>
 
             <v-row class="ma-2">
-              <date-menu
-                @date="(input) => (date = input)">
-              </date-menu>
+              <date-menu @date="(input) => (date = input)"> </date-menu>
             </v-row>
 
             <v-row>
@@ -54,9 +52,7 @@
             </v-row>
 
             <v-row class="ma-2">
-              <time-picker
-                @time="(input) => (time = input)">
-                ></time-picker>
+              <time-picker @time="(input) => (time = input)"> ></time-picker>
             </v-row>
 
             <v-row>
@@ -66,10 +62,7 @@
         </v-card-text>
 
         <v-card-actions class="justify-center">
-          <v-btn
-            rounded
-            class="white--text blue"
-            @click.prevent="formValide">
+          <v-btn rounded class="white--text blue" @click.prevent="formValide">
             Valider
           </v-btn>
         </v-card-actions>
@@ -94,8 +87,8 @@ export default {
   computed: {
     ...mapState(['guide']),
     ...mapGetters({
-      experiences: 'guide/getExperiences'
-    })
+      experiences: 'guide/getExperiences',
+    }),
   },
   methods: {
     async formValide() {
@@ -103,7 +96,7 @@ export default {
       const end = new Date(rawStart)
       end.setHours(rawStart.getHours() + 1)
 
-       await this.$apollo.mutate({
+      await this.$apollo.mutate({
         mutation: createSlot,
         variables: {
           input: {
@@ -116,8 +109,7 @@ export default {
       })
 
       this.menu = false
-    }
-  }
+    },
+  },
 }
 </script>
-

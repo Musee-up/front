@@ -18,7 +18,9 @@
 
           <v-checkbox
             v-model="handifriendly.model"
-            :label="$t(handifriendly.model ? 'Handifriendly' : 'Pas handifriendly')"
+            :label="
+              $t(handifriendly.model ? 'Handifriendly' : 'Pas handifriendly')
+            "
             :on-icon="handifriendly.icon"
             off-icon="mdi-walk"
             hide-details

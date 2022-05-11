@@ -9,7 +9,7 @@ fragment ExperienceSlotPart on ExperienceSlotEntity {
       data {
         id
         attributes {
-        ...CoreExperiencePart
+          ...CoreExperiencePart
         }
       }
     }

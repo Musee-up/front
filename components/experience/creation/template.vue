@@ -94,7 +94,6 @@ export default {
     this.model = this.$props.experience.data.attributes
     let { languages, themes, types } = this.model
     this.model_att = { languages, themes, types }
-
     ;[languages, themes, types] = Object.values(this.model_att).map((a) =>
       a?.data.map((x) => x.id)
     )
