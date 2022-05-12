@@ -1,22 +1,40 @@
 <template>
   <div>
-    <p> this is a chat</p>
-    <v-btn @click="clickButton"></v-btn>
+    <v-list>
+      <v-list-item v-for="(friend, i) in friends" :key="i">
+        {{ friend.attributes.username}}
+        <nuxt-link :to="`/chat/${parseInt(friend.id)}`">
+          <base-blue-button :text="$t('Chat')">
+          </base-blue-button>
+        </nuxt-link>
+      </v-list-item>
+    </v-list>
   </div>
 </template>
 
 <script>
+import singleUserQuery from '@/graphql/queries/user'
 export default {
-  methods: {
-    clickButton () {
-      this.$mysocket.connect()
-      this.$mysocket.socket.emit('test')
+  data () {
+    return {
+      friends: []
     }
+  },
+  async mounted() {
+
+    try {
+      const user = await this.$apollo.query({
+        query: singleUserQuery,
+        variables: {
+          id: this.$strapi.user.id,
+        },
+      })
+      console.log(user)
+      this.friends = user.data.me.friends.data
+    } catch (e) {
+      console.log(e)
+    }
+
   }
-  // mounted() {
-  //  this.socket = this.$nuxtSocket({
-  //    channel: '/index',
-  //  })
-  // }
 }
 </script>

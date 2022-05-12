@@ -1,4 +1,3 @@
 <template>
-  <chat>
-  </chat>
+  <chat> </chat>
 </template>

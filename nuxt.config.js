@@ -28,10 +28,13 @@ export default defineNuxtConfig({
   extractCSS: true,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/i18n', {
-    src:'@/plugins/socketio',
-    mode:'client'
-  }],
+  plugins: [
+    '@/plugins/i18n',
+    {
+      src: '@/plugins/socketio',
+      mode: 'client',
+    },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -109,6 +112,6 @@ export default defineNuxtConfig({
   },
   target: 'static',
   bridge: {
-     // vite: true,
+    // vite: true,
   },
 })

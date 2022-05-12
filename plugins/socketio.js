@@ -1,38 +1,42 @@
-import { io } from "socket.io-client";
+import { io } from 'socket.io-client'
 
 export default defineNuxtPlugin(() => {
-    const url = 'http://localhost:1337'
-    const socket = io(url, {
-        autoConnect: false
-    });
+  const url = 'http://localhost:1337'
+  const socket = io(url, {
+    autoConnect: false,
+    transports: ['websocket']
+  })
 
-    socket.on("hello", (msg) => {
-        console.log(msg);
-    });
+  socket.on('hello', function(data) {
+    console.log('data', data);
+  });
 
-    socket.on("connect_error", (err) => {
-        console.log(err.message)
-        // if (err.message === "invalid username") {
-        //     conso
-        // }
-    });
-    socket.onAny((event, ...args) => {
-        console.log(event, args);
-    });
-    const connect = () => {
-        socket.auth = { username: "toto" }
-        socket.connect()
-        socket.on("connect", () => {
-            console.log(socket.connected);
-        });
-    }
+  socket.on('connection', function() {
+    console.log("client connected");
+  });
 
-    return {
-        provide: {
-            mysocket: {
-                socket,
-                connect
-            }
-        }
-    }
+  socket.on('connect_error', function(err) {
+    console.log("client connect_error: ", err);
+  });
+
+  socket.on('connect_timeout', function(err) {
+    console.log("client connect_timeout: ", err);
+  });
+
+  socket.onAny((event, ...args) => {
+    console.log(event, args)
+  })
+
+  const connect = () => {
+    socket.connect()
+  }
+
+  return {
+    provide: {
+      mysocket: {
+        socket,
+        connect,
+      },
+    },
+  }
 })

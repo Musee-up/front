@@ -3,10 +3,20 @@
 
 query {
   me {
+    id
+    friends {
+      data {
+        id
+        attributes {
+          username
+        }
+      }
+    }
     guide {
       data {
         id
         attributes {
+
           experience_slots {
             data {
               ...ExperienceSlotPart
