@@ -8,12 +8,14 @@
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon> mdi-account-circle </v-icon>
+          <v-icon class="white--text"> mdi-account-circle </v-icon>
         </v-btn>
       </template>
       <v-list v-if="$strapi.user">
         <v-list-item class="justify-center">
-          <v-btn @click.prevent="logout"> Logout </v-btn>
+          <v-btn text @click.prevent="() => $strapi.logout()"> Logout </v-btn>
+        </v-list-item>
+        <v-list-item>
           <NuxtLink to="/account"> {{ $t('Mon compte') }} </NuxtLink>
         </v-list-item>
       </v-list>

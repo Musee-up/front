@@ -4,11 +4,13 @@
 query {
   me {
     id
+    socketID
     friends {
       data {
         id
         attributes {
           username
+          socketID
         }
       }
     }
@@ -16,7 +18,6 @@ query {
       data {
         id
         attributes {
-
           experience_slots {
             data {
               ...ExperienceSlotPart

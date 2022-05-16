@@ -1,11 +1,10 @@
 <template>
   <div>
+    <h1 style="color:black">{{friends}}</h1>
     <v-list>
       <v-list-item v-for="(friend, i) in friends" :key="i">
-        {{ friend.attributes.username}}
         <nuxt-link :to="`/chat/${parseInt(friend.id)}`">
-          <base-blue-button :text="$t('Chat')">
-          </base-blue-button>
+          <base-blue-button :text="$t('Chat')"> </base-blue-button>
         </nuxt-link>
       </v-list-item>
     </v-list>
@@ -13,28 +12,13 @@
 </template>
 
 <script>
-import singleUserQuery from '@/graphql/queries/user'
+import { mapGetters } from 'vuex'
+
 export default {
-  data () {
-    return {
-      friends: []
-    }
+  computed: {
+    ...mapGetters({
+      friends: 'user/getFriends'
+    })
   },
-  async mounted() {
-
-    try {
-      const user = await this.$apollo.query({
-        query: singleUserQuery,
-        variables: {
-          id: this.$strapi.user.id,
-        },
-      })
-      console.log(user)
-      this.friends = user.data.me.friends.data
-    } catch (e) {
-      console.log(e)
-    }
-
-  }
 }
 </script>

@@ -2,8 +2,8 @@
   <div class="text-center">
     <v-dialog v-model="menu" width="500">
       <template #activator="{ on, attrs }">
-        <v-btn color="blue lighten-2" v-bind="attrs" v-on="on">
-          Click Me
+        <v-btn color="blue lighten-2 white--text" v-bind="attrs" v-on="on">
+          Ajouter une experience
         </v-btn>
       </template>
 
@@ -100,7 +100,7 @@ export default {
         mutation: createSlot,
         variables: {
           input: {
-            guide: this.guide.guide.data.id.toString(),
+            guide: this.guide.guide.id.toString(),
             experience: this.experience,
             start: rawStart.toISOString(),
             end: end.toISOString(),

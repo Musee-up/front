@@ -103,7 +103,11 @@ export default {
           timed: true,
         }
 
+        try {
         this.createEvent.id = await this.createApiSlot(this.createEvent)
+        }catch(e){
+          console.log(e)
+        }
         this.events.push(this.createEvent)
       }
     },
@@ -155,11 +159,12 @@ export default {
       const start = new Date(event.start).toISOString()
       const end = new Date(event.end).toISOString()
 
+      console.log(this.guide)
       const result = await this.$apollo.mutate({
         mutation: createSlot,
         variables: {
           input: {
-            guide: this.guide.guide.data.id.toString(),
+            guide: this.guide.guide.id.toString(),
             start,
             end,
           },

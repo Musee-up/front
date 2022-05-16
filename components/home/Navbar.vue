@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app class="" style="background: black">
+  <v-app-bar app style="background: black">
     <v-row
       cols="8"
       class="d-flex justify-space-between"
@@ -67,8 +67,14 @@ export default class HomeFooter extends Vue {
 
   private account: Array<Object> = [{ link: '#', text: this.$t("M'inscrire?") }]
 
-  private async logout(): void {
-    await this.$strapi.logout()
-  }
 }
 </script>
+
+<style scoped lang="scss">
+
+.v-app-bar * {
+  font-weight: bold;
+  color: $white !important;
+}
+
+</style>

@@ -65,7 +65,8 @@ export default {
           identifier: this.email,
           password: this.password,
         })
-        router.push('/')
+        await this.$apolloHelpers.onLogin(this.$strapi.getToken())
+        this.router.push('/')
       } catch (e) {
         console.log(e)
       }
