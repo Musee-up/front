@@ -91,8 +91,8 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     vueI18n: {
       silentTranslationWarn: true,
-      silentFallbackWarn: true
-    }
+      silentFallbackWarn: true,
+    },
   },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

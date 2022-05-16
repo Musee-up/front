@@ -4,28 +4,29 @@
       <v-container fluid>
         <div
           v-for="(msg, i) in msgs"
-            :key="i" 
-          :class="msg.from === 'me' ? 'pa-4 container_from': 'pa-4 container_to'"
-          rounded>
-          <v-card
-            style="max-width:max-content"
+          :key="i"
+          :class="
+            msg.from === 'me' ? 'pa-4 container_from' : 'pa-4 container_to'
+          "
+          rounded
+        >
+          <v-card style="max-width: max-content">
+            <v-card-text
+              rounded
+              :class="msg.from === 'me' ? 'pa-4 msg_from' : 'pa-4 msg_to'"
             >
-          <v-card-text
-            rounded :class="msg.from === 'me' ? 'pa-4 msg_from' : 'pa-4 msg_to'" >
-            <div>
-            {{ msg.content }}
-            </div>
-          </v-card-text>
-        </v-card>
+              <div>
+                {{ msg.content }}
+              </div>
+            </v-card-text>
+          </v-card>
         </div>
       </v-container>
     </v-row>
 
     <v-row>
       <v-text-field v-model="input"></v-text-field>
-      <v-btn class="blue white--text" rounded @click="sendMsg">
-        Envoyer
-      </v-btn>
+      <v-btn class="blue white--text" rounded @click="sendMsg"> Envoyer </v-btn>
     </v-row>
   </v-container>
 </template>
@@ -40,13 +41,13 @@ export default {
       msgs: [],
     }
   },
-  computed:{
+  computed: {
     ...mapGetters({
-      getFriend: 'user/getFriend'
+      getFriend: 'user/getFriend',
     }),
-    friend () {
+    friend() {
       return this.getFriend(this.$router.id)
-    }
+    },
   },
   mounted() {
     this.$mysocket.connect()
@@ -57,12 +58,12 @@ export default {
   },
   methods: {
     ...mapMutations({
-      setSocketId: 'user/updateSocketID'
+      setSocketId: 'user/updateSocketID',
     }),
     sendMsg() {
       const m = {
         content: this.input,
-        from:'me'
+        from: 'me',
       }
       this.$mysocket.socket.emit('private message', m)
       this.msgs.push(m)
@@ -72,7 +73,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .msg_from {
   color: $white !important;
   background-color: $black;
@@ -82,7 +82,7 @@ export default {
   color: $white !important;
   background-color: $_blue;
 }
- 
+
 .container_to {
   justify-content: right;
 }

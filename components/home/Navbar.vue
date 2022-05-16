@@ -66,15 +66,12 @@ export default class HomeFooter extends Vue {
   ]
 
   private account: Array<Object> = [{ link: '#', text: this.$t("M'inscrire?") }]
-
 }
 </script>
 
 <style scoped lang="scss">
-
 .v-app-bar * {
   font-weight: bold;
   color: $white !important;
 }
-
 </style>

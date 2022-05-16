@@ -24,7 +24,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: mapGetters({
-   experiences: 'guide/getExperiences'
+    experiences: 'guide/getExperiences',
   }),
 }
 </script>

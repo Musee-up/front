@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 style="color:black">{{friends}}</h1>
+    <h1 style="color: black">{{ friends }}</h1>
     <v-list>
       <v-list-item v-for="(friend, i) in friends" :key="i">
         <nuxt-link :to="`/chat/${parseInt(friend.id)}`">
@@ -17,8 +17,8 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      friends: 'user/getFriends'
-    })
+      friends: 'user/getFriends',
+    }),
   },
 }
 </script>

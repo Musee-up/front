@@ -104,8 +104,8 @@ export default {
         }
 
         try {
-        this.createEvent.id = await this.createApiSlot(this.createEvent)
-        }catch(e){
+          this.createEvent.id = await this.createApiSlot(this.createEvent)
+        } catch (e) {
           console.log(e)
         }
         this.events.push(this.createEvent)

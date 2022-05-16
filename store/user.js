@@ -9,17 +9,17 @@ export const actions = {
   load({ commit }) {
     console.log('loading client')
     const client = this.app.apolloProvider.defaultClient
-    return client.query({
-      query: singleUserQuery,
-      variables: {
-        id: this.$strapi.user.id,
-      },
-    }).then(user =>
-      {
-        commit('setMyself', user.data.me);
+    return client
+      .query({
+        query: singleUserQuery,
+        variables: {
+          id: this.$strapi.user.id,
+        },
+      })
+      .then((user) => {
+        commit('setMyself', user.data.me)
         return user.data.me
-      }
-    )
+      })
   },
 }
 
@@ -30,10 +30,10 @@ export const mutations = {
   updateSocketID(state, id) {
     const client = this.app.apolloProvider.defaultClient
     client.mutate({
-      mutation:updateUser,
+      mutation: updateUser,
       variables: {
         id: this.$strapi.user.id,
-        input: {socketID: id}
+        input: { socketID: id },
       },
     })
     state.me.id = id
@@ -45,7 +45,7 @@ export const getters = {
     return state.me.friends.data
   },
   getFriend: (state, id) => {
-    return state.me.friends.data.filter(x => x.id === id)
+    return state.me.friends.data.filter((x) => x.id === id)
   },
   getSocketId: (state) => {
     return state.me.socketID
