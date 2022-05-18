@@ -1,7 +1,5 @@
 <template>
-  <v-sheet
-      :class="msg.from === 'me' ? 'msg--from' : 'msg--to'"
-    rounded>
+  <v-sheet :class="msg.from === 'me' ? 'msg--from' : 'msg--to'" rounded>
     <div>
       {{ msg.content }}
     </div>
@@ -10,12 +8,11 @@
 
 <script>
 export default {
-  props:['msg']
+  props: ['msg'],
 }
 </script>
 
 <style lang="scss" scoped>
-
 .msg {
   @extend .pa-4;
   color: $white !important;
@@ -29,5 +26,4 @@ export default {
     background-color: $_blue;
   }
 }
-
 </style>

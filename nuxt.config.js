@@ -29,6 +29,7 @@ export default defineNuxtConfig({
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/moment',
     '@/plugins/i18n',
     {
       src: '@/plugins/socketio',

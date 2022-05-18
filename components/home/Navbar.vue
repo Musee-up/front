@@ -4,7 +4,7 @@
       fluid
       cols="8"
       class="d-flex justify-space-between header-navbar"
-      >
+    >
       <v-spacer></v-spacer>
 
       <v-col>
@@ -13,7 +13,7 @@
           style="height: 3em"
           :src="require('@/static/logo_musee_up.svg')"
           to="/"
-          >
+        >
         </NuxtLink>
       </v-col>
 
@@ -25,7 +25,7 @@
               elevation="0"
               v-bind="attrs"
               v-on="on"
-              >
+            >
               {{ $t('Trouver une expérience') }}
               <v-icon color="grey"> mdi-chevron-down </v-icon>
             </v-btn>
@@ -75,7 +75,6 @@ export default class HomeFooter extends Vue {
 </script>
 
 <style scoped lang="scss">
-
 .header-navbar {
   align-items: center;
   text-align-last: center;

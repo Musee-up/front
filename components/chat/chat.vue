@@ -5,11 +5,9 @@
         <v-row
           v-for="(msg, i) in msgs"
           :key="i"
-          :class="
-          msg.from === 'me' ? 'container--from' : 'container--to'
-          "
+          :class="msg.from === 'me' ? 'container--from' : 'container--to'"
           rounded
-          >
+        >
           <chat-msg :msg="msg"></chat-msg>
         </v-row>
       </v-container>
@@ -65,7 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .container {
   @extend .ma-2;
 
@@ -77,5 +74,4 @@ export default {
     justify-content: left;
   }
 }
-
 </style>
