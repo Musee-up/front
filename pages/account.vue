@@ -1,49 +1,66 @@
 <template>
-  <v-app-bar class="nav-bar">
-    <v-tabs center center-active class="justify-center">
-      <v-spacer></v-spacer>
-      <v-tab class="ma-4">
-        <NuxtLink to="/guideexperiences">
+  <div>
+    <v-app-bar class="nav-bar">
+      <v-tabs v-model="tab" center center-active class="justify-center">
+
+        <v-spacer></v-spacer>
+        <v-tab v-for="(c, i) in tabs" :key="i"  class="capitalize ma-4">
+          {{c.label}}
+        </v-tab>
+
+        <v-tab class="ma-4">
+          <NuxtLink to="/guideexperiences">
           {{ $t('Publier une annonce') }}
-        </NuxtLink>
-      </v-tab>
+          </NuxtLink>
+        </v-tab>
 
-      <v-tab class="ma-4">
-        {{ $t('Voir vos annonces') }}
-      </v-tab>
+        <v-spacer></v-spacer>
+      </v-tabs>
+    </v-app-bar>
 
-      <v-tab class="ma-4">
-        {{ $t('Votre calendrier') }}
-      </v-tab>
 
-      <v-tab class="ma-4">
-        {{ $t('Messagerie') }}
-      </v-tab>
-      <v-spacer></v-spacer>
+    <v-tabs-items v-model="tab">
 
-      <v-tab-item> </v-tab-item>
-
-      <v-tab-item>
-        <v-container>
-          <guide-experiences> </guide-experiences>
-        </v-container>
+      <v-tab-item
+        v-for="(c, i) in tabs"
+        :key="i"
+        active-class="d-flex justify-center fluid">
+        <component :is="c.component"></component>
       </v-tab-item>
 
-      <v-tab-item>
-        <calendar></calendar>
-      </v-tab-item>
+      <v-tab-item active-class="d-flex justify-center"> </v-tab-item>
+    </v-tabs-items>
 
-      <v-tab-item>
-        <chat> </chat>
-      </v-tab-item>
-    </v-tabs>
-  </v-app-bar>
+  </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
 
 export default {
+  data() {
+    return {
+      tab: null,
+      tabs: [
+        {
+          label: 'Tableau de bord',
+          component: 'account-dashboard'
+        },
+        {
+          label: 'Mes annonces',
+          component: 'guide-experiences'
+        },
+        {
+          label: 'Mon agenda',
+          component: 'calendar'
+        },
+        {
+          label: 'Mes messages',
+          component: 'chat-friends'
+        },
+      ]
+    }
+  },
   mounted() {
     this.load()
   },
@@ -52,6 +69,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.label {
+  text-transform: capitalize;
+}
+
 .v-app-bar * {
   font-weight: bold;
   color: $white !important;
@@ -61,4 +83,6 @@ export default {
   background: $_blue !important;
   background-color: $_blue !important;
 }
+
 </style>
+

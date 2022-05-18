@@ -17,9 +17,9 @@ export const mutations = {
 
 export const getters = {
   getExperiences: (state) => {
-    return state.guide.attributes.experiences.data
+    return state.guide.attributes?.experiences.data
   },
   getExperiencesSlot: (state) => {
-    return state.guide.attributes.experience_slots.data
+    return state.guide.attributes?.experience_slots.data
   },
 }

@@ -1,17 +1,19 @@
 <template>
   <v-app-bar app style="background: black">
-    <v-row
+    <v-container
+      fluid
       cols="8"
-      class="d-flex justify-space-between"
-      style="align-items: center"
-    >
+      class="d-flex justify-space-between header-navbar"
+      >
+      <v-spacer></v-spacer>
+
       <v-col>
         <NuxtLink
           tag="img"
           style="height: 3em"
           :src="require('@/static/logo_musee_up.svg')"
           to="/"
-        >
+          >
         </NuxtLink>
       </v-col>
 
@@ -23,7 +25,7 @@
               elevation="0"
               v-bind="attrs"
               v-on="on"
-            >
+              >
               {{ $t('Trouver une expérience') }}
               <v-icon color="grey"> mdi-chevron-down </v-icon>
             </v-btn>
@@ -39,8 +41,11 @@
       <v-col v-for="link in links" :key="link.title">
         <NuxtLink :to="link.link"> {{ link.title }}</NuxtLink>
       </v-col>
-    </v-row>
-    <home-login-dropdown></home-login-dropdown>
+
+      <home-login-dropdown></home-login-dropdown>
+
+      <v-spacer></v-spacer>
+    </v-container>
   </v-app-bar>
 </template>
 
@@ -70,6 +75,12 @@ export default class HomeFooter extends Vue {
 </script>
 
 <style scoped lang="scss">
+
+.header-navbar {
+  align-items: center;
+  text-align-last: center;
+}
+
 .v-app-bar * {
   font-weight: bold;
   color: $white !important;
