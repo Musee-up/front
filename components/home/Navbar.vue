@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app style="background: black">
+  <v-app-bar app style="background: white">
     <v-container
       fluid
       cols="8"
@@ -65,7 +65,7 @@ export default class HomeFooter extends Vue {
       link: '/experienceslist',
       title: this.$t('Votre expérience sur mesure'),
     },
-    { link: '#', title: this.$t('Nos guides') },
+    { link: '/guides', title: this.$t('Nos guides') },
     { link: '#', title: this.$t('Notre Application') },
     { link: '#', title: this.$t('Blog') },
   ]
@@ -82,6 +82,6 @@ export default class HomeFooter extends Vue {
 
 .v-app-bar * {
   font-weight: bold;
-  color: $white !important;
+  color: $_blue !important;
 }
 </style>

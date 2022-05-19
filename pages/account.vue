@@ -55,6 +55,10 @@ export default {
           label: 'Mes messages',
           component: 'chat-friends',
         },
+      {
+          label: 'Mon Compte',
+          component: 'account',
+        },
       ],
     }
   },

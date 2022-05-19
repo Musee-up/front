@@ -9,7 +9,7 @@
       <v-col> </v-col>
 
       <v-col cols="9">
-        <v-row class="">
+        <v-row>
           <account-dashboard-profile> </account-dashboard-profile>
         </v-row>
 
@@ -38,6 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 .right {
-  width:100% !important;
+  width: 100% !important;
 }
 </style>

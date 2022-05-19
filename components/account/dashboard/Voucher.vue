@@ -14,8 +14,7 @@
     <v-divider></v-divider>
 
     <v-card-text class="pb-3">
-      <v-list
-        v-for="(voucher, i) in vouchers" :key="i">
+      <v-list v-for="(voucher, i) in vouchers" :key="i">
         <v-list-item>
           <account-dashboard-voucher-item :voucher="voucher">
           </account-dashboard-voucher-item>
