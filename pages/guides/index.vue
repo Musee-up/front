@@ -1,10 +1,8 @@
 <template>
   <v-container class="justify-center">
-
     <guide-title class="my-2"> </guide-title>
 
     <guide-filters :filters="filters"></guide-filters>
-
 
     <v-row align="center" justify="center">
       <v-col v-for="(_, i) in iter" :key="i" cols="4">

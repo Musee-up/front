@@ -9,16 +9,14 @@
 
 <script>
 export default {
-  props:['guide']
+  props: ['guide'],
 }
 </script>
 
 <style lang="scss" scoped>
-
 .rating-container {
   > * {
     @extend .mx-1;
   }
 }
-
 </style>

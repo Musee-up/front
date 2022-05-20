@@ -8,14 +8,11 @@
         </div>
 
         <v-list class="list">
-          <v-list-item
-            v-for="(text, i) in item.list"
-            :key="i">
+          <v-list-item v-for="(text, i) in item.list" :key="i">
             <v-list-item-title class="list-item">
-              <p> {{text}} </p>
+              <p>{{ text }}</p>
             </v-list-item-title>
           </v-list-item>
-
         </v-list>
 
         <v-divider v-if="i != first.length - 1" class="ma-4"></v-divider>
@@ -33,24 +30,23 @@ export default {
         {
           label: 'Formation et expérience',
           list: this.guide.workExperience,
-          icon: 'mdi-school'
+          icon: 'mdi-school',
         },
         {
           label: 'SES SPÉCIALITÉS',
           list: this.guide.specialties,
-          icon: 'mdi-pillar'
+          icon: 'mdi-pillar',
         },
         {
           label: 'SES LANGUES',
           list: this.guide.languages,
-          icon: 'mdi-earth'
-        },       
+          icon: 'mdi-earth',
+        },
         {
           label: 'CE QU’ELLE AIME',
           list: this.guide.interests,
-          icon: 'mdi-cards-heart-outline'
+          icon: 'mdi-cards-heart-outline',
         },
-
       ],
     }
   },

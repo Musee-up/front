@@ -9,7 +9,6 @@
       </v-btn>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -18,9 +17,7 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
-
 .wrapper {
   width: max-content;
   position: relative;
@@ -29,11 +26,10 @@ export default {
 .overlay {
   > * {
     @extend .mx-1;
-    color:$white;
+    color: $white;
   }
   left: 20px;
   bottom: 25px;
   position: absolute;
 }
-
 </style>

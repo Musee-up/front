@@ -6,6 +6,7 @@
           <component :is="item" class="right"></component>
         </v-row>
       </v-col>
+
       <v-col> </v-col>
 
       <v-col cols="9">

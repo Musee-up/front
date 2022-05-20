@@ -9,7 +9,6 @@
     <v-card-text class="d-flex flex-column justify-center">
       <h3 class="name">{{ guide.name }}</h3>
       <guide-rating :guide="guide"></guide-rating>
-
     </v-card-text>
   </v-card>
 </template>
@@ -17,19 +16,16 @@
 <script>
 export default {
   props: ['guide'],
-  data () {
+  data() {
     return {
-      id: "1"
+      id: '1',
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 $name: #63686e;
-
-
-
 
 .likeIcon {
   color: $white;

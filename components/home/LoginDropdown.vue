@@ -7,7 +7,7 @@
           elevation="0"
           v-bind="attrs"
           v-on="on"
-          >
+        >
           <v-icon color="blue"> mdi-account-circle </v-icon>
         </v-btn>
       </template>
