@@ -10,6 +10,7 @@
       <v-col>
         <NuxtLink
           tag="img"
+          color="blue"
           style="height: 3em"
           :src="require('@/static/logo_musee_up.svg')"
           to="/"

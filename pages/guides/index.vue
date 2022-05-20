@@ -1,23 +1,16 @@
 <template>
-  <v-container class=" justify-center">
+  <v-container class="justify-center">
 
-    <guide-title>
-    </guide-title>
+    <guide-title class="my-2"> </guide-title>
 
-    <v-row class="filter">
-      <v-chip-group>
-        <v-chip v-for="(filter, i) in filters" :key="i">
-          {{filter}}
-        </v-chip>
-      </v-chip-group>
-    </v-row>
+    <guide-filters :filters="filters"></guide-filters>
+
 
     <v-row align="center" justify="center">
       <v-col v-for="(_, i) in iter" :key="i" cols="4">
         <guide-list-item :guide="guide" class="guide"> </guide-list-item>
       </v-col>
     </v-row>
-
   </v-container>
 </template>
 
@@ -33,16 +26,15 @@ export default {
         'Langues',
         'Horaires',
       ],
-      iter: Array(3).keys(),
+      iter: Array(15).keys(),
       guide: {
         name: 'Héloise Doiteau',
         photo: '/portrait.png',
         rating: '4.8',
         ratingNbr: '435',
-        location: 'Île-de-France'
+        location: 'Île-de-France',
       },
     }
   },
 }
 </script>
-

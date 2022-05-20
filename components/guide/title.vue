@@ -6,10 +6,8 @@
 
 <style lang="scss" scoped>
 .title {
-  background: white;
-  background-color: $white;
+  background-color: $white !important;
   color: $_blue;
-  font-size: 47px;
+  font-size: 47px !important;
 }
-
 </style>
