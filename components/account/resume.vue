@@ -3,9 +3,7 @@
     <v-card-text class="pa-4">
       <div v-for="(item, i) in first" :key="i">
         <v-row class="justify-space-between d-flex">
-          <v-col
-            cols="3"
-            class="ma-0 mx-2 label">{{ $t(item.label) }}</v-col>
+          <v-col cols="3" class="ma-0 mx-2 label">{{ $t(item.label) }}</v-col>
           <v-col>
             <v-divider vertical />
           </v-col>
@@ -15,7 +13,6 @@
       </div>
     </v-card-text>
   </v-card>
-
 </template>
 
 <script>
@@ -57,4 +54,3 @@ export default {
   },
 }
 </script>
-
