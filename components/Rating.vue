@@ -1,5 +1,5 @@
 <template v-if="rating">
-  <div class="rating-container d-flex justify-center text-center">
+  <div class="rating-container d-flex">
     <v-icon class="star">mdi-star</v-icon>
     <p class="rating my-auto">
       {{ rating.value }}/5 ({{ rating.length }} avis)

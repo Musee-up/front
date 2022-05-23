@@ -1,14 +1,14 @@
 <template v-if="guide">
   <v-card elevation="0" class="mx-auto rounded-xl justify-center text-center">
     <nuxt-link :to="`guides/${id}`" class="guideProfileLink">
-      <guide-profile-photo :guide="guide">
+      <like-overview :photo="guide.photo">
         <guide-location :guide="guide"></guide-location>
-      </guide-profile-photo>
+      </like-overview>
     </nuxt-link>
 
     <v-card-text class="d-flex flex-column justify-center">
       <h3 class="name">{{ guide.name }}</h3>
-      <guide-rating :guide="guide"></guide-rating>
+      <rating :rating="guide.rating"></rating>
     </v-card-text>
   </v-card>
 </template>

@@ -5,7 +5,7 @@
     </v-row>
 
     <v-row>
-      <p class="description">{{ guide.description }}</p>
+      <p >{{ guide.description }}</p>
     </v-row>
   </div>
 </template>
