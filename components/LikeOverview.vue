@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper mx-auto">
-    <nuxt-img :width="width" :height="height" class="profile" :src="photo"> </nuxt-img>
+    <nuxt-img :width="width" :height="height" class="profile" :src="photo">
+    </nuxt-img>
 
     <div class="overlay">
       <slot></slot>

@@ -2,7 +2,6 @@
   <v-container class="guideProfileContainer">
     <v-row>
       <v-col cols="2" class="detail">
-
         <v-row class="photo">
           <like-overview :photo="guide.photo"> </like-overview>
         </v-row>
@@ -14,7 +13,6 @@
         <v-row class="my-4">
           <guide-profile-skills :guide="guide"> </guide-profile-skills>
         </v-row>
-
       </v-col>
 
       <v-col> </v-col>
@@ -46,8 +44,7 @@
         </v-row>
 
         <v-row>
-          <guide-profile-background :guide="guide">
-          </guide-profile-background>
+          <guide-profile-background :guide="guide"> </guide-profile-background>
         </v-row>
 
         <v-row>
@@ -60,29 +57,26 @@
       </v-col>
 
       <v-col cols="1" class="actions">
-        <base-blue-button text="test">
-        </base-blue-button>
+        <base-blue-button text="test"> </base-blue-button>
       </v-col>
-
     </v-row>
 
     <v-row justify="center">
       <!-- ========================== -->
       <v-col cols="10">
-
-
         <v-row class="ma-4">
           <v-divider></v-divider>
         </v-row>
 
         <v-row>
           <v-row justify="center" class="my-2 text-center">
-            <h2>Les expériences de <span class="blue--text">{{ guide.firstname }}</span></h2>
+            <h2>
+              Les expériences de
+              <span class="blue--text">{{ guide.firstname }}</span>
+            </h2>
           </v-row>
-          <experience-horizontal-list>
-          </experience-horizontal-list>
+          <experience-horizontal-list> </experience-horizontal-list>
         </v-row>
-
       </v-col>
     </v-row>
   </v-container>

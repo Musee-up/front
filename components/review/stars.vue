@@ -1,11 +1,6 @@
 <template>
   <div>
-    <v-icon
-      v-for="i in ratingArray"
-      :key="i"
-      color="blue"
-      small
-      >
+    <v-icon v-for="i in ratingArray" :key="i" color="blue" small>
       mdi-star
     </v-icon>
   </div>
@@ -14,10 +9,10 @@
 <script>
 export default {
   props: ['rating'],
-  data () {
+  data() {
     return {
-      ratingArray: [...Array(this.rating).keys()]
+      ratingArray: [...Array(this.rating).keys()],
     }
-  }
+  },
 }
 </script>
