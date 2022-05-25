@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <experience-filter-list></experience-filter-list>
     <experience-list :query="query" :variables="variables" />
   </div>
@@ -15,10 +14,10 @@ export default {
     return {
       query: this.$route.query ? experiencesQuery : experiencesWithFilterQuery,
       variables: {
-        guideID: this.$route.query.guideID
-      }
+        guideID: this.$route.query.guideID,
+      },
     }
-  }
+  },
 }
 </script>
 
@@ -28,4 +27,3 @@ export default {
   background-size: cover;
 }
 </style>
-

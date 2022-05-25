@@ -1,8 +1,7 @@
 <template>
-  <v-container  class="ma-8">
+  <v-container class="ma-8">
     <v-row>
       <v-col cols="3">
-
         <v-row>
           <h2>Amis</h2>
         </v-row>
@@ -11,12 +10,7 @@
           <v-divider></v-divider>
         </v-row>
 
-        <v-row
-          v-for="(friend, i) in friends"
-          :key="i"
-          class="username"
-          >
-
+        <v-row v-for="(friend, i) in friends" :key="i" class="username">
           <v-col>
             <v-row>
               <v-col>
@@ -32,19 +26,21 @@
               </v-col>
 
               <v-col class="justify-center align-self-center">
-                <v-btn rounded outlined class="primary white--text" @click="id = friend.id">
+                <v-btn
+                  rounded
+                  outlined
+                  class="primary white--text"
+                  @click="id = friend.id"
+                >
                   chat
                 </v-btn>
               </v-col>
             </v-row>
 
-
             <v-row class="my-4">
               <v-divider></v-divider>
             </v-row>
-
           </v-col>
-
         </v-row>
         <v-row class="justify-self-center justify-center">
           <base-blue-button class="addFriend">
@@ -79,7 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 .addFriend {
-  width:50%;
+  width: 50%;
 }
 
 .username {

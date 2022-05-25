@@ -3,14 +3,8 @@
 #import "../fragments/CoreExperiencePart.gql"
 #import "../fragments/ExperienceTypePart.gql"
 
-query filterExperiences($guideID: ID!){
-  experiences (filters: {
-    guide: {
-      id: {
-        eq: $guideID
-      }
-    }
-  }){
+query filterExperiences($guideID: ID!) {
+  experiences(filters: { guide: { id: { eq: $guideID } } }) {
     data {
       id
       attributes {

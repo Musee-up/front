@@ -68,22 +68,21 @@ export default {
   },
   methods: {
     findExp(id) {
-      return this.experiences.find(x => x.id === id)
+      return this.experiences.find((x) => x.id === id)
     },
     associateExperience(id) {
-      this.$apollo.mutate({
-        mutation: updateExperience,
-        variables: {
-          id: id.toString(),
-          input: {
-            experience_slots: [this.selectedEvent.id],
+      this.$apollo
+        .mutate({
+          mutation: updateExperience,
+          variables: {
+            id: id.toString(),
+            input: {
+              experience_slots: [this.selectedEvent.id],
+            },
           },
-        },
-      })
-        .then(() => this.$emit('update',
-           this.findExp(id).attributes
-        ))
-      .catch(console.error)
+        })
+        .then(() => this.$emit('update', this.findExp(id).attributes))
+        .catch(console.error)
     },
     deleteSlot() {
       this.$apollo

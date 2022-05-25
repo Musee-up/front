@@ -1,9 +1,9 @@
-<template >
+<template>
   <v-slide-group show-arrows multiple>
     <v-slide-item>
       <v-img
         class="ma-2 rounded-xl photo"
-            :width="width"
+        :width="width"
         :src="'http://localhost:1337' + props.photos.data[0].attributes.url"
       />
     </v-slide-item>
@@ -39,7 +39,6 @@
         :src="'http://localhost:1337' + props.photos.data[3].attributes.url"
       />
     </v-slide-item>
-
   </v-slide-group>
 </template>
 
@@ -50,6 +49,5 @@ const props = defineProps({
     default: null,
   },
 })
-const width = 371;
+const width = 371
 </script>
-

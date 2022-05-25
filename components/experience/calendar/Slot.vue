@@ -109,8 +109,7 @@ export default {
           timed: true,
         }
 
-        if (!this.createEvent)
-          return ;
+        if (!this.createEvent) return
         try {
           this.createEvent.id = await this.createApiSlot(this.createEvent)
           this.events.push(this.createEvent)

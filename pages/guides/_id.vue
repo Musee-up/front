@@ -17,7 +17,11 @@
 
       <v-col cols="8" class="summary">
         <v-row class="location">
-          <guide-location color="description" :guide="guide" class="location-value">
+          <guide-location
+            color="description"
+            :guide="guide"
+            class="location-value"
+          >
           </guide-location>
         </v-row>
 
@@ -44,8 +48,7 @@
         </v-row>
 
         <v-row class="my-4">
-          <guide-profile-background :guide="guide">
-          </guide-profile-background>
+          <guide-profile-background :guide="guide"> </guide-profile-background>
         </v-row>
 
         <v-row class="my-4">
@@ -59,7 +62,7 @@
 
       <v-col cols="1" class="actions">
         <v-row class="justify-center">
-          <nuxt-link :to='`/experiences?guideID=${guide.id}`'>
+          <nuxt-link :to="`/experiences?guideID=${guide.id}`">
             <base-blue-button>Réserver</base-blue-button>
           </nuxt-link>
         </v-row>
@@ -155,5 +158,4 @@ Je suis passionnée par l’histoire de l’art, la littérature française du X
 .actions > * > * {
   width: 100% !important;
 }
-
 </style>

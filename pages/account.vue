@@ -3,7 +3,11 @@
     <v-app-bar class="nav-bar">
       <v-tabs v-model="tab" center center-active class="justify-center">
         <v-spacer></v-spacer>
-        <v-tab v-for="(c, i) in tabs" :key="i" class="label ma-8 font-weight-regular">
+        <v-tab
+          v-for="(c, i) in tabs"
+          :key="i"
+          class="label ma-8 font-weight-regular"
+        >
           {{ c.label }}
         </v-tab>
 
@@ -70,7 +74,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .label {
   @extend .font-weight-regular;
   text-transform: capitalize;
