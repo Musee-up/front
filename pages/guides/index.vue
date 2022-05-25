@@ -28,8 +28,7 @@ export default {
       guide: {
         name: 'Héloise Doiteau',
         photo: '/paula.png',
-        rating: 
-        {
+        rating: {
           value: 4.8,
           length: 435,
         },

@@ -3,18 +3,15 @@
     <v-row class="my-8">
       <v-col cols="2" class="detail mx-12">
         <v-row class="photo">
-          <like-overview :photo="guide.photo">
-          </like-overview>
+          <like-overview :photo="guide.photo"> </like-overview>
         </v-row>
 
         <v-row class="my-4">
-          <account-dashboard-summary>
-          </account-dashboard-summary>
+          <account-dashboard-summary> </account-dashboard-summary>
         </v-row>
 
         <v-row class="my-4">
-          <guide-profile-skills :guide="guide">
-          </guide-profile-skills>
+          <guide-profile-skills :guide="guide"> </guide-profile-skills>
         </v-row>
       </v-col>
 
@@ -47,8 +44,7 @@
         </v-row>
 
         <v-row>
-          <guide-profile-background :guide="guide">
-          </guide-profile-background>
+          <guide-profile-background :guide="guide"> </guide-profile-background>
         </v-row>
 
         <v-row>
@@ -86,8 +82,7 @@
               </span>
             </h2>
           </v-row>
-          <experience-horizontal-list>
-          </experience-horizontal-list>
+          <experience-horizontal-list> </experience-horizontal-list>
         </v-row>
       </v-col>
     </v-row>
@@ -147,7 +142,5 @@ Je suis passionnée par l’histoire de l’art, la littérature française du X
 <style lang="css" scoped>
 .detail > * > * {
   width: 100% !important;
-
-
 }
 </style>

@@ -27,7 +27,6 @@ export default {
 <style lang="scss" scoped>
 $name: #63686e;
 
-
 .image {
   height: 100%;
 }

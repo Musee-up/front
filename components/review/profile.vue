@@ -9,7 +9,7 @@
 
       <v-col>
         <v-row>
-          <h4> {{ review.user.name }} </h4>
+          <h4>{{ review.user.name }}</h4>
         </v-row>
 
         <v-row>
@@ -17,7 +17,9 @@
         </v-row>
 
         <v-row>
-          <p><small>{{ review.date }} - {{ review.experienceTitle }}</small></p>
+          <p>
+            <small>{{ review.date }} - {{ review.experienceTitle }}</small>
+          </p>
         </v-row>
       </v-col>
     </v-row>

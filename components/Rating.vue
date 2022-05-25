@@ -1,7 +1,7 @@
 <template v-if="rating">
   <div class="rating-container d-flex">
     <v-icon :color="color" class="star">mdi-star</v-icon>
-    <p :class="'rating my-auto ' + (color ? (color + '--text') : '')">
+    <p :class="'rating my-auto ' + (color ? color + '--text' : '')">
       {{ rating.value }}/5 ({{ rating.length }} avis)
     </p>
   </div>
