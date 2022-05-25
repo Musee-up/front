@@ -1,12 +1,12 @@
 <template v-if="guide">
-  <div>
+  <v-container class="pa-0">
     <h2>{{ title }}</h2>
     <v-list>
       <v-list-item v-for="(item, i) in guide.background" :key="i">
-        {{ item }}
+        <p> {{ item }} </p>
       </v-list-item>
     </v-list>
-  </div>
+  </v-container>
 </template>
 
 <script>

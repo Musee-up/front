@@ -10,7 +10,7 @@
         <v-list class="list">
           <v-list-item v-for="(text, i) in item.list" :key="i">
             <v-list-item-title class="list-item">
-              <p>{{ text }}</p>
+              <p class="skill-item">{{ text }}</p>
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -56,5 +56,9 @@ export default {
 <style lang="css" scoped>
 .v-list-item {
   min-height: 32px;
+}
+
+.skill-item {
+  white-space: normal;
 }
 </style>

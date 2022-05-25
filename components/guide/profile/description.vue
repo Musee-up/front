@@ -1,13 +1,13 @@
 <template v-if="guide">
-  <div>
+  <v-container class="pa-0">
     <v-row>
-      <h2 class="headline">{{ guide.headline }}</h2>
+      <h2>{{ guide.headline }}</h2>
     </v-row>
 
-    <v-row>
+    <v-row class="pa-4">
       <p>{{ guide.description }}</p>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>

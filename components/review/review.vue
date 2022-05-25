@@ -4,7 +4,7 @@
       <h2>Avis</h2>
     </v-row>
 
-    <v-row>
+    <v-row class="px-4">
       <v-container v-for="(_, i) in reviews" :key="i">
         <v-row>
           <review-profile :review="review"> </review-profile>
@@ -27,7 +27,7 @@
     </v-row>
 
     <v-row class="justify-center">
-      <v-btn color="blue" rounded outlined> Afficher plus d'avis </v-btn>
+      <v-btn color="primary" rounded outlined> Afficher plus d'avis </v-btn>
     </v-row>
   </v-container>
 </template>

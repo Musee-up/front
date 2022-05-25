@@ -19,6 +19,10 @@ a {
   text-decoration: none;
 }
 
+p {
+	color: #63686E !important;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -26,11 +30,6 @@ ul {
   justify-content: center;
   flex-wrap: wrap;
 }
-
-// li {
-//   margin: 0 0.5rem;
-//   padding: 0.25rem;
-// }
 
 nav {
   padding: 0 1rem;

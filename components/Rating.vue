@@ -1,7 +1,7 @@
 <template v-if="rating">
   <div class="rating-container d-flex">
-    <v-icon class="star">mdi-star</v-icon>
-    <p class="rating my-auto">
+    <v-icon :color="color" class="star">mdi-star</v-icon>
+    <p :class="'rating my-auto ' + (color ? (color + '--text') : '')">
       {{ rating.value }}/5 ({{ rating.length }} avis)
     </p>
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ['rating'],
+  props: ['rating', 'color'],
 }
 </script>
 

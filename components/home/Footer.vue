@@ -49,7 +49,9 @@
                   class="description--text"
                   label="Écrivez votre mail ici..."
                 ></v-text-field>
-                <base-blue-button :text="$t('S\'abonner')" />
+                <base-blue-button>
+                  {{ $t('S\'abonner') }}
+                </base-blue-button>
               </v-flex>
             </v-list-item>
           </v-list>
@@ -98,3 +100,17 @@ export default class HomeFooter extends Vue {
   ]
 }
 </script>
+
+<style lang="scss" scoped>
+
+.v-footer {
+  background-color: $white !important;
+}
+
+.v-footer * {
+  font-weight: bold;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+</style>

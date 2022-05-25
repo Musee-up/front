@@ -7,6 +7,6 @@
 
 <script>
 export default {
-  props: ['guide'],
+  props: ['guide', 'color'],
 }
 </script>

@@ -8,7 +8,7 @@
 
     <v-card-text class="d-flex flex-column justify-center">
       <h3 class="name">{{ guide.name }}</h3>
-      <rating :rating="guide.rating"></rating>
+      <rating class="justify-center" :rating="guide.rating"></rating>
     </v-card-text>
   </v-card>
 </template>
@@ -27,9 +27,6 @@ export default {
 <style lang="scss" scoped>
 $name: #63686e;
 
-.likeIcon {
-  color: $white;
-}
 
 .image {
   height: 100%;

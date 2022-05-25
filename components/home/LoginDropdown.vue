@@ -8,7 +8,7 @@
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon color="blue"> mdi-account-circle </v-icon>
+          <v-icon color="primary"> mdi-account-circle </v-icon>
         </v-btn>
       </template>
       <v-list v-if="$strapi.user">

@@ -1,21 +1,22 @@
 <template>
-  <v-container class="guideProfileContainer">
-    <v-row>
-      <v-col cols="2" class="detail">
+  <v-container class="justify-center">
+    <v-row class="my-8">
+      <v-col cols="2" class="detail mx-12">
         <v-row class="photo">
-          <like-overview :photo="guide.photo"> </like-overview>
+          <like-overview :photo="guide.photo">
+          </like-overview>
         </v-row>
 
         <v-row class="my-4">
-          <account-dashboard-summary></account-dashboard-summary>
+          <account-dashboard-summary>
+          </account-dashboard-summary>
         </v-row>
 
         <v-row class="my-4">
-          <guide-profile-skills :guide="guide"> </guide-profile-skills>
+          <guide-profile-skills :guide="guide">
+          </guide-profile-skills>
         </v-row>
       </v-col>
-
-      <v-col> </v-col>
 
       <v-col cols="8" class="summary">
         <v-row class="location">
@@ -24,45 +25,53 @@
         </v-row>
 
         <v-row>
-          <h1 class="name black--text">
+          <h1 class="name primary--text">
             {{ guide.firstname }} {{ guide.lastname }}
           </h1>
         </v-row>
 
         <v-row>
-          <h2 class="guideType black--text">{{ guide.userType }}</h2>
-          <rating :rating="guide.rating"></rating>
+          <h3 class="guideType primary--text">
+            {{ guide.userType }}
+          </h3>
+          <rating color="primary" :rating="guide.rating"></rating>
         </v-row>
 
-        <v-row>
-          <guide-profile-description :guide="guide" class="my-4">
+        <v-row class="my-4">
+          <guide-profile-description :guide="guide">
           </guide-profile-description>
         </v-row>
 
-        <v-row>
-          <v-divider class="ma-4"></v-divider>
+        <v-row class="my-4">
+          <v-divider></v-divider>
         </v-row>
 
         <v-row>
-          <guide-profile-background :guide="guide"> </guide-profile-background>
+          <guide-profile-background :guide="guide">
+          </guide-profile-background>
         </v-row>
 
         <v-row>
           <v-divider></v-divider>
         </v-row>
 
-        <v-row class="ma-4">
+        <v-row class="my-4">
           <review></review>
         </v-row>
       </v-col>
 
       <v-col cols="1" class="actions">
-        <base-blue-button text="test"> </base-blue-button>
+        <v-row class="justify-center">
+          <base-blue-button>Réserver </base-blue-button>
+        </v-row>
+        <v-row>
+          <base-blue-button> Créer avec elle</base-blue-button>
+        </v-row>
       </v-col>
     </v-row>
 
+    <!-- ========================== -->
     <v-row justify="center">
-      <!-- ========================== -->
       <v-col cols="10">
         <v-row class="ma-4">
           <v-divider></v-divider>
@@ -72,10 +81,13 @@
           <v-row justify="center" class="my-2 text-center">
             <h2>
               Les expériences de
-              <span class="blue--text">{{ guide.firstname }}</span>
+              <span class="primary--text">
+                {{ guide.firstname }}
+              </span>
             </h2>
           </v-row>
-          <experience-horizontal-list> </experience-horizontal-list>
+          <experience-horizontal-list>
+          </experience-horizontal-list>
         </v-row>
       </v-col>
     </v-row>
@@ -135,5 +147,7 @@ Je suis passionnée par l’histoire de l’art, la littérature française du X
 <style lang="css" scoped>
 .detail > * > * {
   width: 100% !important;
+
+
 }
 </style>

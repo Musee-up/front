@@ -9,7 +9,7 @@
           >
             <template #link>
               <nuxt-link :to="`/experiences/${parseInt(event.id)}`">
-                <base-blue-button :text="$t('Réserver')"> </base-blue-button>
+                <base-blue-button> {{ $t('Réserver') }} </base-blue-button>
               </nuxt-link>
             </template>
           </experience-list-item>

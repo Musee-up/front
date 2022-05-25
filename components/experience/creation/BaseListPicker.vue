@@ -24,7 +24,7 @@
         <slot></slot>
 
         <v-row class="justify-end">
-          <base-blue-button text="Valider"></base-blue-button>
+          <base-blue-button>Valider</base-blue-button>
         </v-row>
       </v-container>
     </v-card>

@@ -20,7 +20,10 @@ export default defineNuxtConfig({
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '' }],
+    link: [
+      // {rel:'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lato&display=swap'},
+      { rel: 'icon', type: 'image/x-icon', href: '' }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

@@ -27,9 +27,12 @@ export default {
       iter: Array(15).keys(),
       guide: {
         name: 'Héloise Doiteau',
-        photo: '/portrait.png',
-        rating: '4.8',
-        ratingNbr: '435',
+        photo: '/paula.png',
+        rating: 
+        {
+          value: 4.8,
+          length: 435,
+        },
         location: 'Île-de-France',
       },
     }
