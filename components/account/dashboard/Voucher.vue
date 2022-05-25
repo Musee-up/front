@@ -5,7 +5,7 @@
         <h2 class="align-self-center ma-0 mx-2 black--text">
           {{ title.label }}
         </h2>
-        <v-icon color="blue" large class="mx-2">
+        <v-icon color="primary" large class="mx-2">
           {{ title.icon }}
         </v-icon>
       </div>

@@ -1,5 +1,6 @@
 <template>
   <v-container
+    v-if="experience.data"
     class="justify-center"
     style="padding-right: 5%; padding-left: 5%"
   >

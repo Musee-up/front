@@ -1,5 +1,5 @@
 <template v-if="guide">
-  <v-container class="pa-0">
+  <v-container>
     <v-row>
       <h2>{{ guide.headline }}</h2>
     </v-row>

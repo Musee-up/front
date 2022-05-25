@@ -15,7 +15,7 @@
 
     <v-row>
       <v-text-field v-model="input"></v-text-field>
-      <v-btn class="blue white--text" rounded @click="sendMsg"> Envoyer </v-btn>
+      <v-btn class="primary white--text" rounded @click="sendMsg"> Envoyer </v-btn>
     </v-row>
   </v-container>
 </template>

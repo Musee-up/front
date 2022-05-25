@@ -34,11 +34,11 @@
         <v-btn
           icon
           x-large
-          color="blue"
+          color="primary"
           class="pr-4"
           style="align-self: center"
         >
-          <v-icon color="blue"> mdi-magnify </v-icon>
+          <v-icon color="primary"> mdi-magnify </v-icon>
         </v-btn>
       </v-card>
     </v-row>

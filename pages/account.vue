@@ -3,12 +3,12 @@
     <v-app-bar class="nav-bar">
       <v-tabs v-model="tab" center center-active class="justify-center">
         <v-spacer></v-spacer>
-        <v-tab v-for="(c, i) in tabs" :key="i" class="capitalize ma-4">
+        <v-tab v-for="(c, i) in tabs" :key="i" class="label ma-8 font-weight-regular">
           {{ c.label }}
         </v-tab>
 
         <v-tab class="ma-4">
-          <NuxtLink to="/guideexperiences">
+          <NuxtLink class="label" to="/guideexperiences">
             {{ $t('Publier une annonce') }}
           </NuxtLink>
         </v-tab>
@@ -70,11 +70,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .label {
+  @extend .font-weight-regular;
   text-transform: capitalize;
 }
 
 .v-app-bar * {
+  font-size: 16px;
   font-weight: bold;
   color: $white !important;
 }

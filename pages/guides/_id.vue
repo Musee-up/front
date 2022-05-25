@@ -17,7 +17,7 @@
 
       <v-col cols="8" class="summary">
         <v-row class="location">
-          <guide-location :guide="guide" class="location-value">
+          <guide-location color="description" :guide="guide" class="location-value">
           </guide-location>
         </v-row>
 
@@ -43,11 +43,12 @@
           <v-divider></v-divider>
         </v-row>
 
-        <v-row>
-          <guide-profile-background :guide="guide"> </guide-profile-background>
+        <v-row class="my-4">
+          <guide-profile-background :guide="guide">
+          </guide-profile-background>
         </v-row>
 
-        <v-row>
+        <v-row class="my-4">
           <v-divider></v-divider>
         </v-row>
 
@@ -58,10 +59,12 @@
 
       <v-col cols="1" class="actions">
         <v-row class="justify-center">
-          <base-blue-button>Réserver </base-blue-button>
+          <nuxt-link :to='`/experiences?guideID=${guide.id}`'>
+            <base-blue-button>Réserver</base-blue-button>
+          </nuxt-link>
         </v-row>
-        <v-row>
-          <base-blue-button> Créer avec elle</base-blue-button>
+        <v-row class="justify-center">
+          <base-blue-button>Créer avec elle</base-blue-button>
         </v-row>
       </v-col>
     </v-row>
@@ -94,6 +97,7 @@ export default {
   data() {
     return {
       guide: {
+        id: '1',
         headline: 'Jeune guide-conférencière diplômée de l’Ecole du Louvre',
         description: `Bonjour, je m’appelle Héloïse et je serais peut-être votre prochaine guide pour une merveilleuse expérience culturelle avec Musée Up’ !
 
@@ -143,4 +147,13 @@ Je suis passionnée par l’histoire de l’art, la littérature française du X
 .detail > * > * {
   width: 100% !important;
 }
+
+.location-value {
+  font-size: x-small;
+}
+
+.actions > * > * {
+  width: 100% !important;
+}
+
 </style>

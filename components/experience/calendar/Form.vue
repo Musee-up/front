@@ -2,7 +2,7 @@
   <div class="text-center">
     <v-dialog v-model="menu" width="500">
       <template #activator="{ on, attrs }">
-        <v-btn color="blue lighten-2 white--text" v-bind="attrs" v-on="on">
+        <v-btn color="primary white--text" v-bind="attrs" v-on="on">
           Ajouter une experience
         </v-btn>
       </template>

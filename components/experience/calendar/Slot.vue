@@ -33,6 +33,7 @@
           :selected-element="selectedElement"
           :selected-event="selectedEvent"
           :open="selectedOpen"
+          @remove="remove"
           @update="update"
         >
         </experience-calendar-slot-item>
@@ -76,7 +77,12 @@ export default {
     this.updateEvents(this.slots)
   },
   methods: {
-    update() {
+    update(att) {
+      const i = this.events.indexOf(this.selectedEvent)
+      this.selectedEvent.name = att.title
+      this.events.splice(i, this.selectedEvent)
+    },
+    remove() {
       const index = this.events.indexOf(this.selectedEvent)
       if (index > -1) {
         this.events.splice(index, 1)
@@ -103,12 +109,14 @@ export default {
           timed: true,
         }
 
+        if (!this.createEvent)
+          return ;
         try {
           this.createEvent.id = await this.createApiSlot(this.createEvent)
+          this.events.push(this.createEvent)
         } catch (e) {
           console.log(e)
         }
-        this.events.push(this.createEvent)
       }
     },
     extendBottom(event) {

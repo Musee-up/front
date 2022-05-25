@@ -4,11 +4,11 @@
       <div v-for="(item, i) in first" :key="i">
         <div class="justify-space-between d-flex text-center">
           <h2 class="ma-0 mx-2">{{ $t(item.label) }}</h2>
-          <v-icon class="mx-2">{{ item.icon }}</v-icon>
+          <v-icon color="primary" class="mx-2">{{ item.icon }}</v-icon>
         </div>
 
         <v-list class="list">
-          <v-list-item v-for="(text, i) in item.list" :key="i">
+          <v-list-item v-for="(text, y) in item.list" :key="y">
             <v-list-item-title class="list-item">
               <p class="skill-item">{{ text }}</p>
             </v-list-item-title>

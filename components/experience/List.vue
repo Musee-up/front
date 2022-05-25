@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  props: ['query'],
+  props: ['query', 'variables'],
   data() {
     return {
       experiences: [],
@@ -31,6 +31,7 @@ export default {
     this.experiences = (
       await this.$apollo.query({
         query: this.query,
+        variables: this.variables
       })
     ).data.experiences
   },

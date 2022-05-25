@@ -7,9 +7,6 @@
   >
     <v-card color="grey lighten-4" min-width="350px" flat>
       <v-toolbar :color="selectedEvent.color" dark>
-        <!-- <v-btn icon> -->
-        <!--   <v-icon>mdi-pencil</v-icon> -->
-        <!-- </v-btn> -->
         <v-toolbar-title v-if="experienceSlot">
           {{ experienceSlot }}
         </v-toolbar-title>
@@ -18,18 +15,13 @@
           <v-icon>mdi-delete</v-icon>
         </v-btn>
         <v-select
+          v-if="experiences"
           item-text="attributes.title"
           item-value="id"
           :items="experiences"
           @change="associateExperience"
         ></v-select>
-        <!-- <v-btn icon> -->
-        <!--   <v-icon>mdi-dots-vertical</v-icon> -->
-        <!-- </v-btn> -->
       </v-toolbar>
-      <!-- <v-card-text> -->
-      <!--   <span v-html="selectedEvent.details"></span> -->
-      <!-- </v-card-text> -->
       <v-card-actions>
         <v-btn text color="secondary" @click="selectedOpen = false">
           Cancel
@@ -75,6 +67,9 @@ export default {
     },
   },
   methods: {
+    findExp(id) {
+      return this.experiences.find(x => x.id === id)
+    },
     associateExperience(id) {
       this.$apollo.mutate({
         mutation: updateExperience,
@@ -85,6 +80,10 @@ export default {
           },
         },
       })
+        .then(() => this.$emit('update',
+           this.findExp(id).attributes
+        ))
+      .catch(console.error)
     },
     deleteSlot() {
       this.$apollo
@@ -94,7 +93,7 @@ export default {
             id: this.selectedEvent.id.toString(),
           },
         })
-        .then(() => this.$emit('update', this.selectedEvent.id))
+        .then(() => this.$emit('remove', this.selectedEvent.id))
     },
   },
 }

@@ -2,7 +2,7 @@
   <v-card elevation="0" class="mx-auto rounded-xl justify-center text-center">
     <nuxt-link :to="`guides/${id}`" class="guideProfileLink">
       <like-overview :photo="guide.photo">
-        <guide-location :guide="guide"></guide-location>
+        <guide-location color="white" :guide="guide" class="guide-location"></guide-location>
       </like-overview>
     </nuxt-link>
 

@@ -63,7 +63,7 @@ export default class HomeFooter extends Vue {
 
   private links: Array<Object> = [
     {
-      link: '/experienceslist',
+      link: '/experiences',
       title: this.$t('Votre expérience sur mesure'),
     },
     { link: '/guides', title: this.$t('Nos guides') },

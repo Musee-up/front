@@ -18,7 +18,7 @@
       </v-col>
 
       <v-col cols="1">
-        <v-icon color="blue" class="align-self-right">
+        <v-icon color="primary" class="align-self-right">
           {{ icon }}
         </v-icon>
       </v-col>

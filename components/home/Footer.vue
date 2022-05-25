@@ -1,6 +1,6 @@
 <template>
   <v-footer app center flat bottom fixed absolute>
-    <v-container pa-0 fluid class="justify-space-between">
+    <v-container fluid class="justify-space-between pa-4">
       <v-divider class="my-4"></v-divider>
       <v-row style="align-self: center">
         <v-col>
@@ -11,6 +11,7 @@
             to="/"
           >
           </NuxtLink>
+
           <v-row class="description--text pa-4">
             {{ $t('vous rapproche de la culture.') }}
           </v-row>
@@ -63,7 +64,7 @@
             'Copyright © 2021 Musée Up’ Tous droits réservés | Mentions légales |'
           )
         }}
-        <span>Musée Up’</span>
+        <span class="primary--text">Musée Up’</span>
         {{ $t('vous rapproche de la culture.') }}
       </v-row>
     </v-container>
@@ -103,11 +104,10 @@ export default class HomeFooter extends Vue {
 
 <style lang="scss" scoped>
 .v-footer {
-  background-color: $white !important;
+  background-color: $white;
 }
 
 .v-footer * {
-  font-weight: bold;
   font-weight: bold;
   font-size: 14px;
 }

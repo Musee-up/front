@@ -4,7 +4,7 @@
       <v-chip
         v-for="filter in filters"
         :key="filter"
-        color="blue"
+        color="primary"
         outlined
         class="filterItem"
       >

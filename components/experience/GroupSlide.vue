@@ -1,8 +1,9 @@
-<template>
-  <v-slide-group show-arrows>
+<template >
+  <v-slide-group show-arrows multiple>
     <v-slide-item>
       <v-img
-        class="ma-2 rounded-xl"
+        class="ma-2 rounded-xl photo"
+            :width="width"
         :src="'http://localhost:1337' + props.photos.data[0].attributes.url"
       />
     </v-slide-item>
@@ -10,15 +11,15 @@
       <v-col class="d-flex align-content-space-between flex-wrap">
         <v-row>
           <v-img
-            class="ma-2 rounded-xl"
-            width="391"
+            class="ma-2 rounded-xl photo"
+            :width="width"
             :src="'http://localhost:1337' + props.photos.data[1].attributes.url"
           />
         </v-row>
         <v-row>
           <v-img
-            class="ma-2 mb-0 rounded-xl"
-            width="391"
+            class="ma-2 mb-0 rounded-xl photo"
+            :width="width"
             :src="'http://localhost:1337' + props.photos.data[2].attributes.url"
           />
         </v-row>
@@ -26,10 +27,19 @@
     </v-slide-item>
     <v-slide-item>
       <v-img
-        class="ma-2 rounded-xl"
+        :width="width"
+        class="ma-2 rounded-xl photo"
         :src="'http://localhost:1337' + props.photos.data[3].attributes.url"
       />
     </v-slide-item>
+    <v-slide-item>
+      <v-img
+        :width="width"
+        class="ma-2 rounded-xl photo"
+        :src="'http://localhost:1337' + props.photos.data[3].attributes.url"
+      />
+    </v-slide-item>
+
   </v-slide-group>
 </template>
 
@@ -40,4 +50,6 @@ const props = defineProps({
     default: null,
   },
 })
+const width = 371;
 </script>
+
