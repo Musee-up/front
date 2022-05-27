@@ -12,7 +12,7 @@
         </v-tab>
 
         <v-tab class="ma-4">
-          <NuxtLink class="label" to="/guideexperiences">
+          <NuxtLink class="label" to="/account/experiences">
             {{ $t('Publier une annonce') }}
           </NuxtLink>
         </v-tab>

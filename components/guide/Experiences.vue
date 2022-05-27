@@ -8,7 +8,7 @@
             :experience="event.attributes"
           >
             <template #link>
-              <nuxt-link :to="`/guideexperiences/${parseInt(event.id)}`">
+              <nuxt-link :to="`/account/experiences/${parseInt(event.id)}`">
                 <base-blue-button> {{ $t('Modifier') }} </base-blue-button>
               </nuxt-link>
             </template>

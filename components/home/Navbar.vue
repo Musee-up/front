@@ -12,7 +12,7 @@
           tag="img"
           color="blue"
           style="height: 3em"
-          :src="require('@/static/logo_musee_up.svg')"
+          :src="require('@/static/logo_small_blue.png')"
           to="/"
         >
         </NuxtLink>

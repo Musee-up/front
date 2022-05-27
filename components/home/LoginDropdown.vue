@@ -15,8 +15,13 @@
         <v-list-item class="justify-center">
           <v-btn text @click.prevent="() => $strapi.logout()"> Logout </v-btn>
         </v-list-item>
+
         <v-list-item>
-          <NuxtLink to="/account"> {{ $t('Mon compte') }} </NuxtLink>
+          <NuxtLink to="/account/client"> {{ $t('Compte Client') }} </NuxtLink>
+        </v-list-item>
+
+        <v-list-item>
+          <NuxtLink to="/account/guide"> {{ $t('Compte Guide') }} </NuxtLink>
         </v-list-item>
       </v-list>
       <v-list v-else>
