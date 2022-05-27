@@ -11,11 +11,11 @@
 
       <v-col cols="9">
         <v-row>
-          <account-dashboard-profile> </account-dashboard-profile>
+          <account-guide-dashboard-profile> </account-guide-dashboard-profile>
         </v-row>
 
         <v-row>
-          <account-dashboard-voucher> </account-dashboard-voucher>
+          <account-guide-dashboard-voucher> </account-guide-dashboard-voucher>
         </v-row>
       </v-col>
     </v-row>
@@ -27,10 +27,10 @@ export default {
   data() {
     return {
       right: [
-        'account-dashboard-calendar',
-        'account-dashboard-summary',
-        'account-dashboard-settings',
-        'account-dashboard-income-summary',
+        'account-guide-dashboard-calendar',
+        'account-guide-dashboard-summary',
+        'account-guide-dashboard-settings',
+        'account-guide-dashboard-income-summary',
       ],
     }
   },

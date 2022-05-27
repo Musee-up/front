@@ -21,11 +21,11 @@ export default {
     return {
       first: [
         {
-          label: 'Nom',
+          label: 'components.account.guide.resume.lastname',
           value: 'Levebvre',
         },
         {
-          label: 'Prénom',
+          label: 'components.account.guide.resume.firstname',
           value: 'Marion',
         },
         {
@@ -33,20 +33,20 @@ export default {
           value: '',
         },
         {
-          label: 'Addresse mail',
+          label: 'components.account.guide.resume.mail',
           value: 'marion.lefebvre75@gmail.com',
         },
         {
-          label: 'Addresse Postale',
+          label: 'components.account.guide.resume.address',
           value: '72 Boulevard Vincent Auriol, 75013 Paris',
         },
         {
-          label: 'Téléphone',
+          label: 'components.account.guide.resume.phone',
           value: '+33 6 76 98 76 12',
         },
 
         {
-          label: 'Mot de passe',
+          label: 'components.account.guide.resume.password',
           value: '',
         },
       ],

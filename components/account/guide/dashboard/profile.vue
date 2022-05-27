@@ -5,6 +5,7 @@
         <nuxt-img style="width: inherit" :src="portrait"> </nuxt-img>
       </v-avatar>
     </v-row>
+
     <v-row class="d-flex justify-center">
       <h2>{{ username }}</h2>
     </v-row>

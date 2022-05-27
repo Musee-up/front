@@ -8,12 +8,12 @@
           :key="i"
           class="label ma-8 font-weight-regular"
         >
-          {{ c.label }}
+          {{ $t(c.label) }}
         </v-tab>
 
         <v-tab class="ma-4">
           <NuxtLink class="label" to="/account/experiences">
-            {{ $t('Publier une annonce') }}
+            {{ $t('pages.account.guide.publish') }}
           </NuxtLink>
         </v-tab>
 
@@ -44,24 +44,24 @@ export default {
       tab: null,
       tabs: [
         {
-          label: 'Tableau de bord',
-          component: 'account-dashboard',
+          label: 'pages.account.guide.dashboard',
+          component: 'account-guide-dashboard',
         },
         {
-          label: 'Mes annonces',
+          label: 'pages.account.guide.experiences',
           component: 'guide-experiences',
         },
         {
-          label: 'Mon agenda',
+          label: 'pages.account.guide.calendar',
           component: 'calendar',
         },
         {
-          label: 'Mes messages',
+          label: 'pages.account.guide.messages',
           component: 'chat-friends',
         },
         {
-          label: 'Mon Compte',
-          component: 'account',
+          label: 'pages.account.guide.account',
+          component: 'account-guide',
         },
       ],
     }

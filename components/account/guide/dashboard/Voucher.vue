@@ -16,8 +16,8 @@
     <v-card-text class="pb-3">
       <v-list v-for="(voucher, i) in vouchers" :key="i">
         <v-list-item>
-          <account-dashboard-voucher-item :voucher="voucher">
-          </account-dashboard-voucher-item>
+          <account-guide-dashboard-voucher-item :voucher="voucher">
+          </account-guide-dashboard-voucher-item>
         </v-list-item>
 
         <v-divider v-if="i != 2" class="my-2"></v-divider>

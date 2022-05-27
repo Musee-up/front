@@ -92,7 +92,7 @@ export default defineNuxtConfig({
     ],
     lazy: true,
     langDir: 'locales/',
-    defaultLocale: 'en',
+    defaultLocale: 'fr',
     vueI18n: {
       silentTranslationWarn: true,
       silentFallbackWarn: true,

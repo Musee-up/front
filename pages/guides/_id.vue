@@ -7,7 +7,7 @@
         </v-row>
 
         <v-row class="my-4">
-          <account-dashboard-summary> </account-dashboard-summary>
+          <account-guide-dashboard-summary> </account-guide-dashboard-summary>
         </v-row>
 
         <v-row class="my-4">
@@ -63,11 +63,11 @@
       <v-col cols="1" class="actions">
         <v-row class="justify-center">
           <nuxt-link :to="`/experiences?guideID=${guide.id}`">
-            <base-blue-button>Réserver</base-blue-button>
+            <base-blue-button>{{ $t('pages.guides.reserve') }}</base-blue-button>
           </nuxt-link>
         </v-row>
         <v-row class="justify-center">
-          <base-blue-button>Créer avec elle</base-blue-button>
+          <base-blue-button>{{ $t('pages.guides.create') }}</base-blue-button>
         </v-row>
       </v-col>
     </v-row>
@@ -88,7 +88,8 @@
               </span>
             </h2>
           </v-row>
-          <experience-horizontal-list> </experience-horizontal-list>
+          <experience-horizontal-list>
+          </experience-horizontal-list>
         </v-row>
       </v-col>
     </v-row>
