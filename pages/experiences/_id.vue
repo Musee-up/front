@@ -73,7 +73,7 @@ export default {
           .join(', ')
         const themes = exp.themes.data.map((x) => x.attributes.name).join(', ')
         const groupSizeSyntax = (n) =>
-          this.$t('pages.experiences.n_visite', {n})
+          this.$t('pages.experiences.n_visite', { n })
 
         this.experiencesAttributes = [
           {

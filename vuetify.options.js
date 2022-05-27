@@ -15,6 +15,7 @@ export default {
       },
       light: {
         primary: '#064888',
+        delete: '#C64343',
         black: '#24242C',
         selected: '#618AB2',
         blue: '#064888',

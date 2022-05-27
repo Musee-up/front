@@ -13,6 +13,6 @@
         </v-row>
       </v-container>
     </v-main>
-    <HomeFooter/>
+    <HomeFooter />
   </v-app>
 </template>

@@ -7,7 +7,6 @@ export const state = () => ({
 
 export const actions = {
   load({ commit }) {
-    console.log('loading client')
     const client = this.app.apolloProvider.defaultClient
     return client
       .query({
@@ -20,6 +19,7 @@ export const actions = {
         commit('setMyself', user.data.me)
         return user.data.me
       })
+      .catch(console.error)
   },
 }
 
@@ -42,12 +42,12 @@ export const mutations = {
 
 export const getters = {
   getFriends: (state) => {
-    return state.me.friends.data
+    return state.me?.friends?.data
   },
   getFriend: (state, id) => {
-    return state.me.friends.data.filter((x) => x.id === id)
+    return state.me?.friends.data.filter((x) => x.id === id)
   },
   getSocketId: (state) => {
-    return state.me.socketID
+    return state.me?.socketID
   },
 }

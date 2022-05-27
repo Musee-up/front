@@ -14,7 +14,6 @@
           <account-guide-resume> </account-guide-resume>
         </v-row>
       </v-col>
-
     </v-row>
   </v-container>
 </template>

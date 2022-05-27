@@ -63,7 +63,9 @@
       <v-col cols="1" class="actions">
         <v-row class="justify-center">
           <nuxt-link :to="`/experiences?guideID=${guide.id}`">
-            <base-blue-button>{{ $t('pages.guides.reserve') }}</base-blue-button>
+            <base-blue-button>{{
+              $t('pages.guides.reserve')
+            }}</base-blue-button>
           </nuxt-link>
         </v-row>
         <v-row class="justify-center">
@@ -88,8 +90,7 @@
               </span>
             </h2>
           </v-row>
-          <experience-horizontal-list>
-          </experience-horizontal-list>
+          <experience-horizontal-list> </experience-horizontal-list>
         </v-row>
       </v-col>
     </v-row>
