@@ -3,6 +3,13 @@ $header-color: $white;
 
 $_blue: #064888 !default;
 
+@font-face {
+  font-family: 'Vollkorn';
+  src: local('Vollkorn'),
+    url('https://fonts.googleapis.com/css2?family=Lato&family=Vollkorn&display=swap')
+      format('truetype');
+}
+
 h1 {
   color: $white;
   font-size: 70px;

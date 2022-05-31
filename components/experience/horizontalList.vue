@@ -3,8 +3,12 @@
     <v-row>
       <v-col v-for="(_, i) in iter" :key="i" cols="4" class="pa-4">
         <v-card elevation="0" class="mx-auto rounded-xl">
-          <nuxt-link :to="`experiences/${id}`">
-            <like-overview width="467" height="" :photo="experience.photo">
+          <nuxt-link :to="`${link}${id}`">
+            <like-overview
+              :width="width || 467"
+              height=""
+              :photo="experience.photo"
+            >
             </like-overview>
           </nuxt-link>
 
@@ -13,7 +17,7 @@
             <div class="d-flex justify-space-between">
               <rating :rating="experience.rating"></rating>
               <p class="my-0">
-                A partir de {{ experience.price }}€ par personne
+                {{ $t('components.experience.price', { n: experience.price }) }}
               </p>
             </div>
           </v-card-text>
@@ -24,27 +28,15 @@
 </template>
 
 <script>
+import { experience } from '@/data/mock.js'
 export default {
+  props: ['link', 'width'],
   data() {
     return {
       id: 1,
       iter: [...Array(3).keys()],
-      experience: {
-        photo: '/exp_photo.png',
-        title: 'Les recoins de Montmartre',
-        rating: {
-          value: 4.8,
-          length: 144,
-        },
-        price: '18',
-      },
+      experience,
     }
   },
 }
 </script>
-
-<!-- <style lang="scss" scoped> -->
-<!-- .title { -->
-
-<!-- } -->
-<!-- </style> -->

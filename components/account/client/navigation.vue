@@ -1,16 +1,14 @@
 <template>
   <v-navigation-drawer permanent class="drawer">
-
     <v-list-item class="my-4">
       <v-list-item-content>
         <v-list-item-title>
           <h6 class="nav-title text-h6">
-          {{ $t('pages.account.client.navigation_profile') }}
+            {{ $t('pages.account.client.navigation_profile') }}
           </h6>
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
-
 
     <v-list nav dense class="actions my-4">
       <v-list-item v-for="(item, i) in account" :key="i" class="action">
@@ -33,8 +31,8 @@
     <v-list-item class="my-4">
       <v-list-item-content>
         <v-list-item-title>
-          <p class="nav-title text-h6" style="width:fit-content">
-          {{ $t('pages.account.client.navigation_help') }}
+          <p class="nav-title text-h6" style="width: fit-content">
+            {{ $t('pages.account.client.navigation_help') }}
           </p>
         </v-list-item-title>
       </v-list-item-content>
