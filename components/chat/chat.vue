@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-16 justify-center">
+  <v-container fluid class="pa-16 ma-2 justify-center">
     <v-row class="fill-height">
       <v-container fluid>
         <v-row
@@ -65,9 +65,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  @extend .ma-2;
 
+
+.container {
   &--to {
     justify-content: right;
   }

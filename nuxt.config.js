@@ -101,6 +101,7 @@ export default defineNuxtConfig({
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     optionsPath: './vuetify.options.js',
+    treeShake: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -118,7 +119,6 @@ export default defineNuxtConfig({
     baseURL: `${backendUrl}/api`,
     browserBaseURL: `${backendUrl}/api`,
   },
-  target: 'static',
   bridge: {
     // vite: true,
   },

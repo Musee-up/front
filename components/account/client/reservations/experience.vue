@@ -20,7 +20,7 @@
             {{ experience.title }}
           </h4>
         </v-row>
-        <v-row class="exp-attribute font-weight-bold">
+        <v-row class="ma-0 exp-attribute font-weight-bold">
           <p>
             {{ experience.type }}
           </p>
@@ -62,7 +62,6 @@ export default {
 
 .exp-attribute {
   height: 30px;
-  @extend .ma-0;
 }
 
 .exp-title {

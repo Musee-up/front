@@ -24,7 +24,9 @@
         <slot></slot>
 
         <v-row class="justify-end">
-          <base-blue-button>Valider</base-blue-button>
+          <base-blue-button>
+            {{ $t('common.validate') }}
+          </base-blue-button>
         </v-row>
       </v-container>
     </v-card>
@@ -33,7 +35,16 @@
 
 <script>
 export default {
-  props: ['label', 'icon'],
+  props: {
+    label: {
+      type: String,
+      default: '',
+    },
+    icon: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       menu2: false,

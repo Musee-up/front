@@ -1,5 +1,5 @@
 $header-font-size: 18px;
-$header-color: $white;
+$header-color: white;
 
 $_blue: #064888 !default;
 
@@ -11,7 +11,7 @@ $_blue: #064888 !default;
 }
 
 h1 {
-  color: $white;
+  color: white;
   font-size: 70px;
 }
 
@@ -24,7 +24,7 @@ h2 {
 }
 
 .v-footer {
-  background-color: $white !important;
+  background-color: white !important;
 }
 
 .v-footer * {
@@ -34,7 +34,7 @@ h2 {
 }
 
 .white-filled {
-  background-color: $white !important;
+  background-color: white !important;
   * {
     color: $_blue !important;
   }
@@ -43,7 +43,7 @@ h2 {
 .blue-filled {
   background-color: $_blue !important;
   * {
-    color: $white !important;
+    color: white !important;
   }
 }
 

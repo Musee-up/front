@@ -10,7 +10,7 @@
               solo
               multiple
               :prepend-icon="item.icon"
-              :label="item.label"
+              :label="$t(item.label)"
               :items="item.items"
               @change="emit"
             ></v-select>
@@ -27,7 +27,8 @@
           ></v-checkbox>
 
           <v-slide-item>
-            <experience-creation-time-picker> </experience-creation-time-picker>
+            <experience-creation-time-picker>
+            </experience-creation-time-picker>
           </v-slide-item>
         </v-list-item-group>
       </v-list>
@@ -51,27 +52,27 @@ export default {
       attributes: {
         people: {
           model: [],
-          icon: 'mdi-account-group',
           items: [...Array(5).keys()],
-          label: this.$t('Indiquez le nombre de personne maximum'),
+          icon: 'mdi-account-group',
+          label: 'components.experience.creation.attributes.groupSize',
         },
         themes: {
           model: [],
-          icon: 'mdi-palette',
           items: [],
-          label: this.$t('Choisissez 3 thèmes maximum parmi la liste'),
+          icon: 'mdi-palette',
+          label: 'components.experience.creation.attributes.themes',
         },
         languages: {
           model: [],
-          icon: 'mdi-earth',
           items: [],
-          label: this.$t('Choisissez 3 languages'),
+          icon: 'mdi-earth',
+          label: 'components.experience.creation.attributes.languages',
         },
         types: {
           model: [],
-          icon: 'mdi-camera',
           items: [],
-          label: this.$t("Choisissez le type de l'experience parmi la liste"),
+          icon: 'mdi-camera',
+          label: 'components.experience.creation.attributes.types',
         },
       },
     }

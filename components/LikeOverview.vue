@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .wrapper {
   width: max-content;
   position: relative;
@@ -32,7 +34,6 @@ export default {
 
 .overlay {
   > * {
-    @extend .mx-1;
     color: $white;
   }
   left: 20px;

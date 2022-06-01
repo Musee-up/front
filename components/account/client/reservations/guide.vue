@@ -20,7 +20,7 @@
         <v-row>
           <h4 class="exp-title">{{ guide.firstname }} {{ guide.lastname }}</h4>
         </v-row>
-        <v-row class="exp-attribute font-weight-bold">
+        <v-row class="ma-0 exp-attribute font-weight-bold">
           <p>
             {{ guide.role }}
           </p>
@@ -69,7 +69,6 @@ export default {
 
 .exp-attribute {
   height: 30px;
-  @extend .ma-0;
 }
 
 .exp-title {

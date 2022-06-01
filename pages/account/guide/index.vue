@@ -6,13 +6,13 @@
         <v-tab
           v-for="(c, i) in tabs"
           :key="i"
-          class="label ma-8 font-weight-regular"
+          class="font-weight-regular label ma-8 font-weight-regular"
         >
           {{ $t(c.label) }}
         </v-tab>
 
         <v-tab class="ma-4">
-          <NuxtLink class="label" to="/account/experiences">
+          <NuxtLink class="font-weight-regular label" to="/account/experiences">
             {{ $t('pages.account.guide.publish') }}
           </NuxtLink>
         </v-tab>
@@ -75,7 +75,6 @@ export default {
 
 <style lang="scss" scoped>
 .label {
-  @extend .font-weight-regular;
   text-transform: capitalize;
 }
 

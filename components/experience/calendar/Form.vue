@@ -3,12 +3,12 @@
     <v-dialog v-model="menu" width="500">
       <template #activator="{ on, attrs }">
         <v-btn color="primary white--text" v-bind="attrs" v-on="on">
-          Ajouter une experience
+          {{ $t('components.experience.calendar.form.button') }}
         </v-btn>
       </template>
 
       <v-card>
-        <v-card-title> Ajout d’un créneau de visite partagée </v-card-title>
+        <v-card-title></v-card-title>
         <v-card-text>
           <v-container class="px-4">
             <v-row>
@@ -16,7 +16,9 @@
             </v-row>
 
             <v-row class="ma-2">
-              <h4>CHOIX DE L'EXPÉRIENCE</h4>
+              <h4>
+          {{ $t('components.experience.calendar.form.title') }}
+</h4>
             </v-row>
 
             <v-row class="ma-2">
@@ -36,7 +38,9 @@
             </v-row>
 
             <v-row class="ma-2">
-              <h4>CHOIX DE LA DATE</h4>
+              <h4>
+          {{ $t('components.experience.calendar.form.date_input') }}
+</h4>
             </v-row>
 
             <v-row class="ma-2">
@@ -48,7 +52,9 @@
             </v-row>
 
             <v-row class="ma-2">
-              <h4>CHOIX DU CRÉNEAU</h4>
+              <h4>
+          {{ $t('components.experience.calendar.form.slot_input') }}
+</h4>
             </v-row>
 
             <v-row class="ma-2">
@@ -63,7 +69,7 @@
 
         <v-card-actions class="justify-center">
           <v-btn rounded class="white--text blue" @click.prevent="formValide">
-            Valider
+            {{ $t('components.experience.calendar.form.validate') }}
           </v-btn>
         </v-card-actions>
       </v-card>

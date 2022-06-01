@@ -1,6 +1,6 @@
 <template>
   <experience-creation-base-list-picker
-    label="Montant/Nbr. de personnes min."
+    :label="$t('components.experience.creation.threshold')"
     icon="mdi-car-speed-limiter"
   >
     <v-row>

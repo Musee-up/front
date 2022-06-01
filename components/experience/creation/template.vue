@@ -5,21 +5,23 @@
   >
     <v-row class="mt-4 justify-space-between">
       <div>
-        <v-btn rounded @click.prevent="createExperience"> Ajouter </v-btn>
-        <v-chip> Incomplète </v-chip>
+        <v-btn rounded @click.prevent="createExperience"> 
+          $t('common.add')
+        </v-btn>
+        <v-chip>
+          $t('components.experience.creation.template.incomplete')
+        </v-chip>
       </div>
-      <v-btn rounded color="red" class="white--text"> Suprimer </v-btn>
+      <v-btn rounded color="red" class="white--text">
+        $t('common.delete')
+      </v-btn>
     </v-row>
     <v-row class="justify-center">
       <v-col class="text-left">
         <v-text-field
           v-model="model.title"
           style="font-size: 27px"
-          :label="
-            $t(
-              'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)'
-            )
-          "
+          :label="$t('components.experience.creation.template.title')"
         >
         </v-text-field>
       </v-col>
@@ -42,16 +44,16 @@
 
         <v-row class="d-flex flex-row">
           <h3 class="black--text py-4">
-            {{ $t("Présentation de l'experience") }}
+            {{
+            $t('components.experience.creation.template.description.title')
+            }}
           </h3>
         </v-row>
         <v-row>
           <v-textarea
             v-model="model.description"
             :label="
-              $t(
-                'Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).'
-              )
+            $t('components.experience.creation.template.description.input')
             "
           ></v-textarea>
         </v-row>
@@ -63,7 +65,8 @@
 
       <v-col>
         <v-row class="justify-end">
-          <experience-creation-price-picker></experience-creation-price-picker>
+          <experience-creation-price-picker>
+          </experience-creation-price-picker>
         </v-row>
       </v-col>
     </v-row>
@@ -76,7 +79,18 @@ import createExperience from '@/graphql/mutations/createExperience'
 import updateExperience from '@/graphql/mutations/updateExperience'
 
 export default {
-  props: ['experience', 'currentId'],
+//  props: ['experience', 'currentId'],
+  props: {
+    experience: {
+      type: Object,
+      default: () => ({
+      }),
+    },
+    currentId: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       model: {

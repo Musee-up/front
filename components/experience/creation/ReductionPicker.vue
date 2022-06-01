@@ -8,9 +8,6 @@
         <v-row style="align-items: center">
           <v-col class="my-0 py-0">
             <p class="ma-0">De 1 a 3 places</p>
-            <!-- <p class="ma-0 description-list--text"> -->
-            <!--   <small> 18 ans et plus </small> -->
-            <!-- </p> -->
           </v-col>
           <v-col class="my-0 py-0" cols="4">
             <v-text-field

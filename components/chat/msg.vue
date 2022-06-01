@@ -1,5 +1,5 @@
 <template>
-  <v-sheet :class="msg.from === 'me' ? 'msg--from' : 'msg--to'" rounded>
+  <v-sheet class="pa-4" :class="msg.from === 'me' ? 'msg--from' : 'msg--to'" rounded>
     <div>
       {{ msg.content }}
     </div>
@@ -14,7 +14,6 @@ export default {
 
 <style lang="scss" scoped>
 .msg {
-  @extend .pa-4;
   color: $white !important;
   width: min-content;
   &--from {
