@@ -7,10 +7,9 @@
         </base-blue-button>
       </v-col>
 
-      <v-col>
-        <base-blue-button>
-          {{ $t('components.account.client.reservations.footer.review') }}
-        </base-blue-button>
+      <v-col class="align-self-center">
+        <account-client-reservations-review-form :reservation="{}">
+        </account-client-reservations-review-form>
       </v-col>
 
       <v-col v-for="(item, index) in actions" :key="index">

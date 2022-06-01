@@ -5,9 +5,7 @@
         <v-row justify="center" class="ma-4">
           <h2>
             {{ $t('pages.account.client.reservations.id.title') }}
-            <span class="primary--text">
-              {{ experience.date }} </span
-            >:
+            <span class="primary--text"> {{ experience.date }} </span>:
             {{ experience.title }}
           </h2>
         </v-row>
@@ -28,7 +26,7 @@
 
         <v-row justify="center">
           <experience-group-slide
-            style="width: 60%"
+            style="width: 80%"
             height="300"
           ></experience-group-slide>
         </v-row>

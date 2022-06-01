@@ -1,8 +1,8 @@
 <template>
   <v-slide-group show-arrows multiple>
-    <v-slide-item>
+    <v-slide-item class="rounded-xl">
       <nuxt-img
-        class="ma-2 rounded-xl photo"
+        class="ma-2 photo"
         :width="width"
         :height="height"
         :src="photos[0].src"

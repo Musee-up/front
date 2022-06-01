@@ -7,9 +7,20 @@ export default {
     account: {
       client: {
         reservations: {
+          review: {
+            title: 'Votre avis compte beaucoup pour nous !',
+            description:'Notez et donnez votre avis sur votre expérience et votre guide du',
+          },
           footer: {
             download: 'Mon E-ticket',
-            review: 'Donner mon avis !',
+            review: { 
+              button: 'Donner mon avis',
+              title: 'Votre avis compte beaucoup pour nous !',
+              description: ' Notez et donnez votre avis sur votre experience et votre guide du ',
+              comment: 'Écrivez votre commentaire ici',
+              cancel: 'Annuler',
+              submit: 'Envoyer',
+            },
             address: 'Obtenir l’itinéraire Google Maps',
             print: 'Imprimer ma réservation',
             receipt: 'Mon reçu',
