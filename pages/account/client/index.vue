@@ -6,7 +6,9 @@
           <account-guide-dashboard-profile></account-guide-dashboard-profile>
         </v-row>
         <v-row>
-          <p>{{ $t('pages.account.client.headline') }}</p>
+          <p>
+            {{ $t('pages.account.client.headline') }}
+          </p>
         </v-row>
 
         <v-row>
@@ -21,8 +23,10 @@
                       </h4>
                     </v-col>
 
-                    <v-col cols="1">
-                      <v-icon color="primary"> {{ item.icon }}</v-icon>
+                    <v-col cols="2">
+                      <v-icon color="primary">
+                        {{ item.icon }}
+                      </v-icon>
                     </v-col>
                   </v-row>
                 </v-card-title>

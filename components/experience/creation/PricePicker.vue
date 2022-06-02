@@ -6,7 +6,9 @@
   >
     <v-card-title>
       <span class="text-h5 text-center">
-        {{ $t('components.experience.creation.pricePicker', {price:'18'}) }}
+        {{
+          $t('components.experience.creation.pricePicker.title', { price: 18 })
+        }}
       </span>
     </v-card-title>
 

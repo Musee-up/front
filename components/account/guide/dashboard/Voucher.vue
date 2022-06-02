@@ -36,7 +36,7 @@ export default {
       },
       vouchers: [
         {
-          img: '/portrait.png',
+          img: '/exp_photo.png',
           title: 'Les recoins de Montmartre',
           type: 'Experience Musée Up',
           icon: 'mdi-map',
@@ -44,7 +44,7 @@ export default {
           price: 108,
         },
         {
-          img: '/portrait.png',
+          img: '/exp_photo.png',
           title: 'Les recoins de Montmartre',
           type: 'Experience Musée Up',
           icon: 'mdi-map',
@@ -52,7 +52,7 @@ export default {
           price: 108,
         },
         {
-          img: '/portrait.png',
+          img: '/exp_photo.png',
           title: 'Les recoins de Montmartre',
           type: 'Experience Musée Up',
           icon: 'mdi-map',

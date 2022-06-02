@@ -12,7 +12,7 @@
           <nuxt-img src="/portrait.png"> </nuxt-img>
         </v-avatar>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="3">
         <base-blue-button>
           {{ $t('components.account.client.reservations.group.action') }}
         </base-blue-button>

@@ -13,10 +13,12 @@ export default {
 }
 </script>
 
-//<style lang="scss" scoped>
+//
+<style lang="scss" scoped>
 //.rating-container {
 //  > * {
 //    @extend .mx-1;
 //  }
 //}
-//</style>
+//
+</style>

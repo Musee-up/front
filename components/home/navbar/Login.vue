@@ -1,26 +1,38 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="600px">
     <template #activator="{ on, attrs }">
-      <v-btn v-bind="attrs" v-on="on">
-        {{ $t('Me connecter') }}
+      <v-btn class="pa-0 text-center" text v-bind="attrs" v-on="on">
+        <slot></slot>
       </v-btn>
     </template>
 
     <v-form class="white">
       <v-container>
         <v-card-title>
-          <span class="text-h5"> {{ $t('Bienvenue sur Musée up') }} </span>
+          <span class="text-h5">
+            {{ $t('components.home.navbar.login.title') }}
+          </span>
         </v-card-title>
         <v-row>
           <v-col>
-            <v-text-field v-model="email" label="email" required></v-text-field>
+            <v-text-field
+              v-model="email"
+              :label="$t('components.home.navbar.login.email')"
+              type="email"
+              autocomplete="current-mail"
+              required
+            >
+            </v-text-field>
           </v-col>
           <v-col>
             <v-text-field
               v-model="password"
-              label="password"
+              autocomplete="current-password"
+              type="password"
+              :label="$t('components.home.navbar.login.password')"
               required
-            ></v-text-field>
+            >
+            </v-text-field>
           </v-col>
         </v-row>
         <v-card-actions>
@@ -32,7 +44,7 @@
             class="white-filled"
             @click="dialog = false"
           >
-            Close
+            {{ $t('components.home.navbar.login.close') }}
           </v-btn>
           <v-btn
             color="fill_button"
@@ -41,7 +53,7 @@
             class="white-filled"
             @click.prevent="onSubmit"
           >
-            Save
+            {{ $t('components.home.navbar.login.login') }}
           </v-btn>
         </v-card-actions>
       </v-container>

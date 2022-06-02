@@ -7,7 +7,7 @@
     </v-row>
 
     <v-row>
-      <v-col cols="1">
+      <v-col cols="2">
         <nuxt-img
           class="rounded-xl"
           width="100px"
@@ -20,13 +20,13 @@
         <v-row>
           <h4 class="exp-title">{{ guide.firstname }} {{ guide.lastname }}</h4>
         </v-row>
-        <v-row class="ma-0 exp-attribute font-weight-bold">
+        <v-row class="exp-attribute font-weight-bold">
           <p>
             {{ guide.role }}
           </p>
         </v-row>
 
-        <v-row class="ma-0">
+        <v-row :class="$vuetify.breakpoint.lgAndDown && 'flex-column'">
           <v-col>
             <p class="primary--text">
               <v-icon color="primary">mdi-phone</v-icon>
@@ -43,7 +43,7 @@
         </v-row>
       </v-col>
 
-      <v-col class="d-flex align-center action" cols="2">
+      <v-col class="d-flex align-center action" cols="3">
         <base-blue-button>
           {{ $t('components.account.client.reservations.guide.action') }}
         </base-blue-button>
@@ -59,6 +59,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.col {
+  //include for-desktop-down
+  @include for-desktop-down {
+    padding: 0px;
+  }
+}
 .action {
   width: max-content;
 }

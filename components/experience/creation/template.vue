@@ -5,15 +5,15 @@
   >
     <v-row class="mt-4 justify-space-between">
       <div>
-        <v-btn rounded @click.prevent="createExperience"> 
-          $t('common.add')
+        <v-btn rounded @click.prevent="createExperience">
+          {{ $t('common.add') }}
         </v-btn>
         <v-chip>
-          $t('components.experience.creation.template.incomplete')
+          {{ $t('components.experience.creation.template.incomplete') }}
         </v-chip>
       </div>
       <v-btn rounded color="red" class="white--text">
-        $t('common.delete')
+        {{ $t('common.delete') }}
       </v-btn>
     </v-row>
     <v-row class="justify-center">
@@ -34,18 +34,19 @@
     <v-divider class="my-9"></v-divider>
 
     <v-row>
-      <v-col cols="8">
+      <v-col cols="6">
         <experience-creation-attributes
           :att="model_att"
           @update="updateAttribute"
-        />
+        >
+        </experience-creation-attributes>
 
         <v-divider class="my-9"></v-divider>
 
         <v-row class="d-flex flex-row">
           <h3 class="black--text py-4">
             {{
-            $t('components.experience.creation.template.description.title')
+              $t('components.experience.creation.template.description.title')
             }}
           </h3>
         </v-row>
@@ -53,7 +54,7 @@
           <v-textarea
             v-model="model.description"
             :label="
-            $t('components.experience.creation.template.description.input')
+              $t('components.experience.creation.template.description.input')
             "
           ></v-textarea>
         </v-row>
@@ -65,8 +66,7 @@
 
       <v-col>
         <v-row class="justify-end">
-          <experience-creation-price-picker>
-          </experience-creation-price-picker>
+          <experience-creation-price-picker> </experience-creation-price-picker>
         </v-row>
       </v-col>
     </v-row>
@@ -79,12 +79,11 @@ import createExperience from '@/graphql/mutations/createExperience'
 import updateExperience from '@/graphql/mutations/updateExperience'
 
 export default {
-//  props: ['experience', 'currentId'],
+  //  props: ['experience', 'currentId'],
   props: {
     experience: {
       type: Object,
-      default: () => ({
-      }),
+      default: () => ({}),
     },
     currentId: {
       type: String,
@@ -101,10 +100,27 @@ export default {
       model_att: [],
     }
   },
+  computed: {
+    cols() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return { right: 3, middle: 8 }
+        case 'sm':
+          return { right: 3, middle: 8 }
+        case 'md':
+          return { right: 3, middle: 8 }
+        case 'lg':
+          return { right: 3, middle: 8 }
+        case 'xl':
+          return { right: 2, middle: 9 }
+      }
+      return { right: 3, middle: 8 }
+    },
+  },
   mounted() {
     this.id = this.currentId
 
-    if (!this.$props.experience) return
+    if (!this.$props.experience.attributes) return
     this.model = this.$props.experience.data.attributes
     let { languages, themes, types } = this.model
     this.model_att = { languages, themes, types }

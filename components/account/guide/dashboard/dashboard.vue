@@ -1,7 +1,7 @@
 <template>
   <v-container class="ma-4">
     <v-row>
-      <v-col cols="2">
+      <v-col :cols="cols.right">
         <v-row v-for="(item, i) in right" :key="i" class="my-4">
           <component :is="item" class="right"></component>
         </v-row>
@@ -9,7 +9,7 @@
 
       <v-col> </v-col>
 
-      <v-col cols="9">
+      <v-col :cols="cols.middle">
         <v-row>
           <account-guide-dashboard-profile> </account-guide-dashboard-profile>
         </v-row>
@@ -33,6 +33,23 @@ export default {
         'account-guide-dashboard-income-summary',
       ],
     }
+  },
+  computed: {
+    cols() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return { right: 3, middle: 8 }
+        case 'sm':
+          return { right: 3, middle: 8 }
+        case 'md':
+          return { right: 3, middle: 8 }
+        case 'lg':
+          return { right: 3, middle: 8 }
+        case 'xl':
+          return { right: 2, middle: 9 }
+      }
+      return { right: 3, middle: 8 }
+    },
   },
 }
 </script>

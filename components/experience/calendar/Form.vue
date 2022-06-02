@@ -17,8 +17,8 @@
 
             <v-row class="ma-2">
               <h4>
-          {{ $t('components.experience.calendar.form.title') }}
-</h4>
+                {{ $t('components.experience.calendar.form.title') }}
+              </h4>
             </v-row>
 
             <v-row class="ma-2">
@@ -39,8 +39,8 @@
 
             <v-row class="ma-2">
               <h4>
-          {{ $t('components.experience.calendar.form.date_input') }}
-</h4>
+                {{ $t('components.experience.calendar.form.date_input') }}
+              </h4>
             </v-row>
 
             <v-row class="ma-2">
@@ -53,8 +53,8 @@
 
             <v-row class="ma-2">
               <h4>
-          {{ $t('components.experience.calendar.form.slot_input') }}
-</h4>
+                {{ $t('components.experience.calendar.form.slot_input') }}
+              </h4>
             </v-row>
 
             <v-row class="ma-2">

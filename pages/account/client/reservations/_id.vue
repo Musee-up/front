@@ -26,7 +26,7 @@
 
         <v-row justify="center">
           <experience-group-slide
-            style="width: 80%"
+            style="width: 100%"
             height="300"
           ></experience-group-slide>
         </v-row>

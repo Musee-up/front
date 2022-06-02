@@ -2,17 +2,21 @@
   <experience-creation-base-list-picker
     label="Tarifs par catégorie d'ages"
     icon="mdi-account-group"
-    >
+  >
     <v-row v-for="(i, index) in peopleType" :key="index" class="my-2">
       <v-container>
         <v-row style="align-items: center">
           <v-col class="my-0 py-0">
             <p class="ma-0">
-              $t('components.experience.creation.pricePicker.item.title)
+              {{ $t('components.experience.creation.pricePicker.item.title') }}
             </p>
             <p class="ma-0 description-list--text">
               <small>
-                $t('components.experience.creation.pricePicker.item.description)
+                {{
+                  $t(
+                    'components.experience.creation.pricePicker.item.description'
+                  )
+                }}
               </small>
             </p>
           </v-col>
@@ -22,7 +26,7 @@
               outlined
               class="rounded-xl pa-2"
               label="Prix"
-              ></v-text-field>
+            ></v-text-field>
           </v-col>
         </v-row>
         <v-row class="mx-2 pa-1">

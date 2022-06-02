@@ -5,17 +5,24 @@
       cols="8"
       class="d-flex justify-space-between header-navbar"
     >
-      <v-spacer></v-spacer>
+      <v-spacer v-if="$vuetify.breakpoint.xlOnly"></v-spacer>
 
       <v-col>
-        <NuxtLink
-          tag="img"
-          color="blue"
-          style="height: 3em"
-          :src="require('@/static/logo_small_blue.png')"
-          to="/"
+        <div
+          class="rounded-lg primary justify-center align-center"
+          style="width: 50px; height: 50px"
         >
-        </NuxtLink>
+          <NuxtLink
+            class="mt-1"
+            tag="img"
+            color="blue"
+            :src="require('@/static/logo_white.svg')"
+            to="/"
+            width="80%"
+            height="80%"
+          >
+          </NuxtLink>
+        </div>
       </v-col>
 
       <v-col>
@@ -23,7 +30,7 @@
           <template #activator="{ on, attrs }">
             <v-btn
               style="background-color: transparent"
-              elevation="0"
+              text
               v-bind="attrs"
               v-on="on"
             >
@@ -43,9 +50,9 @@
         <NuxtLink :to="link.link"> {{ link.title }}</NuxtLink>
       </v-col>
 
-      <home-login-dropdown></home-login-dropdown>
+      <home-navbar-visitor-actions></home-navbar-visitor-actions>
 
-      <v-spacer></v-spacer>
+      <v-spacer v-if="$vuetify.breakpoint.xlOnly"></v-spacer>
     </v-container>
   </v-app-bar>
 </template>

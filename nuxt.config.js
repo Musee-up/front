@@ -101,7 +101,7 @@ export default defineNuxtConfig({
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     optionsPath: './vuetify.options.js',
-    treeShake: true
+    treeShake: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

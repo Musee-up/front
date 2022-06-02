@@ -8,7 +8,11 @@
         :src="photos[0].src"
       />
     </v-slide-item>
-    <div class="ma-2 py-2 d-flex justify-space-between flex-column">
+
+    <div
+      class="ma-2 py-2 d-flex justify-space-between flex-column"
+      :style="`height:${height}px`"
+    >
       <v-slide-item>
         <nuxt-img
           class="rounded-xl photo"

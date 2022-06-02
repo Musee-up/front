@@ -6,43 +6,78 @@ export default {
     delete: 'Supprimer',
   },
   components: {
+    home: {
+      navbar: {
+        register: {
+          button: "S'enregistrer",
+          title: 'Inscription',
+          firstname: 'Prénom',
+          lastname: 'Nom',
+          email: 'Email',
+          password: 'Mot de passe',
+          close: 'Fermer',
+          submit: "S'enregistrer",
+          description: '*indicates required field',
+        },
+        login: {
+          button: 'Me connecter',
+          title: 'Bienvenue sur Musée up',
+          password: 'Mot de passe',
+          close: 'Fermer',
+          login: 'Se connecter',
+          email: 'Email',
+        },
+        userActions: {
+          client: 'Compte Client',
+          guide: 'Compte Guide',
+          logout: 'Se déconnecter',
+        },
+        visitorActions: {
+          help: 'Aide',
+          contact: 'Nous contacter',
+          becomeGuide: "Devenez guide Musée'up",
+        },
+      },
+    },
     experience: {
+      price: 'A partir de {n}€ par personne',
       creation: {
         attributes: {
           types: "Choisissez le type de l'experience parmi la liste",
-          languages:  'Choisissez 3 languages',
+          languages: 'Choisissez 3 languages',
           groupSize: 'Indiquez le nombre de personne maximum',
           theme: 'Choissisez 3 thèmes maximum parmi la liste',
         },
         thresholdPicker: {
-          title: "Montant/Nbr. de personnes min."
+          title: 'Montant/Nbr. de personnes min.',
         },
         template: {
           incomplete: 'Incomplète',
-          title: 'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)',
+          title:
+            'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)',
           description: {
             title: "Présentation de l'experience",
-            input: 'Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).'
-          }
+            input:
+              'Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).',
+          },
         },
         pricePicker: {
-          title: 'À partir de {n}€ par personne',
+          title: 'À partir de {price}€ par personne',
           item: {
             title: 'Adultes',
             description: '18 ans et plus',
           },
-        }
+        },
       },
       calendar: {
         form: {
           button: 'Ajouter une expérience',
-          title: 'CHOIX DE L\'EXPERIENCE',
+          title: "CHOIX DE L'EXPERIENCE",
           subtitle: 'Choisissez votre expérience',
           date_input: 'CHOIX DE LA DATE',
           slot_input: 'CHOIX DU CRÉNEAU',
           validate: 'VALIDER',
         },
-        price: 'A partir de {n}€ par personne',
       },
     },
     account: {
@@ -51,7 +86,7 @@ export default {
           review: {
             title: 'Votre avis compte beaucoup pour nous !',
             description:
-            'Notez et donnez votre avis sur votre expérience et votre guide du',
+              'Notez et donnez votre avis sur votre expérience et votre guide du',
           },
           footer: {
             download: 'Mon E-ticket',
@@ -59,7 +94,7 @@ export default {
               button: 'Donner mon avis',
               title: 'Votre avis compte beaucoup pour nous !',
               description:
-              ' Notez et donnez votre avis sur votre experience et votre guide du ',
+                ' Notez et donnez votre avis sur votre experience et votre guide du ',
               comment: 'Écrivez votre commentaire ici',
               cancel: 'Annuler',
               submit: 'Envoyer',
@@ -121,7 +156,7 @@ export default {
           },
           title: 'Mes paiements',
           description:
-          'Vous retrouverez ici vos modes de paiements. Payez et communiquez toujours par l’intermédiaire de Musée Up’ pour bénéficier de la protection proposée par nos services. En savoir plus.',
+            'Vous retrouverez ici vos modes de paiements. Payez et communiquez toujours par l’intermédiaire de Musée Up’ pour bénéficier de la protection proposée par nos services. En savoir plus.',
         },
         reservations: {
           id: {
@@ -136,7 +171,7 @@ export default {
           },
           title: 'Mes réservations',
           description:
-          'Vous retrouverez ici vos réservations et toutes les informations dont vous avez besoin pour profiter au mieux de vos expériences culturelles avec Musée Up’ !',
+            'Vous retrouverez ici vos réservations et toutes les informations dont vous avez besoin pour profiter au mieux de vos expériences culturelles avec Musée Up’ !',
         },
         navigation_profile: 'Mon profile',
         navigation_help: 'Assistance et politique juridique',
@@ -144,16 +179,16 @@ export default {
         cards: {
           info: 'Gérez ici vos informations utiles et indiquez-nous vos contacts pour pouvoir vous joindre très facilement !',
           reservations:
-          'Vous retrouverez ici vos réservations d’expériences et toutes les informations utiles, des contacts de votre guide au lieu de rencontre !',
+            'Vous retrouverez ici vos réservations d’expériences et toutes les informations utiles, des contacts de votre guide au lieu de rencontre !',
           favorites:
-          'Vous pourrez consulter ici tous vos favoris, expériences, guides et articles pour pouvoir les retrouver quand vous le souhaitez !',
+            'Vous pourrez consulter ici tous vos favoris, expériences, guides et articles pour pouvoir les retrouver quand vous le souhaitez !',
           help: 'Vous pourrez retrouver ici des recommandations d’expériences culturelles choisies par nos soins selon vos goûts et vos favoris !',
         },
         help: "Besoin d'aide ?",
         general_conditions: 'Conditions générales',
         privacy: 'Confidentialité',
         headline:
-        'Gérez vos informations personnelles et vos réservations très facilement et retrouvez tout ce dont vous avez besoin pour profiter au mieux des services Musée Up’ en toute sérénité !',
+          'Gérez vos informations personnelles et vos réservations très facilement et retrouvez tout ce dont vous avez besoin pour profiter au mieux des services Musée Up’ en toute sérénité !',
         info: 'Mes informations',
         reservation: 'Mes reservations',
         messages: 'Mes messages',

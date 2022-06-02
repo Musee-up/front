@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent class="drawer">
+  <v-navigation-drawer permanent expand-on-hover class="drawer">
     <v-list-item class="my-4">
       <v-list-item-content>
         <v-list-item-title>

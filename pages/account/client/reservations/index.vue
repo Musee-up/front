@@ -13,7 +13,7 @@
 
       <v-row>
         <experience-horizontal-list
-          width="440"
+          :width="width"
           link="/account/client/reservations/"
         >
         </experience-horizontal-list>
@@ -25,5 +25,22 @@
 <script>
 export default {
   layout: 'account-client',
+  computed: {
+    width() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 140
+        case 'sm':
+          return 140
+        case 'md':
+          return 140
+        case 'lg':
+          return 240
+        case 'xl':
+          return 440
+      }
+      return 440;
+    },
+  },
 }
 </script>
