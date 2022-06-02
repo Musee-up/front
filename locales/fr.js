@@ -1,5 +1,13 @@
 export default {
   message: 'Bonjour',
+  error: {
+    oops: 'Flûte !',
+    help: 'Centre d\'aide',
+    404: 'Erreur 404',
+    home: 'Page d’accueil',
+    description: `Nous sommes désolés mais la page que vous recherchez semble malheureusement introuvable…
+Vous pouvez revenir à la page d’accueil ou accéder au centre d’aide. `,
+  },
   common: {
     validate: 'Valider',
     add: 'Ajouter',

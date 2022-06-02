@@ -39,7 +39,7 @@ export default {
         case 'xl':
           return 440
       }
-      return 440;
+      return 440
     },
   },
 }

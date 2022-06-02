@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="9">
+      <v-col cols="10">
         <v-row>
           <account-guide-dashboard-profile></account-guide-dashboard-profile>
         </v-row>
@@ -9,6 +9,7 @@
           <account-guide-resume></account-guide-resume>
         </v-row>
       </v-col>
+      <v-col></v-col>
     </v-row>
   </v-container>
 </template>

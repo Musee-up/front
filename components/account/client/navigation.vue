@@ -76,7 +76,7 @@ export default {
         {
           icon: 'mdi-message',
           label: 'pages.account.client.messages',
-          link: '',
+          link: '/account/client/messages',
         },
         {
           icon: 'mdi-heart',

@@ -1,10 +1,12 @@
 <template>
   <div>
-    <v-menu nudge-bottom="50" nudge-left="120">
+    <v-menu
+      content-class="rounded-xl white pr-16"
+       nudge-bottom="50"
+       nudge-left="120">
       <template #activator="{ on, attrs }">
         <v-btn
-          style="background-color: transparent"
-          elevation="0"
+          text
           v-bind="attrs"
           v-on="on"
         >
@@ -13,24 +15,7 @@
         </v-btn>
       </template>
 
-      <v-list v-if="$strapi.user" class="rounded-xl">
-        <v-list-item key="0" class="justify-center">
-          <v-btn text @click.prevent="() => $strapi.logout()">
-            <p>
-              {{ $t('components.home.navbar.userActions.logout') }}
-            </p>
-          </v-btn>
-        </v-list-item>
-
-        <v-list-item v-for="(item, index) in user.actions" :key="index + 1">
-          <nuxt-link :to="item.link">
-            <p>
-              {{ $t(item.label) }}
-            </p>
-          </nuxt-link>
-        </v-list-item>
-        <v-divider class="ma-4"></v-divider>
-      </v-list>
+      <home-navbar-actions-user v-if="$strapi.user"></home-navbar-actions-user>
 
       <v-list v-else class="rounded-xl">
         <v-list-item v-for="(item, i) in visitor.actions" :key="i">
@@ -55,12 +40,6 @@
         </v-list-item>
       </v-list>
     </v-menu>
-
-    <v-btn class="rounded-lg blue-filled" background="blue">
-      <NuxtLink to="#">
-        {{ $t('Publier votre annonce') }}
-      </NuxtLink>
-    </v-btn>
   </div>
 </template>
 
@@ -68,18 +47,6 @@
 export default {
   data() {
     return {
-      user: {
-        actions: [
-          {
-            label: 'components.home.navbar.userActions.client',
-            link: '/account/client',
-          },
-          {
-            label: 'components.home.navbar.userActions.guide',
-            link: '/account/guide',
-          },
-        ],
-      },
       visitor: {
         actions: [
           {
