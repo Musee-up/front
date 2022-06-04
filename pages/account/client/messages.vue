@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  layout: 'account-client'
+  layout: 'account-client',
 }
 </script>

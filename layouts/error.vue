@@ -23,9 +23,9 @@
           <v-row>
             <v-col>
               <NuxtLink to="/">
-              <base-blue-button>
-                {{ $t('error.home') }}
-              </base-blue-button>
+                <base-blue-button>
+                  {{ $t('error.home') }}
+                </base-blue-button>
               </NuxtLink>
             </v-col>
             <v-col>
@@ -36,8 +36,7 @@
           </v-row>
         </v-col>
         <v-col>
-          <nuxt-img src="/error_drawing.svg">
-          </nuxt-img>
+          <nuxt-img src="/error_drawing.svg"> </nuxt-img>
         </v-col>
       </v-row>
     </v-container>
@@ -78,7 +77,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 button {
   justify-self: center;
   align-self: center;
@@ -87,5 +85,4 @@ button {
 h1 {
   font-size: 20px;
 }
-
 </style>

@@ -19,17 +19,20 @@
               <v-col cols="12" sm="6">
                 <v-text-field
                   v-model="username"
-                  autocomplete="new-firstname"
                   :label="$t('components.home.navbar.register.firstname') + '*'"
+                  autocomplete="new-firstname"
+                  :rules="rules.name"
                   required
-                  >
+                >
                 </v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-text-field
-                  autocomplete="new-lastname"
                   :label="$t('components.home.navbar.register.lastname') + '*'"
-                  >
+                  autocomplete="new-lastname"
+                  :rules="rules.name"
+                  required
+                >
                 </v-text-field>
               </v-col>
             </v-row>
@@ -37,22 +40,23 @@
             <v-row cols="12">
               <v-text-field
                 v-model="email"
-                autocomplete="new-email"
-                type="email"
                 :label="$t('components.home.navbar.register.email') + '*'"
+                autocomplete="new-email"
+                :rules="rules.email"
+                type="email"
                 persistent-hint
                 required
-                >
+              >
               </v-text-field>
             </v-row>
             <v-row cols="12">
               <v-text-field
                 v-model="password"
-                type="password"
-                autocomplete="new-password"
                 :label="$t('components.home.navbar.register.password') + '*'"
+                autocomplete="new-password"
+                type="password"
                 required
-                >
+              >
               </v-text-field>
             </v-row>
           </v-container>
@@ -68,7 +72,7 @@
             color="fill_button"
             class="white-filled"
             @click="dialog = false"
-            >
+          >
             {{ $t('components.home.navbar.register.close') }}
           </v-btn>
           <v-btn
@@ -77,11 +81,22 @@
             outlined
             class="white-filled"
             @click.prevent="validate"
-            >
+          >
             {{ $t('components.home.navbar.register.submit') }}
           </v-btn>
         </v-card-actions>
       </v-form>
+      <v-snackbar
+        v-model="snackbar"
+        color="error"
+        :timeout="snackbarTimeout"
+        class="text-center"
+        rounded="xl"
+      >
+        <p class="ma-0 white--text">
+          {{ error }}
+        </p>
+      </v-snackbar>
     </v-card>
   </v-dialog>
 </template>
@@ -89,24 +104,49 @@
 <script>
 export default {
   data: () => ({
+    rules: {
+      name: [
+        (v) => !!v || 'Required.',
+        (v) => (v || '').length <= 10 || 'Name must be less than 10 characters',
+      ],
+      email: [
+        (value) => !!value || 'Required.',
+        (value) => (value || '').length <= 20 || 'Max 20 characters',
+        (value) => {
+          const pattern =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(value) || 'Invalid e-mail.'
+        },
+      ],
+    },
     username: '',
     email: '',
     password: '',
     dialog: false,
+    snackbarTimeout: 5000,
+    snackbar: false,
+    error: '',
   }),
 
   methods: {
-    async validate() {
-      this.dialog = false
-      try {
-        await this.$strapi.register({
+    validate() {
+      this.$strapi
+        .register({
           username: this.username,
           email: this.email,
           password: this.password,
         })
-      } catch (e) {
-        console.error(e)
-      }
+        .then(() => {
+          this.$apolloHelpers.onLogin(this.$strapi.getToken())
+          this.dialog = false
+        })
+        .then(() => {
+          this.router.push('/account/client')
+        })
+        .catch(_ => {
+          this.error = 'Invalid email or password'
+          this.snackbar = true
+        })
     },
   },
 }

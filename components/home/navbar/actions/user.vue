@@ -1,8 +1,7 @@
 <template>
   <v-list>
-
     <v-list-item key="0" class="transparent">
-      <v-btn class="pa-0" text @click.prevent="() => $strapi.logout()">
+      <v-btn class="pa-0" text @click.prevent="logout">
         <p class="ma-0 font-weight-regular">
           {{ $t('components.home.navbar.userActions.logout') }}
         </p>
@@ -18,13 +17,12 @@
     </v-list-item>
 
     <v-divider class="ma-4"></v-divider>
-
   </v-list>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       user: {
         actions: [
@@ -40,11 +38,16 @@ export default {
       },
     }
   },
+  methods: {
+    logout() {
+      this.$strapi.logout()
+      this.$router.push('/')
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-
 p {
   font-size: 18px;
   color: #24242c !important;

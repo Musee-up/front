@@ -1,5 +1,10 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="400px">
+  <v-dialog
+    v-model="dialog"
+    persistent
+    max-width="400px"
+    @keydown.esc="dialog = false"
+  >
     <template #activator="{ on, attrs }">
       <v-btn class="pa-0" text v-bind="attrs" v-on="on">
         <slot></slot>
@@ -17,32 +22,33 @@
           </v-card-title>
 
           <v-card-text>
-          <v-row>
-            <v-col cols="2"></v-col>
-            <v-col cols="8">
-              <v-row>
-                <v-text-field
-                  v-model="email"
-                  :label="$t('components.home.navbar.login.email')"
-                  type="email"
-                  autocomplete="current-mail"
-                  required
+            <v-row>
+              <v-col cols="2"></v-col>
+              <v-col cols="8">
+                <v-row>
+                  <v-text-field
+                    v-model="email"
+                    :label="$t('components.home.navbar.login.email')"
+                    type="email"
+                    autocomplete="current-mail"
+                    required
                   >
-                </v-text-field>
-              </v-row>
-              <v-row>
-                <v-text-field
-                  v-model="password"
-                  autocomplete="current-password"
-                  type="password"
-                  :label="$t('components.home.navbar.login.password')"
-                  required
+                  </v-text-field>
+                </v-row>
+                <v-row>
+                  <v-text-field
+                    v-model="password"
+                    autocomplete="current-password"
+                    type="password"
+                    :label="$t('components.home.navbar.login.password')"
+                    required
+                    @keyup.enter="onSubmit"
                   >
-                </v-text-field>
-              </v-row>
-            </v-col>
-            <v-col cols="2"></v-col>
-          </v-row>
+                  </v-text-field>
+                </v-row>
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
           </v-card-text>
 
           <v-card-actions>
@@ -53,7 +59,7 @@
               color="fill_button"
               class="white-filled"
               @click="dialog = false"
-              >
+            >
               {{ $t('components.home.navbar.login.close') }}
             </v-btn>
             <v-btn
@@ -62,13 +68,23 @@
               outlined
               class="white-filled"
               @click.prevent="onSubmit"
-              >
+            >
               {{ $t('components.home.navbar.login.login') }}
             </v-btn>
           </v-card-actions>
         </v-container>
       </v-form>
-
+      <v-snackbar
+        v-model="snackbar"
+        color="error"
+        :timeout="snackbarTimeout"
+        class="text-center"
+        rounded="xl"
+      >
+        <p class="ma-0 white--text">
+          {{ error }}
+        </p>
+      </v-snackbar>
     </v-card>
   </v-dialog>
 </template>
@@ -77,23 +93,31 @@
 export default {
   data: () => ({
     dialog: false,
+    snackbar: false,
     router: useRouter(),
+    snackbarTimeout: 3000,
     email: '',
     password: '',
+    error: '',
   }),
   methods: {
-    async onSubmit() {
-      this.dialog = false
-      try {
-        await this.$strapi.login({
+     onSubmit() {
+      this.$strapi
+        .login({
           identifier: this.email,
           password: this.password,
         })
-        await this.$apolloHelpers.onLogin(this.$strapi.getToken())
-        this.router.push('/')
-      } catch (e) {
-        console.log(e)
-      }
+        .then(() => {
+          this.$apolloHelpers.onLogin(this.$strapi.getToken())
+          this.dialog = false
+        })
+        .then(() => {
+          this.router.push('/account/client')
+        })
+        .catch(_ => {
+          this.error = 'Invalid email or password'
+          this.snackbar = true
+        })
     },
   },
 }

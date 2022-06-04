@@ -4,14 +4,14 @@
       fluid
       cols="8"
       class="d-flex justify-space-between header-navbar"
-      >
+    >
       <v-spacer v-if="$vuetify.breakpoint.xlOnly"></v-spacer>
 
       <v-col>
         <div
           class="rounded-lg primary justify-center align-center"
           style="width: 50px; height: 50px"
-          >
+        >
           <NuxtLink
             class="mt-1"
             tag="img"
@@ -20,7 +20,7 @@
             to="/"
             width="80%"
             height="80%"
-            >
+          >
           </NuxtLink>
         </div>
       </v-col>
@@ -33,7 +33,7 @@
               text
               v-bind="attrs"
               v-on="on"
-              >
+            >
               {{ $t('Trouver une expérience') }}
               <v-icon color="grey"> mdi-chevron-down </v-icon>
             </v-btn>
@@ -51,20 +51,16 @@
       </v-col>
 
       <v-col>
-
         <home-navbar-visitor-actions></home-navbar-visitor-actions>
       </v-col>
 
       <v-col>
         <v-btn class="rounded-lg blue-filled" background="blue">
           <NuxtLink to="#">
-          {{ $t('Publier votre annonce') }}
+            {{ $t('Publier votre annonce') }}
           </NuxtLink>
         </v-btn>
-
       </v-col>
-
-
 
       <v-spacer v-if="$vuetify.breakpoint.xlOnly"></v-spacer>
     </v-container>

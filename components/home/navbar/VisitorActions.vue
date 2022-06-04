@@ -2,14 +2,11 @@
   <div>
     <v-menu
       content-class="rounded-xl white pr-16"
-       nudge-bottom="50"
-       nudge-left="120">
+      nudge-bottom="50"
+      nudge-left="120"
+    >
       <template #activator="{ on, attrs }">
-        <v-btn
-          text
-          v-bind="attrs"
-          v-on="on"
-        >
+        <v-btn text v-bind="attrs" v-on="on">
           <v-icon color="primary"> mdi-account-circle </v-icon>
           <v-icon color="primary" small> mdi-menu-down-outline </v-icon>
         </v-btn>
