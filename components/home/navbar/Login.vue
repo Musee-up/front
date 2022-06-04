@@ -101,7 +101,7 @@ export default {
     error: '',
   }),
   methods: {
-     onSubmit() {
+    onSubmit() {
       this.$strapi
         .login({
           identifier: this.email,
@@ -114,7 +114,7 @@ export default {
         .then(() => {
           this.router.push('/account/client')
         })
-        .catch(_ => {
+        .catch((_) => {
           this.error = 'Invalid email or password'
           this.snackbar = true
         })
