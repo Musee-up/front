@@ -223,6 +223,49 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
             description: `Ce passionné de lecture et de nature s’initie pour les besoins de Musée Up’ aux joies de l’économie, du marketing et de la gestion. Globe-trotteur de l’équipe, il aime découvrir de nouvelles cultures autant que partager la sienne.`
           },
         }
+      },
+      heritage: {
+        title: 'Avec Musée Up’, sauvons le patrimoine français !',
+        description: `Musée Up’ s’engage pour la sauvegarde du patrimoine. Par des actions de mécénat, des fonds reversés sur notre chiffre d’affaire et des expériences culturelles consacrées à la découverte et au sauvetage d’un monument en péril ou méconnus, Musée Up’ s’inscrit dans la logique d’un tourisme éthique, durable et responsable.`,
+        buttons: {
+          details: 'En savoir plus',
+          list: 'Découverte et sauvetage',
+        }
+      },
+      preservation: {
+        title: 'La sauvegarde du patrimoine en action',
+        description: 'C’est la garantie de vivre des expériences culturelles…',
+        cards: {
+        discovery: {
+          title: 'Découverte et sauvetage',
+          description: `Par des expériences culturelles uniques dédiées à la découverte et au sauvetage de monuments menacés. Chaque réservation contribuera directement à la sauvegarde de notre patrimoine !🏰`
+        },
+        patronage: {
+          title: 'Mécénat et restauration',
+          description: `Chaque année, Musée Up' reversa une partie de son chiffre d'affaires à des fondations et des associations du patrimoine pour préserver les richesses incroyables de notre pays ! 🌿`
+        },
+        awareness: {
+          title: 'Sensibilisation du public',
+          description: `Musée Up' et ses guides sont engagés afin de sensibiliser au maximum le grand public à l'enjeu social et culturel que représente la sauvegarde du patrimoine. Une chance mais aussi un devoir ! 🍀`
+        }
+        }
+      },
+      reservations: {
+        title: 'Réserver ou créer avec Musée Up\'',
+        cols: [
+          {
+            title: 'Uniques et personnalisées',
+            description: `Faciles et rapides à réserver, les expériences sont personnalisables pour s’adapter au mieux à vos envies. Avec l’option sur mesure, créez-la du début à la fin !`
+          },
+          {
+            title: 'Avec les meilleurs experts',
+            description: `Les guides-conférenciers sont certifiés et sélectionnés pour vous faire découvrir la culture et le patrimoine français de manière originale, ludique et éco-responsable.`
+          },
+          {
+            title: 'De sauver le patrimoine',
+            description: `Vivre une expérience avec Musée Up’, c’est contribuer en même temps à la sauvegarde du patrimoine !`
+          }
+          ]
       }
     },
     account: {

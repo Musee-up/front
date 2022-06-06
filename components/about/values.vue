@@ -8,11 +8,17 @@
       </v-row>
       <v-row class="pa-16">
         <v-col
-          cols="4"
           v-for="(value, index) in $t('pages.about.values.cards')"
           :key="index"
-          >
-          <v-card class="rounded-xl" outlined>
+          cols="4"
+        >
+          <v-card class="d-flex flex-column rounded-xl align-center" outlined>
+
+          <nuxt-img
+            width="fit-content"
+            :src="photos[index]" class="justify-self-center">
+          </nuxt-img>
+
             <v-card-title class="justify-center text-center">
               <h3 class="primary--text">
                 {{ value.title }}
@@ -30,16 +36,16 @@
   </v-row>
 </template>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script>
+export default {
+  data() {
+    return {
+      photos: {
+      ethics: '/about/values/ethics.png',
+      protection: '/about/values/protection.png',
+      expertise: '/about/values/expertise.png',
+      }
+    }
+  }
+}
+</script>
