@@ -14,10 +14,10 @@
     </v-col>
 
     <v-col
-      cols="3"
       v-for="(item, index) in $t('pages.about.reservations.cols')"
       :key="index"
-      >
+      cols="3"
+    >
       <v-row>
         <v-col cols="1">
           <v-row>

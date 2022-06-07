@@ -84,7 +84,8 @@ export default class HomeFooter extends Vue {
       title: this.$t('Votre expérience sur mesure'),
     },
     { link: '/guides', title: this.$t('Nos guides') },
-    { link: '#', title: this.$t('Notre Application') },
+    // { link: '#', title: this.$t('Notre Application') },
+    { link: '/about', title: this.$t('Qui sommes nous?') },
     { link: '#', title: this.$t('Blog') },
   ]
 

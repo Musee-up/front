@@ -1,10 +1,10 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" class="my-8">
     <v-col cols="8">
       <v-row justify="center">
-        <h1 class="primary--text text-center">
+        <h2 class="primary--text text-center">
           {{ $t('pages.about.why.title') }}
-        </h1>
+        </h2>
       </v-row>
       <v-row>
         <p

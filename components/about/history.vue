@@ -1,8 +1,8 @@
 <template>
-  <v-row>
+  <v-row class="my-16">
     <v-col></v-col>
     <v-col cols="4">
-      <v-row>
+      <v-row class="my-8">
         <h2 class="primary-text">
           {{ $t('pages.about.history.title') }}
         </h2>

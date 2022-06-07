@@ -1,16 +1,16 @@
 <template>
-  <v-row class="primary">
+  <v-row class="primary py-8">
     <v-spacer></v-spacer>
     <v-col cols="4">
       <v-row>
         <h2 class="white--text">
-        {{ $t('pages.about.heritage.title') }}
+          {{ $t('pages.about.heritage.title') }}
         </h2>
       </v-row>
 
       <v-row>
         <p class="white--text">
-        {{ $t('pages.about.heritage.description') }}
+          {{ $t('pages.about.heritage.description') }}
         </p>
       </v-row>
 
@@ -26,7 +26,6 @@
             {{ $t('pages.about.heritage.buttons.list') }}
           </v-btn>
         </v-col>
-
       </v-row>
     </v-col>
     <v-col cols="4">

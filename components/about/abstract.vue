@@ -14,7 +14,7 @@
         </p>
       </v-row>
       <v-row>
-        <v-col>
+        <v-col justify="center" class="text-center">
           <v-btn class="rounded-xl" color="error">
             {{ $t('pages.about.detail') }}
           </v-btn>
@@ -33,7 +33,9 @@
         <nuxt-img
           height="200"
           width="200"
-          src="/logo_white.svg" class="logo"></nuxt-img>
+          src="/logo_white.svg"
+          class="logo"
+        ></nuxt-img>
       </v-row>
       <v-row justify="center">
         <h1 class="white--text">Musée up'</h1>
@@ -45,7 +47,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 h2 {
   font-size: 40px;
 }
