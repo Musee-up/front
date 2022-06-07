@@ -1,15 +1,20 @@
 <template>
-  <v-main>
-    <!-- <nuxt-img fit="cover" src="/home_bg.svg"> -->
-    <v-container>
-      <!-- <HomeSearchbar /> -->
+  <v-main class="pa-0">
+    <v-container fluid>
+      <v-row class="header">
+        <home-searchbar></home-searchbar>
+      </v-row>
+      <about-heritage></about-heritage>
+      <home-experiences></home-experiences>
+
     </v-container>
-    <!-- </nuxt-img> -->
   </v-main>
 </template>
 
 <style scoped>
-.v-main {
+
+
+.header {
   background: url('@/static/home_bg.svg');
   background-size: cover;
   height: 905px;

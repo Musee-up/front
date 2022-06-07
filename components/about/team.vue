@@ -5,8 +5,8 @@
         {{ $t('pages.about.team.title') }}
       </h2>
     </v-row>
-    <v-row justify="center" >
-      <p style="width:70%">
+    <v-row justify="center">
+      <p style="width: 70%">
         {{ $t('pages.about.team.description') }}
       </p>
     </v-row>

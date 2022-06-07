@@ -2,7 +2,9 @@
   <v-row class="primary pa-4">
     <v-col v-for="(stat, index) in stats" :key="index">
       <v-row justify="center">
-        <p class="font-weight-bold stat-value white--text text--center">{{ stat }} %</p>
+        <p class="font-weight-bold stat-value white--text text--center">
+          {{ stat }} %
+        </p>
       </v-row>
       <v-row>
         <p class="font-weight-medium white--text text-center">

@@ -8,12 +8,15 @@
       </v-row>
       <v-row class="pa-16">
         <v-col
-          class="fill-height"
           v-for="(value, index) in $t('pages.about.values.cards')"
           :key="index"
+          class="fill-height"
           cols="4"
         >
-          <v-card class="d-flex fill-height flex-column rounded-xl align-center" outlined>
+          <v-card
+            class="d-flex fill-height flex-column rounded-xl align-center"
+            outlined
+          >
             <nuxt-img
               width="fit-content"
               :src="photos[index]"
@@ -32,9 +35,7 @@
               </p>
             </v-card-text>
             <v-card-actions>
-              <v-btn rounded color="error">
-                En savoir +
-              </v-btn>
+              <v-btn rounded color="error"> En savoir + </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
