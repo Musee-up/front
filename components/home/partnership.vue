@@ -1,8 +1,9 @@
 <template>
   <v-container class="py-8">
-    <v-row class="justify-center">
-      <h2 >
+    <v-row class="justify-center py-8">
+      <h2>
         {{ $t('components.home.partnership.title') }}
+        <core-underline></core-underline>
       </h2>
     </v-row>
 
@@ -11,13 +12,12 @@
         v-for="(partner, index) in partners"
         :key="index"
         class="d-flex justify-center"
-        >
+      >
         <nuxt-img :src="partner.photo"></nuxt-img>
       </v-col>
-    </v-row> 
+    </v-row>
   </v-container>
 </template>
-
 
 <script>
 export default {
@@ -35,8 +35,8 @@ export default {
         },
         {
           photo: '/partnership/logo_sorbonne.svg',
-        }
-      ]
+        },
+      ],
     }
   },
 }

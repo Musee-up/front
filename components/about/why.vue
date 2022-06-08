@@ -4,6 +4,7 @@
       <v-row justify="center">
         <h2 class="primary--text text-center ma-4">
           {{ $t('pages.about.why.title') }}
+          <core-underline></core-underline>
         </h2>
       </v-row>
       <v-row class="text-center">

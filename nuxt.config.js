@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     ],
     link: [
       // {rel:'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lato&display=swap'},
-      { rel: 'icon', type: 'image/x-icon', href: '' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/icon_blue.png' },
     ],
   },
 

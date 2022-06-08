@@ -1,9 +1,9 @@
 <template>
   <v-container class="team-header" fluid>
-
     <v-row justify="center my-8">
       <h2 class="black-text">
         {{ $t('pages.about.team.title') }}
+        <core-underline></core-underline>
       </h2>
     </v-row>
 
@@ -16,7 +16,6 @@
 </template>
 
 <style scoped lang="scss">
-
 .team-header {
   position: relative;
   > * {
@@ -34,6 +33,4 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-
 </style>

@@ -5,6 +5,7 @@
       <v-row class="my-8 text-center" justify="center">
         <h2 class="primary-text">
           {{ $t('pages.about.history.title') }}
+        <core-underline></core-underline>
         </h2>
       </v-row>
       <v-row>

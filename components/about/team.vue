@@ -1,7 +1,5 @@
 <template>
   <v-container>
-
-
     <v-row class="pa-16">
       <v-col
         v-for="(member, index) in $t('pages.about.team.members')"
@@ -84,5 +82,3 @@ export default {
   },
 }
 </script>
-
-

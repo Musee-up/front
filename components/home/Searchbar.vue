@@ -5,14 +5,14 @@
       justify="center"
       class="d-flex rounded-pill"
       style="width: 1000px"
-      >
+    >
       <v-autocomplete
         filled
         solo
         hide-details="auto"
         class="pa-4 rounded-pill"
         label="Ou souhaitez vous allez ?"
-        ></v-autocomplete>
+      ></v-autocomplete>
       <DateMenu />
       <v-select
         filled
@@ -22,7 +22,7 @@
         type="number"
         class="pa-4 rounded-pill"
         label="Nombres de visiteurs"
-        ></v-select>
+      ></v-select>
 
       <v-btn
         icon
@@ -30,7 +30,7 @@
         color="primary"
         class="pr-4"
         style="align-self: center"
-        >
+      >
         <v-icon color="primary"> mdi-magnify </v-icon>
       </v-btn>
     </v-card>

@@ -43,8 +43,6 @@
 
 <style lang="scss" scoped>
 .bg {
-  background: #0000000F;
+  background: #0000000f;
 }
-
-
 </style>

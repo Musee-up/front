@@ -1,8 +1,6 @@
 <template>
   <v-row class="primary pa-4">
-    <v-col
-      v-for="(stat, index) in stats"
-      :key="index" class="mx-8">
+    <v-col v-for="(stat, index) in stats" :key="index" class="mx-8">
       <v-row justify="center">
         <p class="font-weight-bold stat-value white--text text--center">
           {{ stat }} %

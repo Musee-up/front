@@ -4,8 +4,7 @@
       <v-row class="header">
         <v-col class="mb-16 wrapper d-flex justify-center">
           <home-headline></home-headline>
-          <home-searchbar class="searchbar">
-          </home-searchbar>
+          <home-searchbar class="searchbar"> </home-searchbar>
         </v-col>
       </v-row>
       <home-experiences></home-experiences>
@@ -16,7 +15,6 @@
 </template>
 
 <style scoped>
-
 .header {
   background: url('@/static/home_bg.svg');
   background-size: cover;
@@ -29,8 +27,7 @@
 }
 
 .searchbar {
-  position:  absolute;
+  position: absolute;
   bottom: -25px;
 }
-
 </style>

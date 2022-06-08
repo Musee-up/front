@@ -47,7 +47,6 @@
 </template>
 
 <style lang="css" scoped>
-
 .header {
   background: url('@/static/home_bg.svg');
   background-size: cover;

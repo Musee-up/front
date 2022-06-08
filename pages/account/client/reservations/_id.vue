@@ -28,13 +28,13 @@
           <experience-group-slide
             style="width: 100%"
             height="300"
-            ></experience-group-slide>
+          ></experience-group-slide>
         </v-row>
 
         <account-client-reservations-summary
           :experience="experience"
           :guide="guide"
-          >
+        >
         </account-client-reservations-summary>
       </v-col>
 
