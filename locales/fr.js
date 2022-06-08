@@ -15,6 +15,9 @@ Vous pouvez revenir à la page d’accueil ou accéder au centre d’aide. `,
   },
   components: {
     home: {
+      partnership: {
+        title: 'Nos soutiens et partenaires',
+      },
       navbar: {
         register: {
           button: "S'enregistrer",

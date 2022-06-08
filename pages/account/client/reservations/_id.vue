@@ -13,13 +13,13 @@
         <v-row justify="center" class="ma-4">
           <p>
             {{ $t('pages.account.client.reservations.id.description')[0] }}
-            <span class="primary--text">{{
-              $t('pages.account.client.reservations.id.description')[1]
-            }}</span>
+            <span class="primary--text">
+              {{ $t('pages.account.client.reservations.id.description')[1] }}
+            </span>
             {{ $t('pages.account.client.reservations.id.description')[2] }}
-            <span class="primary--text">{{
-              $t('pages.account.client.reservations.id.description')[3]
-            }}</span>
+            <span class="primary--text">
+              {{ $t('pages.account.client.reservations.id.description')[3] }}
+            </span>
             {{ $t('pages.account.client.reservations.id.description')[4] }}
           </p>
         </v-row>
@@ -28,13 +28,13 @@
           <experience-group-slide
             style="width: 100%"
             height="300"
-          ></experience-group-slide>
+            ></experience-group-slide>
         </v-row>
 
         <account-client-reservations-summary
           :experience="experience"
           :guide="guide"
-        >
+          >
         </account-client-reservations-summary>
       </v-col>
 

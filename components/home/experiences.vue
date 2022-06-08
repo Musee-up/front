@@ -1,5 +1,5 @@
 <template>
-  <v-container class="py-8">
+  <v-container class="py-8 my-16">
     <v-row>
       <h2>Découvrez des expériences uniques</h2>
     </v-row>

@@ -1,9 +1,9 @@
 <template>
-  <v-row class="primary py-8">
+  <v-row class="ma-0 team-header py-16 align-center">
     <v-spacer></v-spacer>
     <v-col cols="4">
       <v-row>
-        <h2 class="white--text">
+        <h2 class="white--text my-8">
           {{ $t('pages.about.heritage.title') }}
         </h2>
       </v-row>
@@ -34,3 +34,26 @@
     <v-spacer></v-spacer>
   </v-row>
 </template>
+
+<style scoped lang="scss">
+
+.team-header {
+  position: relative;
+  > * {
+    position: relative;
+  }
+}
+
+.team-header::before {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-image: url('@/static/about/demo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+</style>

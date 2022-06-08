@@ -10,6 +10,8 @@
 
     <about-values> </about-values>
 
+    <about-team-header> </about-team-header>
+
     <about-team> </about-team>
 
     <about-heritage> </about-heritage>
@@ -17,6 +19,8 @@
     <about-preservation> </about-preservation>
 
     <about-reservation> </about-reservation>
+
+    <home-partnership></home-partnership>
   </v-container>
 </template>
 

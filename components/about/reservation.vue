@@ -1,5 +1,5 @@
 <template>
-  <v-row class="pa-16 detail">
+  <v-row class="pa-16 bg">
     <v-col cols="3">
       <v-row>
         <h2 class="primary--text">
@@ -40,3 +40,11 @@
     </v-col>
   </v-row>
 </template>
+
+<style lang="scss" scoped>
+.bg {
+  background: #0000000F;
+}
+
+
+</style>

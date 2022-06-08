@@ -10,7 +10,7 @@
         <v-col
           v-for="(value, index) in $t('pages.about.values.cards')"
           :key="index"
-          class="fill-height"
+          class="fill-height card"
           cols="4"
         >
           <v-card
@@ -61,5 +61,8 @@ export default {
 <style lang="scss" scoped>
 .value {
   height: max-content;
+}
+.card {
+  height: auto;
 }
 </style>

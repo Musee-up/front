@@ -1,5 +1,5 @@
 <template>
-  <v-row class="primary">
+  <v-row class="py-16 header">
     <v-spacer></v-spacer>
 
     <v-col class="ma-4">
@@ -46,7 +46,14 @@
   </v-row>
 </template>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
+
+.header {
+  background: url('@/static/home_bg.svg');
+  background-size: cover;
+  height: 700px;
+}
+
 h2 {
   font-size: 40px;
 }
