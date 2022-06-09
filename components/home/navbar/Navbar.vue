@@ -14,7 +14,8 @@
         >
           <NuxtLink
             class="mt-1"
-y           tag="img"
+            y
+            tag="img"
             color="blue"
             :src="require('@/static/logo_white.svg')"
             to="/"

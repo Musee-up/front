@@ -28,7 +28,7 @@
         <v-col v-for="(category, i) in categories" :key="i">
           <v-list>
             <v-list-item v-for="(item, index) in category" :key="index">
-              <NuxtLink to="#"> {{ item.title }} </NuxtLink>
+              <NuxtLink :to="item.link"> {{ item.title }} </NuxtLink>
             </v-list-item>
           </v-list>
         </v-col>
@@ -87,18 +87,18 @@ export default class HomeFooter extends Vue {
       { link: '#', title: this.$t('Conditions Générales') },
       { link: '#', title: this.$t("Politique d'annulation") },
       { link: '#', title: this.$t('Politique de confidentialité') },
-      { link: '#', title: this.$t("Centre d'aide") },
+      { link: '/contact', title: this.$t("Centre d'aide") },
     ],
     [
-      { link: '#', title: this.$t('Notre Équipe') },
-      { link: '#', title: this.$t('Qui sommes nous') },
-      { link: '#', title: this.$t('Notre histoire') },
+      { link: '/about', title: this.$t('Notre Équipe') },
+      { link: '/about', title: this.$t('Qui sommes nous') },
+      { link: '/about', title: this.$t('Notre histoire') },
       { link: '#', title: this.$t('On recrute') },
       { link: '#', title: this.$t('Blog') },
     ],
     [
-      { link: '#', title: this.$t('Nous contacter') },
-      { link: '#', title: this.$t('Contact') },
+      { link: '/contact', title: this.$t('Nous contacter') },
+      { link: '/contact', title: this.$t('Contact') },
       { link: '#', title: this.$t('Presse') },
       { link: '#', title: this.$t('Partenaires et entreprises') },
       { link: '#', title: this.$t('Influenceurs') },

@@ -27,7 +27,8 @@
           ></v-checkbox>
 
           <v-slide-item>
-            <experience-creation-time-picker> </experience-creation-time-picker>
+            <experience-creation-time-picker>
+            </experience-creation-time-picker>
           </v-slide-item>
         </v-list-item-group>
       </v-list>
