@@ -21,17 +21,17 @@ Vous pouvez revenir à la page d’accueil ou accéder au centre d’aide. `,
       contact: {
         staffing: {
           title: '🚀  Rejoignez notre équipe !',
-          description: `Vous voulez rejoindre l’aventure Musée Up’ ? Envoyez-nous votre candidature à l’adresse suivante :`
+          description: `Vous voulez rejoindre l’aventure Musée Up’ ? Envoyez-nous votre candidature à l’adresse suivante :`,
         },
         support: {
           title: 'Support client',
-          description: `Besoin d’aide ? Notre service client vous répondra aussi vite que possible sur les réseaux sociaux et à l’adresse suivante : `
+          description: `Besoin d’aide ? Notre service client vous répondra aussi vite que possible sur les réseaux sociaux et à l’adresse suivante : `,
         },
         press: {
           title: '📝   Presse et influenceurs',
-          description: `Vous êtes journalistes ou influenceurs et notre projet vous intéresse ? Envoyez-nous un message à l’adresse suivante :`
-        }
-      }
+          description: `Vous êtes journalistes ou influenceurs et notre projet vous intéresse ? Envoyez-nous un message à l’adresse suivante :`,
+        },
+      },
     },
     home: {
       partnership: {

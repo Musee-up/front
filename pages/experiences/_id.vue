@@ -14,7 +14,6 @@
 
     <v-row v-if="experience.data">
       <experience-group-slide
-        style="height: 500px"
         :photos="experience.data.attributes.photos"
       />
     </v-row>

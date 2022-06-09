@@ -16,6 +16,7 @@
 </template>
 
 <style scoped lang="scss">
+
 .team-header {
   position: relative;
   > * {
@@ -33,4 +34,5 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 </style>
