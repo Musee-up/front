@@ -3,6 +3,7 @@
 #import "../fragments/CoreExperiencePart.gql"
 #import "../fragments/PhotoPart.gql"
 #import "../fragments/ExperienceTypePart.gql"
+#import "../fragments/ExperienceSlotPart.gql"
 
 query experience($id: ID!) {
   experience(id: $id) {
@@ -21,6 +22,11 @@ query experience($id: ID!) {
         }
         types {
           ...ExperienceTypePart
+        }
+        experience_slots {
+          data {
+          ...ExperienceSlotPart
+          }
         }
       }
     }

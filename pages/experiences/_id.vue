@@ -13,9 +13,7 @@
     </v-row>
 
     <v-row v-if="experience.data">
-      <experience-group-slide
-        :photos="experience.data.attributes.photos"
-      />
+      <experience-group-slide :photos="experience.data.attributes.photos" />
     </v-row>
 
     <v-divider class="my-9"></v-divider>
@@ -40,7 +38,10 @@
 
       <v-col>
         <v-row class="justify-end">
-          <ExperienceRegistrationForm style="width: auto" />
+          <experience-registration-form
+            :slots="slots"
+            @picked="onPicked"
+            ></experience-registration-form>
         </v-row>
       </v-col>
     </v-row>
@@ -53,9 +54,15 @@ import experienceQuery from '@/graphql/queries/experience'
 export default {
   data() {
     return {
+      slots: [],
       experience: [],
       experiencesAttributes: [],
       selectedItem: 1,
+    }
+  },
+  methods: {
+    onPicked (date) {
+      console.log(date)
     }
   },
   apollo: {
@@ -74,6 +81,7 @@ export default {
         const groupSizeSyntax = (n) =>
           this.$t('pages.experiences.n_visite', { n })
 
+        this.slots = exp.experience_slots
         this.experiencesAttributes = [
           {
             text: exp.location,

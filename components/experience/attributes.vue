@@ -1,25 +1,33 @@
 <template>
   <v-row>
-    <v-list dense>
-      <v-list-item-group>
-        <v-list-item v-for="(item, i) in props.attributes" :key="i">
-          <v-list-item-icon>
-            <v-icon color="primary" v-text="item.icon"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content color="primary">
-            <v-list-item-title v-text="item.text"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
+    <v-col
+      v-for="(attribute, index) in attributes"
+      :key="index"
+      cols="6"
+      >
+      <v-row>
+        <v-col cols="1" class="pa-0">
+          <v-icon color="primary">
+            {{ attribute.icon }}
+          </v-icon>
+        </v-col>
+        <v-col class="pa-0">
+          <p>
+            {{ attribute.text }}
+          </p>
+        </v-col>
+      </v-row>
+    </v-col>
   </v-row>
 </template>
 
-<script setup>
-const props = defineProps({
-  attributes: {
-    type: Array,
-    default: null,
+<script>
+export default {
+  props: {
+    attributes: {
+      type: Array,
+      default: () => []
+    }
   },
-})
+}
 </script>

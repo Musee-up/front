@@ -1,17 +1,12 @@
 <template>
   <v-container>
-    <v-row
-      v-for="event in experiences.data"
-      :key="parseInt(event.id)">
-      <v-col cols="12"
-        >
-        <v-card
-          style="height:400px"
-          class="ma-6 rounded-xl">
+    <v-row v-for="event in experiences.data" :key="parseInt(event.id)">
+      <v-col cols="12">
+        <v-card style="height: 400px" class="ma-6 rounded-xl">
           <experience-list-item
             :id="parseInt(event.id)"
             :experience="event.attributes"
-            >
+          >
             <template #link>
               <nuxt-link :to="`/experiences/${parseInt(event.id)}`">
                 <base-blue-button>
