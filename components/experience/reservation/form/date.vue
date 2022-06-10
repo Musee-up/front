@@ -6,12 +6,13 @@
     nudge-bottom="10px"
     nudge-right="60"
     min-width="0"
+    :return-value.sync="date"
     :close-on-content-click="false"
     transition="scale-transition"
-    >
+  >
     <template #activator="{ on, attrs }">
       <v-text-field
-        v-model="slot"
+        v-model="date"
         label="choisissez la date"
         style="align-self: center"
         hide-details="auto"
@@ -21,32 +22,38 @@
         readonly
         v-bind="attrs"
         v-on="on"
-        ></v-text-field>
+      ></v-text-field>
     </template>
-
-    <v-list>
-      <v-list-item
-        v-for="(item, index) in slots"
-        :key="index">
-        <p>
-          item
-        </p>
-        <p>
-          {{ item.start }} - {{ item.end }}
-        </p>
-      </v-list-item>
-    </v-list>
+    <v-date-picker
+      v-model="date"
+      :allowed-dates="allowedDates"
+      no-title
+      scrollable
+    >
+      <v-spacer></v-spacer>
+      <v-btn text color="primary" @click="menu = false"> Cancel </v-btn>
+      <v-btn
+        text
+        color="primary"
+        @click="
+          $refs.menu.save(date)
+          $emit('picked', date)
+        "
+      >
+        OK
+      </v-btn>
+    </v-date-picker>
   </v-menu>
 </template>
 
 <script>
 export default {
-  props: ['slots'],
-  data () {
+  props: ['allowedDates'],
+  data() {
     return {
       menu: false,
-      slot: [],
+      date: undefined,
     }
-  }
+  },
 }
 </script>

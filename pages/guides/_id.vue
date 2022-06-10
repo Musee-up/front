@@ -90,7 +90,7 @@
               </span>
             </h2>
           </v-row>
-          <experience-horizontal-list> </experience-horizontal-list>
+          <experience-list-horizontal> </experience-list-horizontal>
         </v-row>
       </v-col>
     </v-row>

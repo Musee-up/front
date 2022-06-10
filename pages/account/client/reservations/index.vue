@@ -12,11 +12,11 @@
       </v-row>
 
       <v-row>
-        <experience-horizontal-list
+        <experience-list-horizontal
           :width="width"
           link="/account/client/reservations/"
         >
-        </experience-horizontal-list>
+        </experience-list-horizontal>
       </v-row>
     </v-col>
   </v-container>

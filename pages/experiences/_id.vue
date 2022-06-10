@@ -38,10 +38,10 @@
 
       <v-col>
         <v-row class="justify-end">
-          <experience-registration-form
+          <experience-reservation-form
             :slots="slots"
             @picked="onPicked"
-            ></experience-registration-form>
+          ></experience-reservation-form>
         </v-row>
       </v-col>
     </v-row>
@@ -61,9 +61,9 @@ export default {
     }
   },
   methods: {
-    onPicked (date) {
+    onPicked(date) {
       console.log(date)
-    }
+    },
   },
   apollo: {
     experience: {
