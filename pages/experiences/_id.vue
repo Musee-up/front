@@ -39,6 +39,7 @@
       <v-col>
         <v-row class="justify-end">
           <experience-reservation-form
+            :experience="experience.data.attributes"
             :slots="slots"
             @picked="onPicked"
           ></experience-reservation-form>

@@ -22,6 +22,16 @@ query experience($id: ID!) {
         types {
           ...ExperienceTypePart
         }
+        guide {
+          data {
+            attributes {
+              firstname
+              lastname
+              phone
+              email
+            }
+          }
+        }
         experience_slots {
           data {
             id

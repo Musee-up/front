@@ -8,6 +8,7 @@
     <v-row>
       <v-col cols="2">
         <nuxt-img
+          v-if="experience.photo"
           class="rounded-xl"
           width="100px"
           height="100"
@@ -22,16 +23,19 @@
         </v-row>
         <v-row class="exp-attribute font-weight-bold">
           <p>
-            {{ experience.type }}
+            Expérience partagée
           </p>
         </v-row>
         <v-row class="exp-attribute">
           <p>
             <v-icon small>mdi-map-marker</v-icon>
             <small class="detail--text">
-              {{ experience.address }}
+              {{ experience.location }}
               /
-              {{ experience.actionType }}
+              {{
+              experience.types.data
+              .map(x => x.attributes.name).join(', ')
+            }}
             </small>
           </p>
         </v-row>

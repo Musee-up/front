@@ -8,7 +8,7 @@
     min-width="0"
     :close-on-content-click="false"
     transition="scale-transition"
-    >
+  >
     <template #activator="{ on, attrs }">
       <v-text-field
         v-model="selectedSlot"
@@ -21,28 +21,21 @@
         readonly
         v-bind="attrs"
         v-on="on"
-        ></v-text-field>
+      ></v-text-field>
     </template>
 
-    <v-card
-      active-class="rounded-xl"
-      class="rounded-xl">
+    <v-card active-class="rounded-xl" class="rounded-xl">
       <v-card-text class="rounded-xl">
         <v-list>
           <v-list-item v-for="(slot, index) in slots" :key="index">
-            <v-btn
-              text
-              @click="$emit('input', slot)"
-              >
+            <v-btn text @click="$emit('submit', slot)">
               <experience-reservation-form-hour-item :e_slot="slot.attributes">
               </experience-reservation-form-hour-item>
             </v-btn>
             <v-divider></v-divider>
           </v-list-item>
         </v-list>
-
       </v-card-text>
-
     </v-card>
   </v-menu>
 </template>

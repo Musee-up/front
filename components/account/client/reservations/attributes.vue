@@ -8,17 +8,21 @@
 
     <v-row>
       <v-col cols="1">
-        <v-icon color="primary">mdi-calendar</v-icon>
+        <v-icon color="primary">
+          mdi-calendar
+        </v-icon>
       </v-col>
       <v-col>
-        <p>{{ experience.date }}</p>
+        <p v-if="booking.slot">
+          {{ new Date(booking.slot.attributes.start) | moment('dd MM YYYY HH:mm') }}
+        </p>
       </v-col>
       <v-col>
         <p class="primary--text text-right">
           {{
             $t('components.account.client.reservations.attributes.price', {
-              total: experience.price,
-              unit: experience.price,
+              total: booking.total,
+              unit: booking.unitPrice,
             })
           }}
         </p>
@@ -29,6 +33,6 @@
 
 <script>
 export default {
-  props: ['experience'],
+  props: ['booking']
 }
 </script>

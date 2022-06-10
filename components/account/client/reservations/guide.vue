@@ -8,17 +8,29 @@
 
     <v-row>
       <v-col cols="2">
-        <nuxt-img
-          class="rounded-xl"
-          width="100px"
-          height="100"
-          :src="guide.photo"
-        ></nuxt-img>
+        <v-avatar
+          width="100"
+          height="100">
+          <nuxt-img
+            v-if="guide.photo"
+            width="100"
+            height="100"
+            :src="guide.photo"
+            ></nuxt-img>
+          <v-icon
+            v-else
+            x-large>
+            mdi-account-circle
+          </v-icon>
+
+        </v-avatar>
       </v-col>
 
       <v-col class="exp-list">
         <v-row>
-          <h4 class="exp-title">{{ guide.firstname }} {{ guide.lastname }}</h4>
+          <h4 class="exp-title">
+            {{ guide.firstname }} {{ guide.lastname }}
+          </h4>
         </v-row>
         <v-row class="exp-attribute font-weight-bold">
           <p>

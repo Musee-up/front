@@ -12,7 +12,7 @@
     <template #activator="{ on, attrs }">
       <v-text-field
         v-model="selectedSlot"
-        label="choisissez l'heure"
+        label="choisissez votre groupe"
         style="align-self: center"
         hide-details="auto"
         rounded
@@ -24,14 +24,9 @@
         ></v-text-field>
     </template>
 
-    <v-card
-      active-class="rounded-xl"
-      class="rounded-xl card">
-      <v-card-text class="rounded-xl">
-        <v-row
-          v-for="(type, i) in group"
-          :key="i"
-          >
+    <v-card active-class="rounded-xl" class="rounded-xl card">
+      <v-card-text>
+        <v-row v-for="(type, i) in group" :key="i">
           <v-col>
             <p>
               {{ i }}
@@ -40,36 +35,29 @@
           <v-col cols="8">
             <core-number-input
               v-model="type.model"
-              :disabled="total >= max"
-              >
+              :disabled="total >= max">
             </core-number-input>
           </v-col>
         </v-row>
         <v-row>
-          {{
-          total
-          }}
-          {{
-          max
-          }}
+          {{ total }}
+          {{ max }}
         </v-row>
       </v-card-text>
 
       <v-card-actions>
-        <v-btn text color="primary" @click="menu = false"> Cancel </v-btn>
+        <v-btn text color="primary" @click="menu = false">
+          Cancel
+        </v-btn>
         <v-btn
-          text
-          color="primary"
-          >
+          text color="primary"
+               @click="submit">
           OK
         </v-btn>
-
       </v-card-actions>
     </v-card>
-
   </v-menu>
 </template>
-
 
 <script>
 export default {
@@ -80,30 +68,36 @@ export default {
       menu: false,
       selectedSlot: [],
       group: {
-        adult:
-        {
+        adult: {
           model: 0,
         },
-        teenager:
-        {
+        teenager: {
           model: 0,
         },
-        children:
-        {
+        children: {
           model: 0,
         },
-        baby:
-        {
-          model: 0
-        }
-      }
+        baby: {
+          model: 0,
+        },
+      },
     }
   },
   computed: {
     total() {
       return Object.values(this.group)
-        .reduce((acc, cur) => acc + cur.model, 0)
-
+  .reduce((acc, cur) => acc + cur.model, 0)
+    },
+  },
+  watch: {
+    group(val) {
+      this.$emit('input', val)
+    },
+  },
+  methods: {
+    submit() {
+      this.$emit('submit', this.group)
+      this.menu = false
     }
   },
 }

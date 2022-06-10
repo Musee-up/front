@@ -5,8 +5,7 @@
     offset-y
     width="40%"
     nudge-bottom="10px"
-    persistent
-    >
+  >
     <template #activator="{ on, attrs }">
       <v-btn
         rounded
@@ -14,14 +13,12 @@
         class="white--text"
         v-bind="attrs"
         v-on="on"
-        >
+      >
         Réserver
       </v-btn>
     </template>
 
-    <v-card
-      active-class="rounded-xl ma-4"
-      class="rounded-xl">
+    <v-card active-class="rounded-xl ma-4" class="rounded-xl">
       <v-card-title>
         <v-container>
           <v-row class="mb-4">
@@ -34,7 +31,9 @@
       </v-card-title>
       <v-card-text>
         <v-container class="mx-4">
-
+          <v-row>
+            {{ experience }}
+          </v-row>
           <account-client-reservations-experience :experience="experience">
           </account-client-reservations-experience>
           <v-divider></v-divider>
@@ -44,34 +43,25 @@
           <account-client-reservations-group>
           </account-client-reservations-group>
           <v-divider></v-divider>
-          <account-client-reservations-attributes :experience="experience">
+          <account-client-reservations-attributes :booking="booking">
           </account-client-reservations-attributes>
-
         </v-container>
-
       </v-card-text>
 
       <v-card-actions class="justify-center">
-        <base-blue-button>
-          Valider et payer
-        </base-blue-button>
+        <base-blue-button> Valider et payer </base-blue-button>
       </v-card-actions>
     </v-card>
-
   </v-dialog>
-
 </template>
 
 <script>
-import {guide, experience} from '@/data/mock.js'
-
 export default {
+  props: ['experience', 'booking', 'guide'],
   data() {
     return {
       menu: false,
-      guide,
-      experience
     }
-  }
+  },
 }
 </script>

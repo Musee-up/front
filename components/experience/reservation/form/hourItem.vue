@@ -1,6 +1,5 @@
 <template>
   <v-row>
-
     <v-col>
       <p>
         {{ e_slot.start | moment('HH:mm') }}
@@ -9,11 +8,8 @@
     </v-col>
 
     <v-col>
-      <p>
-        5 places restantes
-      </p>
+      <p>5 places restantes</p>
     </v-col>
-
   </v-row>
 </template>
 
@@ -22,8 +18,8 @@ export default {
   props: {
     e_slot: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>

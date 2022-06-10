@@ -19,40 +19,62 @@
       </v-row>
 
       <v-row class="my-4">
-        <experience-reservation-form-hour v-if="day" :slots="hours">
+        <experience-reservation-form-hour
+          v-if="day"
+          :slots="hours"
+          @submit="(slot) => selectedSlot = slot"
+          >
         </experience-reservation-form-hour>
       </v-row>
 
       <v-row class="my-4">
-        <experience-reservation-form-group>
+        <experience-reservation-form-group @submit="(v) => group = v">
         </experience-reservation-form-group>
       </v-row>
-
+      <v-row>
+        <p class="primary--text">
+        {{ group }}
+        </p>
+      </v-row>
+      <v-row>
+        {{ selectedSlot }}
+      </v-row>
     </v-card-text>
     <v-card-actions>
-          <experience-reservation-summary>
-          </experience-reservation-summary>
-
+      <experience-reservation-summary
+        :booking="booking"
+        :experience="experience"
+        :guide="experience.guide.data.attributes"
+        >
+      </experience-reservation-summary>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
 export default {
-  props: ['slots'],
+  props: ['slots', 'experience'],
   data() {
     return {
+      selectedSlot: null,
+      group: null,
       day: null,
       dates: [],
     }
   },
-  computed: {
+   computed: {
+    booking() {
+      return {
+        slot: this.selectedSlot,
+        unitPrice: 18,
+        total: 18 * 10,
+        group: this.group,
+      }
+    },
     hours() {
-      const day =
-          new Date(this.day).getDate()
-      const hours =  this.slots.data.filter(
-        (slot) =>
-        new Date(slot.attributes.start).getDate() === day
+      const day = new Date(this.day).getDate()
+      const hours = this.slots.data.filter(
+        (slot) => new Date(slot.attributes.start).getDate() === day
       )
       return hours
     },
