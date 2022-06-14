@@ -2,7 +2,7 @@
   <v-card
     rounded
     class="d-flex flex-column rounded-xl align-center text-center"
-    style="width: 450px"
+    style="width: 100%"
   >
     <v-card-title>
       <span class="text-h5 text-center">
@@ -11,60 +11,62 @@
     </v-card-title>
     <v-card-text>
       <v-row class="my-4">
-        <experience-reservation-form-date
+        <experience-booking-form-date
           :allowed-dates="allowedDates"
           @picked="(date) => (day = date)"
         >
-        </experience-reservation-form-date>
+        </experience-booking-form-date>
       </v-row>
 
       <v-row class="my-4">
-        <experience-reservation-form-hour
+        <experience-booking-form-hour
           v-if="day"
+          style="width: 200px"
           :slots="hours"
-          @submit="(slot) => selectedSlot = slot"
-          >
-        </experience-reservation-form-hour>
+          @submit="(slot) => (selectedSlot = slot)"
+        >
+        </experience-booking-form-hour>
       </v-row>
 
       <v-row class="my-4">
-        <experience-reservation-form-group @submit="(v) => group = v">
-        </experience-reservation-form-group>
+        <experience-booking-form-group @submit="(v) => (group = v)">
+        </experience-booking-form-group>
       </v-row>
       <v-row>
         <p class="primary--text">
-        {{ group }}
+          {{ group }}
         </p>
-      </v-row>
-      <v-row>
-        {{ selectedSlot }}
       </v-row>
     </v-card-text>
     <v-card-actions>
-      <experience-reservation-summary
+      <experience-booking-summary
         :booking="booking"
         :experience="experience"
-        :guide="experience.guide.data.attributes"
-        >
-      </experience-reservation-summary>
+        :guide="guide.map(experience.attributes.guide)"
+      >
+      </experience-booking-summary>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import guide from '@/data/models/guide.js'
+
 export default {
   props: ['slots', 'experience'],
   data() {
     return {
+      guide,
       selectedSlot: null,
       group: null,
       day: null,
       dates: [],
     }
   },
-   computed: {
+  computed: {
     booking() {
       return {
+        size: 10,
         slot: this.selectedSlot,
         unitPrice: 18,
         total: 18 * 10,

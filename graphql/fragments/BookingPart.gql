@@ -1,0 +1,45 @@
+#import "../fragments/ExperienceTypePart.gql"
+fragment BookingPart on BookingRelationResponseCollection {
+  data {
+    id
+    attributes {
+      experience_slot {
+        data {
+          id
+          attributes {
+            start
+            end
+          }
+        }
+      }
+      size
+      # experience {
+      #   data {
+      #     attributes {
+      #       title
+      #       location
+      #       types {
+      #         ...ExperienceTypePart
+      #       }
+      #       guide {
+      #         data {
+      #           attributes {
+      #             user {
+      #               data {
+      #                 attributes {
+      #                   firstname
+      #                   lastname
+      #                   phone
+      #                   email
+      #                 }
+      #               }
+      #             }
+      #           }
+      #         }
+      #       }
+      #     }
+      #   }
+      # }
+    }
+  }
+}

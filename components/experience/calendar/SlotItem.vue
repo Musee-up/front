@@ -34,7 +34,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import deleteSlot from '@/graphql/mutations/deleteExperienceSlot'
-import updateExperience from '@/graphql/mutations/updateExperience'
+import updateExperienceSlot from '@/graphql/mutations/updateExperienceSlot'
 import experienceSlotQuery from '@/graphql/queries/ExperienceSlot'
 
 export default {
@@ -73,11 +73,11 @@ export default {
     associateExperience(id) {
       this.$apollo
         .mutate({
-          mutation: updateExperience,
+          mutation: updateExperienceSlot,
           variables: {
-            id: id.toString(),
+            id: this.selectedEvent.id.toString(),
             input: {
-              experience_slots: [this.selectedEvent.id],
+              experience: id.toString(),
             },
           },
         })

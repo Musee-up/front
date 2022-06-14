@@ -2,8 +2,8 @@
   <v-row>
     <v-col>
       <p>
-        {{ e_slot.start | moment('HH:mm') }}
-        - {{ e_slot.end | moment('HH:mm') }}
+        {{ e_slot.start | moment('hh:mm') }}
+        - {{ e_slot.end | moment('hh:mm') }}
       </p>
     </v-col>
 

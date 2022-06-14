@@ -2,21 +2,18 @@
   <v-container>
     <v-col cols="9">
       <v-row class="justify-center">
-        <h2>{{ $t('pages.account.client.reservations.title') }}</h2>
+        <h2>{{ $t('pages.account.client.bookings.title') }}</h2>
       </v-row>
 
       <v-row class="justify-center">
         <p>
-          {{ $t('pages.account.client.reservations.description') }}
+          {{ $t('pages.account.client.bookings.description') }}
         </p>
       </v-row>
 
       <v-row>
-        <experience-list-horizontal
-          :width="width"
-          link="/account/client/reservations/"
-        >
-        </experience-list-horizontal>
+        <account-client-bookings-list :width="width">
+        </account-client-bookings-list>
       </v-row>
     </v-col>
   </v-container>

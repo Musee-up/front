@@ -39,9 +39,14 @@
           :key="index"
           align-self="center"
           cols="2"
+          width="auto"
         >
-          <experience-list-item-icon :icon-value="item.label" :icon="item.icon">
-          </experience-list-item-icon>
+          <p style="width: max-content">
+            {{ item.label }}
+            <v-icon color="primary" class="ma-2">
+              {{ item.icon }}
+            </v-icon>
+          </p>
         </v-col>
       </v-row>
     </v-col>

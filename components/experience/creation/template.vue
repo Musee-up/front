@@ -165,7 +165,6 @@ export default {
           },
         },
       })
-      console.log(exp)
       this.id =
         exp.data[this.id ? 'updateExperience' : 'createExperience'].data.id
     },

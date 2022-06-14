@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <h2 class="summary-title my-4 title--text">
-        {{ $t('pages.account.client.reservations.id.summary') }}
+        {{ $t('pages.account.client.bookings.id.summary') }}
       </h2>
     </v-row>
 
@@ -23,54 +23,54 @@
 
 <script>
 export default {
-  props: ['experience', 'guide'],
+  props: ['experience', 'guide', 'booking', 'e_slot'],
   data() {
     return {
       components: [
         {
-          component: 'account-client-reservations-experience',
+          component: 'account-client-bookings-experience',
           data: {
             experience: this.experience,
           },
         },
         {
-          component: 'account-client-reservations-guide',
+          component: 'account-client-bookings-guide',
           data: {
             guide: this.guide,
           },
         },
         {
-          component: 'account-client-reservations-attributes',
+          component: 'account-client-bookings-attributes',
+          data: {
+            e_slot: this.e_slot,
+          },
+        },
+        {
+          component: 'account-client-bookings-address',
           data: {
             experience: this.experience,
           },
         },
         {
-          component: 'account-client-reservations-address',
+          component: 'account-client-bookings-group',
           data: {
             experience: this.experience,
           },
         },
         {
-          component: 'account-client-reservations-group',
+          component: 'account-client-bookings-reference',
+          data: {
+            booking: this.booking,
+          },
+        },
+        {
+          component: 'account-client-bookings-cancel',
           data: {
             experience: this.experience,
           },
         },
         {
-          component: 'account-client-reservations-reference',
-          data: {
-            experience: this.experience,
-          },
-        },
-        {
-          component: 'account-client-reservations-cancel',
-          data: {
-            experience: this.experience,
-          },
-        },
-        {
-          component: 'account-client-reservations-footer',
+          component: 'account-client-bookings-footer',
           data: {
             experience: this.experience,
           },

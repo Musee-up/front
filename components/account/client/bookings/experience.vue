@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <h3 class="title--text">
-        {{ $t('components.account.client.reservations.experience.title') }}
+        {{ $t('components.account.client.bookings.experience.title') }}
       </h3>
     </v-row>
     <v-row>
@@ -22,9 +22,7 @@
           </h4>
         </v-row>
         <v-row class="exp-attribute font-weight-bold">
-          <p>
-            Expérience partagée
-          </p>
+          <p>Expérience partagée</p>
         </v-row>
         <v-row class="exp-attribute">
           <p>
@@ -33,17 +31,18 @@
               {{ experience.location }}
               /
               {{
-              experience.types.data
-              .map(x => x.attributes.name).join(', ')
-            }}
+                experience.types.data.map((x) => x.attributes.name).join(', ')
+              }}
             </small>
           </p>
         </v-row>
       </v-col>
       <v-col class="d-flex align-center action" cols="3">
-        <base-blue-button>
-          {{ $t('components.account.client.reservations.experience.action') }}
-        </base-blue-button>
+        <nuxt-link :to="`/experiences/${experience.id}`">
+          <base-blue-button>
+            {{ $t('components.account.client.bookings.experience.action') }}
+          </base-blue-button>
+        </nuxt-link>
       </v-col>
     </v-row>
   </v-container>

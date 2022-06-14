@@ -16,9 +16,9 @@
 
     <about-heritage> </about-heritage>
 
-    <about-preservation> </about-preservation>
+    <about-pbooking> </about-pbooking>
 
-    <about-reservation> </about-reservation>
+    <about-booking> </about-booking>
 
     <home-partnership></home-partnership>
   </v-container>

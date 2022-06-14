@@ -25,14 +25,20 @@ query experience($id: ID!) {
         guide {
           data {
             attributes {
-              firstname
-              lastname
-              phone
-              email
+              user {
+                data {
+                  attributes {
+                    firstname
+                    lastname
+                    phone
+                    email
+                  }
+                }
+              }
             }
           }
         }
-        experience_slots {
+        experienceSlots {
           data {
             id
             attributes {

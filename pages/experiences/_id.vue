@@ -1,18 +1,14 @@
 <template>
-  <v-container
-    v-if="experience.data"
-    class="justify-center"
-    style="padding-right: 5%; padding-left: 5%"
-  >
+  <v-container v-if="experience.data" class="justify-center">
     <v-row class="justify-center">
       <v-col class="text-left">
-        <h1 class="black--text" style="font-size: 40px">
+        <h1 class="dark--text" style="font-size: 40px">
           {{ experience.data.attributes.title }}
         </h1>
       </v-col>
     </v-row>
 
-    <v-row v-if="experience.data">
+    <v-row v-if="experience.data" justify="center">
       <experience-group-slide :photos="experience.data.attributes.photos" />
     </v-row>
 
@@ -36,13 +32,13 @@
         <experience-guide-profile />
       </v-col>
 
-      <v-col>
+      <v-col class="mx-4">
         <v-row class="justify-end">
-          <experience-reservation-form
-            :experience="experience.data.attributes"
+          <experience-booking-form
+            :experience="experience.data"
             :slots="slots"
             @picked="onPicked"
-          ></experience-reservation-form>
+          ></experience-booking-form>
         </v-row>
       </v-col>
     </v-row>
@@ -82,7 +78,7 @@ export default {
         const groupSizeSyntax = (n) =>
           this.$t('pages.experiences.n_visite', { n })
 
-        this.slots = exp.experience_slots
+        this.slots = exp.experienceSlots
         this.experiencesAttributes = [
           {
             text: exp.location,

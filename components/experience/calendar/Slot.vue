@@ -95,7 +95,7 @@ export default {
         this.extendOriginal = null
       }
     },
-    async startTime(tms) {
+    startTime(tms) {
       const mouse = this.toTime(tms)
 
       if (this.dragEvent && this.dragTime === null) {
@@ -111,7 +111,8 @@ export default {
 
         if (!this.createEvent) return
         try {
-          this.createEvent.id = await this.createApiSlot(this.createEvent)
+          console.log(this.createEvent)
+          this.createEvent.id = this.createApiSlot(this.createEvent)
           this.events.push(this.createEvent)
         } catch (e) {
           console.log(e)
@@ -162,39 +163,47 @@ export default {
         }
       })
     },
-    async createApiSlot(event) {
+    createApiSlot(event) {
       const start = new Date(event.start).toISOString()
       const end = new Date(event.end).toISOString()
 
-      console.log(this.guide)
-      const result = await this.$apollo.mutate({
-        mutation: createSlot,
-        variables: {
-          input: {
-            guide: this.guide.guide.id.toString(),
-            start,
-            end,
+      return this.$apollo
+        .mutate({
+          mutation: createSlot,
+          variables: {
+            input: {
+              guide: this.guide.guide.id.toString(),
+              start,
+              end,
+            },
           },
-        },
-      })
-      const id = result.data.createExperienceSlot.data.id
-      return id
+        })
+        .then((result) => result.data.createExperienceSlot.data.id)
+        .catch((e) => {
+          console.log('create Slot')
+          console.log(e)
+        })
     },
-    async updateEvent(event) {
+    updateEvent(event) {
       if (!event.id) return
 
       const start = new Date(event.start).toISOString()
       const end = new Date(event.end).toISOString()
-      await this.$apollo.mutate({
-        mutation: updateSlot,
-        variables: {
-          id: event.id.toString(),
-          input: {
-            start,
-            end,
+      this.$apollo
+        .mutate({
+          mutation: updateSlot,
+          variables: {
+            id: event.id.toString(),
+            input: {
+              start,
+              end,
+            },
           },
-        },
-      })
+        })
+        .catch((e) => {
+          console.log('updateEvent')
+          console.log(e)
+        })
     },
     showEvent({ nativeEvent, event }) {
       const open = () => {

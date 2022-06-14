@@ -3,18 +3,18 @@
     <v-col cols="3">
       <v-row>
         <h2 class="primary--text">
-          {{ $t('pages.about.reservations.title') }}
+          {{ $t('pages.about.bookings.title') }}
         </h2>
       </v-row>
       <v-row>
         <p class="primary--text">
-          {{ $t('pages.about.reservations.description') }}
+          {{ $t('pages.about.bookings.description') }}
         </p>
       </v-row>
     </v-col>
 
     <v-col
-      v-for="(item, index) in $t('pages.about.reservations.cols')"
+      v-for="(item, index) in $t('pages.about.bookings.cols')"
       :key="index"
       cols="3"
     >

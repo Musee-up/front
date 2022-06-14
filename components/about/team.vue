@@ -1,12 +1,15 @@
 <template>
   <v-container>
-    <v-row class="pa-16">
+    <v-row class="px-16 pt-16">
       <v-col
         v-for="(member, index) in $t('pages.about.team.members')"
         :key="index"
-        class="ma-4"
+        cols="4"
+        class="px-16"
       >
-        <v-row>
+        <v-row
+          :class="$vuetify.breakpoint.lgAndDown ? 'd-flex flex-column' : ''"
+        >
           <v-col v-if="members[index].photo">
             <nuxt-img
               width="200"

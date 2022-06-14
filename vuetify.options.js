@@ -18,7 +18,7 @@ export default {
         special_2: '#56D9FD',
         primary: '#064888',
         delete: '#C64343',
-        black: '#24242C',
+        dark: '#24242C',
         selected: '#618AB2',
         blue: '#064888',
         variant: '#FC206C',

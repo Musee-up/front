@@ -2,35 +2,26 @@
   <v-container>
     <v-row>
       <h3 class="title--text">
-        {{ $t('components.account.client.reservations.guide.title') }}
+        {{ $t('components.account.client.bookings.guide.title') }}
       </h3>
     </v-row>
 
     <v-row>
       <v-col cols="2">
-        <v-avatar
-          width="100"
-          height="100">
+        <v-avatar width="100" height="100">
           <nuxt-img
             v-if="guide.photo"
             width="100"
             height="100"
             :src="guide.photo"
-            ></nuxt-img>
-          <v-icon
-            v-else
-            x-large>
-            mdi-account-circle
-          </v-icon>
-
+          ></nuxt-img>
+          <v-icon v-else x-large> mdi-account-circle </v-icon>
         </v-avatar>
       </v-col>
 
       <v-col class="exp-list">
         <v-row>
-          <h4 class="exp-title">
-            {{ guide.firstname }} {{ guide.lastname }}
-          </h4>
+          <h4 class="exp-title">{{ guide.firstname }} {{ guide.lastname }}</h4>
         </v-row>
         <v-row class="exp-attribute font-weight-bold">
           <p>
@@ -56,9 +47,11 @@
       </v-col>
 
       <v-col class="d-flex align-center action" cols="3">
-        <base-blue-button>
-          {{ $t('components.account.client.reservations.guide.action') }}
-        </base-blue-button>
+        <nuxt-link :to="`/guides/${guide.id}`">
+          <base-blue-button>
+            {{ $t('components.account.client.bookings.guide.action') }}
+          </base-blue-button>
+        </nuxt-link>
       </v-col>
     </v-row>
   </v-container>

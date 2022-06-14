@@ -70,8 +70,8 @@ export default {
         },
         {
           icon: 'mdi-calendar',
-          label: 'pages.account.client.reservation',
-          link: '/account/client/reservations',
+          label: 'pages.account.client.booking',
+          link: '/account/client/bookings',
         },
         {
           icon: 'mdi-message',

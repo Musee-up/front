@@ -4,7 +4,7 @@
 //         variables: {
 //           id: this.guide.data.id,
 //           input: {
-//             experience_slots: slots,
+//             experienceSlots: slots,
 //           },
 //         },
 //       })
@@ -14,7 +14,7 @@
 //           id: this.guide.data.id.toString(),
 //         },
 //       })
-//       this.updateEvents(guide.data.guide.data.attributes.experience_slots)
+//       this.updateEvents(guide.data.guide.data.attributes.experienceSlots)
 //     },const toTime = (tms) => {
 //       return new Date(
 //         tms.year,

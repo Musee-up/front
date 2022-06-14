@@ -3,13 +3,13 @@
     <v-col>
       <v-row justify="center">
         <h2 class="primary--text">
-          {{ $t('pages.about.preservation.title') }}
+          {{ $t('pages.about.pbooking.title') }}
           <core-underline></core-underline>
         </h2>
       </v-row>
       <v-row>
         <v-col
-          v-for="(item, index) in $t('pages.about.preservation.cards')"
+          v-for="(item, index) in $t('pages.about.pbooking.cards')"
           :key="index"
           class="ma-8 pa-8"
         >

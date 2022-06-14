@@ -9,29 +9,21 @@
           v-bind="attrs"
           v-on="on"
         >
-          {{
-            $t('components.account.client.reservations.footer.review.button')
-          }}
+          {{ $t('components.account.client.bookings.footer.review.button') }}
         </v-btn>
       </template>
 
       <v-card class="rounded-xl">
         <v-card-title>
           <h3 class="primary--text">
-            {{
-              $t('components.account.client.reservations.footer.review.title')
-            }}
+            {{ $t('components.account.client.bookings.footer.review.title') }}
           </h3>
         </v-card-title>
         <v-card-subtitle>
           {{
-            $t(
-              'components.account.client.reservations.footer.review.description'
-            )
+            $t('components.account.client.bookings.footer.review.description')
           }}
-          <span v-if="reservation" class="primary--text">{{
-            reservation.date
-          }}</span>
+          <span v-if="booking" class="primary--text">{{ booking.date }}</span>
         </v-card-subtitle>
         <v-card-text>
           <v-rating
@@ -47,7 +39,7 @@
             v-model="comment"
             outlined
             :label="
-              $t('components.account.client.reservations.footer.review.comment')
+              $t('components.account.client.bookings.footer.review.comment')
             "
             :counter="250"
             maxlength="250"
@@ -64,9 +56,7 @@
             class="white--text"
             @click="menu = false"
           >
-            {{
-              $t('components.account.client.reservations.footer.review.cancel')
-            }}
+            {{ $t('components.account.client.bookings.footer.review.cancel') }}
           </v-btn>
           <v-btn
             rounded
@@ -77,9 +67,7 @@
               submitReview()
             "
           >
-            {{
-              $t('components.account.client.reservations.footer.review.submit')
-            }}
+            {{ $t('components.account.client.bookings.footer.review.submit') }}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -90,7 +78,7 @@
 <script>
 export default {
   props: {
-    reservation: {
+    booking: {
       type: Object,
       required: true,
     },

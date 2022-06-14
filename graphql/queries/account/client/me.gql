@@ -1,0 +1,87 @@
+query ExampleQuery {
+  me {
+    id
+    bookings {
+      data {
+        attributes {
+          experience_slot {
+            data {
+              attributes {
+                start
+                end
+              }
+            }
+          }
+          experience {
+            data {
+              id
+              attributes {
+                photos {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                duration
+                price
+                description
+                language
+                transportation
+                title
+                stars
+                handifriendly
+                languages {
+                  data {
+                    id
+                    attributes {
+                      value
+                    }
+                  }
+                }
+                themes {
+                  data {
+                    id
+                    attributes {
+                      name
+                    }
+                  }
+                }
+                location
+                types {
+                  data {
+                    id
+                    attributes {
+                      name
+                    }
+                  }
+                }
+                guide {
+                  data {
+                    id
+                    attributes {
+                      user {
+                        data {
+                          id
+                          attributes {
+                            username
+                            email
+                            firstname
+                            lastname
+                            phone
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          size
+        }
+        id
+      }
+    }
+  }
+}

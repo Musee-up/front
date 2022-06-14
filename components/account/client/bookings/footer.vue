@@ -3,13 +3,13 @@
     <v-row>
       <v-col cols="2">
         <base-blue-button>
-          {{ $t('components.account.client.reservations.footer.download') }}
+          {{ $t('components.account.client.bookings.footer.download') }}
         </base-blue-button>
       </v-col>
 
       <v-col class="align-self-center">
-        <account-client-reservations-review-form :reservation="{}">
-        </account-client-reservations-review-form>
+        <account-client-bookings-review-form :booking="{}">
+        </account-client-bookings-review-form>
       </v-col>
 
       <v-col v-for="(item, index) in actions" :key="index">
@@ -36,17 +36,17 @@ export default {
         {
           icon: 'mdi-map-marker',
           color: 'detail',
-          text: 'components.account.client.reservations.footer.address',
+          text: 'components.account.client.bookings.footer.address',
         },
         {
           icon: 'mdi-printer',
           color: 'special_1',
-          text: 'components.account.client.reservations.footer.print',
+          text: 'components.account.client.bookings.footer.print',
         },
         {
           icon: 'mdi-ticket-confirmation',
           color: 'special_2',
-          text: 'components.account.client.reservations.footer.receipt',
+          text: 'components.account.client.bookings.footer.receipt',
         },
       ],
     }

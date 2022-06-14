@@ -8,20 +8,21 @@
     min-width="0"
     :close-on-content-click="false"
     transition="scale-transition"
-    >
+  >
     <template #activator="{ on, attrs }">
       <v-text-field
-        v-model="selectedSlot"
+        v-model="groupAbstract"
         label="choisissez votre groupe"
         style="align-self: center"
         hide-details="auto"
         rounded
+        color="primary"
         filled
         solo
         readonly
         v-bind="attrs"
         v-on="on"
-        ></v-text-field>
+      ></v-text-field>
     </template>
 
     <v-card active-class="rounded-xl" class="rounded-xl card">
@@ -33,9 +34,7 @@
             </p>
           </v-col>
           <v-col cols="8">
-            <core-number-input
-              v-model="type.model"
-              :disabled="total >= max">
+            <core-number-input v-model="type.model" :disabled="total >= max">
             </core-number-input>
           </v-col>
         </v-row>
@@ -46,14 +45,8 @@
       </v-card-text>
 
       <v-card-actions>
-        <v-btn text color="primary" @click="menu = false">
-          Cancel
-        </v-btn>
-        <v-btn
-          text color="primary"
-               @click="submit">
-          OK
-        </v-btn>
+        <v-btn text color="primary" @click="menu = false"> Cancel </v-btn>
+        <v-btn text color="primary" @click="submit"> OK </v-btn>
       </v-card-actions>
     </v-card>
   </v-menu>
@@ -67,6 +60,7 @@ export default {
       adult: 0,
       menu: false,
       selectedSlot: [],
+      groupAbstract: '',
       group: {
         adult: {
           model: 0,
@@ -85,8 +79,7 @@ export default {
   },
   computed: {
     total() {
-      return Object.values(this.group)
-  .reduce((acc, cur) => acc + cur.model, 0)
+      return Object.values(this.group).reduce((acc, cur) => acc + cur.model, 0)
     },
   },
   watch: {
@@ -97,8 +90,9 @@ export default {
   methods: {
     submit() {
       this.$emit('submit', this.group)
+      this.groupAbstract = this.total + ' personnes'
       this.menu = false
-    }
+    },
   },
 }
 </script>

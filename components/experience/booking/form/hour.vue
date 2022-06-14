@@ -28,9 +28,9 @@
       <v-card-text class="rounded-xl">
         <v-list>
           <v-list-item v-for="(slot, index) in slots" :key="index">
-            <v-btn text @click="$emit('submit', slot)">
-              <experience-reservation-form-hour-item :e_slot="slot.attributes">
-              </experience-reservation-form-hour-item>
+            <v-btn text @click="submit(slot)">
+              <experience-booking-form-hour-item :e_slot="slot.attributes">
+              </experience-booking-form-hour-item>
             </v-btn>
             <v-divider></v-divider>
           </v-list-item>
@@ -46,8 +46,14 @@ export default {
   data() {
     return {
       menu: false,
-      selectedSlot: [],
+      selectedSlot: null,
     }
+  },
+  methods: {
+    submit(slot) {
+      this.$emit('submit', slot)
+      this.selectedSlot = this.$moment(slot.start).format('hh:mm')
+    },
   },
 }
 </script>

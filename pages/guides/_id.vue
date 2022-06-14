@@ -1,7 +1,7 @@
 <template>
   <v-container class="justify-center">
     <v-row class="my-8">
-      <v-col cols="2" class="detail mx-12">
+      <v-col cols="2" class="abstract mx-12">
         <v-row class="photo">
           <like-overview :photo="guide.photo"> </like-overview>
         </v-row>
@@ -149,7 +149,7 @@ Je suis passionnée par l’histoire de l’art, la littérature française du X
 </script>
 
 <style lang="css" scoped>
-.detail > * > * {
+.abstract > * > * {
   width: 100% !important;
 }
 

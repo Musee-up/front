@@ -2,6 +2,7 @@
   <v-menu
     ref="menu"
     v-model="menu"
+    style="width: 200px"
     offset-y
     nudge-bottom="10px"
     nudge-right="60"
@@ -14,7 +15,7 @@
       <v-text-field
         v-model="date"
         label="choisissez la date"
-        style="align-self: center"
+        style="width: 80%"
         hide-details="auto"
         rounded
         filled

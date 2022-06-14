@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <h3 class="title--text">
-        {{ $t('components.account.client.reservations.address.title') }}
+        {{ $t('components.account.client.bookings.address.title') }}
       </h3>
     </v-row>
 
@@ -12,7 +12,7 @@
       </v-col>
       <v-col>
         <p>
-          {{ experience.meeting_point }}
+          {{ experience.location }}
         </p>
       </v-col>
     </v-row>

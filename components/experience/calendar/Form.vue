@@ -97,22 +97,27 @@ export default {
     }),
   },
   methods: {
-    async formValide() {
+    formValide() {
       const rawStart = new Date([this.date, this.time].join(' '))
       const end = new Date(rawStart)
       end.setHours(rawStart.getHours() + 1)
 
-      await this.$apollo.mutate({
-        mutation: createSlot,
-        variables: {
-          input: {
-            guide: this.guide.guide.id.toString(),
-            experience: this.experience,
-            start: rawStart.toISOString(),
-            end: end.toISOString(),
+      this.$apollo
+        .mutate({
+          mutation: createSlot,
+          variables: {
+            input: {
+              guide: this.guide.guide.id.toString(),
+              experience: this.experience,
+              start: rawStart.toISOString(),
+              end: end.toISOString(),
+            },
           },
-        },
-      })
+        })
+        .catch((error) => {
+          console.log('createExperienceSlot', error)
+          console.log(error)
+        })
 
       this.menu = false
     },

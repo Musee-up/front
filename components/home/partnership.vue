@@ -7,13 +7,14 @@
       </h2>
     </v-row>
 
-    <v-row class="px-16">
+    <v-row>
       <v-col
         v-for="(partner, index) in partners"
         :key="index"
+        cols="3"
         class="d-flex justify-center"
       >
-        <nuxt-img :src="partner.photo"></nuxt-img>
+        <nuxt-img style="width: 100%" :src="partner.photo"></nuxt-img>
       </v-col>
     </v-row>
   </v-container>

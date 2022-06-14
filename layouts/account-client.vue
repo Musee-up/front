@@ -14,10 +14,15 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import DefaultLayout from '~/layouts/default.vue'
 
 export default {
   components: { DefaultLayout },
   middleware: ['auth'],
+  mounted() {
+    this.load()
+  },
+  methods: mapActions({ load: 'user/load' }),
 }
 </script>

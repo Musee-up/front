@@ -1,25 +1,23 @@
 <template>
-  <v-container class="ma-4">
-    <v-row>
-      <v-col :cols="cols.right">
-        <v-row v-for="(item, i) in right" :key="i" class="my-4">
-          <component :is="item" class="right"></component>
-        </v-row>
-      </v-col>
+  <v-row>
+    <v-col :cols="cols.right">
+      <v-row v-for="(item, i) in right" :key="i" class="my-4">
+        <component :is="item" class="right"></component>
+      </v-row>
+    </v-col>
 
-      <v-col> </v-col>
+    <v-col> </v-col>
 
-      <v-col :cols="cols.middle">
-        <v-row>
-          <account-guide-dashboard-profile> </account-guide-dashboard-profile>
-        </v-row>
+    <v-col :cols="cols.middle">
+      <v-row>
+        <account-guide-dashboard-profile> </account-guide-dashboard-profile>
+      </v-row>
 
-        <v-row>
-          <account-guide-dashboard-voucher> </account-guide-dashboard-voucher>
-        </v-row>
-      </v-col>
-    </v-row>
-  </v-container>
+      <v-row>
+        <account-guide-dashboard-voucher> </account-guide-dashboard-voucher>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

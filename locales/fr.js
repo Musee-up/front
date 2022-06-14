@@ -14,6 +14,19 @@ Vous pouvez revenir à la page d’accueil ou accéder au centre d’aide. `,
     delete: 'Supprimer',
   },
   components: {
+    booking: {
+      success: {
+        title: 'Merci pour votre réservation !',
+        text: `Vous et tous les participants inscrits à cette expérience culturelle allez recevoir un mail contenant votre récapitulatif de réservation, votre facture ainsi que vos billets.
+
+Toutes ces informations sont également accessibles sur votre compte dans l’onglet mes réservations.
+
+Votre guide rentrera en contact directement avec vous par le mail rattaché à votre compte ou sur votre numéro de téléphone si besoin
+
+Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou à nous écrire à l’adresse suivante : contact@museeup.com`,
+        account: 'Retrouvez votre e-ticket',
+      },
+    },
     contact: {
       faq: {
         title: 'Centre d’aide',
@@ -112,7 +125,7 @@ Vous pouvez revenir à la page d’accueil ou accéder au centre d’aide. `,
     },
     account: {
       client: {
-        reservations: {
+        bookings: {
           review: {
             title: 'Votre avis compte beaucoup pour nous !',
             description:
@@ -259,7 +272,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
           list: 'Découverte et sauvetage',
         },
       },
-      preservation: {
+      pbooking: {
         title: 'La sauvegarde du patrimoine en action',
         description: 'C’est la garantie de vivre des expériences culturelles…',
         cards: {
@@ -277,7 +290,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
           },
         },
       },
-      reservations: {
+      bookings: {
         title: "Réserver ou créer avec Musée Up'",
         description: 'C’est la garantie de vivre des expériences culturelles…',
         cols: [
@@ -308,7 +321,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
           description:
             'Vous retrouverez ici vos modes de paiements. Payez et communiquez toujours par l’intermédiaire de Musée Up’ pour bénéficier de la protection proposée par nos services. En savoir plus.',
         },
-        reservations: {
+        bookings: {
           id: {
             summary: 'Récapitulatif',
             title: 'Votre réservation le',
@@ -328,7 +341,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
         navigation_help2: 'Aide et contact',
         cards: {
           info: 'Gérez ici vos informations utiles et indiquez-nous vos contacts pour pouvoir vous joindre très facilement !',
-          reservations:
+          bookings:
             'Vous retrouverez ici vos réservations d’expériences et toutes les informations utiles, des contacts de votre guide au lieu de rencontre !',
           favorites:
             'Vous pourrez consulter ici tous vos favoris, expériences, guides et articles pour pouvoir les retrouver quand vous le souhaitez !',
@@ -340,7 +353,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
         headline:
           'Gérez vos informations personnelles et vos réservations très facilement et retrouvez tout ce dont vous avez besoin pour profiter au mieux des services Musée Up’ en toute sérénité !',
         info: 'Mes informations',
-        reservation: 'Mes reservations',
+        booking: 'Mes réservations',
         messages: 'Mes messages',
         favorites: 'Mes favoris',
         friends: 'Ma famille, mes amis',

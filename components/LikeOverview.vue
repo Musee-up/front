@@ -3,9 +3,9 @@
     <nuxt-img :width="width" :height="height" class="profile" :src="photo">
     </nuxt-img>
 
-    <div class="overlay d-flex">
+    <v-row class="ma-0 overlay d-flex">
       <slot></slot>
-    </div>
+    </v-row>
     <v-btn fab icon class="likeButton">
       <v-icon
         :dense="$vuetify.breakpoint.lgAndDown"
@@ -52,7 +52,7 @@ export default {
     color: $white;
   }
   left: 20px;
-  bottom: 25px;
+  bottom: 35px;
   position: absolute;
 }
 </style>

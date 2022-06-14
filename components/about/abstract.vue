@@ -13,13 +13,13 @@
           {{ $t('pages.about.description') }}
         </p>
       </v-row>
-      <v-row>
-        <v-col justify="center" class="text-center">
+      <v-row justify="center">
+        <v-col class="text-center">
           <v-btn class="rounded-xl" color="error">
             {{ $t('pages.about.detail') }}
           </v-btn>
         </v-col>
-        <v-col>
+        <v-col class="text-center">
           <base-blue-button>
             <v-icon color="white">mdi-play-outline</v-icon>
             {{ $t('pages.about.demo') }}

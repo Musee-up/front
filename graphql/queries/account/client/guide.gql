@@ -1,24 +1,19 @@
-#import "../fragments/CoreExperiencePart.gql"
-#import "../fragments/ExperienceSlotPart.gql"
-#import "../fragments/BookingPart.gql"
+#import "../../../fragments/CoreExperiencePart.gql"
 
-query {
+query Guide {
   me {
-    id
-    socketID
-    friends {
-      data {
-        id
-        attributes {
-          username
-          socketID
-        }
-      }
-    }
     guide {
       data {
         id
         attributes {
+          experiences {
+            data {
+              id
+              attributes {
+                ...CoreExperiencePart
+              }
+            }
+          }
           experienceSlots {
             data {
               id
@@ -53,14 +48,6 @@ query {
                     }
                   }
                 }
-              }
-            }
-          }
-          experiences {
-            data {
-              id
-              attributes {
-                ...CoreExperiencePart
               }
             }
           }

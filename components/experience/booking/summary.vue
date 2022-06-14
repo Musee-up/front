@@ -1,0 +1,45 @@
+<template>
+  <v-dialog
+    v-model="menu"
+    content-class="rounded-xl"
+    offset-y
+    width="1000px"
+    nudge-bottom="10px"
+  >
+    <template #activator="{ on, attrs }">
+      <v-btn
+        rounded
+        color="primary"
+        class="white--text"
+        v-bind="attrs"
+        v-on="on"
+      >
+        Réserver
+      </v-btn>
+    </template>
+
+    <experience-booking
+      v-if="!onSuccess"
+      :experience="experience"
+      :booking="booking"
+      :guide="guide"
+      @success="onSuccess = true"
+    >
+    </experience-booking>
+
+    <experience-booking-success v-if="onSuccess" :experience="experience">
+    </experience-booking-success>
+  </v-dialog>
+</template>
+
+<script>
+export default {
+  props: ['experience', 'booking', 'guide'],
+  data() {
+    return {
+      onSuccess: false,
+      menu: false,
+    }
+  },
+}
+</script>

@@ -56,10 +56,10 @@ export default {
           link: '/account/client/info',
         },
         {
-          title: 'pages.account.client.reservation',
+          title: 'pages.account.client.booking',
           icon: 'mdi-calendar',
-          text: 'pages.account.client.cards.reservations',
-          link: '/account/client/reservations',
+          text: 'pages.account.client.cards.bookings',
+          link: '/account/client/bookings',
         },
         {
           title: 'pages.account.client.favorites',

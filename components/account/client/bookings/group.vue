@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <h3 class="title--text">
-        {{ $t('components.account.client.reservations.group.title') }}
+        {{ $t('components.account.client.bookings.group.title') }}
       </h3>
     </v-row>
 
@@ -14,7 +14,7 @@
       </v-col>
       <v-col cols="3">
         <base-blue-button>
-          {{ $t('components.account.client.reservations.group.action') }}
+          {{ $t('components.account.client.bookings.group.action') }}
         </base-blue-button>
       </v-col>
     </v-row>
