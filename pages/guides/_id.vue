@@ -3,9 +3,7 @@
     <v-row class="my-8">
       <v-col cols="2" class="abstract mx-6">
         <v-row class="photo">
-          <like-overview
-            :width="width"
-            :photo="guide.photo"> </like-overview>
+          <like-overview :width="width" :photo="guide.photo"> </like-overview>
         </v-row>
 
         <v-row class="my-4">
@@ -147,7 +145,7 @@ Je suis passionnée par l’histoire de l’art, la littérature française du X
       },
     }
   },
-computed: {
+  computed: {
     width() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
@@ -163,7 +161,7 @@ computed: {
       }
       return 440
     },
-  }
+  },
 }
 </script>
 

@@ -37,7 +37,7 @@
           </p>
         </v-row>
       </v-col>
-      <v-col class="d-flex align-center action" cols="3">
+      <v-col class="d-flex align-center action" cols="4">
         <nuxt-link :to="`/experiences/${experience.id}`">
           <base-blue-button>
             {{ $t('components.account.client.bookings.experience.action') }}
@@ -57,6 +57,7 @@ export default {
 <style lang="scss" scoped>
 .action {
   width: max-content;
+  justify-content: right;
 }
 
 .exp-list {
