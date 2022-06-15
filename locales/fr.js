@@ -89,7 +89,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
           types: "Choisissez le type de l'experience parmi la liste",
           languages: 'Choisissez 3 languages',
           groupSize: 'Indiquez le nombre de personne maximum',
-          theme: 'Choissisez 3 thèmes maximum parmi la liste',
+          themes: 'Choissisez 3 thèmes maximum parmi la liste',
         },
         thresholdPicker: {
           title: 'Montant/Nbr. de personnes min.',

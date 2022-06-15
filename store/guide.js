@@ -5,7 +5,6 @@ export const state = () => ({
 export const actions = {
   async load({ dispatch, commit }) {
     const client = await dispatch('user/loadGuide', null, { root: true })
-    console.log(client)
     commit('setGuide', client?.guide.data)
   },
 }

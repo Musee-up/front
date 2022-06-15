@@ -73,4 +73,5 @@ export const getters = {
   getSocketId: (state) => {
     return state.me?.socketID
   },
+  getCore: (state) => state.me,
 }

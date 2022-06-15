@@ -5,8 +5,8 @@
       :key="i"
       class="justify-space-between d-flex"
     >
-      <v-col cols="5" class="ma-0 mx-2 label">
-        <p style="white-space: nowrap">
+      <v-col cols="5" class="ma-0 mx-2 label align-self-center">
+        <p class="align-self-center">
           {{ $t(item.label) }}
         </p>
       </v-col>
@@ -14,9 +14,7 @@
         <v-divider vertical />
       </v-col>
       <v-col cols="5" class="ma-0 mx-2">
-        <p>
-          {{ $t(item.value) }}
-        </p>
+        <v-text-field v-model="item.value" @change="submit"> </v-text-field>
       </v-col>
       <v-divider v-if="i != first.length - 1" class="ma-1"> </v-divider>
     </v-row>
@@ -25,8 +23,23 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import mutation from '@/graphql/mutations/me.gql'
 
 export default {
+  methods: {
+    submit() {
+      const dic = {}
+      Object.entries(this.first).map(([k, v]) => (dic[k] = v.value))
+      console.log(dic)
+      delete dic.password
+      this.$apollo
+        .mutate({
+          mutation,
+          variables: dic,
+        })
+        .catch((err) => console.log(err))
+    },
+  },
   computed: {
     ...mapGetters({
       user: 'user/getCore',

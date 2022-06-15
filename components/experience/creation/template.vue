@@ -12,7 +12,7 @@
           {{ $t('components.experience.creation.template.incomplete') }}
         </v-chip>
       </div>
-      <v-btn rounded color="red" class="white--text">
+      <v-btn rounded color="error" class="white--text">
         {{ $t('common.delete') }}
       </v-btn>
     </v-row>
@@ -79,17 +79,7 @@ import createExperience from '@/graphql/mutations/createExperience'
 import updateExperience from '@/graphql/mutations/updateExperience'
 
 export default {
-  //  props: ['experience', 'currentId'],
-  props: {
-    experience: {
-      type: Object,
-      default: () => ({}),
-    },
-    currentId: {
-      type: String,
-      default: '',
-    },
-  },
+  props: ['experience', 'currentId'],
   data() {
     return {
       model: {
@@ -120,8 +110,8 @@ export default {
   mounted() {
     this.id = this.currentId
 
-    if (!this.$props.experience.attributes) return
-    this.model = this.$props.experience.data.attributes
+    if (!this.experience.data.attributes) return
+    this.model = this.experience.data.attributes
     let { languages, themes, types } = this.model
     this.model_att = { languages, themes, types }
     ;[languages, themes, types] = Object.values(this.model_att).map((a) =>

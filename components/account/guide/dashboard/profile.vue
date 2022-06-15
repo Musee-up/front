@@ -7,23 +7,24 @@
     </v-row>
 
     <v-row class="d-flex justify-center">
-      <h2>{{ username }}</h2>
+      <h2>Bienvenue {{ user.firstame }}</h2>
     </v-row>
 
     <v-row class="d-flex justify-center">
-      <p>
-        <small class="grey--text">{{ location }}</small>
-      </p>
+      <slot> </slot>
+      <!-- <p> -->
+      <!--   <small class="grey--text">{{ location }}</small> -->
+      <!-- </p> -->
     </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
+  props: ['user'],
   data() {
     return {
       portrait: '/portrait.png',
-      username: 'Bienvenue Héloise',
       location: 'Ile de France, France',
     }
   },

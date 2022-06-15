@@ -1,6 +1,11 @@
 query ExampleQuery {
   me {
     id
+    firstname
+    lastname
+    email
+    phone
+    location
     bookings {
       data {
         attributes {
