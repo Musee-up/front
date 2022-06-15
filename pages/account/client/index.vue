@@ -3,7 +3,9 @@
     <v-row class="d-flex justify-center">
       <v-col cols="8">
         <v-row>
-          <account-guide-dashboard-profile></account-guide-dashboard-profile>
+          <account-guide-dashboard-profile
+            :user="{}"
+            ></account-guide-dashboard-profile>
         </v-row>
         <v-row>
           <p>

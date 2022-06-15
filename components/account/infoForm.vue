@@ -35,7 +35,10 @@ export default {
       this.$apollo
         .mutate({
           mutation,
-          variables: dic,
+          variables: {
+          id: this.$strapi.user.id,
+          input: dic,
+          },
         })
         .catch((err) => console.log(err))
     },
