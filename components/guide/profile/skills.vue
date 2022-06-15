@@ -3,7 +3,7 @@
     <v-card-text>
       <div v-for="(item, i) in first" :key="i">
         <div class="justify-space-between d-flex text-center">
-          <h2 class="ma-0 mx-2">{{ $t(item.label) }}</h2>
+          <h3 class="ma-0 mx-2">{{ $t(item.label) }}</h3>
           <v-icon color="primary" class="mx-2">{{ item.icon }}</v-icon>
         </div>
 

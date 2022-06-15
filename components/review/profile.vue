@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="1">
+      <v-col cols="2">
         <v-avatar color="primary" size="56">
           <nuxt-img :src="review.user.photo"> </nuxt-img>
         </v-avatar>

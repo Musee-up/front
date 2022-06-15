@@ -57,7 +57,7 @@ export default {
         case 'md':
           return 440
         case 'lg':
-          return 390
+          return 300
         case 'xl':
           return 440
       }

@@ -16,7 +16,7 @@
 
     <about-heritage> </about-heritage>
 
-    <about-pbooking> </about-pbooking>
+    <about-preservation> </about-preservation>
 
     <about-booking> </about-booking>
 

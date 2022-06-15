@@ -1,9 +1,11 @@
 <template>
   <v-container class="justify-center">
     <v-row class="my-8">
-      <v-col cols="2" class="abstract mx-12">
+      <v-col cols="2" class="abstract mx-6">
         <v-row class="photo">
-          <like-overview :photo="guide.photo"> </like-overview>
+          <like-overview
+            :width="width"
+            :photo="guide.photo"> </like-overview>
         </v-row>
 
         <v-row class="my-4">
@@ -15,7 +17,7 @@
         </v-row>
       </v-col>
 
-      <v-col cols="8" class="summary">
+      <v-col cols="7" class="summary">
         <v-row class="location">
           <guide-location
             color="description"
@@ -60,12 +62,12 @@
         </v-row>
       </v-col>
 
-      <v-col cols="1" class="actions">
+      <v-col cols="2" class="actions">
         <v-row class="justify-center">
           <nuxt-link :to="`/experiences?guideID=${guide.id}`">
-            <base-blue-button>{{
-              $t('pages.guides.reserve')
-            }}</base-blue-button>
+            <base-blue-button>
+              {{ $t('pages.guides.reserve') }}
+            </base-blue-button>
           </nuxt-link>
         </v-row>
         <v-row class="justify-center">
@@ -145,6 +147,23 @@ Je suis passionnée par l’histoire de l’art, la littérature française du X
       },
     }
   },
+computed: {
+    width() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 140
+        case 'sm':
+          return 140
+        case 'md':
+          return 140
+        case 'lg':
+          return 200
+        case 'xl':
+          return 310
+      }
+      return 440
+    },
+  }
 }
 </script>
 
