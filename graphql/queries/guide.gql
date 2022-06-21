@@ -1,0 +1,25 @@
+#import "../fragments/CoreExperiencePart.gql"
+#import "../fragments/ExperienceSlotPart.gql"
+
+query guide($id: ID!) {
+  guide(id: $id) {
+    data {
+      id
+      attributes {
+        experienceSlots {
+          data {
+            ...ExperienceSlotPart
+          }
+        }
+        experiences {
+          data {
+            id
+            attributes {
+              ...CoreExperiencePart
+            }
+          }
+        }
+      }
+    }
+  }
+}

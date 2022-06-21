@@ -1,0 +1,8 @@
+fragment ExperiencePart on ExperienceRelationResponseCollection {
+  data {
+    id
+    attributes {
+      title
+    }
+  }
+}

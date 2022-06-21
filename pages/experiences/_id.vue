@@ -1,40 +1,22 @@
 <template>
-  <v-container
-    class="justify-center"
-    style="padding-right: 5%; padding-left: 5%"
-  >
+  <v-container v-if="experience.data" class="justify-center">
     <v-row class="justify-center">
       <v-col class="text-left">
-        <h1 class="black--text" style="font-size: 40px">
+        <h1 class="dark--text" style="font-size: 40px">
           {{ experience.data.attributes.title }}
         </h1>
       </v-col>
     </v-row>
 
-    <v-row v-if="experience.data">
-      <experience-group-slide
-        style="height: 500px"
-        :photos="experience.data.attributes.photos"
-      />
+    <v-row v-if="experience.data" justify="center">
+      <experience-group-slide :photos="experience.data.attributes.photos" />
     </v-row>
 
     <v-divider class="my-9"></v-divider>
 
     <v-row>
       <v-col cols="8">
-        <v-list dense>
-          <v-list-item-group>
-            <v-list-item v-for="(item, i) in items" :key="i">
-              <v-list-item-icon>
-                <v-icon color="primary" v-text="item.icon"></v-icon>
-              </v-list-item-icon>
-              <v-list-item-content color="primary">
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-
+        <experience-attributes :attributes="experiencesAttributes" />
         <v-divider class="my-9"></v-divider>
 
         <v-row>
@@ -47,32 +29,16 @@
         </v-row>
 
         <v-divider class="my-9"></v-divider>
-
-        <v-row>
-          <h3 class="black--text py-4">{{ $t('Votre guide') }}</h3>
-        </v-row>
-        <v-row>
-          <v-col cols="3" style="align-self: center">
-            <nuxt-img style="width: inherit" src="/portrait.png"> </nuxt-img>
-            <h4>Héloïse Doiteau</h4>
-          </v-col>
-          <v-col>
-            <p class="description-list--text">
-              Bonjour, je m’appelle Héloïse et je serais peut-être votre guide
-              pour cette merveilleuse expérience culturelle :) Diplômée en
-              littérature et de l’école du Louvre en médiation culturelle, cela
-              fait bientôt 3 ans que j’exerce le métier de guide-conférencière
-              en Île-de-France. Je suis passionnée par l’histoire de l’art, la
-              littérature française du XIXe siècle et par le partage, notamment
-              avec les enfants.
-            </p>
-          </v-col>
-        </v-row>
+        <experience-guide-profile />
       </v-col>
 
-      <v-col>
+      <v-col class="mx-4">
         <v-row class="justify-end">
-          <ExperiencesRegistrationForm style="width: auto" />
+          <experience-booking-form
+            :experience="experience.data"
+            :slots="slots"
+            @picked="onPicked"
+          ></experience-booking-form>
         </v-row>
       </v-col>
     </v-row>
@@ -80,49 +46,68 @@
 </template>
 
 <script>
-import { eventQuery } from '@/graphql/query'
+import experienceQuery from '@/graphql/queries/experience'
+
 export default {
   data() {
     return {
+      slots: [],
       experience: [],
+      experiencesAttributes: [],
       selectedItem: 1,
-      items: [],
     }
+  },
+  methods: {
+    onPicked(date) {
+      console.log(date)
+    },
   },
   apollo: {
     experience: {
-      query: eventQuery,
+      query: experienceQuery,
       variables() {
         return { id: parseInt(this.$route.params.id) }
       },
       update(data) {
-        const groupSizeSyntax = (groupSize) =>
-          `Jusqu'a ${groupSize} personnes (visite partagée)`
-        this.items = [
+        if (!data.experience.data.attributes) return
+        const exp = data.experience.data.attributes
+        const languages = exp.languages.data
+          .map((x) => x.attributes.value)
+          .join(', ')
+        const themes = exp.themes.data.map((x) => x.attributes.name).join(', ')
+        const groupSizeSyntax = (n) =>
+          this.$t('pages.experiences.n_visite', { n })
+
+        this.slots = exp.experienceSlots
+        this.experiencesAttributes = [
           {
-            text: data.experience.data.attributes.location,
+            text: exp.location,
             icon: 'mdi-map-marker',
           },
           {
-            text: data.experience.data.attributes.duration.match(
-              /\d\d:\d\d/
-            )[0],
+            text: exp.duration.match(/\d\d:\d\d/)[0],
             icon: 'mdi-timer',
           },
           {
-            text: data.experience.data.attributes.transportation,
+            text: exp.transportation,
             icon: 'mdi-walk',
           },
           {
-            text: groupSizeSyntax(data.experience.data.attributes.groupSize),
+            text: groupSizeSyntax(exp.groupSize),
             icon: 'mdi-account-group',
           },
+          {
+            text: themes,
+            icon: 'mdi-palette',
+          },
+          {
+            text: languages,
+            icon: 'mdi-earth',
+          },
           // { text: 'experience.data.attributes.', icon: 'mdi-camera' },
-          // { text: 'experience.data.attributes.themes', icon: 'mdi-palette' },
-          // { text: 'experience.data.attributes.languages', icon: 'mdi-earth' },
         ]
-        if (data.experience.data.attributes.handifriendly)
-          this.items.push({
+        if (exp.handifriendly)
+          this.experiencesAttributes.push({
             text: 'Handifriendly',
             icon: 'mdi-human-wheelchair',
           })

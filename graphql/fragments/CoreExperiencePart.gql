@@ -1,0 +1,11 @@
+fragment CoreExperiencePart on Experience {
+  title
+  duration
+  price
+  transportation
+  description
+  stars
+  groupSize
+  handifriendly
+  location
+}

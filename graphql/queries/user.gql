@@ -1,0 +1,71 @@
+#import "../fragments/CoreExperiencePart.gql"
+#import "../fragments/ExperienceSlotPart.gql"
+#import "../fragments/BookingPart.gql"
+
+query {
+  me {
+    id
+    socketID
+    friends {
+      data {
+        id
+        attributes {
+          username
+          socketID
+        }
+      }
+    }
+    guide {
+      data {
+        id
+        attributes {
+          experienceSlots {
+            data {
+              id
+              attributes {
+                experience {
+                  data {
+                    id
+                    attributes {
+                      title
+                    }
+                  }
+                }
+                start
+                end
+                bookings {
+                  data {
+                    id
+                    attributes {
+                      size
+                      user {
+                        data {
+                          id
+                          attributes {
+                            username
+                            email
+                            phone
+                            firstname
+                            lastname
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          experiences {
+            data {
+              id
+              attributes {
+                ...CoreExperiencePart
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,9 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 
+const backendUrl = process.env.API_URL || 'http://localhost:1337'
+
 export default defineNuxtConfig({
+  ssr: true,
   alias: {
     tslib: 'tslib/tslib.es6.js',
   },
@@ -17,15 +20,25 @@ export default defineNuxtConfig({
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      // {rel:'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lato&display=swap'},
+      // { rel: 'icon', type: 'image/x-icon', href: '/icon_blue.png' },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/scss/custom.scss'],
+  css: ['@/assets/scss/custom.scss', '@/assets/scss/colors.scss'],
   extractCSS: true,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/i18n'],
+  plugins: [
+    '@/plugins/moment',
+    '@/plugins/i18n',
+    {
+      src: '@/plugins/socketio',
+      mode: 'client',
+    },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -42,25 +55,24 @@ export default defineNuxtConfig({
     '@nuxt/image',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-
     '@nuxtjs/vuetify',
     '@nuxtjs/strapi',
-    '@nuxtjs/moment',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/apollo', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
-  moment: {
-    defaultLocale: 'fr',
-    locales: ['fr'],
-  },
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxt/http',
+    '@nuxtjs/apollo',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/i18n',
+  ],
   strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+    url: `${backendUrl}/api`,
   },
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint:
-          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
+        httpEndpoint: `${backendUrl}/graphql`,
       },
     },
   },
@@ -80,11 +92,16 @@ export default defineNuxtConfig({
     ],
     lazy: true,
     langDir: 'locales/',
-    defaultLocale: 'en',
+    defaultLocale: 'fr',
+    vueI18n: {
+      silentTranslationWarn: true,
+      silentFallbackWarn: true,
+    },
   },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     optionsPath: './vuetify.options.js',
+    treeShake: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -98,8 +115,10 @@ export default defineNuxtConfig({
       },
     },
   },
-  target: 'static',
-  // bridge:false,
+  http: {
+    baseURL: `${backendUrl}/api`,
+    browserBaseURL: `${backendUrl}/api`,
+  },
   bridge: {
     // vite: true,
   },

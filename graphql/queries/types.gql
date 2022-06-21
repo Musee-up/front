@@ -1,0 +1,10 @@
+query {
+  experienceTypes {
+    data {
+      id
+      attributes {
+        name
+      }
+    }
+  }
+}

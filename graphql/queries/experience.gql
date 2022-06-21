@@ -1,0 +1,53 @@
+#import "../fragments/ThemePart.gql"
+#import "../fragments/LanguagePart.gql"
+#import "../fragments/CoreExperiencePart.gql"
+#import "../fragments/PhotoPart.gql"
+#import "../fragments/ExperienceTypePart.gql"
+
+query experience($id: ID!) {
+  experience(id: $id) {
+    data {
+      id
+      attributes {
+        ...CoreExperiencePart
+        photos {
+          ...PhotoPart
+        }
+        themes {
+          ...ThemePart
+        }
+        languages {
+          ...LanguagePart
+        }
+        types {
+          ...ExperienceTypePart
+        }
+        guide {
+          data {
+            attributes {
+              user {
+                data {
+                  attributes {
+                    firstname
+                    lastname
+                    phone
+                    email
+                  }
+                }
+              }
+            }
+          }
+        }
+        experienceSlots {
+          data {
+            id
+            attributes {
+              start
+              end
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+mutation updateExperienceSlot($id: ID!, $input: ExperienceSlotInput!) {
+  updateExperienceSlot(id: $id, data: $input) {
+    data {
+      id
+    }
+  }
+}

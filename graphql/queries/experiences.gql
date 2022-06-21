@@ -1,0 +1,24 @@
+#import "../fragments/ThemePart.gql"
+#import "../fragments/LanguagePart.gql"
+#import "../fragments/CoreExperiencePart.gql"
+#import "../fragments/ExperienceTypePart.gql"
+
+query {
+  experiences {
+    data {
+      id
+      attributes {
+        ...CoreExperiencePart
+        themes {
+          ...ThemePart
+        }
+        languages {
+          ...LanguagePart
+        }
+        types {
+          ...ExperienceTypePart
+        }
+      }
+    }
+  }
+}

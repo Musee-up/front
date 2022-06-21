@@ -1,0 +1,64 @@
+#import "../../../fragments/CoreExperiencePart.gql"
+
+query Guide {
+  me {
+    id
+    firstname
+    lastname
+    email
+    phone
+    location
+    guide {
+      data {
+        id
+        attributes {
+          experiences {
+            data {
+              id
+              attributes {
+                ...CoreExperiencePart
+              }
+            }
+          }
+          experienceSlots {
+            data {
+              id
+              attributes {
+                experience {
+                  data {
+                    id
+                    attributes {
+                      title
+                    }
+                  }
+                }
+                start
+                end
+                bookings {
+                  data {
+                    id
+                    attributes {
+                      size
+                      user {
+                        data {
+                          id
+                          attributes {
+                            username
+                            email
+                            phone
+                            firstname
+                            lastname
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

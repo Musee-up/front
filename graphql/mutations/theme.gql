@@ -1,0 +1,7 @@
+mutation createTheme($input: ThemeInput!) {
+  createTheme(data: $input) {
+    data {
+      id
+    }
+  }
+}

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   preset: '@nuxt/test-utils',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',

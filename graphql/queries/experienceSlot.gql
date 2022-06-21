@@ -1,0 +1,8 @@
+#import "../fragments/ExperienceSlotPart.gql"
+query experienceSlot($id: ID!) {
+  experienceSlot(id: $id) {
+    data {
+      ...ExperienceSlotPart
+    }
+  }
+}

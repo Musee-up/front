@@ -1,0 +1,695 @@
+[
+  { "type": "begin", "data": { "path": { "text": "pages/account.vue" } } },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "pages/account.vue" },
+      "lines": { "text": "      {{ $t('Publier votre annonce') }}\n" },
+      "line_number": 5,
+      "absolute_offset": 94,
+      "submatches": [
+        {
+          "match": { "text": "t('Publier votre annonce')" },
+          "start": 10,
+          "end": 36
+        }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "pages/account.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 58267, "human": "0.000058s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 179,
+        "bytes_printed": 305,
+        "matched_lines": 1,
+        "matches": 1
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/home/LoginDropdown.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/LoginDropdown.vue" },
+      "lines": {
+        "text": "          <NuxtLink to=\"/account\"> {{ $t('Mon compte') }} </NuxtLink>\n"
+      },
+      "line_number": 17,
+      "absolute_offset": 458,
+      "submatches": [
+        { "match": { "text": "t('Mon compte')" }, "start": 39, "end": 54 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/LoginDropdown.vue" },
+      "lines": {
+        "text": "      <NuxtLink to=\"#\"> {{ $t('Publier votre annonce') }} </NuxtLink>\n"
+      },
+      "line_number": 30,
+      "absolute_offset": 821,
+      "submatches": [
+        {
+          "match": { "text": "t('Publier votre annonce')" },
+          "start": 28,
+          "end": 54
+        }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/home/LoginDropdown.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 9488, "human": "0.000009s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 925,
+        "bytes_printed": 653,
+        "matched_lines": 2,
+        "matches": 2
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/home/Searchbar.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Searchbar.vue" },
+      "lines": {
+        "text": "        {{ $t('Le monde est un musée,') }}<br />{{ $t('découvrez-le !') }}\n"
+      },
+      "line_number": 6,
+      "absolute_offset": 147,
+      "submatches": [
+        {
+          "match": { "text": "t('Le monde est un musée,')" },
+          "start": 12,
+          "end": 40
+        },
+        { "match": { "text": "t('découvrez-le !')" }, "start": 53, "end": 73 }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/home/Searchbar.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 20399, "human": "0.000020s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 1252,
+        "bytes_printed": 431,
+        "matched_lines": 1,
+        "matches": 2
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/home/Login.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Login.vue" },
+      "lines": { "text": "        {{ $t('Me connecter') }}\n" },
+      "line_number": 5,
+      "absolute_offset": 151,
+      "submatches": [
+        { "match": { "text": "t('Me connecter')" }, "start": 12, "end": 29 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Login.vue" },
+      "lines": {
+        "text": "          <span class=\"text-h5\"> {{ $t('Bienvenue sur Musée up') }} </span>\n"
+      },
+      "line_number": 12,
+      "absolute_offset": 286,
+      "submatches": [
+        {
+          "match": { "text": "t('Bienvenue sur Musée up')" },
+          "start": 37,
+          "end": 65
+        }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/home/Login.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 6092, "human": "0.000006s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 1694,
+        "bytes_printed": 600,
+        "matched_lines": 2,
+        "matches": 2
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/home/Footer.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "lines": {
+        "text": "            {{ $t('vous rapproche de la culture.') }}\n"
+      },
+      "line_number": 15,
+      "absolute_offset": 450,
+      "submatches": [
+        {
+          "match": { "text": "t('vous rapproche de la culture.')" },
+          "start": 16,
+          "end": 50
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "lines": {
+        "text": "              {{ $t('Abonnez vous a la newsletter!') }}\n"
+      },
+      "line_number": 37,
+      "absolute_offset": 1377,
+      "submatches": [
+        {
+          "match": { "text": "t('Abonnez vous a la newsletter!')" },
+          "start": 18,
+          "end": 52
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "lines": {
+        "text": "        {{ $t('vous rapproche de la culture.') }}\n"
+      },
+      "line_number": 65,
+      "absolute_offset": 2308,
+      "submatches": [
+        {
+          "match": { "text": "t('vous rapproche de la culture.')" },
+          "start": 12,
+          "end": 46
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "lines": {
+        "text": "      { link: '#', title: this.$t('Support') },\n      { link: '#', title: this.$t('Conditions Générales') },\n"
+      },
+      "line_number": 78,
+      "absolute_offset": 2598,
+      "submatches": [
+        { "match": { "text": "t('Support')" }, "start": 32, "end": 44 },
+        {
+          "match": { "text": "t('Conditions Générales')" },
+          "start": 80,
+          "end": 107
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "lines": {
+        "text": "      { link: '#', title: this.$t('Politique de confidentialité') },\n"
+      },
+      "line_number": 81,
+      "absolute_offset": 2772,
+      "submatches": [
+        {
+          "match": { "text": "t('Politique de confidentialité')" },
+          "start": 32,
+          "end": 66
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "lines": {
+        "text": "      { link: '#', title: this.$t('Notre Équipe') },\n      { link: '#', title: this.$t('Qui sommes nous') },\n      { link: '#', title: this.$t('Notre histoire') },\n      { link: '#', title: this.$t('On recrute') },\n      { link: '#', title: this.$t('Blog') },\n"
+      },
+      "line_number": 85,
+      "absolute_offset": 2909,
+      "submatches": [
+        { "match": { "text": "t('Notre Équipe')" }, "start": 32, "end": 50 },
+        {
+          "match": { "text": "t('Qui sommes nous')" },
+          "start": 86,
+          "end": 106
+        },
+        {
+          "match": { "text": "t('Notre histoire')" },
+          "start": 142,
+          "end": 161
+        },
+        { "match": { "text": "t('On recrute')" }, "start": 197, "end": 212 },
+        { "match": { "text": "t('Blog')" }, "start": 248, "end": 257 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "lines": {
+        "text": "      { link: '#', title: this.$t('Nous contacter') },\n      { link: '#', title: this.$t('Contact') },\n      { link: '#', title: this.$t('Presse') },\n      { link: '#', title: this.$t('Partenaires et entreprises') },\n      { link: '#', title: this.$t('Influenceurs') },\n"
+      },
+      "line_number": 92,
+      "absolute_offset": 3183,
+      "submatches": [
+        { "match": { "text": "t('Nous contacter')" }, "start": 32, "end": 51 },
+        { "match": { "text": "t('Contact')" }, "start": 87, "end": 99 },
+        { "match": { "text": "t('Presse')" }, "start": 135, "end": 146 },
+        {
+          "match": { "text": "t('Partenaires et entreprises')" },
+          "start": 182,
+          "end": 213
+        },
+        { "match": { "text": "t('Influenceurs')" }, "start": 249, "end": 266 }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/home/Footer.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 112149, "human": "0.000112s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 3476,
+        "bytes_printed": 3012,
+        "matched_lines": 16,
+        "matches": 16
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/home/Navbar.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Navbar.vue" },
+      "lines": { "text": "              {{ $t('Trouver une expérience') }}\n" },
+      "line_number": 27,
+      "absolute_offset": 637,
+      "submatches": [
+        {
+          "match": { "text": "t('Trouver une expérience')" },
+          "start": 18,
+          "end": 46
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Navbar.vue" },
+      "lines": {
+        "text": "    { link: '#', text: this.$t('Expérience partagées') },\n    { link: '#', text: this.$t('Expérience privées') },\n"
+      },
+      "line_number": 53,
+      "absolute_offset": 1424,
+      "submatches": [
+        {
+          "match": { "text": "t('Expérience partagées')" },
+          "start": 29,
+          "end": 56
+        },
+        {
+          "match": { "text": "t('Expérience privées')" },
+          "start": 89,
+          "end": 114
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Navbar.vue" },
+      "lines": {
+        "text": "      title: this.$t('Votre expérience sur mesure'),\n"
+      },
+      "line_number": 61,
+      "absolute_offset": 1680,
+      "submatches": [
+        {
+          "match": { "text": "t('Votre expérience sur mesure')" },
+          "start": 19,
+          "end": 52
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/home/Navbar.vue" },
+      "lines": {
+        "text": "    { link: '#', title: this.$t('Nos guides') },\n    { link: '#', title: this.$t('Notre Application') },\n    { link: '#', title: this.$t('Blog') },\n"
+      },
+      "line_number": 63,
+      "absolute_offset": 1741,
+      "submatches": [
+        { "match": { "text": "t('Nos guides')" }, "start": 30, "end": 45 },
+        {
+          "match": { "text": "t('Notre Application')" },
+          "start": 79,
+          "end": 101
+        },
+        { "match": { "text": "t('Blog')" }, "start": 135, "end": 144 }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/home/Navbar.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 18527, "human": "0.000019s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 2057,
+        "bytes_printed": 1488,
+        "matched_lines": 7,
+        "matches": 7
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/RegisterForm.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/RegisterForm.vue" },
+      "lines": {
+        "text": "            <span class=\"text-h5\"> {{ $t('Inscription') }} </span>\n"
+      },
+      "line_number": 12,
+      "absolute_offset": 309,
+      "submatches": [
+        { "match": { "text": "t('Inscription')" }, "start": 39, "end": 55 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/RegisterForm.vue" },
+      "lines": { "text": "                    :label=\"$t('Nom') + '*'\"\n" },
+      "line_number": 20,
+      "absolute_offset": 586,
+      "submatches": [
+        { "match": { "text": "t('Nom')" }, "start": 29, "end": 37 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/RegisterForm.vue" },
+      "lines": {
+        "text": "                  <v-text-field :label=\"$t('Prénom') + '*'\"></v-text-field>\n"
+      },
+      "line_number": 25,
+      "absolute_offset": 761,
+      "submatches": [
+        { "match": { "text": "t('Prénom')" }, "start": 41, "end": 53 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/RegisterForm.vue" },
+      "lines": {
+        "text": "                    :label=\"$t('Addresse Mail') + '*'\"\n"
+      },
+      "line_number": 30,
+      "absolute_offset": 965,
+      "submatches": [
+        { "match": { "text": "t('Addresse Mail')" }, "start": 29, "end": 47 }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/RegisterForm.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 10288, "human": "0.000010s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 2626,
+        "bytes_printed": 1134,
+        "matched_lines": 4,
+        "matches": 4
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/experience/ListItem.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/ListItem.vue" },
+      "lines": {
+        "text": "            <base-blue-button :text=\"$t('Réserver')\"> </base-blue-button>\n"
+      },
+      "line_number": 14,
+      "absolute_offset": 518,
+      "submatches": [
+        { "match": { "text": "t('Réserver')" }, "start": 38, "end": 52 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/ListItem.vue" },
+      "lines": { "text": "              $t('A partir de ') +\n" },
+      "line_number": 34,
+      "absolute_offset": 1126,
+      "submatches": [
+        { "match": { "text": "t('A partir de ')" }, "start": 15, "end": 32 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/ListItem.vue" },
+      "lines": { "text": "              $t('par personne')\n" },
+      "line_number": 37,
+      "absolute_offset": 1223,
+      "submatches": [
+        { "match": { "text": "t('par personne')" }, "start": 15, "end": 32 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/ListItem.vue" },
+      "lines": { "text": "            :icon-value=\"$t('Handifriendly')\"\n" },
+      "line_number": 55,
+      "absolute_offset": 1742,
+      "submatches": [
+        { "match": { "text": "t('Handifriendly')" }, "start": 26, "end": 44 }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/experience/ListItem.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 12589, "human": "0.000013s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 2159,
+        "bytes_printed": 1125,
+        "matched_lines": 4,
+        "matches": 4
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/experience/GuideProfile.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/GuideProfile.vue" },
+      "lines": {
+        "text": "      <h3 class=\"black--text py-4\">{{ $t('Votre guide') }}</h3>\n"
+      },
+      "line_number": 4,
+      "absolute_offset": 34,
+      "submatches": [
+        { "match": { "text": "t('Votre guide')" }, "start": 39, "end": 55 }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/GuideProfile.vue" },
+      "lines": {
+        "text": "          {{ $t(`Bonjour, je m’appelle Héloïse et je serais peut-être votre guide pour\n          cette merveilleuse expérience culturelle :) Diplômée en littérature et\n          de l’école du Louvre en médiation culturelle, cela fait bientôt 3 ans\n          que j’exerce le métier de guide-conférencière en Île-de-France. Je\n          suis passionnée par l’histoire de l’art, la littérature française du\n          XIXe siècle et par le partage, notamment avec les enfants.`) }}\n"
+      },
+      "line_number": 13,
+      "absolute_offset": 354,
+      "submatches": [
+        {
+          "match": {
+            "text": "t(`Bonjour, je m’appelle Héloïse et je serais peut-être votre guide pour\n          cette merveilleuse expérience culturelle :) Diplômée en littérature et\n          de l’école du Louvre en médiation culturelle, cela fait bientôt 3 ans\n          que j’exerce le métier de guide-conférencière en Île-de-France. Je\n          suis passionnée par l’histoire de l’art, la littérature française du\n          XIXe siècle et par le partage, notamment avec les enfants.`)"
+          },
+          "start": 14,
+          "end": 502
+        }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/experience/GuideProfile.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 53959, "human": "0.000054s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 925,
+        "bytes_printed": 1568,
+        "matched_lines": 7,
+        "matches": 2
+      }
+    }
+  },
+  {
+    "type": "begin",
+    "data": { "path": { "text": "components/experience/RegistrationForm.vue" } }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/RegistrationForm.vue" },
+      "lines": { "text": "        {{ $t('À partir de 18€ par personne') }}\n" },
+      "line_number": 9,
+      "absolute_offset": 189,
+      "submatches": [
+        {
+          "match": { "text": "t('À partir de 18€ par personne')" },
+          "start": 12,
+          "end": 48
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "data": {
+      "path": { "text": "components/experience/RegistrationForm.vue" },
+      "lines": {
+        "text": "      <base-blue-button :text=\"$t('Réserver')\" />\n"
+      },
+      "line_number": 16,
+      "absolute_offset": 372,
+      "submatches": [
+        { "match": { "text": "t('Réserver')" }, "start": 32, "end": 46 }
+      ]
+    }
+  },
+  {
+    "type": "end",
+    "data": {
+      "path": { "text": "components/experience/RegistrationForm.vue" },
+      "binary_offset": null,
+      "stats": {
+        "elapsed": { "secs": 0, "nanos": 12224, "human": "0.000012s" },
+        "searches": 1,
+        "searches_with_match": 1,
+        "bytes_searched": 469,
+        "bytes_printed": 649,
+        "matched_lines": 2,
+        "matches": 2
+      }
+    }
+  },
+  {
+    "data": {
+      "elapsed_total": { "human": "0.006170s", "nanos": 6170192, "secs": 0 },
+      "stats": {
+        "bytes_printed": 10965,
+        "bytes_searched": 15762,
+        "elapsed": { "human": "0.000314s", "nanos": 313982, "secs": 0 },
+        "matched_lines": 46,
+        "matches": 42,
+        "searches": 10,
+        "searches_with_match": 10
+      }
+    },
+    "type": "summary"
+  }
+]

@@ -1,78 +1,39 @@
-$gray-025: #fbfbfc !default;
-$gray-050: #f2f2f4 !default;
-$gray-100: #0500281a !default;
-$gray-200: #05002833 !default;
-$gray-300: #0500284d !default;
-$gray-400: #05002866 !default;
-$gray-500: #05002880 !default;
-$gray-600: #05002899 !default; // Line footer color
-$gray-700: #050028b3 !default; // Line p color
-$gray-800: #050028cc !default; // Line heading color
-$gray-900: #050028e6 !default;
-$black: #050028 !default;
-$cyan-100: #05e2b754 !default;
-
-$grays: () !default;
-$grays: map-merge(
-  (
-    '050': $gray-050,
-    '100': $gray-100,
-    '200': $gray-200,
-    '300': $gray-300,
-    '400': $gray-400,
-    '500': $gray-500,
-    '600': $gray-600,
-    '700': $gray-700,
-    '800': $gray-800,
-    '900': $gray-900,
-  ),
-  $grays
-);
-
-$white: #ffffff !default;
-$indigo: #5603ad !default;
-$purple: #8965e0 !default;
-$pink: #f3a4b5 !default;
-$red: #ff846b !default;
-$orange: #ffc94c !default;
-$yellow: #ffd870 !default;
-$green: #2dce89 !default;
-$teal: #6cc1ff !default;
-$cyan: #05e2b7 !default;
-
-$h1-font-size: 70px;
 $header-font-size: 18px;
-$header-color: $white;
+$header-color: white;
 
 $_blue: #064888 !default;
 
+@font-face {
+  font-family: 'Vollkorn';
+  src: local('Vollkorn'),
+    url('https://fonts.googleapis.com/css2?family=Lato&family=Vollkorn&display=swap')
+      format('truetype');
+}
+
 h1 {
-  color: $white;
+  color: white;
   font-size: 70px;
+}
+
+h2 {
+  color: #45535f;
 }
 
 .v-btn {
   text-transform: none !important;
 }
 
-.v-app-bar * {
-  font-weight: bold;
-  color: $white !important;
-}
-
 .v-footer {
-  background-color: $white !important;
+  background-color: white !important;
 }
 
 .v-footer * {
   font-weight: bold;
-  font-weight: bold;
   font-size: 14px;
-  color: $_blue !important;
 }
 
 .white-filled {
-  background-color: $white !important;
+  background-color: white !important;
   * {
     color: $_blue !important;
   }
@@ -81,7 +42,7 @@ h1 {
 .blue-filled {
   background-color: $_blue !important;
   * {
-    color: $white !important;
+    color: white !important;
   }
 }
 

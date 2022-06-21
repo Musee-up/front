@@ -1,0 +1,7 @@
+mutation deleteExperienceSlot($id: ID!) {
+  deleteExperienceSlot(id: $id) {
+    data {
+      id
+    }
+  }
+}

@@ -1,11 +1,11 @@
 <template>
-  <v-btn filled rounded class="ma-2 blue-filled" style="align-self: center">
-    {{ props.text }}
+  <v-btn color="primary" filled rounded class="ma-2 btn white--text">
+    <slot> </slot>
   </v-btn>
 </template>
 
-<script setup>
-const props = defineProps({
-  text: String,
-})
-</script>
+<style lang="scss" scoped>
+.btn {
+  align-self: center;
+}
+</style>

@@ -1,16 +1,21 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
-@import '~vuetify/src/styles/main.sass';
+// @import '@/assets/scss/colors.sccs';
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 $font-family: lato;
 $btn-text-transform: none !default;
 
 $toolbar-collapsed-max-width: 100% !default;
+$primary: #064888;
 
 .v-toolbar__content,
 .v-toolbar__extension {
   width: 100%;
   justify-content: space-between;
+}
+
+h2 {
+  font-size: 34px;
 }
 
 a {
@@ -26,11 +31,52 @@ ul {
   flex-wrap: wrap;
 }
 
-li {
-  margin: 0 0.5rem;
-  padding: 0.25rem;
-}
-
 nav {
   padding: 0 1rem;
 }
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-down {
+  @media (max-width: 1440px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+p {
+  color: #63686e !important;
+  font-size: 20px;
+  @include for-desktop-down {
+    font-size: 15px;
+  }
+}
+
+// .my-box {
+//   padding: 10px;
+//   @include for-desktop-up {
+//     padding: 20px;
+//   }
+// }
