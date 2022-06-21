@@ -10,7 +10,9 @@
 
     <v-col :cols="cols.middle">
       <v-row>
-        <account-guide-dashboard-profile> </account-guide-dashboard-profile>
+        <account-guide-dashboard-profile
+          :user="user"
+          > </account-guide-dashboard-profile>
       </v-row>
 
       <v-row>
@@ -21,6 +23,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -33,6 +36,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      user: 'user/getCore',
+    }),
     cols() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
