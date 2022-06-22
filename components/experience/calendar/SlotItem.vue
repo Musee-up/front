@@ -35,7 +35,7 @@
 import { mapGetters } from 'vuex'
 import deleteSlot from '@/graphql/mutations/deleteExperienceSlot'
 import updateExperienceSlot from '@/graphql/mutations/updateExperienceSlot'
-import experienceSlotQuery from '@/graphql/queries/ExperienceSlot'
+import experienceSlotQuery from '@/graphql/queries/experienceSlot'
 
 export default {
   props: ['selectedEvent', 'open', 'selectedElement'],

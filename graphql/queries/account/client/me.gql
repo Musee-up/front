@@ -31,7 +31,6 @@ query ExampleQuery {
                 duration
                 price
                 description
-                language
                 transportation
                 title
                 stars

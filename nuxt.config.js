@@ -57,12 +57,12 @@ export default defineNuxtConfig({
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/strapi',
+    '@nuxt/http',
+    '@nuxtjs/apollo',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    '@nuxt/http',
-    '@nuxtjs/apollo',
     '@nuxtjs/style-resources',
     '@nuxtjs/i18n',
   ],
@@ -106,6 +106,7 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['graphql', '@nuxtjs/apollo', 'subscriptions-transport-ws', '@nuxtjs/apollo', 'web-streams-polyfill'],
     loaders: {
       sass: {
         implementation: require('sass'),
