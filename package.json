@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev2": "nuxi dev",
-    "dev": "node_modules/nuxi/bin/nuxi.mjs dev -c ./nuxt.config.js",
+    "dev": "./node_modules/nuxi/bin/nuxi.mjs dev -c ./nuxt.config.js",
     "build2": "nuxi build",
-    "build": "node_modules/nuxi/bin/nuxi.mjs build -c ./nuxt.config.js",
+    "build": "./node_modules/nuxi/bin/nuxi.mjs build -c ./nuxt.config.js",
     "start2": "nuxi preview",
-    "start": "node_modules/nuxi/bin/nuxi.mjs start -c ./nuxt.config.js",
+    "start": "./node_modules/nuxi/bin/nuxi.mjs start -c ./nuxt.config.js",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue}\" --ignore-path .gitignore",
@@ -58,7 +58,7 @@
     "vue-socket.io": "^3.0.10",
     "vue-template-compiler": "^2.6.14",
     "vuetify": "^2.6.1",
-	"web-streams-polyfill": "^3.2.1",
+    "web-streams-polyfill": "^3.2.1",
     "webpack": "^4.46.0"
   },
   "devDependencies": {

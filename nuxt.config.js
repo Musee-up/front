@@ -109,7 +109,7 @@ export default defineNuxtConfig({
       '@nuxtjs/apollo',
       'subscriptions-transport-ws',
       'web-streams-polyfill',
-      'cross-fetch'
+      'cross-fetch',
     ],
     loaders: {
       sass: {
