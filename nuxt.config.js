@@ -61,11 +61,7 @@ export default defineNuxtConfig({
     '@nuxtjs/apollo',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/style-resources',
-    '@nuxtjs/i18n',
-  ],
+  modules: ['@nuxtjs/axios', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
   strapi: {
     url: `${backendUrl}/api`,
   },
@@ -106,7 +102,6 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['graphql', '@nuxtjs/apollo', 'subscriptions-transport-ws', '@nuxtjs/apollo', 'web-streams-polyfill'],
     loaders: {
       sass: {
         implementation: require('sass'),
