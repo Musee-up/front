@@ -36,8 +36,8 @@ export default {
         .mutate({
           mutation,
           variables: {
-          id: this.$strapi.user.id,
-          input: dic,
+            id: this.$strapi.user.id,
+            input: dic,
           },
         })
         .catch((err) => console.log(err))

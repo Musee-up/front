@@ -5,7 +5,7 @@
         <v-row>
           <account-guide-dashboard-profile
             :user="{}"
-            ></account-guide-dashboard-profile>
+          ></account-guide-dashboard-profile>
         </v-row>
         <v-row>
           <p>
