@@ -51,17 +51,19 @@ export default defineNuxtConfig({
   },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // 'nuxt-vite',
     '@nuxt/image',
-    // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/strapi',
-    '@nuxt/http',
-    '@nuxtjs/apollo',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/style-resources', '@nuxtjs/i18n'],
+  modules: [
+    '@nuxtjs/apollo',
+    '@nuxt/http',
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/i18n',
+  ],
   strapi: {
     url: `${backendUrl}/api`,
   },
@@ -102,6 +104,13 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      'graphql',
+      '@nuxtjs/apollo',
+      'subscriptions-transport-ws',
+      'web-streams-polyfill',
+      'cross-fetch'
+    ],
     loaders: {
       sass: {
         implementation: require('sass'),
