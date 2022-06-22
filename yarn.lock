@@ -12996,6 +12996,13 @@ nuxi@^0.10.1:
   dependencies:
     nuxi-edge latest
 
+nuxi@^3.0.0-rc.4:
+  version "3.0.0-rc.4"
+  resolved "https://registry.yarnpkg.com/nuxi/-/nuxi-3.0.0-rc.4.tgz#f154548b2253a0e85113d88f28c0ba5da6c6b9d7"
+  integrity sha512-uOGmB7ZTtzdNLxgkSJxco6lTpmw/dTvBfarhzvptfbpLYjlKzpGkhe1s6mc4pyPKUWpnOh1IqpOkOI9xgEvlkQ==
+  optionalDependencies:
+    fsevents "~2.3.2"
+
 nuxt-edge@latest:
   version "2.16.0-27358576.777a4b7f"
   resolved "https://registry.npmjs.org/nuxt-edge/-/nuxt-edge-2.16.0-27358576.777a4b7f.tgz"

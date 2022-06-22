@@ -110,6 +110,7 @@ export default defineNuxtConfig({
       'subscriptions-transport-ws',
       'web-streams-polyfill',
       'cross-fetch',
+      'hash.js',
     ],
     loaders: {
       sass: {
