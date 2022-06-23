@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   router: {
-    base: '/'
+    base: '/',
   },
   head: {
     titleTemplate: '%s - musée up',
@@ -24,9 +24,7 @@ export default defineNuxtConfig({
       { name: 'format-detection', content: 'telephone=no' },
     ],
 
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
