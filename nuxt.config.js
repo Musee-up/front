@@ -111,6 +111,7 @@ export default defineNuxtConfig({
       'web-streams-polyfill',
       'cross-fetch',
       'hash.js',
+      'universal-cookie',
     ],
     loaders: {
       sass: {

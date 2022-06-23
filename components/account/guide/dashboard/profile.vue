@@ -1,4 +1,4 @@
-<template>
+<template v-if="user">
   <v-container fluid class="">
     <v-row class="d-flex justify-center">
       <v-avatar color="primary" size="100">
@@ -12,9 +12,6 @@
 
     <v-row class="d-flex justify-center">
       <slot> </slot>
-      <!-- <p> -->
-      <!--   <small class="grey--text">{{ location }}</small> -->
-      <!-- </p> -->
     </v-row>
   </v-container>
 </template>

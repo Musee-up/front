@@ -107,10 +107,9 @@ export default {
           identifier: this.email,
           password: this.password,
         })
-        .then(() => {
+        .then(() => 
           this.$apolloHelpers.onLogin(this.$strapi.getToken())
-          this.dialog = false
-        })
+        )
         .then(() => {
           this.router.push('/account/client')
         })
