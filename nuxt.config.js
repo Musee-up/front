@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     tslib: 'tslib/tslib.es6.js',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
+  router: {
+    base: '/'
+  },
   head: {
     titleTemplate: '%s - musée up',
     title: 'musée up',
@@ -20,9 +23,9 @@ export default defineNuxtConfig({
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
+
     link: [
-      // {rel:'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lato&display=swap'},
-      // { rel: 'icon', type: 'image/x-icon', href: '/icon_blue.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
 
