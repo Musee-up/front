@@ -5,9 +5,6 @@ const backendUrl = process.env.API_URL || 'http://localhost:1337'
 export default defineNuxtConfig({
   ssr: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
-  router: {
-    base: '/',
-  },
   head: {
     titleTemplate: '%s - musée up',
     title: 'musée up',
@@ -101,9 +98,9 @@ export default defineNuxtConfig({
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-    alias: {
-    'tslib': 'tslib/tslib.es6.js',
-    'ufo': 'ufo/dist/index.cjs'
+  alias: {
+    tslib: 'tslib/tslib.es6.js',
+    ufo: 'ufo/dist/index.cjs',
   },
   build: {
     transpile: [
