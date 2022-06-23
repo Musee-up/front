@@ -3,7 +3,7 @@
     v-if="experience"
     :id="$route.params.id"
     :experience="experience"
-  >
+    >
   </experience-creation-template>
 </template>
 
@@ -11,20 +11,23 @@
 import experienceQuery from '@/graphql/queries/experience'
 
 export default {
+  layout: 'account-guide',
   data() {
     return {
       experience: null,
     }
   },
-  async mounted() {
-    this.experience = (
-      await this.$apollo.query({
-        query: experienceQuery,
-        variables: {
-          id: this.$route.params.id,
-        },
+  mounted() {
+    this.$apollo.query({
+      query: experienceQuery,
+      variables: {
+        id: this.$route.params.id,
+      },
+    })
+      .then(x => {
+        this.experience = x.data.experience.data
       })
-    ).data.experience
+      .catch(err => console.log(err))
   },
 }
 </script>

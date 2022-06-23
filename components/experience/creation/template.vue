@@ -7,6 +7,7 @@
       <div>
         <v-btn rounded @click.prevent="createExperience">
           {{ $t('common.add') }}
+          {{ guideID }}
         </v-btn>
         <v-chip>
           {{ $t('components.experience.creation.template.incomplete') }}
@@ -74,7 +75,7 @@
 </template>
 
 <script>
-import singleUserQuery from '@/graphql/queries/user'
+import { mapGetters } from 'vuex'
 import createExperience from '@/graphql/mutations/createExperience'
 import updateExperience from '@/graphql/mutations/updateExperience'
 
@@ -106,6 +107,10 @@ export default {
       }
       return { right: 3, middle: 8 }
     },
+    ...mapGetters({
+      guideID: 'guide/getID',
+    }),
+
   },
   mounted() {
     this.id = this.currentId
@@ -113,8 +118,9 @@ export default {
     if (!this.experience.data.attributes) return
     this.model = this.experience.data.attributes
     let { languages, themes, types } = this.model
-    this.model_att = { languages, themes, types }
-    ;[languages, themes, types] = Object.values(this.model_att).map((a) =>
+    this.model_att = { languages, themes, types };
+    [languages, themes, types] = Object.values(this.model_att)
+      .map((a) =>
       a?.data.map((x) => x.id)
     )
 
@@ -122,14 +128,6 @@ export default {
     this.att = this.model_att
   },
   methods: {
-    getUser() {
-      return this.$apollo.query({
-        query: singleUserQuery,
-        variables: {
-          id: this.$strapi.user.id,
-        },
-      })
-    },
     updateAttribute(att) {
       this.att = att
       delete this.att.people
@@ -137,26 +135,29 @@ export default {
     getMutationQuery() {
       return this.id ? updateExperience : createExperience
     },
-    async createExperience() {
-      const user = await this.getUser()
-      const guide = user.data.me.guide
-
+    createExperience() {
       const mutation = this.getMutationQuery()
-      const exp = await this.$apollo.mutate({
+       this.$apollo.mutate({
         mutation,
         variables: {
           id: this.id,
           input: {
             ...this.att,
-            guide: guide.data.id,
+            guide: this.guideID,
             title: this.model.title,
             description: this.model.description,
             duration: '00:03:00.000',
           },
         },
       })
-      this.id =
-        exp.data[this.id ? 'updateExperience' : 'createExperience'].data.id
+        .then(exp => {
+          console.log(exp)
+          // reload guide store
+          this.$store.dispatch('guide/getGuide')
+          this.id =
+            exp.data[this.id ? 'updateExperience' : 'createExperience'].data.id
+        })
+      .catch(err => console.log(err))
     },
   },
 }

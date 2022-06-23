@@ -26,6 +26,7 @@ import DefaultLayout from '~/layouts/default.vue'
 
 export default {
   components: { DefaultLayout },
+  middleware: ['auth'],
   data() {
     return {
       pages: [

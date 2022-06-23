@@ -19,6 +19,9 @@ export const getters = {
   getExperiences: (state) => {
     return state.guide?.attributes?.experiences.data
   },
+  getID: (state) => {
+    return state.guide?.id
+  },
   getExperiencesSlot: (state) => {
     return state.guide?.attributes?.experienceSlots.data
   },
