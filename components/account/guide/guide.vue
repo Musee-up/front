@@ -29,8 +29,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user/getCore'
-    })
+      user: 'user/getCore',
+    }),
   },
 }
 </script>
