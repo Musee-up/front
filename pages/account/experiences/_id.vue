@@ -3,7 +3,7 @@
     v-if="experience"
     :id="$route.params.id"
     :experience="experience"
-    >
+  >
   </experience-creation-template>
 </template>
 
@@ -18,16 +18,17 @@ export default {
     }
   },
   mounted() {
-    this.$apollo.query({
-      query: experienceQuery,
-      variables: {
-        id: this.$route.params.id,
-      },
-    })
-      .then(x => {
+    this.$apollo
+      .query({
+        query: experienceQuery,
+        variables: {
+          id: this.$route.params.id,
+        },
+      })
+      .then((x) => {
         this.experience = x.data.experience.data
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
   },
 }
 </script>

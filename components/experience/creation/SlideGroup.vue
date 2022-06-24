@@ -1,7 +1,7 @@
 <template>
   <v-slide-group show-arrows class="pa-4" style="height: 100%">
     <v-slide-item class="slide-item pa-2">
-      <experience-creation-photo-input class="ma-2" />
+      <experience-creation-photo-input class="ma-2" @upload="getUpload"/>
     </v-slide-item>
     <div class="d-flex flex-column middle-item">
       <v-slide-item class="slide-item-2 ma-2">
@@ -18,13 +18,26 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {}
   },
   methods: {
-    upload(img) {
-      console.log(img)
+    getUpload(img) {
+console.log(img)
+      const form = new FormData()
+      form.append('files', img)
+
+      const config = {
+        headers : {
+        'Content-Type' : `multipart/form-data; boundary=${img.size}`
+        }
+      }
+      this.$axios.post('/upload', {form}, config)
+        .then(res => {
+          console.log(res)
+        })
     },
   },
 }

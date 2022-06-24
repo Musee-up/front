@@ -110,7 +110,6 @@ export default {
     ...mapGetters({
       guideID: 'guide/getID',
     }),
-
   },
   mounted() {
     this.id = this.currentId
@@ -118,9 +117,8 @@ export default {
     if (!this.experience.data.attributes) return
     this.model = this.experience.data.attributes
     let { languages, themes, types } = this.model
-    this.model_att = { languages, themes, types };
-    [languages, themes, types] = Object.values(this.model_att)
-      .map((a) =>
+    this.model_att = { languages, themes, types }
+    ;[languages, themes, types] = Object.values(this.model_att).map((a) =>
       a?.data.map((x) => x.id)
     )
 
@@ -137,27 +135,28 @@ export default {
     },
     createExperience() {
       const mutation = this.getMutationQuery()
-       this.$apollo.mutate({
-        mutation,
-        variables: {
-          id: this.id,
-          input: {
-            ...this.att,
-            guide: this.guideID,
-            title: this.model.title,
-            description: this.model.description,
-            duration: '00:03:00.000',
+      this.$apollo
+        .mutate({
+          mutation,
+          variables: {
+            id: this.id,
+            input: {
+              ...this.att,
+              guide: this.guideID,
+              title: this.model.title,
+              description: this.model.description,
+              duration: '00:03:00.000',
+            },
           },
-        },
-      })
-        .then(exp => {
+        })
+        .then((exp) => {
           console.log(exp)
           // reload guide store
           this.$store.dispatch('guide/getGuide')
           this.id =
             exp.data[this.id ? 'updateExperience' : 'createExperience'].data.id
         })
-      .catch(err => console.log(err))
+        .catch((err) => console.log(err))
     },
   },
 }

@@ -31,16 +31,16 @@ export default {
       this.$refs.fileInput.click()
     },
     selectImgFile() {
-      const fileInput = this.$refs.fileInput
-      const imgFile = fileInput.files
+      const imgFile = this.$refs.fileInput.files
 
       if (imgFile && imgFile[0]) {
+        this.$emit('upload', imgFile[0])
+
         const reader = new FileReader()
         reader.onload = (e) => {
           this.filePreview = e.target.result
         }
         reader.readAsDataURL(imgFile[0])
-        // this.emit('upload', imgFile[0])
       }
     },
   },

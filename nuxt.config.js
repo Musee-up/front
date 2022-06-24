@@ -59,6 +59,9 @@ export default defineNuxtConfig({
     '@nuxtjs/style-resources',
     '@nuxtjs/i18n',
   ],
+  axios: {
+    baseURL: `${backendUrl}/api`,
+  },
   strapi: {
     url: `${backendUrl}/api`,
   },
