@@ -1,0 +1,7 @@
+mutation updateGuide($id: ID!, $input: GuideInput!) {
+    updateGuide(id: $id, data: $input) {
+      data {
+        id
+      }
+    }
+  }

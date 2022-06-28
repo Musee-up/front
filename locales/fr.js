@@ -14,6 +14,15 @@ Vous pouvez revenir à la page d’accueil ou accéder au centre d’aide. `,
     delete: 'Supprimer',
   },
   components: {
+    guide: {
+      background: 'Son parcours et ses spécialités',
+      abstract: {
+        workExperiences: 'Formation et expérience',
+        specialties: 'Spécialités',
+        languages: 'Langues',
+        interests: 'Centres d’intérêts',
+      }
+    },
     booking: {
       success: {
         title: 'Merci pour votre réservation !',
@@ -97,11 +106,11 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
         template: {
           incomplete: 'Incomplète',
           title:
-            'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)',
+          'Indiquez le titre de votre expérience (maximum 40 caractères espaces compris)',
           description: {
             title: "Présentation de l'experience",
             input:
-              'Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).',
+            'Ecrivez-ici la présentation de votre expérience. (maximum 700 caractères espaces compris).',
           },
         },
         pricePicker: {
@@ -115,11 +124,11 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
       calendar: {
         form: {
           button: 'Ajouter une expérience',
-          title: "CHOIX DE L'EXPERIENCE",
+          title: "Choix de l'experience",
           subtitle: 'Choisissez votre expérience',
-          date_input: 'CHOIX DE LA DATE',
-          slot_input: 'CHOIX DU CRÉNEAU',
-          validate: 'VALIDER',
+          date_input: 'Choix de la date',
+          slot_input: 'Choix du créneau',
+          validate: 'Valider',
         },
       },
     },
@@ -129,7 +138,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
           review: {
             title: 'Votre avis compte beaucoup pour nous !',
             description:
-              'Notez et donnez votre avis sur votre expérience et votre guide du',
+            'Notez et donnez votre avis sur votre expérience et votre guide du',
           },
           footer: {
             download: 'Mon E-ticket',
@@ -137,7 +146,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
               button: 'Donner mon avis',
               title: 'Votre avis compte beaucoup pour nous !',
               description:
-                ' Notez et donnez votre avis sur votre experience et votre guide du ',
+              ' Notez et donnez votre avis sur votre experience et votre guide du ',
               comment: 'Écrivez votre commentaire ici',
               cancel: 'Annuler',
               submit: 'Envoyer',
@@ -176,6 +185,13 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
         },
       },
       guide: {
+        profile : {
+          headline: 'Titre de votre profil (visible en dehors de votre profil)',
+          description: 'Description de votre profil (visible en dehors de votre profil)',
+          background: 'Ecrivez un texte explicatifs de votre parcours et vos spécialités',
+          favoritePlace: 'Son lieu préféré : indiquez-ici un de vos endroits favoris',
+
+        },
         resume: {
           lastname: 'Nom',
           firstname: 'Prénom',
@@ -192,7 +208,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
     about: {
       title: 'Qui sommes-nous ?',
       description:
-        'Musée Up’, c’est avant tout une vision : participer à l’émergence d’un tourisme éthique, responsable et durable à l’opposé d’un tourisme de masse et impersonnel. Cette idée vient d’un constat : les guides-conférenciers et les clients ont dû mal à se connecter alors que le numérique peut faciliter les contacts d’un bout à l’autre du monde. Musée Up’, la marketplace de la culture, veut faciliter leur rencontre.',
+      'Musée Up’, c’est avant tout une vision : participer à l’émergence d’un tourisme éthique, responsable et durable à l’opposé d’un tourisme de masse et impersonnel. Cette idée vient d’un constat : les guides-conférenciers et les clients ont dû mal à se connecter alors que le numérique peut faciliter les contacts d’un bout à l’autre du monde. Musée Up’, la marketplace de la culture, veut faciliter leur rencontre.',
       detail: 'En savoir plus',
       demo: 'Regarder notre démo',
       history: {
@@ -207,13 +223,13 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
       },
       stats: {
         woman:
-          'des guides-conférenciers sont des femmes et subissent ces problèmes',
+        'des guides-conférenciers sont des femmes et subissent ces problèmes',
         consider: 'des guides-conférenciers songent à changer de métier',
         salary: 'des guides-conférenciers gagnent moins de 1500€ brut par mois',
         numeric:
-          'du public souhaite une offre culturelle plus numérisée et simple',
+        'du public souhaite une offre culturelle plus numérisée et simple',
         various:
-          'du public veut une offre culturelle plus personnalisée et variée',
+        'du public veut une offre culturelle plus personnalisée et variée',
       },
       why: {
         title: 'Pourquoi Musée Up’ ?',
@@ -250,7 +266,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
             name: 'Alexandre Vincent',
             title: 'CEO et co-fondateur',
             description:
-              'Alex comme on le surnomme est le couteau-suisse de l’équipe. En plus de s’occuper du développement commercial et de l’offre, ce thésard passionné par l’histoire, le courant romantique et l’écologie gère aussi une partie de la communication.',
+            'Alex comme on le surnomme est le couteau-suisse de l’équipe. En plus de s’occuper du développement commercial et de l’offre, ce thésard passionné par l’histoire, le courant romantique et l’écologie gère aussi une partie de la communication.',
           },
           lucile: {
             name: 'Lucile Doiteau',
@@ -319,7 +335,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
           },
           title: 'Mes paiements',
           description:
-            'Vous retrouverez ici vos modes de paiements. Payez et communiquez toujours par l’intermédiaire de Musée Up’ pour bénéficier de la protection proposée par nos services. En savoir plus.',
+          'Vous retrouverez ici vos modes de paiements. Payez et communiquez toujours par l’intermédiaire de Musée Up’ pour bénéficier de la protection proposée par nos services. En savoir plus.',
         },
         bookings: {
           id: {
@@ -334,7 +350,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
           },
           title: 'Mes réservations',
           description:
-            'Vous retrouverez ici vos réservations et toutes les informations dont vous avez besoin pour profiter au mieux de vos expériences culturelles avec Musée Up’ !',
+          'Vous retrouverez ici vos réservations et toutes les informations dont vous avez besoin pour profiter au mieux de vos expériences culturelles avec Musée Up’ !',
         },
         navigation_profile: 'Mon profile',
         navigation_help: 'Assistance et politique juridique',
@@ -342,16 +358,16 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
         cards: {
           info: 'Gérez ici vos informations utiles et indiquez-nous vos contacts pour pouvoir vous joindre très facilement !',
           bookings:
-            'Vous retrouverez ici vos réservations d’expériences et toutes les informations utiles, des contacts de votre guide au lieu de rencontre !',
+          'Vous retrouverez ici vos réservations d’expériences et toutes les informations utiles, des contacts de votre guide au lieu de rencontre !',
           favorites:
-            'Vous pourrez consulter ici tous vos favoris, expériences, guides et articles pour pouvoir les retrouver quand vous le souhaitez !',
+          'Vous pourrez consulter ici tous vos favoris, expériences, guides et articles pour pouvoir les retrouver quand vous le souhaitez !',
           help: 'Vous pourrez retrouver ici des recommandations d’expériences culturelles choisies par nos soins selon vos goûts et vos favoris !',
         },
         help: "Besoin d'aide ?",
         general_conditions: 'Conditions générales',
         privacy: 'Confidentialité',
         headline:
-          'Gérez vos informations personnelles et vos réservations très facilement et retrouvez tout ce dont vous avez besoin pour profiter au mieux des services Musée Up’ en toute sérénité !',
+        'Gérez vos informations personnelles et vos réservations très facilement et retrouvez tout ce dont vous avez besoin pour profiter au mieux des services Musée Up’ en toute sérénité !',
         info: 'Mes informations',
         booking: 'Mes réservations',
         messages: 'Mes messages',

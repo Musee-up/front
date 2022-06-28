@@ -23,28 +23,29 @@
 
 <script>
 export default {
+  layout: 'account-guide',
   props: ['guide'],
   data() {
     return {
       first: [
         {
-          label: 'Formation et expérience',
-          list: this.guide.workExperience,
+          label: 'components.guide.profile.formationAndExperience',
+          list: this.guide?.workExperience,
           icon: 'mdi-school',
         },
         {
-          label: 'SES SPÉCIALITÉS',
-          list: this.guide.specialties,
+          label: 'components.guide.profile.specialties',
+          list: this.guide?.specialties,
           icon: 'mdi-pillar',
         },
         {
-          label: 'SES LANGUES',
-          list: this.guide.languages,
+          label: 'components.guide.profile.languages',
+          list: this.guide?.languages,
           icon: 'mdi-earth',
         },
         {
-          label: 'CE QU’ELLE AIME',
-          list: this.guide.interests,
+          label: 'components.guide.profile.interests',
+          list: this.guide?.interests,
           icon: 'mdi-cards-heart-outline',
         },
       ],

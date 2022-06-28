@@ -29,7 +29,8 @@
     </v-row>
 
     <div style="height: 500px">
-      <experience-creation-slide-group />
+      <experience-creation-slide-group @upload="onUpload">
+      </experience-creation-slide-group>
     </div>
 
     <v-divider class="my-9"></v-divider>
@@ -60,9 +61,9 @@
           ></v-textarea>
         </v-row>
 
-        <v-divider class="my-9"></v-divider>
+        <!-- <v-divider class="my-9"></v-divider> -->
 
-        <experience-guide-profile />
+        <!-- <experience-guide-profile /> -->
       </v-col>
 
       <v-col>
@@ -84,6 +85,7 @@ export default {
   data() {
     return {
       model: {
+        photoIDs: [],
         title: null,
         description: null,
       },
@@ -114,8 +116,8 @@ export default {
   mounted() {
     this.id = this.currentId
 
-    if (!this.experience.data.attributes) return
-    this.model = this.experience.data.attributes
+    if (!this.experience) return
+    this.model = this.experience.attributes
     let { languages, themes, types } = this.model
     this.model_att = { languages, themes, types }
     ;[languages, themes, types] = Object.values(this.model_att).map((a) =>
@@ -126,6 +128,9 @@ export default {
     this.att = this.model_att
   },
   methods: {
+    onUpload(data) {
+      this.model.photoIDs = data
+    },
     updateAttribute(att) {
       this.att = att
       delete this.att.people
@@ -146,15 +151,15 @@ export default {
               title: this.model.title,
               description: this.model.description,
               duration: '00:03:00.000',
+              photos: this.model.photoIDs,
             },
           },
         })
         .then((exp) => {
-          console.log(exp)
-          // reload guide store
-          this.$store.dispatch('guide/getGuide')
-          this.id =
-            exp.data[this.id ? 'updateExperience' : 'createExperience'].data.id
+          if (this.id) return ;
+          const id =
+            exp.data.createExperience.data.id
+          this.$router.push(`/account/experiences/${id}`)
         })
         .catch((err) => console.log(err))
     },

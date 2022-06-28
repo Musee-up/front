@@ -13,6 +13,7 @@
         ref="fileInput"
         type="file"
         style="display: none"
+        multiple
         @input="selectImgFile"
       />
     </v-img>
@@ -34,7 +35,7 @@ export default {
       const imgFile = this.$refs.fileInput.files
 
       if (imgFile && imgFile[0]) {
-        this.$emit('upload', imgFile[0])
+        this.$emit('upload', imgFile)
 
         const reader = new FileReader()
         reader.onload = (e) => {

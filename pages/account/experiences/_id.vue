@@ -1,7 +1,7 @@
 <template>
   <experience-creation-template
     v-if="experience"
-    :id="$route.params.id"
+    :current-id="$route.params.id"
     :experience="experience"
   >
   </experience-creation-template>

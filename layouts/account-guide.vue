@@ -54,6 +54,10 @@ export default {
           label: 'pages.account.guide.publish',
           link: '/account/experiences',
         },
+        {
+          label: 'Mon profile',
+          link: '/account/guide/profile',
+        },
       ],
     }
   },

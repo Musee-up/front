@@ -5,11 +5,9 @@
     </v-row>
 
     <v-row>
-      <v-list>
-        <v-list-item v-for="(item, i) in guide.background" :key="i">
-          <p>{{ item }}</p>
-        </v-list-item>
-      </v-list>
+      <p>
+        {{ guide.background }}
+      </p>
     </v-row>
   </v-container>
 </template>
@@ -19,7 +17,7 @@ export default {
   props: ['guide'],
   data() {
     return {
-      title: 'Son parcours et ses spécialités',
+      title: 'components.guide.background',
     }
   },
 }

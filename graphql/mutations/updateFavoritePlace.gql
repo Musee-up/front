@@ -1,0 +1,7 @@
+mutation updateFavoritePlace($id: ID!, $input: FavoritePlaceInput!) {
+    updateFavoritePlace(id: $id, data: $input) {
+      data {
+        id
+      }
+    }
+  }

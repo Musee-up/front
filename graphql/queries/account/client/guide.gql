@@ -12,6 +12,29 @@ query Guide {
       data {
         id
         attributes {
+          headline
+          description
+          background
+          workExperiences
+          specialties
+          interests
+          favorite_place {
+            data {
+              id
+              attributes {
+                title
+                description
+              }
+            }
+          }
+          languages {
+            data {
+              id
+              attributes {
+                value
+              }
+            }
+          }
           experiences {
             data {
               id
