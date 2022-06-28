@@ -1,76 +1,90 @@
 #import "../../../fragments/CoreExperiencePart.gql"
 
-query Guide {
-  me {
-    id
-    firstname
-    lastname
-    email
-    phone
-    location
-    guide {
-      data {
-        id
-        attributes {
-          headline
-          description
-          background
-          workExperiences
-          specialties
-          interests
-          favorite_place {
-            data {
-              id
-              attributes {
-                title
-                description
-              }
+query usersPermissionsUser($id: ID!) {
+  usersPermissionsUser(id: $id) {
+    data {
+      id
+      attributes {
+        picture {
+          data {
+            attributes {
+              previewUrl
+              formats
             }
           }
-          languages {
-            data {
-              id
-              attributes {
-                value
-              }
-            }
-          }
-          experiences {
-            data {
-              id
-              attributes {
-                ...CoreExperiencePart
-              }
-            }
-          }
-          experienceSlots {
-            data {
-              id
-              attributes {
-                experience {
-                  data {
-                    id
-                    attributes {
-                      title
-                    }
+        }
+        location
+        firstname
+        lastname
+        email
+        phone
+        location
+        guide {
+          data {
+            id
+            attributes {
+              location
+              headline
+              description
+              background
+              workExperiences
+              specialties
+              interests
+              favorite_place {
+                data {
+                  id
+                  attributes {
+                    title
+                    description
                   }
                 }
-                start
-                end
-                bookings {
-                  data {
-                    id
-                    attributes {
-                      size
-                      user {
-                        data {
-                          id
-                          attributes {
-                            username
-                            email
-                            phone
-                            firstname
-                            lastname
+              }
+              languages {
+                data {
+                  id
+                  attributes {
+                    value
+                  }
+                }
+              }
+              experiences {
+                data {
+                  id
+                  attributes {
+                    ...CoreExperiencePart
+                  }
+                }
+              }
+              experienceSlots {
+                data {
+                  id
+                  attributes {
+                    experience {
+                      data {
+                        id
+                        attributes {
+                          title
+                        }
+                      }
+                    }
+                    start
+                    end
+                    bookings {
+                      data {
+                        id
+                        attributes {
+                          size
+                          user {
+                            data {
+                              id
+                              attributes {
+                                username
+                                email
+                                phone
+                                firstname
+                                lastname
+                              }
+                            }
                           }
                         }
                       }

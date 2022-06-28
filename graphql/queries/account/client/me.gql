@@ -1,78 +1,83 @@
-query ExampleQuery {
-  me {
-    id
-    firstname
-    lastname
-    email
-    phone
-    location
-    bookings {
-      data {
-        attributes {
-          experience_slot {
-            data {
-              attributes {
-                start
-                end
+query usersPermissionsUser($id: ID!) {
+  usersPermissionsUser(id: $id) {
+    data {
+        id
+      attributes {
+        location
+        firstname
+        lastname
+        email
+        phone
+        location
+        bookings {
+          data {
+            attributes {
+              experience_slot {
+                data {
+                  attributes {
+                    start
+                    end
+                  }
+                }
               }
-            }
-          }
-          experience {
-            data {
-              id
-              attributes {
-                photos {
-                  data {
-                    attributes {
-                      url
+              experience {
+                data {
+                  id
+                  attributes {
+                    photos {
+                      data {
+                        attributes {
+                          url
+                        }
+                      }
                     }
-                  }
-                }
-                duration
-                price
-                description
-                transportation
-                title
-                stars
-                handifriendly
-                languages {
-                  data {
-                    id
-                    attributes {
-                      value
+                    duration
+                    price
+                    description
+                    transportation
+                    title
+                    stars
+                    handifriendly
+                    languages {
+                      data {
+                        id
+                        attributes {
+                          value
+                        }
+                      }
                     }
-                  }
-                }
-                themes {
-                  data {
-                    id
-                    attributes {
-                      name
+                    themes {
+                      data {
+                        id
+                        attributes {
+                          name
+                        }
+                      }
                     }
-                  }
-                }
-                location
-                types {
-                  data {
-                    id
-                    attributes {
-                      name
+                    location
+                    types {
+                      data {
+                        id
+                        attributes {
+                          name
+                        }
+                      }
                     }
-                  }
-                }
-                guide {
-                  data {
-                    id
-                    attributes {
-                      user {
-                        data {
-                          id
-                          attributes {
-                            username
-                            email
-                            firstname
-                            lastname
-                            phone
+                    guide {
+                      data {
+                        id
+                        attributes {
+                          user {
+                            data {
+                              id
+                              attributes {
+                                username
+                                email
+                                firstname
+                                lastname
+                                phone
+                              }
+                            }
                           }
                         }
                       }
@@ -80,11 +85,11 @@ query ExampleQuery {
                   }
                 }
               }
+              size
             }
+            id
           }
-          size
         }
-        id
       }
     }
   }

@@ -1,9 +1,13 @@
 <template>
-  <v-container class="justify-center">
-    <v-row class="my-8">
+  <v-container v-if="core" class="justify-center">
+    <v-row class="mt-4">
       <v-col cols="2" class="abstract mx-6">
-        <v-row class="photo">
-          <!-- <like-overview :width="width" :photo="guide.photo"> </like-overview> -->
+        <v-row class="photo mb-4">
+          <nuxt-img
+            v-if="user.picture && user.picture.data"
+            :src="url + user.picture.data.attributes.formats.thumbnail.url"
+            class="rounded-xl"
+            ></nuxt-img>
         </v-row>
 
         <v-row class="my-4">
@@ -12,24 +16,25 @@
 
         <v-row class="my-4">
           <account-guide-profile-skills
-            v-if="core"
-            :guide="core" @input="onInput">
+            v-if="edit"
+            :guide="core"
+            @input="onInput"
+            >
           </account-guide-profile-skills>
 
-          <!-- </account-guide-profile-skills> -->
-          <!-- <guide-profile-skills :guide="{}"> </guide-profile-skills> -->
+          <guide-profile-skills v-else :guide="core"> </guide-profile-skills>
         </v-row>
       </v-col>
 
       <v-col cols="7" class="summary">
-        <!-- <v-row class="location"> -->
-          <!-- <guide-location -->
-          <!--   color="description" -->
-          <!--   :guide="guide" -->
-          <!--   class="location-value" -->
-          <!-- > -->
-          <!-- </guide-location> -->
-        <!-- </v-row> -->
+        <v-row class="location">
+          <guide-location
+            color="description"
+            :guide="core"
+            class="location-value"
+            >
+          </guide-location>
+        </v-row>
 
         <v-row>
           <h1 class="name primary--text">
@@ -37,60 +42,78 @@
           </h1>
         </v-row>
 
-        <!-- <v-row> -->
-          <!-- <h3 class="guideType primary--text"> -->
-          <!--   {{ guide.userType }} -->
-          <!-- </h3> -->
-          <!-- <rating color="primary" :rating="guide.rating"></rating> -->
-        <!-- </v-row> -->
+        <div
+          v-for="(component, i) in components"
+          :key="i"
+          class="mt-4">
+          <v-row>
 
-        <v-row class="my-4">
-          {{ core }}
-          <account-guide-profile-description
-            v-if="core"
-            :guide="core"
-            @input="onInput">
-          </account-guide-profile-description>
-          <!-- <guide-profile-description :guide="guide"> -->
-          <!-- </guide-profile-description> -->
-        </v-row>
+            <component
+              :is="edit ? component.edit : component.view"
+              v-bind="component.props"
+              @input="onInput">
+            </component>
+          </v-row>
+        </div>
+      </v-col>
+      <v-col>
+        <v-row>
+          <v-btn 
+            color="primary"
+            icon
+            @click="edit = !edit">
+            <v-icon
+              color="primary"
+              >
+              {{ edit ? 'mdi-check' : 'mdi-pencil' }}
+            </v-icon>
 
-        <v-row class="my-4">
-          <v-divider></v-divider>
-        </v-row>
-
-        <v-row class="my-4">
-          <account-guide-profile-background
-            v-if="core"
-            :value="core.background"
-            @input="onInput">
-          </account-guide-profile-background>
-          <!-- <guide-profile-background :guide="guide"> </guide-profile-background> -->
+          </v-btn>
         </v-row>
       </v-col>
     </v-row>
-
-    <v-row class="my-4">
-      <v-divider></v-divider>
-    </v-row>
-
-    <v-row v-if="core">
-      {{ core.favorite_place}}
-      <account-guide-profile-favorite-place
-        :favorite-place="core.favorite_place"
-        @input="onFavoritePlace">
-      </account-guide-profile-favorite-place>
-    </v-row>
-
 
   </v-container>
 </template>
 
 <script>
-import { mapState, mapGetters , mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   layout: 'account-guide',
+  data() {
+    return {
+      components: {},
+      edit: false,
+      url: process.env.API_URL
+    }
+  },
+  watch: {
+    core(val) {
+      console.log(val)
+      if (!val) return ;
+
+      this.components = {
+        description: {
+          edit: 'account-guide-profile-description',
+          view: 'guide-profile-description',
+          props: {
+            guide: val,
+          },
+        },
+        background: {
+          view: 'guide-profile-background',
+          edit: 'account-guide-profile-background',
+          props: { background: val.background }
+        },
+        favoritePlace: {
+         // view: 'guide-profile-favorite-place',
+          edit: 'account-guide-profile-favorite-place',
+          props: { favoritePlace: val.favorite_place.data.attributes }
+        },
+      }
+    }
+  },
   computed: {
     ...mapState(['guide']),
     ...mapGetters({
@@ -116,26 +139,27 @@ export default {
     },
   },
   methods: {
-  ...mapActions({updateGuide: 'guide/updateGuide'}),
-  ...mapActions({updateFavoritePlace: 'guide/updateFavoritePlace'}),
+    ...mapActions({ updateGuide: 'guide/updateGuide' }),
+    ...mapActions({ updateFavoritePlace: 'guide/updateFavoritePlace' }),
     onFavoritePlace(input) {
       const id = this.guide.guide.attributes.favorite_place.data.id
       console.log(id, input)
       this.updateFavoritePlace({
         id,
-        input
+        input,
       })
     },
     onInput(input) {
       console.log(input)
       this.updateGuide({
         id: this.guide.guide.id,
-        input
+        input,
       })
-    }
+    },
   },
 }
-</script><style lang="css" scoped>
+</script>
+<style lang="css" scoped>
 .abstract > * > * {
   width: 100% !important;
 }

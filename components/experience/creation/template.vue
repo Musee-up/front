@@ -156,9 +156,8 @@ export default {
           },
         })
         .then((exp) => {
-          if (this.id) return ;
-          const id =
-            exp.data.createExperience.data.id
+          if (this.id) return
+          const id = exp.data.createExperience.data.id
           this.$router.push(`/account/experiences/${id}`)
         })
         .catch((err) => console.log(err))

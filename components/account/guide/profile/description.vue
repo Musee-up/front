@@ -5,7 +5,7 @@
         v-model="headline.model"
         :label="$t(headline.label)"
         @change="onChange"
-        ></v-text-field>
+      ></v-text-field>
     </v-row>
 
     <v-row>
@@ -13,7 +13,7 @@
         v-model="description.model"
         :label="$t(description.label)"
         @change="onChange"
-        ></v-textarea>
+      ></v-textarea>
     </v-row>
   </v-container>
 </template>
@@ -25,12 +25,12 @@ export default {
     return {
       headline: {
         label: 'components.account.guide.profile.headline',
-        model: this.guide?.headline
+        model: this.guide?.headline,
       },
-      description:{
+      description: {
         label: 'components.account.guide.profile.description',
-        model: this.guide?.description
-      }
+        model: this.guide?.description,
+      },
     }
   },
   methods: {
@@ -40,7 +40,7 @@ export default {
         description: this.description.model,
       }
       this.$emit('input', input)
-    }
+    },
   },
 }
 </script>

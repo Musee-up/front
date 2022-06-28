@@ -1,7 +1,6 @@
 <template>
   <v-card class="rounded-xl" rounded outlined>
     <v-card-text>
-
       <div v-for="(item, i) in skills" :key="i">
         <div class="justify-space-between d-flex text-center">
           <h3 class="ma-0 mx-2">{{ $t(item.label) }}</h3>
@@ -13,15 +12,13 @@
           multiple
           chips
           @change="onChange"
-          ></v-combobox>
-
+        ></v-combobox>
       </div>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-
 export default {
   layout: 'account-guide',
   props: ['guide'],
@@ -59,7 +56,7 @@ export default {
         interests: this.skills.interests.value,
       }
       this.$emit('input', input)
-    }
+    },
   },
 }
 </script>

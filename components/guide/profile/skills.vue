@@ -29,22 +29,22 @@ export default {
     return {
       first: [
         {
-          label: 'components.guide.profile.formationAndExperience',
+          label: 'components.guide.abstract.workExperiences',
           list: this.guide?.workExperience,
           icon: 'mdi-school',
         },
         {
-          label: 'components.guide.profile.specialties',
+          label: 'components.guide.abstract.specialties',
           list: this.guide?.specialties,
           icon: 'mdi-pillar',
         },
         {
-          label: 'components.guide.profile.languages',
+          label: 'components.guide.abstract.languages',
           list: this.guide?.languages,
           icon: 'mdi-earth',
         },
         {
-          label: 'components.guide.profile.interests',
+          label: 'components.guide.abstract.interests',
           list: this.guide?.interests,
           icon: 'mdi-cards-heart-outline',
         },

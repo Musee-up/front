@@ -1,12 +1,12 @@
-<template v-if="guide">
+<template>
   <v-container>
     <v-row>
-      <h2>{{ title }}</h2>
+      <h2>{{ $t(title) }}</h2>
     </v-row>
 
     <v-row>
-      <p>
-        {{ guide.background }}
+      <p class="primary--text">
+        {{ background }}
       </p>
     </v-row>
   </v-container>
@@ -14,11 +14,15 @@
 
 <script>
 export default {
-  props: ['guide'],
-  data() {
-    return {
-      title: 'components.guide.background',
-    }
+  props: {
+    title: {
+      type: String,
+      default: 'components.account.guide.profile.background',
+    },
+    background: {
+      type: String,
+      default: "",
+    },
   },
 }
 </script>

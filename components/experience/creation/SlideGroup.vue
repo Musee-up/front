@@ -1,5 +1,4 @@
 <template>
-
   <v-slide-group show-arrows class="pa-4 fill-height justify-center">
     <v-slide-item class="slide-item pa-2">
       <experience-creation-photo-input class="ma-2" @upload="getUpload" />
@@ -33,14 +32,15 @@ export default {
       return form
     },
     getUpload(img) {
-      this.$axios.post('/upload', this.createForm(img))
+      this.$axios
+        .post('/upload', this.createForm(img))
         .then((res) => {
           const ids = res.data.map((file) => file.id)
           this.$emit('upload', ids)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
   },
 }

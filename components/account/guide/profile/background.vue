@@ -8,8 +8,8 @@
       <v-textarea
         :value="value"
         :label="$t(title)"
-        @change="e => $emit('input', {background: e})"
-        ></v-textarea>
+        @change="(e) => $emit('input', { background: e })"
+      ></v-textarea>
     </v-row>
   </v-container>
 </template>
@@ -19,7 +19,7 @@ export default {
   props: ['value'],
   data() {
     return {
-      title:  'components.account.guide.profile.background',
+      title: 'components.account.guide.profile.background',
     }
   },
 }

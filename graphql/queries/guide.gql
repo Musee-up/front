@@ -6,15 +6,15 @@ query guide($id: ID!) {
     data {
       id
       attributes {
-      workExperiences
-      specialties
-      languages {
-        id
-        attributes {
-          value
+        workExperiences
+        specialties
+        languages {
+          id
+          attributes {
+            value
+          }
         }
-      }
-      interests
+        interests
         experienceSlots {
           data {
             ...ExperienceSlotPart

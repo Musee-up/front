@@ -3,6 +3,9 @@ import { defineNuxtConfig } from '@nuxt/bridge'
 const backendUrl = process.env.API_URL || 'http://localhost:1337'
 
 export default defineNuxtConfig({
+  env: {
+    API_URL: backendUrl,
+  },
   ssr: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

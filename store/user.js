@@ -15,8 +15,10 @@ const load = (client, { commit }, query, id) => {
       },
     })
     .then((user) => {
-      commit('setMyself', user.data.me)
-      return user.data.me
+      const core = user.data.usersPermissionsUser.data.attributes
+      console.log(core)
+      commit('setMyself', core)
+      return core
     })
     .catch(console.error)
 }
