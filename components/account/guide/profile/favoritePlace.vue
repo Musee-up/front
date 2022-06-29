@@ -1,6 +1,11 @@
 <template>
   <v-container>
     <v-row>
+      <h2>
+        {{ $t(title.label) }}
+      </h2>
+    </v-row>
+    <v-row>
       <v-col cols="2">
         <experience-creation-photo-input class="ma-2" />
       </v-col>

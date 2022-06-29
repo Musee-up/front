@@ -6,7 +6,7 @@
 
     <v-row>
       <v-textarea
-        :value="value"
+        :value="background"
         :label="$t(title)"
         @change="(e) => $emit('input', { background: e })"
       ></v-textarea>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ['value'],
+  props: ['background'],
   data() {
     return {
       title: 'components.account.guide.profile.background',

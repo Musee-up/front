@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="core" class="justify-center">
+  <v-container v-if="guide" class="justify-center">
     <v-row class="mt-4">
       <v-col cols="2" class="abstract mx-6">
         <v-row class="photo mb-4">
@@ -7,7 +7,7 @@
             v-if="user.picture && user.picture.data"
             :src="url + user.picture.data.attributes.formats.thumbnail.url"
             class="rounded-xl"
-            ></nuxt-img>
+          ></nuxt-img>
         </v-row>
 
         <v-row class="my-4">
@@ -17,12 +17,12 @@
         <v-row class="my-4">
           <account-guide-profile-skills
             v-if="edit"
-            :guide="core"
+            :guide="guide"
             @input="onInput"
-            >
+          >
           </account-guide-profile-skills>
 
-          <guide-profile-skills v-else :guide="core"> </guide-profile-skills>
+          <guide-profile-skills v-else :guide="guide"> </guide-profile-skills>
         </v-row>
       </v-col>
 
@@ -30,9 +30,9 @@
         <v-row class="location">
           <guide-location
             color="description"
-            :guide="core"
+            :guide="guide"
             class="location-value"
-            >
+          >
           </guide-location>
         </v-row>
 
@@ -42,58 +42,54 @@
           </h1>
         </v-row>
 
-        <div
-          v-for="(component, i) in components"
-          :key="i"
-          class="mt-4">
+        <div v-for="(component, i) in components" :key="i" class="mt-4">
           <v-row>
-
             <component
               :is="edit ? component.edit : component.view"
               v-bind="component.props"
-              @input="onInput">
+              @input="onInput"
+            >
             </component>
+          </v-row>
+          <v-row class="my-4">
+            <v-divider></v-divider>
           </v-row>
         </div>
       </v-col>
       <v-col>
         <v-row>
-          <v-btn 
-            color="primary"
-            icon
-            @click="edit = !edit">
-            <v-icon
-              color="primary"
-              >
+          <v-btn color="primary" icon @click="edit = !edit">
+            <v-icon color="primary">
               {{ edit ? 'mdi-check' : 'mdi-pencil' }}
             </v-icon>
-
           </v-btn>
         </v-row>
       </v-col>
     </v-row>
-
   </v-container>
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   layout: 'account-guide',
   data() {
     return {
-      components: {},
       edit: false,
-      url: process.env.API_URL
+      url: process.env.API_URL,
     }
   },
-  watch: {
-    core(val) {
-      console.log(val)
-      if (!val) return ;
-
-      this.components = {
+  computed: {
+    ...mapGetters({
+      guideID: 'guide/getID',
+      guide: 'guide/getCore',
+      user: 'user/getCore',
+    }),
+    components() {
+      if (!this.guide) return
+      const val = this.guide
+      return {
         description: {
           edit: 'account-guide-profile-description',
           view: 'guide-profile-description',
@@ -104,23 +100,14 @@ export default {
         background: {
           view: 'guide-profile-background',
           edit: 'account-guide-profile-background',
-          props: { background: val.background }
+          props: { background: val.background },
         },
         favoritePlace: {
-         // view: 'guide-profile-favorite-place',
+          // view: 'guide-profile-favorite-place',
           edit: 'account-guide-profile-favorite-place',
-          props: { favoritePlace: val.favorite_place.data.attributes }
+          props: { favoritePlace: val.favorite_place.data.attributes },
         },
       }
-    }
-  },
-  computed: {
-    ...mapState(['guide']),
-    ...mapGetters({
-      user: 'user/getCore',
-    }),
-    core() {
-      return this.guide.guide?.attributes
     },
     width() {
       switch (this.$vuetify.breakpoint.name) {
@@ -139,20 +126,20 @@ export default {
     },
   },
   methods: {
-    ...mapActions({ updateGuide: 'guide/updateGuide' }),
-    ...mapActions({ updateFavoritePlace: 'guide/updateFavoritePlace' }),
+    ...mapActions({
+      updateGuide: 'guide/updateGuide',
+      updateFavoritePlace: 'guide/updateFavoritePlace',
+    }),
     onFavoritePlace(input) {
-      const id = this.guide.guide.attributes.favorite_place.data.id
-      console.log(id, input)
+      const id = this.guide.attributes.favorite_place.data.id
       this.updateFavoritePlace({
         id,
         input,
       })
     },
     onInput(input) {
-      console.log(input)
       this.updateGuide({
-        id: this.guide.guide.id,
+        id: this.guideID,
         input,
       })
     },

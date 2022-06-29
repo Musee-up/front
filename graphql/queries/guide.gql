@@ -1,23 +1,23 @@
 #import "../fragments/CoreExperiencePart.gql"
-#import "../fragments/ExperienceSlotPart.gql"
 
 query guide($id: ID!) {
   guide(id: $id) {
     data {
       id
       attributes {
+        background
+        headline
+        description
+        location
         workExperiences
         specialties
-        languages {
-          id
-          attributes {
-            value
-          }
-        }
         interests
-        experienceSlots {
+        languages {
           data {
-            ...ExperienceSlotPart
+            id
+            attributes {
+              value
+            }
           }
         }
         experiences {

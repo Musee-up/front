@@ -21,7 +21,7 @@ export default {
     },
     background: {
       type: String,
-      default: "",
+      default: '',
     },
   },
 }

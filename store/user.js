@@ -14,9 +14,8 @@ const load = (client, { commit }, query, id) => {
         id,
       },
     })
-    .then((user) => {
-      const core = user.data.usersPermissionsUser.data.attributes
-      console.log(core)
+    .then((query) => {
+      const core = query.data.usersPermissionsUser.data.attributes
       commit('setMyself', core)
       return core
     })
@@ -24,8 +23,8 @@ const load = (client, { commit }, query, id) => {
 }
 
 export const actions = {
-  loadGuide(commit) {
-    const id = this.$strapi.user.id
+  loadGuide(commit, id) {
+    id = id || this.$strapi.user.id
     const client = this.app.apolloProvider.defaultClient
     return load(client, commit, userGuideQuery, id)
   },

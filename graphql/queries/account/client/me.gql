@@ -1,7 +1,7 @@
 query usersPermissionsUser($id: ID!) {
   usersPermissionsUser(id: $id) {
     data {
-        id
+      id
       attributes {
         location
         firstname

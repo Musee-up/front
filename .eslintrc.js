@@ -9,7 +9,7 @@ module.exports = {
     'plugin:nuxt/recommended',
     'prettier',
   ],
-  ignorePatterns: ['tools/**'],
+  ignorePatterns: ['tools/**', 'graphql/generated.ts'],
   plugins: [],
   // add your custom rules here
   rules: {

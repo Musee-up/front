@@ -13,7 +13,8 @@
     "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
     "lintfix": "prettier --write --list-different . && yarn lint:js --fix && yarn lint:style --fix",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "graphqgen": "graphql-codegen --config codegen.yml"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
@@ -43,6 +44,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "apollo-cache-inmemory": "^1.6.6",
     "core-js": "^3.19.3",
+    "defu": "^6.0.0",
     "graphql": "^16.5.0",
     "graphql-tag": "^2.12.6",
     "lint-staged": "^12.3.7",
@@ -58,13 +60,18 @@
     "vue-template-compiler": "^2.6.14",
     "vuetify": "^2.6.1",
     "web-streams-polyfill": "^3.2.1",
-    "webpack": "^4.46.0",
-    "defu": "^6.0.0"
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.5.1",
+    "@graphql-codegen/typescript-vue-apollo-smart-ops": "^2.2.13",
+    "@graphql-codegen/typescript-graphql-files-modules": "2.1.1",
+    "@graphql-codegen/typescript-operations": "^2.4.2",
     "@nuxt/bridge": "npm:@nuxt/bridge-edge",
     "@nuxt/image": "^0.6.2",
     "@nuxt/test-utils": "^0.2.2",
@@ -94,6 +101,7 @@
     "ts-jest": "^27.1.1",
     "vue-class-component": "^7.2.6",
     "vue-jest": "^3.0.4",
-    "vue-property-decorator": "^9.1.2"
+    "vue-property-decorator": "^9.1.2",
+    "vuex-module-decorators": "^2.0.0"
   }
 }

@@ -1,33 +1,32 @@
-import updateGuide from '@/graphql/mutations/updateGuide.gql'
-import updateFavoritePlace from '@/graphql/mutations/updateFavoritePlace.gql'
-
+import publicProfileQuery from '@/graphql/queries/guide.gql'
 export const state = () => ({
   guide: Object,
 })
 
+const load = (client, { commit }, query, id) => {
+  return client
+    .query({
+      query,
+      variables: {
+        id,
+      },
+    })
+    .then((query) => {
+      const guide = query.data.guide.data
+      commit('setGuide', guide)
+      return guide
+    })
+    .catch(console.error)
+}
+
 export const actions = {
-  updateFavoritePlace(_, { id, input }) {
+  loadProfile(commit, id) {
     const client = this.app.apolloProvider.defaultClient
-    return client.mutate({
-      mutation: updateFavoritePlace,
-      variables: {
-        id,
-        input,
-      },
-    })
+    return load(client, commit, publicProfileQuery, id)
   },
-  updateGuide(_, { id, input }) {
-    const client = this.app.apolloProvider.defaultClient
-    client.mutate({
-      mutation: updateGuide,
-      variables: {
-        input,
-        id,
-      },
-    })
-  },
-  async load({ dispatch, commit }) {
-    const client = await dispatch('user/loadGuide', null, { root: true })
+
+  async load({ dispatch, commit }, id) {
+    const client = await dispatch('user/loadGuide', id, { root: true })
     commit('setGuide', client?.guide.data)
   },
 }
@@ -41,6 +40,9 @@ export const mutations = {
 export const getters = {
   getExperiences: (state) => {
     return state.guide?.attributes?.experiences.data
+  },
+  getCore: (state) => {
+    return state.guide?.attributes
   },
   getID: (state) => {
     return state.guide?.id

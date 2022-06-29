@@ -30,7 +30,7 @@ export default {
       first: [
         {
           label: 'components.guide.abstract.workExperiences',
-          list: this.guide?.workExperience,
+          list: this.guide?.workExperiences,
           icon: 'mdi-school',
         },
         {
