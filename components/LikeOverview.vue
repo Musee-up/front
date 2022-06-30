@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper mx-auto">
-    <nuxt-img :width="width" :height="height" class="profile" :src="photo">
+    <nuxt-img
+      :width="width"
+      :height="height"
+      class="profile rounded-xl"
+      :src="photo"
+    >
     </nuxt-img>
 
     <v-row class="ma-0 overlay d-flex">

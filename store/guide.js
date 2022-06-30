@@ -1,4 +1,6 @@
 import publicProfileQuery from '@/graphql/queries/guide.gql'
+import Guide from '@/types/guide'
+
 export const state = () => ({
   guide: Object,
 })
@@ -12,7 +14,7 @@ const load = (client, { commit }, query, id) => {
       },
     })
     .then((query) => {
-      const guide = query.data.guide.data
+      const guide = Guide.map(query.data.guide)
       commit('setGuide', guide)
       return guide
     })
@@ -27,7 +29,7 @@ export const actions = {
 
   async load({ dispatch, commit }, id) {
     const client = await dispatch('user/loadGuide', id, { root: true })
-    commit('setGuide', client?.guide.data)
+    commit('setGuide', Guide.map(client?.guide))
   },
 }
 
@@ -39,15 +41,15 @@ export const mutations = {
 
 export const getters = {
   getExperiences: (state) => {
-    return state.guide?.attributes?.experiences.data
+    return state.guide.experiences
   },
   getCore: (state) => {
-    return state.guide?.attributes
+    return state.guide
   },
   getID: (state) => {
-    return state.guide?.id
+    return state.guide.id
   },
   getExperiencesSlot: (state) => {
-    return state.guide?.attributes?.experienceSlots.data
+    return state.guide.experienceSlots.data
   },
 }

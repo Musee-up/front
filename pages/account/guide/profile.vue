@@ -1,11 +1,13 @@
 <template>
-  <v-container v-if="guide" class="justify-center">
+  <v-container v-if="guide && guide.user" class="justify-center">
     <v-row class="mt-4">
       <v-col cols="2" class="abstract mx-6">
         <v-row class="photo mb-4">
           <nuxt-img
-            v-if="user.picture && user.picture.data"
-            :src="url + user.picture.data.attributes.formats.thumbnail.url"
+            v-if="guide.user.picture && guide.user.picture.data"
+            :src="
+              url + guide.user.picture.data.attributes.formats.thumbnail.url
+            "
             class="rounded-xl"
           ></nuxt-img>
         </v-row>
@@ -38,7 +40,7 @@
 
         <v-row>
           <h1 class="name primary--text">
-            {{ user.firstname }} {{ user.lastname }}
+            {{ guide.user.firstname }} {{ guide.user.lastname }}
           </h1>
         </v-row>
 
@@ -82,9 +84,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      guideID: 'guide/getID',
       guide: 'guide/getCore',
-      user: 'user/getCore',
     }),
     components() {
       if (!this.guide) return
@@ -103,9 +103,9 @@ export default {
           props: { background: val.background },
         },
         favoritePlace: {
-          // view: 'guide-profile-favorite-place',
+          view: 'guide-profile-favorite-place',
           edit: 'account-guide-profile-favorite-place',
-          props: { favoritePlace: val.favorite_place.data.attributes },
+          props: { favoritePlace: val.favorite_place },
         },
       }
     },
@@ -131,7 +131,7 @@ export default {
       updateFavoritePlace: 'guide/updateFavoritePlace',
     }),
     onFavoritePlace(input) {
-      const id = this.guide.attributes.favorite_place.data.id
+      const id = this.guide.favorite_place.data.id
       this.updateFavoritePlace({
         id,
         input,
@@ -139,7 +139,7 @@ export default {
     },
     onInput(input) {
       this.updateGuide({
-        id: this.guideID,
+        id: this.guide.id,
         input,
       })
     },

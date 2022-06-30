@@ -20,11 +20,54 @@ query guide($id: ID!) {
             }
           }
         }
+        user {
+          data {
+            id
+            attributes {
+              firstname
+              lastname
+              picture {
+                data {
+                  attributes {
+                    previewUrl
+                    formats
+                  }
+                }
+              }
+            }
+          }
+        }
+        favorite_place {
+          data {
+            id
+            attributes {
+              picture {
+                data {
+                  attributes {
+                    previewUrl
+                    formats
+                  }
+                }
+              }
+              title
+              description
+            }
+          }
+        }
         experiences {
           data {
             id
             attributes {
               ...CoreExperiencePart
+              photos {
+                data {
+                  id
+                  attributes {
+                    previewUrl
+                    formats
+                  }
+                }
+              }
             }
           }
         }

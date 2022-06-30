@@ -1,10 +1,16 @@
 <template>
-  <v-container v-if="guide" class="justify-center">
+  <v-container v-if="guide && guide.user" class="justify-center">
     <v-row class="my-8">
       <v-col cols="2" class="abstract mx-6">
-        <!-- <v-row class="photo"> -->
-        <!--   <like-overview :width="width" :photo="guide.photo"> </like-overview> -->
-        <!-- </v-row> -->
+        <v-row class="photo">
+          <like-overview
+            :width="width"
+            :photo="
+              url + guide.user.picture.data.attributes.formats.thumbnail.url
+            "
+          >
+          </like-overview>
+        </v-row>
 
         <v-row class="my-4">
           <account-guide-dashboard-summary> </account-guide-dashboard-summary>
@@ -26,17 +32,18 @@
         </v-row>
 
         <v-row>
-          <h1 class="name primary--text">
-            {{ guide.firstname }} {{ guide.lastname }}
-          </h1>
+          <guide-profile-name
+            v-if="guide.user"
+            :user="guide.user"
+          ></guide-profile-name>
         </v-row>
 
-        <v-row>
-          <h3 class="guideType primary--text">
-            {{ guide.userType }}
-          </h3>
-          <!-- <rating color="primary" :rating="guide.rating"></rating> -->
-        </v-row>
+        <!-- <v-row> -->
+        <!--   <h3 class="guideType primary--text"> -->
+        <!--     {{ guide.userType }} -->
+        <!--   </h3> -->
+        <!-- <rating color="primary" :rating="guide.rating"></rating> -->
+        <!-- </v-row> -->
 
         <div v-for="(component, i) in components" :key="i" class="mt-4">
           <v-row>
@@ -49,18 +56,7 @@
         </div>
       </v-col>
 
-      <v-col cols="2" class="actions">
-        <v-row class="justify-center">
-          <nuxt-link :to="`/experiences?guideID=${guideID}`">
-            <base-blue-button>
-              {{ $t('pages.guides.reserve') }}
-            </base-blue-button>
-          </nuxt-link>
-        </v-row>
-        <v-row class="justify-center">
-          <base-blue-button>{{ $t('pages.guides.create') }}</base-blue-button>
-        </v-row>
-      </v-col>
+      <guide-actions :guide-id="guide.id"></guide-actions>
     </v-row>
 
     <!-- ========================== -->
@@ -70,16 +66,18 @@
           <v-divider></v-divider>
         </v-row>
 
-        <v-row>
-          <v-row justify="center" class="my-2 text-center">
-            <h2>
-              Les expériences de
-              <span class="primary--text">
-                {{ guide.firstname }}
-              </span>
-            </h2>
-          </v-row>
-          <experience-list-horizontal> </experience-list-horizontal>
+        <v-row justify="center" class="my-2 text-center">
+          <h2>
+            Les expériences de
+            <span class="primary--text">
+              {{ guide.user.firstname }}
+            </span>
+          </h2>
+        </v-row>
+
+        <v-row v-if="guide.experiences">
+          <experience-list-horizontal :experiences="guide.experiences">
+          </experience-list-horizontal>
         </v-row>
       </v-col>
     </v-row>
@@ -90,9 +88,13 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  data() {
+    return {
+      url: process.env.API_URL,
+    }
+  },
   computed: {
     ...mapGetters({
-      guideID: 'guide/getID',
       guide: 'guide/getCore',
     }),
     components() {
@@ -112,10 +114,10 @@ export default {
         review: {
           view: 'review',
         },
-        // favoritePlace: {
-        //   // view: 'guide-profile-favorite-place',
-        //   props: { favoritePlace: val.favorite_place.data.attributes },
-        // },
+        favoritePlace: {
+          view: 'guide-profile-favorite-place',
+          props: { favoritePlace: val.favorite_place },
+        },
       }
     },
     width() {

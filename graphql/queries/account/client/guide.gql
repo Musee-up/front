@@ -23,6 +23,23 @@ query usersPermissionsUser($id: ID!) {
           data {
             id
             attributes {
+              user {
+                data {
+                  id
+                  attributes {
+                    firstname
+                    lastname
+                    picture {
+                      data {
+                        attributes {
+                          previewUrl
+                          formats
+                        }
+                      }
+                    }
+                  }
+                }
+              }
               location
               headline
               description

@@ -132,6 +132,7 @@ export default defineNuxtConfig({
     browserBaseURL: `${backendUrl}/api`,
   },
   bridge: {
+    scriptSetup: true,
     // vite: true,
   },
 })

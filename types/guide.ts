@@ -1,8 +1,8 @@
 import {
-  ExperienceRelationResponseCollection,
+  // ExperienceRelationResponseCollection,
   FavoritePlaceEntityResponse,
   LanguageRelationResponseCollection,
-  UsersPermissionsUserEntityResponse,
+  // UsersPermissionsUserEntityResponse,
   ExperienceSlotRelationResponseCollection,
   Scalars,
   Guide as GuideAPI,
@@ -10,13 +10,27 @@ import {
   GuideEntityResponse,
 } from '@/graphql/generated'
 
+const flattenList = (obj: any) => ({
+  id: obj.id,
+  ...obj.attributes,
+})
+
+const flatten = (obj: any) => {
+  if (!obj) return undefined
+  const d = obj.data
+  return {
+    id: d.id,
+    ...d.attributes,
+  }
+}
+
 class Guide implements GuideAPI {
   id?: Maybe<Scalars['ID']>
   background?: Maybe<Scalars['String']>
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
   experienceSlots?: Maybe<ExperienceSlotRelationResponseCollection>
-  experiences?: Maybe<ExperienceRelationResponseCollection>
+  experiences?: any // Maybe<ExperienceRelationResponseCollection>
   favorite_place?: Maybe<FavoritePlaceEntityResponse>
   headline?: Maybe<Scalars['String']>
   interests?: Maybe<Scalars['JSON']>
@@ -24,15 +38,15 @@ class Guide implements GuideAPI {
   location?: Maybe<Scalars['String']>
   specialties?: Maybe<Scalars['JSON']>
   updatedAt?: Maybe<Scalars['DateTime']>
-  user?: Maybe<UsersPermissionsUserEntityResponse>
+  user?: any
   workExperiences?: Maybe<Scalars['JSON']>
 
-  map(GuideInput: GuideEntityResponse): Guide {
+  static map(GuideInput: GuideEntityResponse): Guide {
     const d = GuideInput.data
-    if (!d?.attributes || !d.id) return this
-    const att: GuideAPI = d?.attributes
+    // if (!d?.attributes || !d.id) return new Guide()
+    const att = d?.attributes
 
-    return new Guide(d?.id, att)
+    return new Guide(d?.id || 'test', att || {})
   }
 
   constructor(id: Maybe<Scalars['ID']>, input: GuideAPI) {
@@ -45,10 +59,10 @@ class Guide implements GuideAPI {
     this.interests = input.interests
     this.location = input.location
     this.languages = input.languages
-    this.favorite_place = input.favorite_place
+    this.favorite_place = flatten(input.favorite_place)
     this.experienceSlots = input.experienceSlots
-    this.experiences = input.experiences
-    this.user = input.user
+    this.experiences = input.experiences?.data.map(flattenList)
+    this.user = flatten(input.user)
   }
 }
 
