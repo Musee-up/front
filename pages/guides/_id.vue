@@ -5,9 +5,7 @@
         <v-row class="photo">
           <like-overview
             :width="width"
-            :photo="
-              url + guide.user.picture.formats.thumbnail.url
-            "
+            :photo="url + guide.user.picture.formats.thumbnail.url"
           >
           </like-overview>
         </v-row>
@@ -47,9 +45,7 @@
 
         <div v-for="(component, i) in components" :key="i" class="mt-4">
           <v-row>
-            <component
-              :is="component.view"
-            v-bind="component.props">
+            <component :is="component.view" v-bind="component.props">
             </component>
           </v-row>
           <v-row class="my-4">
@@ -77,7 +73,7 @@
           </h2>
         </v-row>
 
-        <v-row >
+        <v-row>
           <experience-list-horizontal :experiences="guide.experiences">
           </experience-list-horizontal>
         </v-row>
@@ -101,7 +97,7 @@ export default {
     }),
     components() {
       const val = this.guide
-      if (!val) return;
+      if (!val) return
       return {
         description: {
           view: 'guide-profile-description',
@@ -116,10 +112,10 @@ export default {
         review: {
           view: 'review',
         },
-        favoritePlace: (val.favorite_place && {
+        favoritePlace: val.favorite_place && {
           view: 'guide-profile-favorite-place',
           props: { favoritePlace: val.favorite_place },
-        }),
+        },
       }
     },
     width() {

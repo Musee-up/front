@@ -16,7 +16,7 @@
         </v-btn>
         <v-select
           v-if="experiences"
-          item-text="attributes.title"
+          item-text="title"
           item-value="id"
           :items="experiences"
           @change="associateExperience"
@@ -36,6 +36,7 @@ import { mapGetters } from 'vuex'
 import deleteSlot from '@/graphql/mutations/Experience/slot/delete'
 import updateExperienceSlot from '@/graphql/mutations/experience/slot/update'
 import experienceSlotQuery from '@/graphql/queries/experienceSlot'
+import ExperienceSlot from '@/types/ExperienceSlot'
 
 export default {
   props: ['selectedEvent', 'open', 'selectedElement'],
@@ -59,10 +60,8 @@ export default {
         }
       },
       update(data) {
-        const exp =
-          data.experienceSlot.data.attributes.experience.data?.attributes
-            .title || 'tmp'
-        return exp
+        const slot = ExperienceSlot.map(data.experienceSlot)
+        return slot.experience?.title || 'No experience'
       },
     },
   },
@@ -81,7 +80,7 @@ export default {
             },
           },
         })
-        .then(() => this.$emit('update', this.findExp(id).attributes))
+        .then(() => this.$emit('update', this.findExp(id)))
         .catch(console.error)
     },
     deleteSlot() {

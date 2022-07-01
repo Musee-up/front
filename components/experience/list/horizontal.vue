@@ -54,7 +54,7 @@ export default {
     },
     link: {
       type: String,
-      default: '/experience/',
+      default: '/experiences/',
     },
   },
   data() {

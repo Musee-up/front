@@ -26,6 +26,7 @@ query experience($id: ID!) {
           data {
             id
             attributes {
+              description
               user {
                 data {
                   attributes {
@@ -33,6 +34,13 @@ query experience($id: ID!) {
                     lastname
                     phone
                     email
+                    picture {
+                      data {
+                        attributes {
+                          formats
+                        }
+                      }
+                    }
                   }
                 }
               }

@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import createSlot from '@/graphql/mutations/experience/slot/create'
 
 export default {
@@ -91,9 +91,9 @@ export default {
     }
   },
   computed: {
-    ...mapState(['guide']),
     ...mapGetters({
       experiences: 'guide/getExperiences',
+      id: 'guide/getID'
     }),
   },
   methods: {
@@ -107,7 +107,7 @@ export default {
           mutation: createSlot,
           variables: {
             input: {
-              guide: this.guide.guide.id.toString(),
+              guide: this.id,
               experience: this.experience,
               start: rawStart.toISOString(),
               end: end.toISOString(),

@@ -98,7 +98,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
       price: 'A partir de {n}€ par personne',
       booking: {
         summary: 'Récapitulatif',
-        submit: 'Valider et payer'
+        submit: 'Valider et payer',
       },
       creation: {
         attributes: {

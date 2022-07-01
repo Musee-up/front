@@ -7,7 +7,7 @@
     </v-row>
 
     <v-row>
-      <experience-list-horizontal> </experience-list-horizontal>
+      <experience-list-horizontal :experiences="experiences"> </experience-list-horizontal>
     </v-row>
   </v-container>
 </template>
@@ -21,15 +21,14 @@ export default {
       query: experienceQuery,
       update(query) {
         console.log(query)
-        const experiences = query.experiences.data.map(
-          (experience) => ({
-            id: experience.id,
-            ...experience.attributes
-          }))
-        console.log (experiences)
+        const experiences = query.experiences.data.map((experience) => ({
+          id: experience.id,
+          ...experience.attributes,
+        }))
+        console.log(experiences)
         return experiences
       },
     },
-  }
+  },
 }
 </script>

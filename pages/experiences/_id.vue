@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="experience" class="justify-center">
+  <v-container v-if="experience && experience.guide" class="justify-center">
     <v-row class="justify-center">
       <v-col class="text-left">
         <h1 class="dark--text" style="font-size: 40px">
@@ -29,14 +29,16 @@
         </v-row>
 
         <v-divider class="my-9"></v-divider>
-        <experience-guide-profile />
+        <experience-guide-profile
+          :guide="experience.guide"
+          />
       </v-col>
 
       <v-col class="mx-4">
         <v-row class="justify-end">
           <experience-booking-form
             :experience="experience"
-            :slots="slots"
+            :slots="experience.experienceSlots"
             @picked="onPicked"
           ></experience-booking-form>
         </v-row>
@@ -52,10 +54,8 @@ import Experience from '@/types/Experience'
 export default {
   data() {
     return {
-      slots: [],
       experience: [],
       experiencesAttributes: [],
-      selectedItem: 1,
     }
   },
   methods: {
@@ -77,12 +77,11 @@ export default {
         const languages = exp.languages?.data
           .map((x) => x.attributes.value)
           .join(', ')
-        const themes = exp.themes?.data.map((x) => x.attributes.name).join(', ')
+        const themes = exp.themes?.data
+          .map((x) => x.attributes.name).join(', ')
         const groupSizeSyntax = this.$t('pages.experiences.n_visite', {
           n: exp.groupSize,
         })
-
-        this.slots = exp.experienceSlots
         this.experiencesAttributes = [
           {
             text: exp.location,
@@ -108,13 +107,13 @@ export default {
             text: languages,
             icon: 'mdi-earth',
           },
-          // { text: 'experience.data.attributes.', icon: 'mdi-camera' },
-        ]
-        if (exp.handifriendly)
-          this.experiencesAttributes.push({
+          exp.handifriendly && {
             text: 'Handifriendly',
             icon: 'mdi-human-wheelchair',
-          })
+          }
+        ].filter(
+          (x) => x.text
+        )
         return exp
       },
     },

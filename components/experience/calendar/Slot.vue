@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import createSlot from '@/graphql/mutations/experience/slot/create'
 import updateSlot from '@/graphql/mutations/experience/slot/update'
 
@@ -63,9 +63,9 @@ export default {
     extendOriginal: null,
   }),
   computed: {
-    ...mapState(['guide']),
     ...mapGetters({
       slots: 'guide/getExperiencesSlot',
+      id: 'guide/getID',
     }),
   },
   watch: {
@@ -111,7 +111,6 @@ export default {
 
         if (!this.createEvent) return
         try {
-          console.log(this.createEvent)
           this.createEvent.id = this.createApiSlot(this.createEvent)
           this.events.push(this.createEvent)
         } catch (e) {
@@ -172,7 +171,7 @@ export default {
           mutation: createSlot,
           variables: {
             input: {
-              guide: this.guide.guide.id.toString(),
+              guide: this.id,
               start,
               end,
             },

@@ -4,7 +4,9 @@ import {
   Scalars,
   Maybe,
   ExperienceEntityResponse,
+  ExperienceEntity,
   ExperienceSlotRelationResponseCollection,
+  ExperienceEntityResponseCollection,
   GuideEntityResponse,
   UploadFileRelationResponseCollection,
   ExperienceRelationResponseCollection,
@@ -40,12 +42,19 @@ class Experience implements ExperienceDAO {
   languages?: Maybe<LanguageRelationResponseCollection>
   themes?: Maybe<ThemeRelationResponseCollection>
 
-  static map(ExperienceInput: ExperienceEntityResponse): Experience {
-    const d = ExperienceInput.data
-    // if (!d?.attributes || !d.id) return new Experience()
-    const att = d?.attributes
-    return new Experience(d?.id || 'test', att || {})
+  static fromEntity(entity: Maybe<ExperienceEntity> | undefined): Experience {
+    return new Experience(entity?.id || 'noId', entity?.attributes || {})
   }
+
+  static mapList(list: ExperienceEntityResponseCollection): Experience {
+    return list.data.map(Experience.fromEntity)
+  }
+
+  static map(input: ExperienceEntityResponse): Experience {
+    return Experience.fromEntity(input.data)
+  }
+
+
 
   constructor(id: Maybe<Scalars['ID']>, input: ExperienceDAO) {
     this.id = id
