@@ -1,3 +1,5 @@
+import { flatten, flattenList } from './tools'
+import User from './User'
 import {
   // ExperienceRelationResponseCollection,
   FavoritePlaceEntityResponse,
@@ -5,26 +7,12 @@ import {
   // UsersPermissionsUserEntityResponse,
   ExperienceSlotRelationResponseCollection,
   Scalars,
-  Guide as GuideAPI,
+  Guide as GuideDAO,
   Maybe,
   GuideEntityResponse,
 } from '@/graphql/generated'
 
-const flattenList = (obj: any) => ({
-  id: obj.id,
-  ...obj.attributes,
-})
-
-const flatten = (obj: any) => {
-  if (!obj) return undefined
-  const d = obj.data
-  return {
-    id: d.id,
-    ...d.attributes,
-  }
-}
-
-class Guide implements GuideAPI {
+class Guide implements GuideDAO {
   id?: Maybe<Scalars['ID']>
   background?: Maybe<Scalars['String']>
   createdAt?: Maybe<Scalars['DateTime']>
@@ -46,10 +34,10 @@ class Guide implements GuideAPI {
     // if (!d?.attributes || !d.id) return new Guide()
     const att = d?.attributes
 
-    return new Guide(d?.id || 'test', att || {})
+    return new Guide(d?.id || 'noID', att || {})
   }
 
-  constructor(id: Maybe<Scalars['ID']>, input: GuideAPI) {
+  constructor(id: Maybe<Scalars['ID']>, input: GuideDAO) {
     this.id = id
     this.headline = input.headline
     this.description = input.description

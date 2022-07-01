@@ -77,8 +77,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import createExperience from '@/graphql/mutations/createExperience'
-import updateExperience from '@/graphql/mutations/updateExperience'
+import createExperience from '@/graphql/mutations/experience/create'
+import updateExperience from '@/graphql/mutations/experience/update'
 
 export default {
   props: ['experience', 'currentId'],

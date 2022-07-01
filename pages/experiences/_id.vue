@@ -1,15 +1,15 @@
 <template>
-  <v-container v-if="experience.data" class="justify-center">
+  <v-container v-if="experience" class="justify-center">
     <v-row class="justify-center">
       <v-col class="text-left">
         <h1 class="dark--text" style="font-size: 40px">
-          {{ experience.data.attributes.title }}
+          {{ experience.title }}
         </h1>
       </v-col>
     </v-row>
 
-    <v-row v-if="experience.data" justify="center">
-      <experience-group-slide :photos="experience.data.attributes.photos" />
+    <v-row justify="center">
+      <experience-group-slide :photos="experience.photos" />
     </v-row>
 
     <v-divider class="my-9"></v-divider>
@@ -24,7 +24,7 @@
             {{ $t("Présentation de l'experience") }}
           </h3>
           <p class="description-list--text">
-            {{ experience.data.attributes.description }}
+            {{ experience.description }}
           </p>
         </v-row>
 
@@ -35,7 +35,7 @@
       <v-col class="mx-4">
         <v-row class="justify-end">
           <experience-booking-form
-            :experience="experience.data"
+            :experience="experience"
             :slots="slots"
             @picked="onPicked"
           ></experience-booking-form>
@@ -46,7 +46,8 @@
 </template>
 
 <script>
-import experienceQuery from '@/graphql/queries/experience'
+import experienceQuery from '@/graphql/queries/experienceProfile'
+import Experience from '@/types/Experience'
 
 export default {
   data() {
@@ -69,14 +70,17 @@ export default {
         return { id: parseInt(this.$route.params.id) }
       },
       update(data) {
-        if (!data.experience.data.attributes) return
-        const exp = data.experience.data.attributes
-        const languages = exp.languages.data
+        const exp = Experience.map(data.experience)
+
+        if (!exp) return
+
+        const languages = exp.languages?.data
           .map((x) => x.attributes.value)
           .join(', ')
-        const themes = exp.themes.data.map((x) => x.attributes.name).join(', ')
-        const groupSizeSyntax = (n) =>
-          this.$t('pages.experiences.n_visite', { n })
+        const themes = exp.themes?.data.map((x) => x.attributes.name).join(', ')
+        const groupSizeSyntax = this.$t('pages.experiences.n_visite', {
+          n: exp.groupSize,
+        })
 
         this.slots = exp.experienceSlots
         this.experiencesAttributes = [
@@ -93,7 +97,7 @@ export default {
             icon: 'mdi-walk',
           },
           {
-            text: groupSizeSyntax(exp.groupSize),
+            text: groupSizeSyntax,
             icon: 'mdi-account-group',
           },
           {
@@ -111,7 +115,7 @@ export default {
             text: 'Handifriendly',
             icon: 'mdi-human-wheelchair',
           })
-        return data.experience
+        return exp
       },
     },
   },

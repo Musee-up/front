@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-if="guide">
     <v-row>
       <h3 class="title--text">
         {{ $t('components.account.client.bookings.guide.title') }}
@@ -47,7 +47,7 @@
       </v-col>
 
       <v-col class="d-flex align-center action" cols="3">
-        <nuxt-link :to="`/guides/${guide.id}`">
+        <nuxt-link :to="`/guides/${id}`">
           <base-blue-button>
             {{ $t('components.account.client.bookings.guide.action') }}
           </base-blue-button>
@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  props: ['guide'],
+  props: ['guide', 'id'],
 }
 </script>
 

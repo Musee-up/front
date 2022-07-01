@@ -39,9 +39,10 @@
         </v-row>
 
         <v-row>
-          <h1 class="name primary--text">
-            {{ guide.user.firstname }} {{ guide.user.lastname }}
-          </h1>
+          <guide-profile-name
+            v-if="guide.user"
+            :user="guide.user"
+          ></guide-profile-name>
         </v-row>
 
         <div v-for="(component, i) in components" :key="i" class="mt-4">

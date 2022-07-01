@@ -33,8 +33,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import deleteSlot from '@/graphql/mutations/deleteExperienceSlot'
-import updateExperienceSlot from '@/graphql/mutations/updateExperienceSlot'
+import deleteSlot from '@/graphql/mutations/Experience/slot/delete'
+import updateExperienceSlot from '@/graphql/mutations/experience/slot/update'
 import experienceSlotQuery from '@/graphql/queries/experienceSlot'
 
 export default {

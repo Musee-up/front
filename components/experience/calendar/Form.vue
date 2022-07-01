@@ -79,7 +79,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import createSlot from '@/graphql/mutations/createExperienceSlot'
+import createSlot from '@/graphql/mutations/experience/slot/create'
 
 export default {
   data() {

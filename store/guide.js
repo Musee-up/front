@@ -1,4 +1,6 @@
 import publicProfileQuery from '@/graphql/queries/guide.gql'
+import updateFavoritePlace from '@/graphql/mutations/guide/updateFavoritePlace.gql'
+import updateGuide from '@/graphql/mutations/guide/update.gql'
 import Guide from '@/types/guide'
 
 export const state = () => ({
@@ -22,6 +24,26 @@ const load = (client, { commit }, query, id) => {
 }
 
 export const actions = {
+  updateFavoritePlace(_, { id, input }) {
+    const client = this.app.apolloProvider.defaultClient
+    return client.mutate({
+      mutation: updateFavoritePlace,
+      variables: {
+        id,
+        input,
+      },
+    })
+  },
+  updateGuide(_, { id, input }) {
+    const client = this.app.apolloProvider.defaultClient
+    client.mutate({
+      mutation: updateGuide,
+      variables: {
+        input,
+        id,
+      },
+    })
+  },
   loadProfile(commit, id) {
     const client = this.app.apolloProvider.defaultClient
     return load(client, commit, publicProfileQuery, id)

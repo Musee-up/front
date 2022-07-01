@@ -14,7 +14,7 @@
         v-bind="attrs"
         v-on="on"
       >
-        Réserver
+        {{ $t('Réserver') }}
       </v-btn>
     </template>
 
@@ -33,8 +33,24 @@
 </template>
 
 <script>
+import Experience from '@/types/Experience'
+import Guide from '@/types/Guide'
+
 export default {
-  props: ['experience', 'booking', 'guide'],
+  props: {
+    experience: {
+      type: Experience,
+      required: true,
+    },
+    guide: {
+      type: Guide,
+      required: true,
+    },
+    booking: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       onSuccess: false,

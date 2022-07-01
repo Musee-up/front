@@ -5,7 +5,7 @@
     <guide-filters :filters="filters"></guide-filters>
 
     <v-row align="center" justify="center">
-      <v-col v-for="(_, i) in iter" :key="i" cols="4">
+      <v-col v-for="(guide, i) in guides" :key="i" cols="4">
         <guide-list-item :guide="guide" class="guide"> </guide-list-item>
       </v-col>
     </v-row>
@@ -13,9 +13,23 @@
 </template>
 
 <script>
+import guidesQuery from '@/graphql/queries/guides'
+import Guide from '@/types/Guide'
+
 export default {
+  apollo: {
+    guides: {
+      query: guidesQuery,
+      update(query) {
+        if (!Guide) return query
+        const guides = query.guides.data.map(Guide.map)
+        return guides
+      },
+    },
+  },
   data() {
     return {
+      Guide,
       filters: [
         'Paris',
         '12 mai',
@@ -24,16 +38,6 @@ export default {
         'Langues',
         'Horaires',
       ],
-      iter: Array(15).keys(),
-      guide: {
-        name: 'Héloise Doiteau',
-        photo: '/paula.png',
-        rating: {
-          value: 4.8,
-          length: 435,
-        },
-        location: 'Île-de-France',
-      },
     }
   },
 }

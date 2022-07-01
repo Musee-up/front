@@ -44,8 +44,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import createSlot from '@/graphql/mutations/createExperienceSlot'
-import updateSlot from '@/graphql/mutations/updateExperienceSlot'
+import createSlot from '@/graphql/mutations/experience/slot/create'
+import updateSlot from '@/graphql/mutations/experience/slot/update'
 
 export default {
   props: [],

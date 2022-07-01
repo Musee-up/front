@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import experienceQuery from '@/graphql/queries/experience'
+import experienceQuery from '@/graphql/queries/experienceProfile'
 
 export default {
   layout: 'account-guide',

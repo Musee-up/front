@@ -12,10 +12,10 @@
     </v-card-title>
     <v-card-text>
       <v-container class="mx-4">
-        <account-client-bookings-experience :experience="experience.attributes">
+        <account-client-bookings-experience :experience="experience">
         </account-client-bookings-experience>
         <v-divider></v-divider>
-        <account-client-bookings-guide :guide="guide">
+        <account-client-bookings-guide :id="guide.id" :guide="guide.user">
         </account-client-bookings-guide>
         <v-divider></v-divider>
         <account-client-bookings-group> </account-client-bookings-group>
@@ -31,7 +31,7 @@
         class="rounded-xl white--text"
         @click="createBooking"
       >
-        Valider et payer
+        {{ $t('Valider et payer') }}
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -39,9 +39,24 @@
 
 <script>
 import createBooking from '@/graphql/mutations/createBooking.gql'
+import Experience from '@/types/Experience'
+import Guide from '@/types/Guide'
 
 export default {
-  props: ['experience', 'booking', 'guide'],
+  props: {
+    experience: {
+      type: Experience,
+      required: true,
+    },
+    guide: {
+      type: Guide,
+      required: true,
+    },
+    booking: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       menu: false,

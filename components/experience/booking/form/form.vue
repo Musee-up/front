@@ -42,7 +42,7 @@
       <experience-booking-summary
         :booking="booking"
         :experience="experience"
-        :guide="guide.map(experience.attributes.guide)"
+        :guide="experience.guide"
       >
       </experience-booking-summary>
     </v-card-actions>
@@ -50,13 +50,10 @@
 </template>
 
 <script>
-import guide from '@/data/models/guide.js'
-
 export default {
   props: ['slots', 'experience'],
   data() {
     return {
-      guide,
       selectedSlot: null,
       group: null,
       day: null,
