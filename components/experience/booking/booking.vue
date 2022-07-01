@@ -3,7 +3,9 @@
     <v-card-title>
       <v-container>
         <v-row class="mb-4">
-          <h2>Récapitulatif</h2>
+          <h2>
+            {{ $t('components.experience.booking.summary') }}
+          </h2>
         </v-row>
         <v-row class="mt-4">
           <v-divider></v-divider>
@@ -31,7 +33,7 @@
         class="rounded-xl white--text"
         @click="createBooking"
       >
-        {{ $t('Valider et payer') }}
+        {{ $t('components.experience.booking.submit') }}
       </v-btn>
     </v-card-actions>
   </v-card>

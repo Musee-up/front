@@ -56,6 +56,9 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
       },
     },
     home: {
+      experiences: {
+        title: 'Découvrez des expériences uniques',
+      },
       partnership: {
         title: 'Nos soutiens et partenaires',
       },
@@ -93,6 +96,10 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
     },
     experience: {
       price: 'A partir de {n}€ par personne',
+      booking: {
+        summary: 'Récapitulatif',
+        submit: 'Valider et payer'
+      },
       creation: {
         attributes: {
           types: "Choisissez le type de l'experience parmi la liste",

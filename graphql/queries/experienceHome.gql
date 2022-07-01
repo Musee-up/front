@@ -1,0 +1,21 @@
+#import "../fragments/CoreExperiencePart.gql"
+
+query homeExperience {
+  experiences {
+    data {
+      id
+      attributes {
+        ...CoreExperiencePart
+        photos {
+          data {
+            id
+            attributes {
+              previewUrl
+              formats
+            }
+          }
+        }
+      }
+    }
+  }
+}

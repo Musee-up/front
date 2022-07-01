@@ -21,8 +21,7 @@ export default {
     guides: {
       query: guidesQuery,
       update(query) {
-        if (!Guide) return query
-        const guides = query.guides.data.map(Guide.map)
+        const guides = Guide.mapList(query.guides)
         return guides
       },
     },

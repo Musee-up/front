@@ -6,7 +6,7 @@
           <like-overview
             :width="width"
             :photo="
-              url + guide.user.picture.data.attributes.formats.thumbnail.url
+              url + guide.user.picture.formats.thumbnail.url
             "
           >
           </like-overview>
@@ -47,7 +47,9 @@
 
         <div v-for="(component, i) in components" :key="i" class="mt-4">
           <v-row>
-            <component :is="component.view" v-bind="component.props">
+            <component
+              :is="component.view"
+            v-bind="component.props">
             </component>
           </v-row>
           <v-row class="my-4">
@@ -60,7 +62,7 @@
     </v-row>
 
     <!-- ========================== -->
-    <v-row justify="center">
+    <v-row v-if="guide.experiences.length > 0" justify="center">
       <v-col cols="10">
         <v-row class="ma-4">
           <v-divider></v-divider>
@@ -75,7 +77,7 @@
           </h2>
         </v-row>
 
-        <v-row v-if="guide.experiences">
+        <v-row >
           <experience-list-horizontal :experiences="guide.experiences">
           </experience-list-horizontal>
         </v-row>
@@ -98,8 +100,8 @@ export default {
       guide: 'guide/getCore',
     }),
     components() {
-      if (!this.guide) return
       const val = this.guide
+      if (!val) return;
       return {
         description: {
           view: 'guide-profile-description',
@@ -114,10 +116,10 @@ export default {
         review: {
           view: 'review',
         },
-        favoritePlace: {
+        favoritePlace: (val.favorite_place && {
           view: 'guide-profile-favorite-place',
           props: { favoritePlace: val.favorite_place },
-        },
+        }),
       }
     },
     width() {

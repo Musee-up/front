@@ -10,6 +10,7 @@
         <v-card elevation="0" class="mx-auto rounded-xl">
           <nuxt-link :to="`${link}${experience.id}`">
             <like-overview
+              v-if="experience.photos"
               :width="width"
               :photo="
                 url + experience.photos.data[0].attributes.formats.thumbnail.url

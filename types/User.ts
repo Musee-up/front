@@ -31,7 +31,6 @@ class User implements UserDAO {
 
   static map(UserInput: UsersPermissionsUserEntityResponse): User {
     const d = UserInput.data
-    // if (!d?.attributes || !d.id) return new User()
     const att = d?.attributes
     return new User(
       d?.id || 'noID',
