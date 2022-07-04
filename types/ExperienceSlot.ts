@@ -11,11 +11,10 @@ import {
   ExperienceSlotEntityResponseCollection,
   ExperienceSlotRelationResponseCollection,
   GuideEntityResponse,
-  ExperienceEntityResponse
+  ExperienceEntityResponse,
 } from '@/graphql/generated'
 
 class ExperienceSlot implements ExperienceSlotDAO {
-
   id: Maybe<Scalars['ID']>
   // bookings?: Maybe<BookingRelationResponseCollection>
   createdAt?: Maybe<Scalars['DateTime']>
@@ -25,10 +24,15 @@ class ExperienceSlot implements ExperienceSlotDAO {
   start: Scalars['DateTime']
   updatedAt?: Maybe<Scalars['DateTime']>
 
-  static fromEntity(entity: Maybe<ExperienceSlotEntity> | undefined): ExperienceSlot {
-    return new ExperienceSlot(entity?.id || 'noId', entity?.attributes || {
-      start: new Date(),
-    })
+  static fromEntity(
+    entity: Maybe<ExperienceSlotEntity> | undefined
+  ): ExperienceSlot {
+    return new ExperienceSlot(
+      entity?.id || 'noId',
+      entity?.attributes || {
+        start: new Date(),
+      }
+    )
   }
 
   // static mapList(list: ExperienceSlotEntityResponseCollection): ExperienceSlot {
@@ -52,7 +56,6 @@ class ExperienceSlot implements ExperienceSlotDAO {
       this.experience = Experience.map(input.experience)
     }
   }
-
 }
 
-export default ExperienceSlot;
+export default ExperienceSlot

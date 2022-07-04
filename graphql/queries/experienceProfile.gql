@@ -29,6 +29,7 @@ query experience($id: ID!) {
               description
               user {
                 data {
+                  id
                   attributes {
                     firstname
                     lastname

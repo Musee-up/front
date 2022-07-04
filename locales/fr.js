@@ -56,6 +56,10 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
       },
     },
     home: {
+      headline: {
+        create: "Créer votre experience",
+        fewClick: "En quelques clics"
+      },
       experiences: {
         title: 'Découvrez des expériences uniques',
       },
@@ -297,7 +301,7 @@ Le résultat ? Musée Up’, la marketplace de la culture qui met en relation le
           list: 'Découverte et sauvetage',
         },
       },
-      pbooking: {
+      preservation: {
         title: 'La sauvegarde du patrimoine en action',
         description: 'C’est la garantie de vivre des expériences culturelles…',
         cards: {

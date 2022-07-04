@@ -1,18 +1,23 @@
 <template>
-  <v-main class="pa-0">
-    <v-container fluid>
-      <v-row class="header">
-        <v-col class="mb-16 wrapper d-flex justify-center">
-          <home-headline></home-headline>
-          <home-searchbar class="searchbar"> </home-searchbar>
-        </v-col>
-      </v-row>
-      <home-experiences></home-experiences>
-      <about-heritage class="pt-16"></about-heritage>
-      <home-partnership></home-partnership>
-    </v-container>
-  </v-main>
+  <v-container fluid class="px-0">
+    <v-row class="header">
+      <v-col
+        class="mb-md-16 pa-md-16 pa-0 ma-0 wrapper d-flex justify-center">
+        <home-headline></home-headline>
+        <home-searchbar class="searchbar"> </home-searchbar>
+      </v-col>
+    </v-row>
+    <home-experiences></home-experiences>
+    <about-heritage class="pt-xs-0 pt-16"></about-heritage>
+    <home-partnership></home-partnership>
+  </v-container>
 </template>
+
+<script>
+export default {
+  layout: ({ isMobile }) => isMobile ? 'mobile' : 'default',
+}
+</script>
 
 <style scoped>
 .header {

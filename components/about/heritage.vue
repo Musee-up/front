@@ -1,7 +1,8 @@
 <template>
-  <v-row class="ma-0 team-header py-16 align-center">
-    <v-spacer></v-spacer>
-    <v-col cols="4">
+  <v-row
+    justify="center"
+    class="ma-0 team-header py-16 align-center">
+    <v-col sm="4">
       <v-row>
         <h2 class="white--text my-8">
           {{ $t('pages.about.heritage.title') }}
@@ -9,7 +10,7 @@
       </v-row>
 
       <v-row>
-        <p class="white--text">
+        <p class="white--text pa-4">
           {{ $t('pages.about.heritage.description') }}
         </p>
       </v-row>
@@ -28,14 +29,17 @@
         </v-col>
       </v-row>
     </v-col>
-    <v-col cols="4">
+    <v-col sm="4">
       <nuxt-img src="/about_demo_mobile.png"></nuxt-img>
     </v-col>
-    <v-spacer></v-spacer>
   </v-row>
 </template>
 
 <style scoped lang="scss">
+* {
+  text-align: center;
+}
+
 .team-header {
   position: relative;
   > * {

@@ -3,15 +3,17 @@
     <v-col>
       <v-row justify="center">
         <h2 class="primary--text">
-          {{ $t('pages.about.pbooking.title') }}
-          <core-underline></core-underline>
+          {{ $t('pages.about.preservation.title') }}
+          <core-underline class="align-self-center"></core-underline>
         </h2>
       </v-row>
       <v-row>
         <v-col
-          v-for="(item, index) in $t('pages.about.pbooking.cards')"
+          v-for="(item, index) in $t('pages.about.preservation.cards')"
           :key="index"
-          class="ma-8 pa-8"
+          cols="12"
+          md="4"
+          class="pa-8"
         >
           <v-row justify="center">
             <nuxt-img
@@ -22,12 +24,12 @@
             ></nuxt-img>
           </v-row>
           <v-row justify="center">
-            <h3 class="primary--text text-center">
+            <h3 class="primary--text">
               {{ item.title }}
             </h3>
           </v-row>
           <v-row>
-            <p class="primary--text text-center">
+            <p class="primary--text">
               {{ item.description }}
             </p>
           </v-row>
@@ -67,3 +69,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+* {
+  text-align: center;
+}
+</style>

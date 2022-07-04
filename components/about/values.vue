@@ -7,12 +7,12 @@
           <core-underline></core-underline>
         </h2>
       </v-row>
-      <v-row class="pa-16">
+      <v-row class="pa-md-16">
         <v-col
           v-for="(value, index) in $t('pages.about.values.cards')"
           :key="index"
           class="fill-height card"
-          cols="4"
+          sm="4"
         >
           <v-card
             class="d-flex fill-height flex-column rounded-xl align-center"

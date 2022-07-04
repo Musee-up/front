@@ -13,6 +13,9 @@ $_blue: #064888 !default;
 h1 {
   color: white;
   font-size: 70px;
+  @include for-phone-only {
+	  font-size: 40px;
+  }
 }
 
 h2 {

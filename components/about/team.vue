@@ -1,13 +1,16 @@
 <template>
   <v-container>
-    <v-row class="px-16 pt-16">
+    <v-row
+      justify="center"
+      class="px-sm-16 pt-16">
       <v-col
         v-for="(member, index) in $t('pages.about.team.members')"
         :key="index"
-        cols="4"
-        class="px-16"
+        sm="4"
+        class="px-sm-16"
       >
         <v-row
+          justify="center"
           :class="$vuetify.breakpoint.lgAndDown ? 'd-flex flex-column' : ''"
         >
           <v-col v-if="members[index].photo">
@@ -20,7 +23,7 @@
 
           <v-col>
             <v-row>
-              <h3 class="primary-text">
+              <h3>
                 {{ member.name }}
               </h3>
             </v-row>
@@ -85,3 +88,12 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.row {
+    justify-content: center;
+}
+* {
+  text-align: center;
+}
+</style>

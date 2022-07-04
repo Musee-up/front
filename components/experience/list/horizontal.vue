@@ -4,14 +4,15 @@
       <v-col
         v-for="(experience, i) in experiences.slice(0, 2)"
         :key="i"
-        cols="4"
+        cols="12"
+        md="4"
         class="pa-4"
       >
         <v-card elevation="0" class="mx-auto rounded-xl">
           <nuxt-link :to="`${link}${experience.id}`">
             <like-overview
               v-if="experience.photos"
-              :width="width"
+              width="100%"
               :photo="
                 url + experience.photos.data[0].attributes.formats.thumbnail.url
               "
@@ -57,16 +58,16 @@ export default {
       default: '/experiences/',
     },
   },
-  data() {
-    return {
+  data: () => ({
       url: process.env.API_URL,
-    }
-  },
+  }),
   computed: {
     width() {
+      // log window
+      console.log(window.innerWidth)
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          return 440
+          return this.$vuetify.breakpoint.width
         case 'sm':
           return 440
         case 'md':

@@ -3,10 +3,7 @@ import { defineNuxtConfig } from '@nuxt/bridge'
 const backendUrl = process.env.API_URL || 'http://localhost:1337'
 
 export default defineNuxtConfig({
-  env: {
-    API_URL: backendUrl,
-  },
-  ssr: true,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - musée up',
@@ -23,6 +20,13 @@ export default defineNuxtConfig({
 
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  env: {
+    API_URL: backendUrl,
+  },
+  router: {
+    middleware: ['userAgent'],
+  },
+  ssr: true,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/scss/custom.scss', '@/assets/scss/colors.scss'],

@@ -1,7 +1,7 @@
 import publicProfileQuery from '@/graphql/queries/guide.gql'
 import updateFavoritePlace from '@/graphql/mutations/guide/updateFavoritePlace.gql'
 import updateGuide from '@/graphql/mutations/guide/update.gql'
-import Guide from '@/types/guide'
+import Guide from '@/types/Guide'
 
 export const state = () => ({
   guide: Object,

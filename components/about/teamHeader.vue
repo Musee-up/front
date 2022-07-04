@@ -1,14 +1,14 @@
 <template>
   <v-container class="team-header" fluid>
-    <v-row justify="center my-8">
+    <v-row justify="center" class="my-8">
       <h2 class="black-text">
         {{ $t('pages.about.team.title') }}
         <core-underline></core-underline>
       </h2>
     </v-row>
 
-    <v-row justify="center">
-      <p style="width: 70%" class="font-weight-bold primary--text">
+    <v-row justify="center" class="text-center">
+      <p class="font-weight-bold primary--text">
         {{ $t('pages.about.team.description') }}
       </p>
     </v-row>

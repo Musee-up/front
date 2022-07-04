@@ -16,21 +16,20 @@
   </v-flex>
 </template>
 
-
 <script>
 import Guide from '@/types/Guide'
 export default {
   props: {
     guide: {
       type: Guide,
-      required: true
+      required: true,
     },
   },
   data() {
     return {
       user: this.guide.user,
-      url: process.env.API_URL
+      url: process.env.API_URL,
     }
-  }
+  },
 }
 </script>

@@ -54,8 +54,6 @@ class Experience implements ExperienceDAO {
     return Experience.fromEntity(input.data)
   }
 
-
-
   constructor(id: Maybe<Scalars['ID']>, input: ExperienceDAO) {
     this.id = id
     this.createdAt = input.createdAt

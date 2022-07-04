@@ -1,6 +1,8 @@
 <template>
   <v-row class="pa-16 bg">
-    <v-col cols="3">
+    <v-col
+      cols="12"
+      md="3">
       <v-row>
         <h2 class="primary--text">
           {{ $t('pages.about.bookings.title') }}
@@ -16,7 +18,8 @@
     <v-col
       v-for="(item, index) in $t('pages.about.bookings.cols')"
       :key="index"
-      cols="3"
+      cols="12"
+      md="3"
     >
       <v-row>
         <v-col cols="1">

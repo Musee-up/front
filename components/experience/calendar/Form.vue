@@ -93,7 +93,7 @@ export default {
   computed: {
     ...mapGetters({
       experiences: 'guide/getExperiences',
-      id: 'guide/getID'
+      id: 'guide/getID',
     }),
   },
   methods: {

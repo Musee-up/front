@@ -1,7 +1,8 @@
 <template>
-  <v-row class="my-16">
-    <v-col></v-col>
-    <v-col cols="4" class="ma-8">
+  <v-row
+    justify="center"
+    class="my-16">
+    <v-col md="4" class="ma-8">
       <v-row class="my-8 text-center" justify="center">
         <h2 class="primary-text">
           {{ $t('pages.about.history.title') }}
@@ -15,9 +16,8 @@
         ></p>
       </v-row>
     </v-col>
-    <v-col cols="4">
+    <v-col md="4">
       <nuxt-img src="/about/photo_duet.png"></nuxt-img>
     </v-col>
-    <v-col> </v-col>
   </v-row>
 </template>

@@ -29,9 +29,7 @@
         </v-row>
 
         <v-divider class="my-9"></v-divider>
-        <experience-guide-profile
-          :guide="experience.guide"
-          />
+        <experience-guide-profile :guide="experience.guide" />
       </v-col>
 
       <v-col class="mx-4">
@@ -77,8 +75,7 @@ export default {
         const languages = exp.languages?.data
           .map((x) => x.attributes.value)
           .join(', ')
-        const themes = exp.themes?.data
-          .map((x) => x.attributes.name).join(', ')
+        const themes = exp.themes?.data.map((x) => x.attributes.name).join(', ')
         const groupSizeSyntax = this.$t('pages.experiences.n_visite', {
           n: exp.groupSize,
         })
@@ -110,10 +107,8 @@ export default {
           exp.handifriendly && {
             text: 'Handifriendly',
             icon: 'mdi-human-wheelchair',
-          }
-        ].filter(
-          (x) => x.text
-        )
+          },
+        ].filter((x) => x.text)
         return exp
       },
     },

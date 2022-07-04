@@ -11,7 +11,7 @@
     </nuxt-link>
 
     <v-card-text class="d-flex flex-column justify-center">
-      <h3 class="name">{{ user.firstname }} {{ user.lastname}}</h3>
+      <h3 class="name">{{ user.firstname }} {{ user.lastname }}</h3>
       <!-- <rating class="justify-center" :rating="guide.rating"></rating> -->
     </v-card-text>
   </v-card>
@@ -23,7 +23,7 @@ export default {
   props: {
     guide: {
       type: Guide,
-      required: true
+      required: true,
     },
   },
   data() {
