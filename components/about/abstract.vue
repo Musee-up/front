@@ -1,11 +1,6 @@
 <template>
-  <v-row
-    justify="center"
-    class="py-16 header">
-
-    <v-col
-      md="4"
-      class="ma-4">
+  <v-row justify="center" class="py-16 header">
+    <v-col md="4" class="ma-4">
       <v-row>
         <h2 class="white--text">
           {{ $t('pages.about.title') }}
@@ -31,9 +26,7 @@
       </v-row>
     </v-col>
 
-    <v-col
-      md="4"
-      class="ma-4">
+    <v-col md="4" class="ma-4">
       <v-row justify="center">
         <nuxt-img
           height="200"
@@ -46,7 +39,6 @@
         <h1 class="white--text">Musée up'</h1>
       </v-row>
     </v-col>
-
   </v-row>
 </template>
 

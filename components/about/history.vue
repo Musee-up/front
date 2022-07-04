@@ -1,7 +1,5 @@
 <template>
-  <v-row
-    justify="center"
-    class="my-16">
+  <v-row justify="center" class="my-16">
     <v-col md="4" class="ma-8">
       <v-row class="my-8 text-center" justify="center">
         <h2 class="primary-text">

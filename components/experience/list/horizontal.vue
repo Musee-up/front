@@ -59,7 +59,7 @@ export default {
     },
   },
   data: () => ({
-      url: process.env.API_URL,
+    url: process.env.API_URL,
   }),
   computed: {
     width() {

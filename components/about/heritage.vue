@@ -1,7 +1,5 @@
 <template>
-  <v-row
-    justify="center"
-    class="ma-0 team-header py-16 align-center">
+  <v-row justify="center" class="ma-0 team-header py-16 align-center">
     <v-col sm="4">
       <v-row>
         <h2 class="white--text my-8">

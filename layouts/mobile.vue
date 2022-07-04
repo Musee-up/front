@@ -3,11 +3,8 @@
     <!-- <HomeNavbar /> -->
     <v-main>
       <div>
-        <NuxtLink
-          to="/"
-          >
-          <nuxt-img src="/logo_white.svg">
-          </nuxt-img>
+        <NuxtLink to="/">
+          <nuxt-img src="/logo_white.svg"> </nuxt-img>
         </NuxtLink>
       </div>
 

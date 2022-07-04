@@ -1,8 +1,5 @@
 <template>
-  <v-row
-    align="center"
-    justify="center"
-    class="mt-0 mt-md-16">
+  <v-row align="center" justify="center" class="mt-0 mt-md-16">
     <v-col class="text-center">
       <v-row>
         <h1>
@@ -10,9 +7,7 @@
         </h1>
       </v-row>
       <v-row>
-        <v-icon
-          size="100"
-          color="white"> mdi-palette-outline </v-icon>
+        <v-icon size="100" color="white"> mdi-palette-outline </v-icon>
       </v-row>
       <v-row>
         <h1>

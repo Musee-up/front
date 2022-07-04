@@ -7,20 +7,16 @@
       hide-details="auto"
       class="pa-4 rounded-pill"
       label="Ou souhaitez vous allez ?"
-      ></v-autocomplete>
+    ></v-autocomplete>
 
-    <v-sheet
-      v-else
-      outlined
-      class="d-flex rounded-pill wrapper"
-      >
+    <v-sheet v-else outlined class="d-flex rounded-pill wrapper">
       <v-autocomplete
         filled
         solo
         hide-details="auto"
         class="pa-4 rounded-pill"
         label="Ou souhaitez vous allez ?"
-        ></v-autocomplete>
+      ></v-autocomplete>
 
       <DateMenu />
 
@@ -32,7 +28,7 @@
         type="number"
         class="pa-4 rounded-pill"
         label="Nombres de visiteurs"
-        ></v-select>
+      ></v-select>
 
       <v-btn
         icon
@@ -40,7 +36,7 @@
         color="primary"
         class="pr-4"
         style="align-self: center"
-        >
+      >
         <v-icon color="primary"> mdi-magnify </v-icon>
       </v-btn>
     </v-sheet>

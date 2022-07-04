@@ -57,8 +57,8 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
     },
     home: {
       headline: {
-        create: "Créer votre experience",
-        fewClick: "En quelques clics"
+        create: 'Créer votre experience',
+        fewClick: 'En quelques clics',
       },
       experiences: {
         title: 'Découvrez des expériences uniques',

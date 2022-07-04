@@ -1,8 +1,6 @@
 <template>
   <v-row class="pa-16 bg">
-    <v-col
-      cols="12"
-      md="3">
+    <v-col cols="12" md="3">
       <v-row>
         <h2 class="primary--text">
           {{ $t('pages.about.bookings.title') }}

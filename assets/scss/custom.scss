@@ -14,7 +14,7 @@ h1 {
   color: white;
   font-size: 70px;
   @include for-phone-only {
-	  font-size: 40px;
+    font-size: 40px;
   }
 }
 

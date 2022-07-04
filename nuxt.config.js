@@ -3,7 +3,6 @@ import { defineNuxtConfig } from '@nuxt/bridge'
 const backendUrl = process.env.API_URL || 'http://localhost:1337'
 
 export default defineNuxtConfig({
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - musée up',

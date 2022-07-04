@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    <v-row
-      justify="center"
-      class="px-sm-16 pt-16">
+    <v-row justify="center" class="px-sm-16 pt-16">
       <v-col
         v-for="(member, index) in $t('pages.about.team.members')"
         :key="index"
@@ -91,7 +89,7 @@ export default {
 
 <style lang="scss" scoped>
 .row {
-    justify-content: center;
+  justify-content: center;
 }
 * {
   text-align: center;

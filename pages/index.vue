@@ -1,8 +1,7 @@
 <template>
   <v-container fluid class="px-0">
     <v-row class="header">
-      <v-col
-        class="mb-md-16 pa-md-16 pa-0 ma-0 wrapper d-flex justify-center">
+      <v-col class="mb-md-16 pa-md-16 pa-0 ma-0 wrapper d-flex justify-center">
         <home-headline></home-headline>
         <home-searchbar class="searchbar"> </home-searchbar>
       </v-col>
@@ -15,7 +14,7 @@
 
 <script>
 export default {
-  layout: ({ isMobile }) => isMobile ? 'mobile' : 'default',
+  layout: ({ isMobile }) => (isMobile ? 'mobile' : 'default'),
 }
 </script>
 
