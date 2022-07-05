@@ -6,7 +6,9 @@
       </h3>
     </v-row>
     <v-row>
-      <v-col cols="2">
+      <v-col
+        cols="12"
+        md="2">
         <nuxt-img
           v-if="experience.photo"
           class="rounded-xl"
@@ -37,7 +39,10 @@
           </p>
         </v-row>
       </v-col>
-      <v-col class="d-flex align-center action" cols="4">
+      <v-col
+        class="d-flex align-center action text-center"
+        cols="12"
+        md="4">
         <nuxt-link :to="`/experiences/${experience.id}`">
           <base-blue-button>
             {{ $t('components.account.client.bookings.experience.action') }}

@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper mx-auto">
     <nuxt-img
-      :width="width"
-      :height="height"
+      :width=width
+      :height=height
       class="profile rounded-xl"
       :src="photo"
     >
@@ -13,8 +13,8 @@
     </v-row>
     <v-btn fab icon class="likeButton">
       <v-icon
-        :dense="$vuetify.breakpoint.lgAndDown"
-        :large="$vuetify.breakpoint.mdAndUp"
+        dense
+        large
         color="white"
         class="likeIcon"
         >mdi-heart</v-icon
@@ -32,9 +32,11 @@ export default {
     },
     height: {
       type: Number,
+      default: 200,
     },
     width: {
       type: Number,
+      default: 200,
     },
   },
 }
@@ -47,17 +49,21 @@ export default {
 }
 
 .likeButton {
-  right: 17px;
-  bottom: 25px;
+  right: 15px;
+  bottom: 15px;
   position: absolute;
+  @include for-phone-only {
+  right: 10px;
+  bottom: 10px;
+  }
 }
 
 .overlay {
   > * {
     color: $white;
   }
-  left: 20px;
-  bottom: 35px;
+  left: 15px;
+  bottom: 25px;
   position: absolute;
 }
 </style>

@@ -1,12 +1,11 @@
 <template>
   <div>
-    <experience-filter-list></experience-filter-list>
+    <!-- <experience-filter-list></experience-filter-list> -->
     <experience-list
       v-if="!$vuetify.breakpoint.mobile"
-      :experiences="experiences"/>
-      <experience-list-horizontal
-        v-else
-        :experiences="experiences"/>
+      :experiences="experiences"
+    />
+    <experience-list-horizontal v-else :experiences="experiences" />
   </div>
 </template>
 
@@ -18,7 +17,7 @@ import Experience from '@/types/Experience'
 export default {
   data() {
     return {
-      query: this.$route.query ? experiencesQuery : experiencesWithFilterQuery
+      query: this.$route.query ? experiencesQuery : experiencesWithFilterQuery,
     }
   },
   apollo: {
@@ -31,12 +30,9 @@ export default {
           }
         },
         update(query): Array<Experience> {
-          const experiences = query.experiences.data.map((experience) => ({
-            id: experience.id,
-            ...experience.attributes,
-          }))
+          const experiences = Experience.mapList(query.experiences)
           return experiences
-        }
+        },
       }
     },
   },

@@ -101,7 +101,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
     experience: {
       list: {
         price: 'A partir de {n}€ par personne',
-        presentation: 'Présentation de l\'experience: {p}',
+        presentation: "Présentation de l'experience: {p}",
       },
       price: 'A partir de {n}€ par personne',
       booking: {

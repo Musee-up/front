@@ -1,11 +1,8 @@
 <template>
   <v-container>
     <v-row v-for="experience in experiences" :key="experience.id">
-      <v-card class="ma-6 rounded-xl" style="width:100%">
-        <experience-list-item
-          :id="experience.id"
-          :experience="experience"
-          >
+      <v-card class="ma-6 rounded-xl" style="width: 100%">
+        <experience-list-item :id="experience.id" :experience="experience">
           <template #link>
             <nuxt-link :to="`/experiences/${experience.id}`">
               <base-blue-button>
@@ -33,5 +30,4 @@ export default{
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

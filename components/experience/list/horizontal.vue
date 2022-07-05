@@ -12,9 +12,9 @@
           <nuxt-link :to="`${link}${experience.id}`">
             <like-overview
               v-if="experience.photos"
-              width="100%"
+              width=288
               :photo="
-                url + experience.photos.data[0].attributes.formats.thumbnail.url
+              url + experience.photos.data[0].attributes.formats.thumbnail.url
               "
             >
             </like-overview>
@@ -23,10 +23,13 @@
           <v-card-title>
             <h3 class="ml-2 my-1 title--text">{{ experience.title }}</h3>
           </v-card-title>
-          <v-card-text class="d-flex flex-column justify-right">
-            <v-row :class="$vuetify.breakpoint.lgAndDown ? 'flex-column' : ''">
-              <v-col>
-                <!--   <rating :rating="experience.rating"></rating> -->
+          <v-card-text>
+            <v-row>
+              <v-col
+                cols="12"
+                md="6"
+                >
+                <rating :rating="rating"></rating>
               </v-col>
               <v-col>
                 <p class="text-center">
@@ -40,18 +43,21 @@
             </v-row>
           </v-card-text>
         </v-card>
+        <v-divider v-if="$vuetify.breakpoint.mobile"></v-divider>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import { experience } from '@/data/mock.js'
+
+import { rating } from '@/data/mock'
+
 export default {
   props: {
     experiences: {
-      type: Array,
-      default: () => [experience],
+      type: Array as PropType<Array<Experience>>,
+      default: () => [],
     },
     link: {
       type: String,
@@ -59,25 +65,18 @@ export default {
     },
   },
   data: () => ({
+    rating,
     url: process.env.API_URL,
   }),
   computed: {
     width() {
-      // log window
-      console.log(window.innerWidth)
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return this.$vuetify.breakpoint.width
-        case 'sm':
-          return 440
-        case 'md':
-          return 440
-        case 'lg':
-          return 300
-        case 'xl':
-          return 440
-      }
-      return { right: 3, middle: 8 }
+      return {
+        'xs': this.$vuetify.breakpoint.width,
+        'sm': 440,
+        'md': 440,
+        'lg': 440,
+        'xl': 440,
+      }[this.$vuetify.breakpoint.name]
     },
   },
 }

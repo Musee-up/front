@@ -5,8 +5,8 @@
     style="width: 100%"
   >
     <v-card-title>
-      <span class="text-h5 text-center">
-        {{ $t('À partir de 18€ par personne') }}
+      <span class="price text-h5 text-center">
+        {{ $t('components.experience.price', {n: experience.price || 0}) }}
       </span>
     </v-card-title>
     <v-card-text>
@@ -50,8 +50,17 @@
 </template>
 
 <script>
+import Experience from '@/types/Experience'
+
 export default {
-  props: ['slots', 'experience'],
+  props: {
+    slots: {
+    type: Object,
+    default: () => ({}),
+  },
+    experience: {
+    type: Experience,
+  }},
   data() {
     return {
       selectedSlot: null,
@@ -90,3 +99,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.price {
+  white-space: nowrap;
+}
+</style>

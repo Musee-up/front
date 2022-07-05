@@ -6,8 +6,10 @@
       </h3>
     </v-row>
 
-    <v-row>
-      <v-col cols="2">
+    <v-row justify="center">
+      <v-col
+        cols="12"
+        md="2">
         <v-avatar width="100" height="100">
           <nuxt-img
             v-if="guide.photo"
@@ -46,7 +48,10 @@
         </v-row>
       </v-col>
 
-      <v-col class="d-flex align-center action" cols="3">
+      <v-col
+        class="d-flex align-center action"
+        cols="12"
+        md="3">
         <nuxt-link :to="`/guides/${id}`">
           <base-blue-button>
             {{ $t('components.account.client.bookings.guide.action') }}

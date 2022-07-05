@@ -15,7 +15,6 @@ export default {
 
 <style lang="scss" scoped>
 .rating-container {
-  //include desktop-down
   @include for-desktop-down {
     justify-content: center;
   }

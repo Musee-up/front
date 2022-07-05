@@ -1,87 +1,96 @@
-<template>
+<template >
   <v-slide-group show-arrows multiple>
-    <v-slide-item class="rounded-xl">
+    <v-slide-item
+      v-for="(photo, index) in photos"
+      :key="index"
+      >
       <nuxt-img
-        class="ma-2 photo"
         :width="width"
-        :height="height"
-        :src="photos[0].src"
-      />
+        :src="url + getSrc(photo)"
+        ></nuxt-img>
     </v-slide-item>
+    <!-- <v-slide-item class="rounded-xl"> -->
+    <!--   <nuxt-img -->
+    <!--     class="ma-2" -->
+    <!--     :width="width" -->
+    <!--     :height="height" -->
+    <!--     :src="photos[0].src" -->
+    <!--   /> -->
+    <!-- </v-slide-item> -->
 
-    <div
-      class="ma-2 py-2 d-flex justify-space-between flex-column"
-      :style="`height:${height}px`"
-    >
-      <v-slide-item>
-        <nuxt-img
-          class="rounded-xl photo"
-          :width="width"
-          :height="height / 2 - 10"
-          :src="photos[1].src"
-        />
-      </v-slide-item>
-      <v-slide-item>
-        <nuxt-img
-          class="rounded-xl photo"
-          :width="width"
-          :height="height / 2 - 10"
-          :src="photos[2].src"
-        />
-      </v-slide-item>
-    </div>
+    <!-- <div -->
+    <!--   class="ma-2 py-2 d-flex justify-space-between flex-column" -->
+    <!--   :style="`height:${height}px`" -->
+    <!-- > -->
+    <!--   <v-slide-item> -->
+    <!--     <nuxt-img -->
+    <!--       class="rounded-xl photo" -->
+    <!--       :width="width" -->
+    <!--       :height="height / 2 - 10" -->
+    <!--       :src="photos[1].src" -->
+    <!--     /> -->
+    <!--   </v-slide-item> -->
+    <!--   <v-slide-item> -->
+    <!--     <nuxt-img -->
+    <!--       class="rounded-xl photo" -->
+    <!--       :width="width" -->
+    <!--       :height="height / 2 - 10" -->
+    <!--       :src="photos[2].src" -->
+    <!--     /> -->
+    <!--   </v-slide-item> -->
+    <!-- </div> -->
 
-    <v-slide-item>
-      <nuxt-img
-        :width="width"
-        :height="height"
-        class="ma-2 rounded-xl photo"
-        :src="photos[3].src"
-      />
-    </v-slide-item>
-    <v-slide-item>
-      <nuxt-img
-        :width="width"
-        class="ma-2 rounded-xl photo"
-        :src="photos[4].src"
-        :height="height"
-      />
-    </v-slide-item>
+    <!-- <v-slide-item> -->
+    <!--   <nuxt-img -->
+    <!--     :width="width" -->
+    <!--     :height="height" -->
+    <!--     class="ma-2 rounded-xl photo" -->
+    <!--     :src="photos[3].src" -->
+    <!--   /> -->
+    <!-- </v-slide-item> -->
+    <!-- <v-slide-item> -->
+    <!--   <nuxt-img -->
+    <!--     :width="width" -->
+    <!--     class="ma-2 rounded-xl photo" -->
+    <!--     :src="photos[4].src" -->
+    <!--     :height="height" -->
+    <!--   /> -->
+    <!-- </v-slide-item> -->
   </v-slide-group>
 </template>
 
-<script setup lang="ts">
-// const props = defineProps({
-//  photos: {
-//    type: Object,
-//    default: null,
-//  },
-// })
-// const props = {
-//   height: {
-//     type: Number,
-//     default: null,
-//   },
-// }
-
-const photos = [
-  {
-    src: '/exp_photo.png',
+<script>
+export default {
+  props: ['photos'],
+  data () {
+    return {
+    url: process.env.API_URL,
+    }
   },
-  {
-    src: '/exp_photo.png',
+  computed: {
+    width () {
+      return {
+        xs: 230,
+        sm: 230,
+        md: 429,
+        lg: 429,
+        xl: 429,
+      }[this.$vuetify.breakpoint.name]
+    },
   },
-  {
-    src: '/exp_photo.png',
+  methods: {
+    getSrc(photo) {
+      const formats = photo.formats
+      console.log(photo)
+      return {
+        xs: formats.thumbnail,
+        sm: formats.thumbnail,
+        md: formats.large,
+        lg: formats.large,
+        xl: formats.large,
+      }[this.$vuetify.breakpoint.name].url
+    },
   },
-  {
-    src: '/exp_photo.png',
-  },
-  {
-    src: '/exp_photo.png',
-  },
-]
-
-const width = 371
-const height = 300
+}
 </script>
+

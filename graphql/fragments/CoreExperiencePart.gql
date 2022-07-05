@@ -8,4 +8,11 @@ fragment CoreExperiencePart on Experience {
   groupSize
   handifriendly
   location
+  photos {
+    data {
+      attributes {
+        formats
+      }
+    }
+  }
 }

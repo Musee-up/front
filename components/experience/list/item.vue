@@ -1,13 +1,18 @@
 <template>
-  <v-row style="height: max-content" class=" ma-4">
+  <v-row style="height: max-content" class="ma-4">
     <v-col cols="3" class="align-self-center">
       <nuxt-img style="width: inherit" src="/demo_list.svg"> </nuxt-img>
     </v-col>
 
     <v-col
-      class="d-flex flex-column justify-content-space-between pl-4 pa-0" cols="9">
+      class="d-flex flex-column justify-content-space-between pl-4 pa-0"
+      cols="9"
+    >
       <v-row justify="space-between">
-        <v-col cols="10" class="black--text font-weight-bold d-flex align-center">
+        <v-col
+          cols="10"
+          class="black--text font-weight-bold d-flex align-center"
+        >
           <h2>
             {{ experience.title }}
           </h2>
@@ -18,13 +23,13 @@
       </v-row>
 
       <v-row>
-        <v-col
-          cols="10"
-          class="description-list--text">
-          <p
-            v-if="experience.description"
-            class="exp-description">
-            {{ $t("components.experience.list.presentation", {p: experience.description}).trim() }}
+        <v-col cols="10" class="description-list--text">
+          <p v-if="experience.description" class="exp-description">
+            {{
+              $t('components.experience.list.presentation', {
+                p: experience.description,
+              }).trim()
+            }}
           </p>
         </v-col>
         <v-col cols="2" class="px-8 align-self-center text-right">
@@ -32,12 +37,12 @@
         </v-col>
       </v-row>
 
-      <v-row
-        align-content="center"
-        class="att-container">
+      <v-row align-content="center" class="att-container">
         <v-col>
           <p v-if="experience.price" class="font-weight-bold">
-            {{ $t('components.experience.list.price', {n: experience.price}) }}
+            {{
+              $t('components.experience.list.price', { n: experience.price })
+            }}
           </p>
         </v-col>
 

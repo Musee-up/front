@@ -3,6 +3,7 @@ import Guide from './Guide'
 import {
   Scalars,
   Maybe,
+  UploadFile,
   ExperienceEntityResponse,
   ExperienceEntity,
   ExperienceSlotRelationResponseCollection,
@@ -30,7 +31,7 @@ class Experience implements ExperienceDAO {
   locale?: Maybe<Scalars['String']>
   localizations?: Maybe<ExperienceRelationResponseCollection>
   location?: Maybe<Scalars['String']>
-  photos?: Maybe<UploadFileRelationResponseCollection>
+  photos?: Maybe<UploadFile> | any
   price?: Maybe<Scalars['Float']>
   publishedAt?: Maybe<Scalars['DateTime']>
   stars?: Maybe<Scalars['Float']>
@@ -74,8 +75,8 @@ class Experience implements ExperienceDAO {
 
     this.localizations = input.localizations
     // this.localizations = input.localizations?.data.map(flattenList)
-    this.photos = input.photos
-    // this.photos = input.photos?.data.map(flattenList)
+    // this.photos = input.photos
+    this.photos = input.photos?.data.map(flattenList)
     this.types = input.types
     // this.types = input.types?.data.map(flatten)
     if (input.guide) {

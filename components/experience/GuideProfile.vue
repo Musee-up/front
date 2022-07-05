@@ -4,7 +4,7 @@
       <h3 class="black--text py-4">{{ $t('Votre guide') }}</h3>
     </v-row>
     <v-row>
-      <v-col cols="3" style="align-self: center">
+      <v-col cols="12" md="3" style="align-self: center">
         <guide-list-item :guide="guide" class="guide"> </guide-list-item>
       </v-col>
       <v-col>

@@ -25,4 +25,9 @@ const guide = {
   lastname: 'Doiteau',
 }
 
-export { guide, experience }
+const rating = {
+  value: 4.8,
+  length: 144,
+}
+
+export { guide, experience, rating }
