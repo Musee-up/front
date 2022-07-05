@@ -42,7 +42,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
       },
       contact: {
         staffing: {
-          title: '🚀  Rejoignez notre équipe !',
+          title: '🚀 Rejoignez notre équipe !',
           description: `Vous voulez rejoindre l’aventure Musée Up’ ? Envoyez-nous votre candidature à l’adresse suivante :`,
         },
         support: {
@@ -50,7 +50,7 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
           description: `Besoin d’aide ? Notre service client vous répondra aussi vite que possible sur les réseaux sociaux et à l’adresse suivante : `,
         },
         press: {
-          title: '📝   Presse et influenceurs',
+          title: '📝 Presse et influenceurs',
           description: `Vous êtes journalistes ou influenceurs et notre projet vous intéresse ? Envoyez-nous un message à l’adresse suivante :`,
         },
       },
@@ -99,6 +99,10 @@ Si vous avez la moindre question, n’hésitez pas à contacter votre guide ou �
       },
     },
     experience: {
+      list: {
+        price: 'A partir de {n}€ par personne',
+        presentation: 'Présentation de l\'experience: {p}',
+      },
       price: 'A partir de {n}€ par personne',
       booking: {
         summary: 'Récapitulatif',

@@ -1,47 +1,54 @@
 <template>
-  <v-row style="height: max-content" class="ma-4">
+  <v-row style="height: max-content" class=" ma-4">
     <v-col cols="3" class="align-self-center">
       <nuxt-img style="width: inherit" src="/demo_list.svg"> </nuxt-img>
     </v-col>
 
-    <v-col class="align-space-between" cols="9">
+    <v-col
+      class="d-flex flex-column justify-content-space-between pl-4 pa-0" cols="9">
       <v-row justify="space-between">
-        <v-col cols="6" class="black--text font-weight-bold">
+        <v-col cols="10" class="black--text font-weight-bold d-flex align-center">
           <h2>
             {{ experience.title }}
           </h2>
         </v-col>
-        <v-col cols="6" class="text-right">
+        <v-col cols="2" class="text-right">
           <slot name="link"> </slot>
         </v-col>
       </v-row>
 
-      <v-row class="my-4" style="height: 50%">
-        <v-col class="description-list--text pa-4">
-          <p v-if="experience.description">
-            {{ $t("Présentation de l'experience: ") + experience.description }}
+      <v-row>
+        <v-col
+          cols="10"
+          class="description-list--text">
+          <p
+            v-if="experience.description"
+            class="exp-description">
+            {{ $t("components.experience.list.presentation", {p: experience.description}).trim() }}
           </p>
         </v-col>
-        <v-col cols="1" class="align-self-center">
+        <v-col cols="2" class="px-8 align-self-center text-right">
           <v-icon color="primary"> mdi-camera </v-icon>
         </v-col>
       </v-row>
 
-      <v-row align-self="end">
-        <v-col align-self="center">
-          <p v-if="experience.price" class="attributes-text font-weight-bold">
-            {{ $t('A partir de ') + experience.price + $t('€ par personne') }}
+      <v-row
+        align-content="center"
+        class="att-container">
+        <v-col>
+          <p v-if="experience.price" class="font-weight-bold">
+            {{ $t('components.experience.list.price', {n: experience.price}) }}
           </p>
         </v-col>
 
         <v-col
           v-for="(item, index) in attr"
           :key="index"
-          align-self="center"
           cols="2"
+          class="pa-2 text-center align-center"
           width="auto"
         >
-          <p style="width: max-content">
+          <p class="ma-0">
             {{ item.label }}
             <v-icon color="primary" class="ma-2">
               {{ item.icon }}
@@ -54,8 +61,19 @@
 </template>
 
 <script>
+import Experience from '@/types/Experience'
+
 export default {
-  props: ['experience', 'id'],
+  props: {
+    experience: {
+      type: Experience,
+      default: () => ({}),
+    },
+    id: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       attr: [
@@ -68,7 +86,6 @@ export default {
           icon: 'mdi-walk',
         },
         {
-          // label: this.experience.handifriendly,
           label: 'handifriendly',
           icon: 'mdi-human-wheelchair',
         },
@@ -79,6 +96,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.exp-description {
+  white-space: pre-line;
+}
+
+.att-container {
+  height: max-content;
+}
+
 .v-icon {
   align-items: inherit !important;
 }
