@@ -1,7 +1,7 @@
 <template>
   <default-layout>
     <v-container fluid>
-      <v-row>
+      <v-row v-if="!$vuetify.breakpoint.mobile">
         <v-col class="justify-center" cols="2">
           <account-client-navigation> </account-client-navigation>
         </v-col>
@@ -9,6 +9,7 @@
           <Nuxt></Nuxt>
         </v-col>
       </v-row>
+      <Nuxt v-else></Nuxt>
     </v-container>
   </default-layout>
 </template>

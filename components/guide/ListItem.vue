@@ -2,9 +2,10 @@
   <v-card elevation="0" class="mx-auto rounded-xl justify-center text-center">
     <nuxt-link :to="`/guides/${guide.id}`" class="guideProfileLink">
       <like-overview
-        :width=width
-        :height=height
-        :photo="url + user.picture.formats.thumbnail.url">
+        :width="width"
+        :height="height"
+        :photo="url + user.picture.formats.thumbnail.url"
+      >
         <guide-location
           color="white"
           :guide="guide.location"
@@ -47,7 +48,6 @@ export default {
         lg: 140,
         xl: 248,
       }[this.$vuetify.breakpoint.name]
-
     },
     width() {
       return {
@@ -66,5 +66,4 @@ export default {
 .name {
   color: #63686e;
 }
-
 </style>

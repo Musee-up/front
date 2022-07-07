@@ -4,8 +4,9 @@
       <v-col
         v-for="experience in experiences"
         :key="experience.id"
-        cols="4"
-        class="pa-4"
+        cols="12"
+        md="4"
+        class="pa-md-4"
       >
         <v-card elevation="0" class="mx-auto rounded-xl">
           <nuxt-link :to="`/account/client/bookings/${experience.id}`">
@@ -14,18 +15,18 @@
           </nuxt-link>
 
           <v-card-title>
-            <h3 class="ml-2 my-1 title--text">{{ experience.title }}</h3>
+            <h3 class="ml-md-2 my-md-1 title--text">{{ experience.title }}</h3>
           </v-card-title>
-          <v-card-text class="d-flex flex-column justify-right">
-            <v-row :class="$vuetify.breakpoint.lgAndDown ? 'flex-column' : ''">
-              <v-col>
-                <rating :rating="mockExperience.rating"></rating>
+          <v-card-text>
+            <v-row>
+              <v-col cols="12">
+                <rating :rating="rating"></rating>
               </v-col>
-              <v-col>
+              <v-col cols="12">
                 <p class="text-center">
                   {{
                     $t('components.experience.price', {
-                      n: mockExperience.price,
+                      n: experience.price || 0,
                     })
                   }}
                 </p>
@@ -40,7 +41,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { experience } from '@/data/mock.js'
+import { rating } from '@/data/mock.js'
 
 export default {
   props: {
@@ -55,9 +56,7 @@ export default {
   },
   data() {
     return {
-      id: 1,
-      iter: [...Array(3).keys()],
-      mockExperience: experience,
+      rating,
     }
   },
   computed: {

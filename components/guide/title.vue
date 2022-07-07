@@ -1,6 +1,8 @@
 <template>
   <v-row class="titleContainer justify-center">
-    <h1 class="title">Les guides Musée'up</h1>
+    <h1 class="title">
+      {{ $t('components.guide.title') }}
+    </h1>
   </v-row>
 </template>
 
@@ -9,5 +11,8 @@
   background-color: $white !important;
   color: $_blue;
   font-size: 47px !important;
+  @include for-phone-only {
+    font-size: 25px !important;
+  }
 }
 </style>

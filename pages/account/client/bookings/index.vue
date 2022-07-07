@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <v-col cols="9">
-      <v-row class="justify-center">
+    <v-col md="9" cols="12">
+      <v-row justify="center" class="text-center">
         <h2>{{ $t('pages.account.client.bookings.title') }}</h2>
       </v-row>
 
-      <v-row class="justify-center">
+      <v-row justify="center" class="text-center">
         <p>
           {{ $t('pages.account.client.bookings.description') }}
         </p>
@@ -26,9 +26,9 @@ export default {
     width() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          return 140
+          return 240
         case 'sm':
-          return 140
+          return 240
         case 'md':
           return 140
         case 'lg':

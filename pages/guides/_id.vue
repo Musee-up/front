@@ -1,8 +1,8 @@
 <template>
-  <v-container v-if="guide && guide.user" class="justify-center">
-    <v-row class="my-8">
-      <v-col cols="2" class="abstract mx-6">
-        <v-row class="photo">
+  <v-container v-if="guide && guide.user" class="justify-center mt-4">
+    <v-row justify="center" class="my-md-8">
+      <v-col cols="12" md="2" class="abstract mx-md-6">
+        <v-row justify-md="start" class="photo">
           <like-overview
             :width="width"
             :photo="url + guide.user.picture.formats.thumbnail.url"
@@ -19,29 +19,29 @@
         </v-row>
       </v-col>
 
-      <v-col cols="7" class="summary">
-        <v-row class="location">
+      <v-col cols="12" md="7" class="summary px-16 px-md-4">
+        <v-row justify-md="start" class="location">
           <guide-location
             color="description"
-            :guide="guide"
+            :location="guide.location"
             class="location-value"
           >
           </guide-location>
         </v-row>
 
-        <v-row>
+        <v-row justify-md="start">
           <guide-profile-name
             v-if="guide.user"
             :user="guide.user"
           ></guide-profile-name>
         </v-row>
 
-        <!-- <v-row> -->
-        <!--   <h3 class="guideType primary--text"> -->
-        <!--     {{ guide.userType }} -->
-        <!--   </h3> -->
-        <!-- <rating color="primary" :rating="guide.rating"></rating> -->
-        <!-- </v-row> -->
+        <v-row justify-md="start">
+          <!--   <h3 class="guideType primary--text"> -->
+          <!--     {{ guide.userType }} -->
+          <!--   </h3> -->
+          <rating color="primary" :rating="rating"></rating>
+        </v-row>
 
         <div v-for="(component, i) in components" :key="i" class="mt-4">
           <v-row>
@@ -84,10 +84,12 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { rating } from '@/data/mock.js'
 
 export default {
   data() {
     return {
+      rating,
       url: process.env.API_URL,
     }
   },
@@ -119,19 +121,15 @@ export default {
       }
     },
     width() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return 140
-        case 'sm':
-          return 140
-        case 'md':
-          return 140
-        case 'lg':
-          return 200
-        case 'xl':
-          return 310
-      }
-      return 440
+      return (
+        {
+          xs: 260,
+          sm: 260,
+          md: 140,
+          lg: 200,
+          xl: 300,
+        }[this.$vuetify.breakpoint.name] || 200
+      )
     },
   },
   mounted() {
@@ -145,9 +143,16 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+.row {
+  @include for-phone-only {
+    justify-content: center;
+  }
+}
 .abstract > * > * {
-  width: 100% !important;
+  @include for-desktop-up {
+    width: 100% !important;
+  }
 }
 
 .location-value {
@@ -155,6 +160,8 @@ export default {
 }
 
 .actions > * > * {
-  width: 100% !important;
+  @include for-desktop-up {
+    width: 100% !important;
+  }
 }
 </style>

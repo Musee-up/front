@@ -1,20 +1,20 @@
 <template>
   <v-container>
     <v-row class="d-flex justify-center">
-      <v-col cols="8">
+      <v-col cols="12" md="8">
         <v-row>
           <account-guide-dashboard-profile
             :user="{}"
           ></account-guide-dashboard-profile>
         </v-row>
-        <v-row>
+        <v-row class="text-center">
           <p>
             {{ $t('pages.account.client.headline') }}
           </p>
         </v-row>
 
         <v-row>
-          <v-col v-for="(item, i) in cards" :key="i" cols="6">
+          <v-col v-for="(item, i) in cards" :key="i" cols="12" md="6">
             <nuxt-link :to="item.link">
               <v-card class="rounded-xl">
                 <v-card-title>

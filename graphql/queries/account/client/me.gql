@@ -11,9 +11,11 @@ query usersPermissionsUser($id: ID!) {
         location
         bookings {
           data {
+            id
             attributes {
               experience_slot {
                 data {
+                  id
                   attributes {
                     start
                     end

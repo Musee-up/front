@@ -6,7 +6,7 @@
   >
     <v-card-title>
       <span class="price text-h5 text-center">
-        {{ $t('components.experience.price', {n: experience.price || 0}) }}
+        {{ $t('components.experience.price', { n: experience.price || 0 }) }}
       </span>
     </v-card-title>
     <v-card-text>
@@ -55,12 +55,13 @@ import Experience from '@/types/Experience'
 export default {
   props: {
     slots: {
-    type: Object,
-    default: () => ({}),
-  },
+      type: Object,
+      default: () => ({}),
+    },
     experience: {
-    type: Experience,
-  }},
+      type: Experience,
+    },
+  },
   data() {
     return {
       selectedSlot: null,

@@ -1,6 +1,7 @@
 import singleUserQuery from '@/graphql/queries/account/client/me.gql'
 import userGuideQuery from '@/graphql/queries/account/client/guide.gql'
 import updateUser from '@/graphql/mutations/me'
+import User from '@/types/User'
 
 export const state = () => ({
   me: Object,
@@ -15,7 +16,8 @@ const load = (client, { commit }, query, id) => {
       },
     })
     .then((query) => {
-      const core = query.data.usersPermissionsUser.data.attributes
+      const core = query.data.usersPermissionsUser
+      console.log(core)
       commit('setMyself', core)
       return core
     })
@@ -37,7 +39,7 @@ export const actions = {
 
 export const mutations = {
   setMyself(state, me) {
-    state.me = me
+    state.me = User.map(me)
   },
   updateSocketID(state, id) {
     const client = this.app.apolloProvider.defaultClient
@@ -53,17 +55,10 @@ export const mutations = {
 }
 
 export const getters = {
-  getBookingExperiences: (state) => {
-    if (!state.me.bookings) return
-    return state.me.bookings.data.map((x) => ({
-      id: x.id,
-      ...x.attributes.experience?.data?.attributes,
-    }))
-  },
-  getBookings: (state) => state.me.bookings?.data,
+  getBookings: (state) => state.me.bookings,
   getBooking: (state) => (id) => {
     if (!state.me.bookings) return
-    return state.me.bookings.data.find((x) => x.id === id)
+    return state.me.bookings.find((x) => x.id === id)
   },
   getFriends: (state) => {
     return state.me?.friends?.data

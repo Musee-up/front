@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper mx-auto">
     <nuxt-img
-      :width=width
-      :height=height
+      :width="width"
+      :height="height"
       class="profile rounded-xl"
       :src="photo"
     >
@@ -12,13 +12,7 @@
       <slot></slot>
     </v-row>
     <v-btn fab icon class="likeButton">
-      <v-icon
-        dense
-        large
-        color="white"
-        class="likeIcon"
-        >mdi-heart</v-icon
-      >
+      <v-icon dense large color="white" class="likeIcon">mdi-heart</v-icon>
     </v-btn>
   </div>
 </template>
@@ -53,8 +47,8 @@ export default {
   bottom: 15px;
   position: absolute;
   @include for-phone-only {
-  right: 10px;
-  bottom: 10px;
+    right: 10px;
+    bottom: 10px;
   }
 }
 

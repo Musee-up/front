@@ -11,10 +11,10 @@
         <v-card elevation="0" class="mx-auto rounded-xl">
           <nuxt-link :to="`${link}${experience.id}`">
             <like-overview
-              v-if="experience.photos"
-              width=288
+              v-if="experience.photos.data && experience.photos.data.length"
+              width="288"
               :photo="
-              url + experience.photos.data[0].attributes.formats.thumbnail.url
+                url + experience.photos.data[0].attributes.formats.thumbnail.url
               "
             >
             </like-overview>
@@ -25,10 +25,7 @@
           </v-card-title>
           <v-card-text>
             <v-row>
-              <v-col
-                cols="12"
-                md="6"
-                >
+              <v-col cols="12" md="6">
                 <rating :rating="rating"></rating>
               </v-col>
               <v-col>

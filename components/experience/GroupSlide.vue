@@ -1,13 +1,7 @@
-<template >
+<template>
   <v-slide-group show-arrows multiple>
-    <v-slide-item
-      v-for="(photo, index) in photos"
-      :key="index"
-      >
-      <nuxt-img
-        :width="width"
-        :src="url + getSrc(photo)"
-        ></nuxt-img>
+    <v-slide-item v-for="(photo, index) in photos" :key="index">
+      <nuxt-img :width="width" :src="url + getSrc(photo)"></nuxt-img>
     </v-slide-item>
     <!-- <v-slide-item class="rounded-xl"> -->
     <!--   <nuxt-img -->
@@ -62,13 +56,13 @@
 <script>
 export default {
   props: ['photos'],
-  data () {
+  data() {
     return {
-    url: process.env.API_URL,
+      url: process.env.API_URL,
     }
   },
   computed: {
-    width () {
+    width() {
       return {
         xs: 230,
         sm: 230,
@@ -93,4 +87,3 @@ export default {
   },
 }
 </script>
-

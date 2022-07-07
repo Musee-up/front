@@ -1,18 +1,22 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="10">
+      <v-col md="10" cols="12">
         <v-row>
           <account-guide-dashboard-profile v-if="user" :user="user">
           </account-guide-dashboard-profile>
         </v-row>
         <v-row class="d-flex justify-center">
-          <v-card class="rounded-xl" rounded outlined>
+          <v-card
+            :class="$vuetify.breakpoint.mdAndUp ? 'rounded-xl' : ''"
+            :rounded="$vuetify.breakpoint.mdAndUp"
+            :outlined="$vuetify.breakpoint.mdAndUp"
+          >
             <v-card-title>
               <v-col>
                 <h4>Vos informations</h4>
               </v-col>
-              <v-col class="text-right">
+              <v-col cols="3" class="text-right">
                 <v-btn text @click="edit = !edit">
                   <v-icon color="primary"> mdi-pencil </v-icon>
                 </v-btn>

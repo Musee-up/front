@@ -15,16 +15,23 @@
           </v-list-item>
         </v-list>
 
-        <v-divider v-if="i != first.length - 1" class="ma-4"></v-divider>
+        <v-divider v-if="i != first.length - 1" class="ma-2"></v-divider>
       </div>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import Guide from '@/types/Guide'
+
 export default {
   layout: 'account-guide',
-  props: ['guide'],
+  props: {
+    guide: {
+      type: Guide,
+      required: true,
+    },
+  },
   data() {
     return {
       first: [
@@ -48,7 +55,7 @@ export default {
           list: this.guide?.interests,
           icon: 'mdi-cards-heart-outline',
         },
-      ],
+      ].filter((x) => x.list.length),
     }
   },
 }

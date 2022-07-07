@@ -1,12 +1,12 @@
 <template>
   <v-container v-if="booking">
     <v-row>
-      <v-col cols="9">
-        <v-row justify="center" class="ma-4">
+      <v-col cols="12" md="9">
+        <v-row justify="center" class="ma-md-4">
           <h2>
             {{ $t('pages.account.client.bookings.id.title') }}
             <span class="primary--text">
-              {{ e_slot.start | moment('dddd mm YYYY') }} </span
+              {{ slot.start | moment('dddd mm YYYY') }} </span
             >:
             {{ experience.title }}
           </h2>
@@ -34,7 +34,7 @@
         </v-row>
 
         <account-client-bookings-summary
-          :e_slot="e_slot"
+          :e_slot="slot"
           :booking="booking"
           :experience="experience"
           :guide="guide"
@@ -42,11 +42,11 @@
         </account-client-bookings-summary>
       </v-col>
 
-      <div style="width: 11px !important">
+      <div class="my-div">
         <v-divider vertical></v-divider>
       </div>
 
-      <v-col cols="2">
+      <v-col cols="12" md="2">
         <v-row>
           <nuxt-img
             v-if="experience.photo"
@@ -96,18 +96,18 @@ export default {
   },
   mounted() {
     this.booking = this.getBooking(this.$route.params.id)
-    this.e_slot = this.booking.attributes.experience_slot.data.attributes
-    this.experience = {
-      id: this.booking.attributes.experience.data.id,
-      ...this.booking.attributes.experience.data.attributes,
-    }
-    this.guide = {
-      id: this.experience.guide.data.id,
-      ...this.experience.guide.data.attributes.user.data.attributes,
-    }
+
+    console.log(this.booking)
+
+    if (!this.booking) return
+
+    this.slot = this.booking.slot
+    console.log(this.slot)
+
+    this.experience = this.booking.experience
     this.leftnav = [
       {
-        text: this.$moment(this.e_slot.start).format('DD MMMM YYYY'),
+        text: this.$moment(this.slot.start).format('DD MMMM YYYY'),
         icon: 'mdi-calendar',
       },
       {
@@ -115,10 +115,22 @@ export default {
         icon: 'mdi-map-marker',
       },
       {
-        text: this.booking.attributes.size + ' personnes',
+        text: this.booking.size + ' personnes',
         icon: 'mdi-account-multiple',
       },
     ]
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.my-div {
+  width: 11px !important;
+}
+
+* {
+  @include for-phone-only {
+    text-align: center;
+  }
+}
+</style>

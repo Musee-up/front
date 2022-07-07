@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row justify-md="start" justify="center" class="text-center">
       <h2>Avis</h2>
     </v-row>
 
-    <v-row class="px-4">
-      <v-container v-for="(_, i) in reviews" :key="i">
+    <v-row v-for="(_, i) in reviews" :key="i" class="px-md-4">
+      <v-col>
         <v-row>
           <review-profile :review="review"> </review-profile>
         </v-row>
@@ -16,18 +16,20 @@
           </p>
         </v-row>
 
-        <v-row v-if="i != reviews.length - 1" class="my-4">
+        <v-row v-if="i != reviews.length - 1" class="my-md-4">
           <v-divider></v-divider>
         </v-row>
-      </v-container>
+      </v-col>
     </v-row>
 
-    <v-row class="ma-2">
+    <v-row class="ma-md-2">
       <v-divider></v-divider>
     </v-row>
 
     <v-row class="justify-center">
-      <v-btn color="primary" rounded outlined> Afficher plus d'avis </v-btn>
+      <v-btn color="primary" rounded outlined>
+        {{ $t('components.review.displayMore') }}
+      </v-btn>
     </v-row>
   </v-container>
 </template>

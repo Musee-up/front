@@ -1,7 +1,8 @@
 <template>
   <v-container
     v-if="experience && experience.guide"
-    class="pa-8 justify-center">
+    class="pa-8 justify-center"
+  >
     <v-row class="justify-center">
       <v-col class="text-left">
         <h1 class="dark--text" style="font-size: 40px">
@@ -13,29 +14,28 @@
     <v-row justify="center">
       <experience-group-slide
         v-if="experience.photos"
-        :photos="experience.photos" />
+        :photos="experience.photos"
+      />
     </v-row>
 
     <v-divider class="my-9"></v-divider>
 
     <v-row>
-      <v-col
-        cols="12"
-        md="8">
+      <v-col cols="12" md="8">
         <experience-attributes :attributes="experiencesAttributes" />
-          <v-divider class="my-9"></v-divider>
+        <v-divider class="my-9"></v-divider>
 
-          <v-row>
-            <h3 class="black--text py-4">
-              {{ $t("Présentation de l'experience") }}
-            </h3>
-            <p class="exp-description description-list--text">
-              {{ experience.description }}
-            </p>
-          </v-row>
+        <v-row>
+          <h3 class="black--text py-4">
+            {{ $t("Présentation de l'experience") }}
+          </h3>
+          <p class="exp-description description-list--text">
+            {{ experience.description }}
+          </p>
+        </v-row>
 
-          <v-divider class="my-9"></v-divider>
-          <experience-guide-profile :guide="experience.guide" />
+        <v-divider class="my-9"></v-divider>
+        <experience-guide-profile :guide="experience.guide" />
       </v-col>
 
       <v-col class="mx-4">
@@ -44,7 +44,7 @@
             :experience="experience"
             :slots="experience.experienceSlots"
             @picked="onPicked"
-            ></experience-booking-form>
+          ></experience-booking-form>
         </v-row>
       </v-col>
     </v-row>

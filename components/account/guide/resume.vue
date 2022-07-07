@@ -1,24 +1,24 @@
 <template>
   <v-container>
-    <v-row
-      v-for="(item, i) in first"
-      :key="i"
-      class="justify-space-between d-flex"
-    >
-      <v-col cols="5" class="ma-0 mx-2 label">
-        <p style="white-space: nowrap">
+    <v-row v-for="(item, i) in first" :key="i">
+      <v-col cols="5" md="5" class="ma-md-0 mx-md-2">
+        <p>
           {{ $t(item.label) }}
         </p>
       </v-col>
-      <v-col>
+      <v-col v-if="!$vuetify.breakpoint.mobile">
         <v-divider vertical />
       </v-col>
-      <v-col cols="5" class="ma-0 mx-2">
+      <v-col cols="6" md="5" class="ma-md-0 mx-md-2">
         <p>
           {{ $t(item.value) }}
         </p>
       </v-col>
-      <v-divider v-if="i != first.length - 1" class="ma-1"> </v-divider>
+      <v-divider
+        v-if="!$vuetify.breakpoint.mobile && i != first.length - 1"
+        class="ma-1"
+      >
+      </v-divider>
     </v-row>
   </v-container>
 </template>
@@ -32,32 +32,32 @@ export default {
       user: 'user/getCore',
     }),
     first() {
-      return {
-        lastname: {
+      return [
+        {
           label: 'components.account.guide.resume.lastname',
           value: this.user.lastname,
         },
-        firstname: {
+        {
           label: 'components.account.guide.resume.firstname',
           value: this.user.firstname,
         },
-        birthdate: {
+        {
           label: 'Date de naissance',
           value: this.user.birthdate,
         },
-        email: {
+        {
           label: 'components.account.guide.resume.mail',
           value: this.user.email,
         },
-        phone: {
+        {
           label: 'components.account.guide.resume.phone',
           value: this.user.phone,
         },
-        password: {
+        {
           label: 'components.account.guide.resume.password',
           value: '',
         },
-      }
+      ].filter((x) => x.value)
     },
   },
 }

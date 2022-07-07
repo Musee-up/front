@@ -14,7 +14,11 @@ Vous pouvez revenir à la page d’accueil ou accéder au centre d’aide. `,
     delete: 'Supprimer',
   },
   components: {
+    review: {
+      displayMore: " Afficher plus d'avis ",
+    },
     guide: {
+      title: "Les guides Musée'up",
       background: 'Son parcours et ses spécialités',
       abstract: {
         workExperiences: 'Formation et expérience',

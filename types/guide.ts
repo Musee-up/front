@@ -14,16 +14,6 @@ import {
   GuideEntityResponse,
 } from '@/graphql/generated'
 
-// class DAO {
-
-//   fromEntity(entity: any) : any {
-//     return new DAO(
-//       entity?.id || 'noId',
-//       entity?.attributes || {}
-//     )
-//   }
-// }
-
 class Guide implements GuideDAO {
   id?: Maybe<Scalars['ID']>
   background?: Maybe<Scalars['String']>
@@ -34,7 +24,7 @@ class Guide implements GuideDAO {
   favorite_place?: Maybe<FavoritePlaceEntityResponse>
   headline?: Maybe<Scalars['String']>
   interests?: Maybe<Scalars['JSON']>
-  languages?: Maybe<LanguageRelationResponseCollection>
+  languages?: Array<string>
   location?: Maybe<Scalars['String']>
   specialties?: Maybe<Scalars['JSON']>
   updatedAt?: Maybe<Scalars['DateTime']>
@@ -42,10 +32,13 @@ class Guide implements GuideDAO {
   workExperiences?: Maybe<Scalars['JSON']>
 
   static fromEntity(entity: Maybe<GuideEntity> | undefined): Guide {
-    return new Guide(entity?.id || 'noId', entity?.attributes || {})
+    if (!entity) throw new Error('Guide.fromEntity: entity is undefined')
+    if (!entity.id || !entity.attributes)
+      throw new Error('Guide.fromEntity: id or attributes is undefined')
+    return new Guide(entity?.id, entity?.attributes)
   }
 
-  static mapList(guideList: GuideEntityResponseCollection): Guide {
+  static mapList(guideList: GuideEntityResponseCollection): Array<Guide> {
     return guideList.data.map(Guide.fromEntity)
   }
 
@@ -62,11 +55,11 @@ class Guide implements GuideDAO {
     this.specialties = input.specialties
     this.interests = input.interests
     this.location = input.location
-    this.languages = input.languages
+    this.languages = input.languages?.data.map(flattenList).map((x) => x.value)
     this.favorite_place = flatten(input.favorite_place)
     this.experienceSlots = input.experienceSlots
     this.experiences = input.experiences?.data.map(flattenList)
-    this.user = User.map(input.user || {})
+    this.user = User.map(input.user)
   }
 }
 

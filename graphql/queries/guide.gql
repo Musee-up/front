@@ -28,6 +28,7 @@ query guide($id: ID!) {
               lastname
               picture {
                 data {
+                  id
                   attributes {
                     previewUrl
                     formats
@@ -43,6 +44,7 @@ query guide($id: ID!) {
             attributes {
               picture {
                 data {
+                  id
                   attributes {
                     previewUrl
                     formats

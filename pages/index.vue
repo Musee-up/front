@@ -12,12 +12,6 @@
   </v-container>
 </template>
 
-<script>
-export default {
-  layout: ({ isMobile }) => (isMobile ? 'mobile' : 'default'),
-}
-</script>
-
 <style scoped>
 .header {
   background: url('@/static/home_bg.svg');
