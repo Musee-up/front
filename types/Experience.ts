@@ -38,7 +38,8 @@ class Experience implements ExperienceDAO {
   title?: Maybe<Scalars['String']>
   updatedAt?: Maybe<Scalars['DateTime']>
 
-  types?: Maybe<ExperienceTypeRelationResponseCollection>
+  // types?: Maybe<ExperienceTypeRelationResponseCollection>
+  types?: any
   transportation?: Maybe<Enum_Experience_Transportation>
   languages?: Maybe<LanguageRelationResponseCollection>
   themes?: Maybe<ThemeRelationResponseCollection>
@@ -77,8 +78,7 @@ class Experience implements ExperienceDAO {
     // this.localizations = input.localizations?.data.map(flattenList)
     // this.photos = input.photos
     this.photos = input.photos?.data.map(flattenList)
-    this.types = input.types
-    // this.types = input.types?.data.map(flatten)
+    this.types = input.types?.data.map(flatten)
     if (input.guide) {
       this.guide = Guide.map(input.guide)
     }

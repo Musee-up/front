@@ -1,0 +1,15 @@
+fragment CoreUser on UsersPermissionsUser {
+  location
+  firstname
+  lastname
+  email
+  phone
+  location
+  picture {
+    data {
+      attributes {
+        formats
+      }
+    }
+  }
+}

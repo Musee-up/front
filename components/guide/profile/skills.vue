@@ -55,7 +55,7 @@ export default {
           list: this.guide?.interests,
           icon: 'mdi-cards-heart-outline',
         },
-      ].filter((x) => x.list.length),
+      ].filter((x) => x.list?.length),
     }
   },
 }

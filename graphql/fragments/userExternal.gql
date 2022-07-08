@@ -1,0 +1,10 @@
+#import "./CoreUser.gql"
+
+fragment ExternalUser on UsersPermissionsUserEntityResponse {
+  data {
+    id
+    attributes {
+      ...CoreUser
+    }
+  }
+}

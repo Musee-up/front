@@ -1,25 +1,7 @@
+#import "../fragments/AbstractGuidePart.gql"
+
 query ExampleQuery {
   guides {
-    data {
-      id
-      attributes {
-        location
-        user {
-          data {
-            attributes {
-              firstname
-              lastname
-              picture {
-                data {
-                  attributes {
-                    formats
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    ...AbstractGuidePart
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="guide">
+  <v-container v-if="user">
     <v-row>
       <h3 class="title--text">
         {{ $t('components.account.client.bookings.guide.title') }}
@@ -10,10 +10,10 @@
       <v-col cols="12" md="2">
         <v-avatar width="100" height="100">
           <nuxt-img
-            v-if="guide.photo"
+            v-if="user.photo"
             width="100"
             height="100"
-            :src="guide.photo"
+            :src="user.photo"
           ></nuxt-img>
           <v-icon v-else x-large> mdi-account-circle </v-icon>
         </v-avatar>
@@ -21,11 +21,11 @@
 
       <v-col class="exp-list">
         <v-row>
-          <h4 class="exp-title">{{ guide.firstname }} {{ guide.lastname }}</h4>
+          <h4 class="exp-title">{{ user.firstname }} {{ user.lastname }}</h4>
         </v-row>
         <v-row class="exp-attribute font-weight-bold">
           <p>
-            {{ guide.role }}
+            {{ user.role }}
           </p>
         </v-row>
 
@@ -33,14 +33,14 @@
           <v-col>
             <p class="primary--text">
               <v-icon color="primary">mdi-phone</v-icon>
-              {{ guide.phone }}
+              {{ user.phone }}
             </p>
           </v-col>
 
           <v-col>
             <p class="primary--text">
               <v-icon color="primary"> mdi-email </v-icon>
-              {{ guide.email }}
+              {{ user.email }}
             </p>
           </v-col>
         </v-row>
@@ -58,8 +58,18 @@
 </template>
 
 <script>
+import User from '@/types/User'
 export default {
-  props: ['guide', 'id'],
+  props: {
+    user: {
+      type: User,
+      required: true,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+  },
 }
 </script>
 

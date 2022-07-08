@@ -1,0 +1,18 @@
+fragment FavoritePlace on GuideRelationResponse {
+  data {
+    id
+    attributes {
+      title
+      description
+      picture {
+        data {
+          id
+          attributes {
+            previewUrl
+            formats
+          }
+        }
+      }
+    }
+  }
+}

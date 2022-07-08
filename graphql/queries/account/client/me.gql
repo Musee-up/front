@@ -1,95 +1,25 @@
-query usersPermissionsUser($id: ID!) {
+#import "../../../fragments/bookingExperience.gql"
+#import "../../../fragments/ExperienceSlotPart.gql"
+#import "../../../fragments/CoreUser.gql"
+
+query user($id: ID!) {
   usersPermissionsUser(id: $id) {
     data {
       id
       attributes {
-        location
-        firstname
-        lastname
-        email
-        phone
-        location
+        ...CoreUser
         bookings {
           data {
             id
             attributes {
+              size
               experience_slot {
-                data {
-                  id
-                  attributes {
-                    start
-                    end
-                  }
-                }
+                ...ExperienceSlotPart
               }
               experience {
-                data {
-                  id
-                  attributes {
-                    photos {
-                      data {
-                        attributes {
-                          url
-                        }
-                      }
-                    }
-                    duration
-                    price
-                    description
-                    transportation
-                    title
-                    stars
-                    handifriendly
-                    languages {
-                      data {
-                        id
-                        attributes {
-                          value
-                        }
-                      }
-                    }
-                    themes {
-                      data {
-                        id
-                        attributes {
-                          name
-                        }
-                      }
-                    }
-                    location
-                    types {
-                      data {
-                        id
-                        attributes {
-                          name
-                        }
-                      }
-                    }
-                    guide {
-                      data {
-                        id
-                        attributes {
-                          user {
-                            data {
-                              id
-                              attributes {
-                                username
-                                email
-                                firstname
-                                lastname
-                                phone
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
+                ...BookingExperience
               }
-              size
             }
-            id
           }
         }
       }

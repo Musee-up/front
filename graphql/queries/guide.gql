@@ -1,75 +1,26 @@
 #import "../fragments/CoreExperiencePart.gql"
+#import "../fragments/FavoritePlace.gql"
+#import "../fragments/CoreUser.gql"
 
 query guide($id: ID!) {
   guide(id: $id) {
     data {
       id
       attributes {
-        background
-        headline
-        description
-        location
-        workExperiences
-        specialties
-        interests
-        languages {
-          data {
-            id
-            attributes {
-              value
-            }
-          }
-        }
+        ...GuideProfile
+        # languages {
+        # }
         user {
-          data {
-            id
-            attributes {
-              firstname
-              lastname
-              picture {
-                data {
-                  id
-                  attributes {
-                    previewUrl
-                    formats
-                  }
-                }
-              }
-            }
-          }
+          ...ExternalUser
         }
         favorite_place {
-          data {
-            id
-            attributes {
-              picture {
-                data {
-                  id
-                  attributes {
-                    previewUrl
-                    formats
-                  }
-                }
-              }
-              title
-              description
-            }
-          }
+          ...FavoritePlace
         }
         experiences {
           data {
             id
             attributes {
               ...CoreExperiencePart
-              photos {
-                data {
-                  id
-                  attributes {
-                    previewUrl
-                    formats
-                  }
-                }
-              }
             }
           }
         }

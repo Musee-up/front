@@ -2,14 +2,14 @@
   <v-container>
     <v-row>
       <v-col
-        v-for="experience in experiences"
-        :key="experience.id"
+        v-for="{ experience, id } in bookings"
+        :key="id"
         cols="12"
         md="4"
         class="pa-md-4"
       >
         <v-card elevation="0" class="mx-auto rounded-xl">
-          <nuxt-link :to="`/account/client/bookings/${experience.id}`">
+          <nuxt-link :to="`/account/client/bookings/${id}`">
             <like-overview :width="width" photo="/exp_photo.png">
             </like-overview>
           </nuxt-link>
@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      experiences: 'user/getBookingExperiences',
+      bookings: 'user/getBookings',
     }),
   },
 }

@@ -36,7 +36,8 @@ export default {
         {
           component: 'account-client-bookings-guide',
           data: {
-            guide: this.guide,
+            user: this.guide.user,
+            id: this.guide.id,
           },
         },
         {
@@ -75,7 +76,7 @@ export default {
             experience: this.experience,
           },
         },
-      ],
+      ].filter((component) => Object.keys(component.data).length > 0),
     }
   },
 }

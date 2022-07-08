@@ -1,0 +1,31 @@
+#import "./PhotoPart.gql"
+#import "./CoreExperiencePart.gql"
+#import "./CoreUser.gql"
+
+fragment BookingExperience on ExperienceEntityResponse {
+  data {
+    id
+    attributes {
+      ...CoreExperiencePart
+      photos {
+        ...PhotoPart
+      }
+      guide {
+        data {
+          id
+          attributes {
+            location
+            user {
+              data {
+                id
+                attributes {
+                  ...CoreUser
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

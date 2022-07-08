@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="booking">
+  <v-container v-if="booking && slot">
     <v-row>
       <v-col cols="12" md="9">
         <v-row justify="center" class="ma-md-4">
@@ -37,7 +37,7 @@
           :e_slot="slot"
           :booking="booking"
           :experience="experience"
-          :guide="guide"
+          :guide="slot.guide"
         >
         </account-client-bookings-summary>
       </v-col>
@@ -82,10 +82,6 @@ export default {
   layout: 'account-client',
   data() {
     return {
-      guide: null,
-      experience: null,
-      booking: null,
-      slot: null,
       leftnav: [],
     }
   },
@@ -93,21 +89,23 @@ export default {
     ...mapGetters({
       getBooking: 'user/getBooking',
     }),
+    booking() {
+      const booking = this.getBooking(this.$route.params.id)
+      return booking
+    },
+    slot() {
+      return this.booking?.slot
+    },
+    experience() {
+      return this.booking?.experience
+    },
   },
   mounted() {
-    this.booking = this.getBooking(this.$route.params.id)
-
-    console.log(this.booking)
-
-    if (!this.booking) return
-
-    this.slot = this.booking.slot
-    console.log(this.slot)
-
-    this.experience = this.booking.experience
+    if (!this.slot) return
+    const date = this.$moment(this.slot.start).format('DD MMMM YYYY')
     this.leftnav = [
       {
-        text: this.$moment(this.slot.start).format('DD MMMM YYYY'),
+        text: date,
         icon: 'mdi-calendar',
       },
       {

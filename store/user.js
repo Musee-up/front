@@ -17,7 +17,6 @@ const load = (client, { commit }, query, id) => {
     })
     .then((query) => {
       const core = query.data.usersPermissionsUser
-      console.log(core)
       commit('setMyself', core)
       return core
     })
@@ -55,6 +54,7 @@ export const mutations = {
 }
 
 export const getters = {
+  getBookingsExperience: (state) => state.me.bookings?.map((x) => x.experience),
   getBookings: (state) => state.me.bookings,
   getBooking: (state) => (id) => {
     if (!state.me.bookings) return

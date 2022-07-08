@@ -1,0 +1,13 @@
+#import "./userExternal.gql"
+
+fragment AbstractGuidePart on GuideEntityResponse {
+  data {
+    id
+    attributes {
+      location
+      user {
+        ...ExternalUser
+      }
+    }
+  }
+}

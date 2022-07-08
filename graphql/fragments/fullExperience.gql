@@ -1,0 +1,35 @@
+#import "./ThemePart.gql"
+#import "./LanguagePart.gql"
+#import "./CoreExperiencePart.gql"
+#import "./ExperienceTypePart.gql"
+
+fragment FullExperience on ExperienceEntityResponse {
+  data {
+    id
+    attributes {
+      ...CoreExperiencePart
+      themes {
+        ...ThemePart
+      }
+      languages {
+        ...LanguagePart
+      }
+      types {
+        ...ExperienceTypePart
+      }
+      # guide {
+      #   data {
+      #     id
+      #     attributes {
+      #       user {
+      #         ...CoreUser
+      #       }
+      #     }
+      #   }
+      # }
+      # experienceSlots {
+      #   ...ExperienceSlotPart
+      # }
+    }
+  }
+}

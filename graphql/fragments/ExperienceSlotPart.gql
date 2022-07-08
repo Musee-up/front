@@ -1,15 +1,16 @@
-#import "./CoreExperiencePart.gql"
-
-fragment ExperienceSlotPart on ExperienceSlotEntity {
-  id
-  attributes {
-    start
-    end
-    experience {
-      data {
-        id
-        attributes {
-          ...CoreExperiencePart
+#import "./AbstractGuidePart.gql"
+fragment ExperienceSlotPart on ExperienceSlotEntityResponse {
+  data {
+    id
+    attributes {
+      start
+      end
+      guide {
+        ...AbstractGuidePart
+      }
+      experience {
+        data {
+          id
         }
       }
     }

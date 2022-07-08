@@ -16,6 +16,7 @@ const load = (client, { commit }, query, id) => {
       },
     })
     .then((query) => {
+      console.log(query)
       const guide = Guide.map(query.data.guide)
       commit('setGuide', guide)
       return guide
@@ -51,7 +52,8 @@ export const actions = {
 
   async load({ dispatch, commit }, id) {
     const client = await dispatch('user/loadGuide', id, { root: true })
-    commit('setGuide', Guide.map(client?.guide))
+    console.log(client)
+    commit('setGuide', Guide.map(client.data.attributes.guide))
   },
 }
 

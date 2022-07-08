@@ -6,15 +6,6 @@ query homeExperience {
       id
       attributes {
         ...CoreExperiencePart
-        photos {
-          data {
-            id
-            attributes {
-              previewUrl
-              formats
-            }
-          }
-        }
       }
     }
   }

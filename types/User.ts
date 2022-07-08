@@ -34,7 +34,7 @@ class User implements UserDAO {
 
   static fromEntity(
     entity: Maybe<UsersPermissionsUserEntity> | undefined
-  ): User | void {
+  ): User {
     if (!entity) throw new Error('User.fromEntity: entity is undefined')
     if (!entity.id || !entity.attributes)
       throw new Error('User.fromEntity: id or attributes is undefined')
@@ -54,11 +54,9 @@ class User implements UserDAO {
   }
 
   constructor(id: Maybe<Scalars['ID']>, input: UserDAO) {
-    console.log(input)
     this.id = id
-    this.bookings = Booking.mapList(input.bookings)
     this.blocked = input.blocked
-    this.confirmed = input.confirmed
+    // this.confirmed = input.confirmed
     this.createdAt = input.createdAt
     this.email = input.email
     this.firstname = input.firstname
@@ -70,6 +68,7 @@ class User implements UserDAO {
     this.updatedAt = input.updatedAt
     this.username = input.username
     this.picture = flatten(input.picture)
+    if (input.bookings) this.bookings = Booking.mapList(input.bookings)
   }
 }
 

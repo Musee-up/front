@@ -1,116 +1,14 @@
-#import "../../../fragments/CoreExperiencePart.gql"
+#import "../../../fragments/CoreGuidePart.gql"
+#import "../../../fragments/CoreUser.gql"
 
-query usersPermissionsUser($id: ID!) {
+query guideAccount($id: ID!) {
   usersPermissionsUser(id: $id) {
     data {
       id
       attributes {
-        picture {
-          data {
-            attributes {
-              previewUrl
-              formats
-            }
-          }
-        }
-        location
-        firstname
-        lastname
-        email
-        phone
-        location
+        ...CoreUser
         guide {
-          data {
-            id
-            attributes {
-              user {
-                data {
-                  id
-                  attributes {
-                    firstname
-                    lastname
-                    picture {
-                      data {
-                        attributes {
-                          previewUrl
-                          formats
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              location
-              headline
-              description
-              background
-              workExperiences
-              specialties
-              interests
-              favorite_place {
-                data {
-                  id
-                  attributes {
-                    title
-                    description
-                  }
-                }
-              }
-              languages {
-                data {
-                  id
-                  attributes {
-                    value
-                  }
-                }
-              }
-              experiences {
-                data {
-                  id
-                  attributes {
-                    ...CoreExperiencePart
-                  }
-                }
-              }
-              experienceSlots {
-                data {
-                  id
-                  attributes {
-                    experience {
-                      data {
-                        id
-                        attributes {
-                          title
-                        }
-                      }
-                    }
-                    start
-                    end
-                    bookings {
-                      data {
-                        id
-                        attributes {
-                          size
-                          user {
-                            data {
-                              id
-                              attributes {
-                                username
-                                email
-                                phone
-                                firstname
-                                lastname
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+          ...CoreGuidePart
         }
       }
     }

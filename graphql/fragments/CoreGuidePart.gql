@@ -1,0 +1,65 @@
+#import "./CoreExperiencePart.gql"
+#import "./GuideProfile.gql"
+
+fragment CoreGuidePart on GuideEntityResponse {
+  data {
+    id
+    attributes {
+      ...GuideProfile
+      favorite_place {
+        data {
+          id
+          attributes {
+            title
+            description
+          }
+        }
+      }
+      experiences {
+        data {
+          id
+          attributes {
+            ...CoreExperiencePart
+          }
+        }
+      }
+      experienceSlots {
+        data {
+          id
+          attributes {
+            experience {
+              data {
+                id
+                attributes {
+                  title
+                }
+              }
+            }
+            start
+            end
+            bookings {
+              data {
+                id
+                attributes {
+                  size
+                  user {
+                    data {
+                      id
+                      attributes {
+                        username
+                        email
+                        phone
+                        firstname
+                        lastname
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -31,7 +31,8 @@
               {{ experience.location }}
               /
               {{
-                experience.types.data.map((x) => x.attributes.name).join(', ')
+                experience.types &&
+                experience.types.map((x) => x.name).join(', ')
               }}
             </small>
           </p>

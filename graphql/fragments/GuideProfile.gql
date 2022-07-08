@@ -1,0 +1,17 @@
+#import "./userExternal.gql"
+#import "./CoreUser.gql"
+
+fragment GuideProfile on Guide {
+  background
+  headline
+  description
+  location
+  workExperiences
+  specialties
+  interests
+  location
+
+  user {
+    ...ExternalUser
+  }
+}
