@@ -3,6 +3,6 @@
 fragment GuideResponse on GuideEntityResponse {
   data {
     id
-    ... Guide
+    ...Guide
   }
 }

@@ -9,7 +9,6 @@ fragment GuideProfile on Guide {
   specialties
   interests
   location
-
   user {
     ...ExternalUser
   }

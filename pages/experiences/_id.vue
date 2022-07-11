@@ -40,12 +40,11 @@
 
       <v-col class="mx-4">
         <v-row class="justify-end">
-          {{ experience }}
-          <!-- <experience-booking-form -->
-          <!--   :experience="experience" -->
-          <!--   :slots="experience.experienceSlots" -->
-          <!--   @picked="onPicked" -->
-          <!-- ></experience-booking-form> -->
+          <experience-booking-form
+            :experience="experience"
+            :slots="experience.slots"
+            @picked="onPicked"
+          ></experience-booking-form>
         </v-row>
       </v-col>
     </v-row>

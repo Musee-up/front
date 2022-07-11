@@ -1,5 +1,6 @@
 import { flatten, flattenList } from './tools'
 import Guide from './Guide'
+import Slot from './Slot'
 import {
   Scalars,
   Maybe,
@@ -23,7 +24,7 @@ class Experience implements ExperienceDAO {
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
   duration?: Maybe<Scalars['Time']>
-  experienceSlots?: Maybe<ExperienceSlotRelationResponseCollection>
+  slots?
   groupSize?: Maybe<Scalars['Int']>
   guide?: Guide
   handifriendly?: Maybe<Scalars['Boolean']>
@@ -61,7 +62,6 @@ class Experience implements ExperienceDAO {
     this.createdAt = input.createdAt
     this.description = input.description
     this.duration = input.duration
-    this.experienceSlots = input.experienceSlots
     this.groupSize = input.groupSize
     this.handifriendly = input.handifriendly
     this.language = input.language
@@ -79,6 +79,10 @@ class Experience implements ExperienceDAO {
     // this.photos = input.photos
     this.photos = input.photos?.data.map(flattenList)
     this.types = input.types?.data.map(flatten)
+
+    if (input.experienceSlots) {
+      this.slots = Slot.mapList(input.experienceSlots)
+    }
     if (input.guide) {
       this.guide = Guide.map(input.guide)
     }

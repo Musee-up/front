@@ -1,7 +1,7 @@
 import { flatten } from './tools'
 import User from './User'
 import Experience from './Experience'
-import ExperienceSlot from './ExperienceSlot'
+import Slot from './Slot'
 
 import {
   Scalars,
@@ -17,7 +17,7 @@ class Booking {
   id?: Maybe<Scalars['ID']>
   // createdAt?: Maybe<Scalars['DateTime']>
   experience?: Experience
-  slot?: ExperienceSlot
+  slot?: Slot
   size?: Maybe<Scalars['Int']>
   // updatedAt?: Maybe<Scalars['DateTime']>
   // user?: User
@@ -39,7 +39,7 @@ class Booking {
   constructor(id: Maybe<Scalars['ID']>, input: BookingDAO) {
     this.id = id
     this.experience = Experience.map(input.experience)
-    this.slot = ExperienceSlot.map(input.experience_slot)
+    this.slot = Slot.map(input.experience_slot)
     this.size = input.size
     // this.user = User.map(input.user)
   }

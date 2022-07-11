@@ -55,8 +55,8 @@ import Experience from '@/types/Experience'
 export default {
   props: {
     slots: {
-      type: Object,
-      default: () => ({}),
+      type: Array,
+      required: true,
     },
     experience: {
       type: Experience,
@@ -91,7 +91,7 @@ export default {
   },
   mounted() {
     this.dates = this.slots.map((x) =>
-      this.$moment(x.attributes.start).format('YYYY-MM-DD')
+      this.$moment(x.start).format('YYYY-MM-DD')
     )
   },
   methods: {

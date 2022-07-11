@@ -37,7 +37,9 @@ class ExperienceSlot implements ExperienceSlotDAO {
     return new ExperienceSlot(entity.id, entity.attributes)
   }
 
-  static mapList(list: ExperienceSlotEntityResponseCollection): ExperienceSlot {
+  static mapList(
+    list: ExperienceSlotRelationResponseCollection
+  ): ExperienceSlot {
     return list.data.map(ExperienceSlot.fromEntity)
   }
 

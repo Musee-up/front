@@ -36,7 +36,7 @@ import { mapGetters } from 'vuex'
 import deleteSlot from '@/graphql/mutations/Experience/slot/delete'
 import updateExperienceSlot from '@/graphql/mutations/experience/slot/update'
 import experienceSlotQuery from '@/graphql/queries/experienceSlot'
-import ExperienceSlot from '@/types/ExperienceSlot'
+import Slot from '@/types/Slot'
 
 export default {
   props: ['selectedEvent', 'open', 'selectedElement'],
@@ -60,7 +60,7 @@ export default {
         }
       },
       update(data) {
-        const slot = ExperienceSlot.map(data.experienceSlot)
+        const slot = Slot.map(data.experienceSlot)
         return slot.experience?.title || 'No experience'
       },
     },

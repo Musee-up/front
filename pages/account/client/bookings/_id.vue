@@ -121,7 +121,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .photo {
   width: 70%;
 }
