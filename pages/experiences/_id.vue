@@ -40,11 +40,12 @@
 
       <v-col class="mx-4">
         <v-row class="justify-end">
-          <experience-booking-form
-            :experience="experience"
-            :slots="experience.experienceSlots"
-            @picked="onPicked"
-          ></experience-booking-form>
+          {{ experience }}
+          <!-- <experience-booking-form -->
+          <!--   :experience="experience" -->
+          <!--   :slots="experience.experienceSlots" -->
+          <!--   @picked="onPicked" -->
+          <!-- ></experience-booking-form> -->
         </v-row>
       </v-col>
     </v-row>
@@ -73,7 +74,7 @@ export default {
       variables() {
         return { id: parseInt(this.$route.params.id) }
       },
-      update(data) {
+      update(data): Experience {
         const exp = Experience.map(data.experience)
 
         if (!exp) return

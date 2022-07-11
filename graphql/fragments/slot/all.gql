@@ -1,0 +1,10 @@
+#import "./part.gql"
+
+fragment SlotsResponse on ExperienceSlotRelationResponseCollection {
+  data {
+    id
+    attributes {
+      ...Slot
+    }
+  }
+}

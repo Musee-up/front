@@ -1,7 +1,10 @@
+#import "./ExternalUser.gql"
 #import "./ThemePart.gql"
 #import "./LanguagePart.gql"
 #import "./CoreExperiencePart.gql"
 #import "./ExperienceTypePart.gql"
+#import "./guide/one.gql"
+#import "./slot/all.gql"
 
 fragment FullExperience on ExperienceEntityResponse {
   data {
@@ -17,19 +20,12 @@ fragment FullExperience on ExperienceEntityResponse {
       types {
         ...ExperienceTypePart
       }
-      # guide {
-      #   data {
-      #     id
-      #     attributes {
-      #       user {
-      #         ...CoreUser
-      #       }
-      #     }
-      #   }
-      # }
-      # experienceSlots {
-      #   ...ExperienceSlotPart
-      # }
+      guide {
+        ...GuideResponse
+      }
+      experienceSlots {
+        ...SlotsResponse
+      }
     }
   }
 }

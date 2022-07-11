@@ -1,6 +1,6 @@
 #import "../fragments/CoreExperiencePart.gql"
 #import "../fragments/FavoritePlace.gql"
-#import "../fragments/CoreUser.gql"
+#import "../fragments/GuideProfile.gql"
 
 query guide($id: ID!) {
   guide(id: $id) {
@@ -10,9 +10,6 @@ query guide($id: ID!) {
         ...GuideProfile
         # languages {
         # }
-        user {
-          ...ExternalUser
-        }
         favorite_place {
           ...FavoritePlace
         }

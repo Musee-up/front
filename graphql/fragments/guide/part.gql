@@ -1,0 +1,11 @@
+#import "../ExternalUser.gql"
+
+fragment Guide on GuideEntity {
+    id
+    attributes {
+      location
+      user {
+        ...ExternalUser
+      }
+    }
+}

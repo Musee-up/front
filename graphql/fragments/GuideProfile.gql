@@ -1,5 +1,4 @@
-#import "./userExternal.gql"
-#import "./CoreUser.gql"
+#import "./ExternalUser.gql"
 
 fragment GuideProfile on Guide {
   background

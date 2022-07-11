@@ -1,4 +1,4 @@
-fragment FavoritePlace on GuideRelationResponse {
+fragment FavoritePlace on FavoritePlaceEntityResponse {
   data {
     id
     attributes {

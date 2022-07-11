@@ -1,0 +1,7 @@
+#import "./part.gql"
+
+fragment GuidesResponse on GuideEntityResponseCollection {
+  data {
+    ...Guide
+  }
+}

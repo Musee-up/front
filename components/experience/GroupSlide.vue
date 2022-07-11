@@ -75,14 +75,13 @@ export default {
   methods: {
     getSrc(photo) {
       const formats = photo.formats
-      console.log(photo)
       return {
         xs: formats.thumbnail,
         sm: formats.thumbnail,
         md: formats.large,
         lg: formats.large,
         xl: formats.large,
-      }[this.$vuetify.breakpoint.name].url
+      }[this.$vuetify.breakpoint.name]?.url
     },
   },
 }

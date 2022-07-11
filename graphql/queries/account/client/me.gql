@@ -1,6 +1,6 @@
 #import "../../../fragments/bookingExperience.gql"
-#import "../../../fragments/ExperienceSlotPart.gql"
 #import "../../../fragments/CoreUser.gql"
+#import "../../../fragments/slot/one.gql"
 
 query user($id: ID!) {
   usersPermissionsUser(id: $id) {
@@ -14,7 +14,7 @@ query user($id: ID!) {
             attributes {
               size
               experience_slot {
-                ...ExperienceSlotPart
+                ...SlotResponse
               }
               experience {
                 ...BookingExperience

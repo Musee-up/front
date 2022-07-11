@@ -1,8 +1,6 @@
-#import "../fragments/ExperienceSlotPart.gql"
+#import "../fragments/slot/one.gql"
 query experienceSlot($id: ID!) {
   experienceSlot(id: $id) {
-    data {
-      ...ExperienceSlotPart
-    }
+    ...Slot
   }
 }

@@ -1,0 +1,18 @@
+#import "../CoreExperiencePart.gql"
+#import "../guide/one.gql"
+
+fragment Slot on ExperienceSlot {
+  start
+  end
+  guide {
+    ...GuideResponse
+  }
+  experience {
+    data {
+      id
+      attributes {
+        ...CoreExperiencePart
+      }
+    }
+  }
+}

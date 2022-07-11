@@ -1,7 +1,7 @@
-#import "../fragments/AbstractGuidePart.gql"
+#import "../fragments/guide/all.gql"
 
-query ExampleQuery {
+query GuidesIndex {
   guides {
-    ...AbstractGuidePart
+    ...GuidesResponse
   }
 }

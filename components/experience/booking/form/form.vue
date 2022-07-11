@@ -60,6 +60,7 @@ export default {
     },
     experience: {
       type: Experience,
+      required: true,
     },
   },
   data() {
@@ -89,7 +90,7 @@ export default {
     },
   },
   mounted() {
-    this.dates = this.slots.data.map((x) =>
+    this.dates = this.slots.map((x) =>
       this.$moment(x.attributes.start).format('YYYY-MM-DD')
     )
   },

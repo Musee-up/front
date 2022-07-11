@@ -72,11 +72,11 @@ export default {
   props: {
     experience: {
       type: Experience,
-      default: () => ({}),
+      required: true,
     },
     id: {
       type: String,
-      default: '',
+      required: true,
     },
   },
   data() {

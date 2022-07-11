@@ -1,4 +1,5 @@
-#import "../fragments/ExternalExperienceSlot.gql"
+#import "./slot/one.gql"
+
 fragment BookingPart on BookingRelationResponseCollection {
   data {
     id
@@ -8,7 +9,7 @@ fragment BookingPart on BookingRelationResponseCollection {
         ...ExperienceTypePart
       }
       experience_slot {
-        ...ExperienceSlotPart
+        ...Slot
       }
     }
   }

@@ -51,8 +51,7 @@
           <nuxt-img
             v-if="experience.photo"
             :src="experience.photo"
-            class="mx-auto"
-            style="width: 70%"
+            class="mx-auto photo"
           >
           </nuxt-img>
         </v-row>
@@ -122,6 +121,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.photo {
+  width: 70%;
+}
 .my-div {
   width: 11px !important;
 }

@@ -12,7 +12,7 @@
           <nuxt-link :to="`${link}${experience.id}`">
             <like-overview
               v-if="experience.photos.data && experience.photos.data.length"
-              width="288"
+              :width="width"
               :photo="
                 url + experience.photos.data[0].attributes.formats.thumbnail.url
               "
@@ -69,10 +69,10 @@ export default {
     width() {
       return {
         'xs': this.$vuetify.breakpoint.width,
-        'sm': 440,
-        'md': 440,
-        'lg': 440,
-        'xl': 440,
+        'sm': 288,
+        'md': 288,
+        'lg': 288,
+        'xl': 288,
       }[this.$vuetify.breakpoint.name]
     },
   },
