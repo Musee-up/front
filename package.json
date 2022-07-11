@@ -45,7 +45,7 @@
     "apollo-cache-inmemory": "^1.6.6",
     "core-js": "^3.19.3",
     "defu": "^6.0.0",
-    "graphql": "^16.5.0",
+    "graphql": "^15.0.0",
     "graphql-tag": "^2.12.6",
     "lint-staged": "^12.3.7",
     "nuxi": "^3.0.0-rc.4",
