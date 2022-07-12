@@ -14,16 +14,16 @@
             </like-overview>
           </nuxt-link>
 
-          <v-card-title>
+          <v-card-title class="justify-center">
             <h3 class="ml-md-2 my-md-1 title--text">{{ experience.title }}</h3>
           </v-card-title>
           <v-card-text>
-            <v-row>
-              <v-col cols="12">
+            <v-row class="px-md-4">
+              <v-col md="6" cols="12" class="pa-0">
                 <rating :rating="rating"></rating>
               </v-col>
-              <v-col cols="12">
-                <p class="text-center">
+              <v-col md="6" cols="12" class="pa-0 text-center text-md-right">
+                <p class="text-subtitle-2 font-weight-normal">
                   {{
                     $t('components.experience.price', {
                       n: experience.price || 0,
@@ -45,10 +45,6 @@ import { rating } from '@/data/mock.js'
 
 export default {
   props: {
-    link: {
-      type: String,
-      default: '/experience/',
-    },
     width: {
       type: Number,
       default: 467,

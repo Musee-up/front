@@ -34,7 +34,7 @@ export default {
         case 'lg':
           return 240
         case 'xl':
-          return 440
+          return 400
       }
       return 440
     },

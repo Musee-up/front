@@ -21,37 +21,49 @@
             {{ experience.title }}
           </h4>
         </v-row>
-        <v-row class="exp-attribute font-weight-bold">
+        <v-row class="exp-attribute">
           <p>Expérience partagée</p>
         </v-row>
         <v-row class="exp-attribute">
           <p>
             <v-icon small>mdi-map-marker</v-icon>
             <small class="detail--text">
-              {{ experience.location }}
-              /
-              {{
-                experience.types &&
-                experience.types.map((x) => x.name).join(', ')
-              }}
+              {{ `${experience.location} /${types}` }}
             </small>
           </p>
         </v-row>
       </v-col>
-      <v-col class="d-flex align-center action text-center" cols="12" md="4">
+      <v-col cols="12" md="4">
+        <v-row
+          justify="center" justify-md="end"
+          class="text-right">
         <nuxt-link :to="`/experiences/${experience.id}`">
           <base-blue-button>
             {{ $t('components.account.client.bookings.experience.action') }}
           </base-blue-button>
         </nuxt-link>
+
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import Experience from '@/types/Experience'
+
 export default {
-  props: ['experience'],
+  props: {
+    experience: {
+      type: Experience,
+      required: true,
+    },
+  },
+  computed: {
+    types() {
+      return this.experience.types?.map((x) => x.name).join(', ')
+    },
+  },
 }
 </script>
 

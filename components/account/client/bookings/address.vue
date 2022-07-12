@@ -20,7 +20,13 @@
 </template>
 
 <script>
+import Experience from '@/types/Experience'
 export default {
-  props: ['experience'],
+  props: {
+    experience: {
+      type: Experience,
+      required: true,
+    },
+  },
 }
 </script>

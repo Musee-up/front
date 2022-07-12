@@ -2,7 +2,6 @@
   <v-card
     rounded
     class="d-flex flex-column rounded-xl align-center text-center"
-    style="width: 100%"
   >
     <v-card-title>
       <span class="price text-h5 text-center">
@@ -21,7 +20,7 @@
       <v-row class="my-4">
         <experience-booking-form-hour
           v-if="day"
-          style="width: 200px"
+          class="booking"
           :slots="hours"
           @submit="(slot) => (selectedSlot = slot)"
         >
@@ -103,7 +102,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-card {
+  width: 100%;
+}
+
+.booking {
+  width: 200px;
+}
+
 .price {
   white-space: nowrap;
 }
+
 </style>

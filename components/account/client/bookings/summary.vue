@@ -1,13 +1,22 @@
 <template>
   <v-container>
-    <v-row>
-      <h2 class="summary-title my-4 title--text">
+    <v-row
+      justify="center"
+      justify-md="right"
+      class="text-center text-md-right">
+      <h2 class="summary-title my-md-4 title--text">
         {{ $t('pages.account.client.bookings.id.summary') }}
       </h2>
     </v-row>
 
+    <v-row class="my-4">
+      <v-divider></v-divider>
+    </v-row>
     <div v-for="(component, i) in components" :key="i">
-      <v-row class="my-4">
+      <v-row
+        justify="center"
+        justify-md="start"
+        class="my-4">
         <component
           :is="component.component"
           v-bind="component.data"
@@ -22,8 +31,30 @@
 </template>
 
 <script>
+import Experience from '@/types/Experience'
+import Guide from '@/types/Guide'
+import Booking from '@/types/Booking'
+import Slot from '@/types/Slot'
+
 export default {
-  props: ['experience', 'guide', 'booking', 'e_slot'],
+  props:{
+    experience: {
+      type: Experience,
+      required: true,
+    },
+    guide: {
+      type: Guide,
+      required: true,
+    },
+    booking: {
+      type: Booking,
+      required: true,
+    },
+    eSlot: {
+      type: Slot,
+      required: true,
+    },
+  },
   data() {
     return {
       components: [
@@ -43,7 +74,7 @@ export default {
         {
           component: 'account-client-bookings-attributes',
           data: {
-            e_slot: this.e_slot,
+            eSlot: this.eSlot,
           },
         },
         {

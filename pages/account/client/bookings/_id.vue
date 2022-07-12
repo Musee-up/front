@@ -34,7 +34,7 @@
         </v-row>
 
         <account-client-bookings-summary
-          :e_slot="slot"
+          :e-slot="slot"
           :booking="booking"
           :experience="experience"
           :guide="slot.guide"
