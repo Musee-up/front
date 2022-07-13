@@ -54,7 +54,7 @@ export default {
   props: {
     experiences: {
       type: Array as PropType<Array<Experience>>,
-      default: () => [],
+      required: true,
     },
     link: {
       type: String,

@@ -1,18 +1,13 @@
 <template>
   <v-container>
     <v-row>
-      <v-col
-        cols="12"
-        md="2">
+      <v-col cols="12" md="2">
         <base-blue-button>
           {{ $t('components.account.client.bookings.footer.download') }}
         </base-blue-button>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="2"
-        class="align-self-center">
+      <v-col cols="12" md="2" class="align-self-center">
         <account-client-bookings-review-form :booking="{}">
         </account-client-bookings-review-form>
       </v-col>
@@ -21,7 +16,8 @@
         v-for="(item, index) in actions"
         :key="index"
         :md="item.md"
-        cols="12">
+        cols="12"
+      >
         <v-btn text>
           <v-icon :color="item.color" class="mx-2">{{ item.icon }}</v-icon>
           <small :class="item.color + '--text'">{{ $t(item.text) }}</small>

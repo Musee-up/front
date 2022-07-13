@@ -18,6 +18,12 @@
             {{ action.label }}
           </p>
         </v-col>
+        <v-col
+          class="text-center mx-4"
+          style="max-width: max-content"
+          cols="3">
+          <core-client-layout></core-client-layout>
+        </v-col>
       </v-row>
     </v-container>
   </v-footer>

@@ -1,7 +1,10 @@
 <template>
   <v-container class="pa-8">
     <v-row>
-      <v-col cols="2">
+      <v-col
+        order="2"
+        cols="12"
+        md="2">
         <account-guide-dashboard-settings :user="user">
           <p>
             <small class="grey--text">{{ location }}</small>

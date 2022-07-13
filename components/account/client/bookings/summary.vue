@@ -3,7 +3,8 @@
     <v-row
       justify="center"
       justify-md="right"
-      class="text-center text-md-right">
+      class="text-center text-md-right"
+    >
       <h2 class="summary-title my-md-4 title--text">
         {{ $t('pages.account.client.bookings.id.summary') }}
       </h2>
@@ -13,10 +14,7 @@
       <v-divider></v-divider>
     </v-row>
     <div v-for="(component, i) in components" :key="i">
-      <v-row
-        justify="center"
-        justify-md="start"
-        class="my-4">
+      <v-row justify="center" justify-md="start" class="my-4">
         <component
           :is="component.component"
           v-bind="component.data"
@@ -37,7 +35,7 @@ import Booking from '@/types/Booking'
 import Slot from '@/types/Slot'
 
 export default {
-  props:{
+  props: {
     experience: {
       type: Experience,
       required: true,

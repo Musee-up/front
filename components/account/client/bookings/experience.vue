@@ -34,15 +34,12 @@
         </v-row>
       </v-col>
       <v-col cols="12" md="4">
-        <v-row
-          justify="center" justify-md="end"
-          class="text-right">
-        <nuxt-link :to="`/experiences/${experience.id}`">
-          <base-blue-button>
-            {{ $t('components.account.client.bookings.experience.action') }}
-          </base-blue-button>
-        </nuxt-link>
-
+        <v-row justify="center" justify-md="end" class="text-right">
+          <nuxt-link :to="`/experiences/${experience.id}`">
+            <base-blue-button>
+              {{ $t('components.account.client.bookings.experience.action') }}
+            </base-blue-button>
+          </nuxt-link>
         </v-row>
       </v-col>
     </v-row>

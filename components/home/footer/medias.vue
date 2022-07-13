@@ -1,19 +1,31 @@
 <template>
-  <v-col cols="2">
+  <v-col md="2" cols="12">
     <NuxtLink
       tag="img"
       style="height: 3em"
       :src="require('@/static/logo_blue.png')"
       to="/"
-    >
+      >
     </NuxtLink>
 
     <v-row class="description--text pa-4">
       {{ $t('vous rapproche de la culture.') }}
     </v-row>
 
-    <v-row class="d-flex">
-      <v-icon class="px-2" color="blue--text"> mdi-facebook </v-icon>
+    <v-row>
+      <v-col
+        v-for="(item, i) in medias"
+        :key="i"
+        class="pa-0"
+        cols="1"
+        >
+        <nuxt-link :to="item.link">
+          <v-icon class="px-md-2" color="blue--text">
+            {{ item.icon }}
+          </v-icon>
+
+        </nuxt-link>
+      </v-col>
     </v-row>
   </v-col>
 </template>

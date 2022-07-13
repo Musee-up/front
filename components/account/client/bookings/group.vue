@@ -13,12 +13,10 @@
         </v-avatar>
       </v-col>
       <v-col>
-        <v-row
-          justify="center"
-          justify-md="end">
-        <base-blue-button>
-          {{ $t('components.account.client.bookings.group.action') }}
-        </base-blue-button>
+        <v-row justify="center" justify-md="end">
+          <base-blue-button>
+            {{ $t('components.account.client.bookings.group.action') }}
+          </base-blue-button>
         </v-row>
       </v-col>
     </v-row>

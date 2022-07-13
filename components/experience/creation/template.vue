@@ -36,7 +36,7 @@
     <v-divider class="my-9"></v-divider>
 
     <v-row>
-      <v-col cols="6">
+      <v-col cols="12" md="6">
         <experience-creation-attributes
           :att="model_att"
           @update="updateAttribute"

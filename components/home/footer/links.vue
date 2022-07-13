@@ -1,27 +1,27 @@
 <template>
   <v-col md="6" cols="12">
     <v-row>
-      <!-- <v-col -->
-      <!--   v-for="(category, index) in categories" -->
-      <!--   :key="index" -->
-      <!--   > -->
+      <v-col
+        v-for="(category, index) in categories"
+        :key="index"
+        md="4"
+        cols="12"
+        >
 
-      <!--   <v-row> -->
-      <!--     <h1> -->
-      <!--       {{ link.title }} -->
-      <!--     </h1> -->
-      <!--   </v-row> -->
+        <h1 class="back--text">
+          {{ category.title }}
+        </h1>
 
-      <!--   <v-row -->
-      <!--     v-for="(link, i) in category" -->
-      <!--     :key="i" -->
-      <!--     md="4" -->
-      <!--     cols="12" -->
-      <!--     > -->
-
-      <!--     <NuxtLink :to="category.link"> {{ link.title }} </NuxtLink> -->
-      <!--   </v-row> -->
-      <!-- </v-col> -->
+        <v-row
+          v-for="(link, i) in category.links"
+          :key="i"
+          class="my-2"
+          >
+          <NuxtLink :to="link.link">
+          {{ link.title }}
+          </NuxtLink>
+        </v-row>
+      </v-col>
     </v-row>
   </v-col>
 </template>

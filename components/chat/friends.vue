@@ -1,7 +1,7 @@
 <template>
   <v-container class="ma-8">
     <v-row>
-      <v-col cols="3">
+      <v-col cols="12" md="3">
         <v-row>
           <h2>Amis</h2>
         </v-row>

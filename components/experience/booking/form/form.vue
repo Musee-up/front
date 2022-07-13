@@ -113,5 +113,4 @@ export default {
 .price {
   white-space: nowrap;
 }
-
 </style>

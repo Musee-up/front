@@ -3,7 +3,8 @@
     <v-icon :color="color" class="star">mdi-star</v-icon>
     <p
       class="text-subtitle-2 text-center"
-      :class="'rating my-auto ' + (color ? color + '--text' : '')">
+      :class="'rating my-auto ' + (color ? color + '--text' : '')"
+    >
       {{ rating.value }}/5 ({{ rating.length }} avis)
     </p>
   </div>

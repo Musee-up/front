@@ -1,14 +1,15 @@
 <template>
   <v-card class="vouchers rounded-xl" rounded outlined>
-    <v-card-title class="pa-2">
-      <div class="pa-2 d-flex text-center">
-        <h2 class="align-self-center ma-0 mx-2 black--text">
-          {{ title.label }}
-        </h2>
-        <v-icon color="primary" large class="mx-2">
+    <v-card-title class="pa-4 text-center">
+      <h2 class="black--text">
+        {{ title.label }}
+        <v-icon
+          large
+          color="primary"
+          class="mx-2">
           {{ title.icon }}
         </v-icon>
-      </div>
+      </h2>
     </v-card-title>
 
     <v-divider></v-divider>

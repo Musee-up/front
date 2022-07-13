@@ -1,7 +1,11 @@
 <template>
-  <v-container v-if="guide && guide.user" class="justify-center">
-    <v-row class="mt-4">
-      <v-col cols="2" class="abstract mx-6">
+  <v-container
+    v-if="guide && guide.user"
+    class="justify-center">
+    <v-row class="pa-16 pa-md-4 mt-md-4">
+      <v-col
+        cols="12"
+        md="2" class="abstract mx-md-6">
         <v-row class="photo mb-4">
           <nuxt-img
             v-if="guide.user.picture && guide.user.picture.data"
@@ -28,8 +32,14 @@
         </v-row>
       </v-col>
 
-      <v-col cols="7" class="summary">
-        <v-row class="location">
+      <v-col
+        cols="12"
+        md="7"
+        class="summary">
+        <v-row
+          justify-md="start"
+          justify="center"
+          class="location">
           <guide-location
             color="description"
             :guide="guide"
@@ -38,7 +48,10 @@
           </guide-location>
         </v-row>
 
-        <v-row>
+        <v-row
+          justify-md="start"
+          justify="center"
+          class="text-center text-md-right">
           <guide-profile-name
             v-if="guide.user"
             :user="guide.user"
@@ -150,10 +163,6 @@ export default {
 <style lang="css" scoped>
 .abstract > * > * {
   width: 100% !important;
-}
-
-.location-value {
-  font-size: x-small;
 }
 
 .actions > * > * {

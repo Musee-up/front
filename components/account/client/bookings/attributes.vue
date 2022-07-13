@@ -7,25 +7,19 @@
     </v-row>
 
     <v-row justify="start">
-      <v-col
-        cols="12"
-        md="6"
-        class="text-left">
+      <v-col cols="12" md="6" class="text-left">
         <p v-if="eSlot">
           <v-icon color="primary"> mdi-calendar </v-icon>
           {{ date }}
         </p>
       </v-col>
-      <v-col
-        cols="12"
-        md="6"
-        class="text-left">
+      <v-col cols="12" md="6" class="text-left">
         <p class="primary--text">
           {{
-          $t('components.account.client.bookings.attributes.price', {
-          total: booking.total,
-          unit: booking.unitPrice,
-          })
+            $t('components.account.client.bookings.attributes.price', {
+              total: booking.total,
+              unit: booking.unitPrice,
+            })
           }}
         </p>
       </v-col>
@@ -52,9 +46,8 @@ export default {
     }
   },
   computed: {
-    date () {
-      return this.$moment(this.eSlot.start)
-        .format('dddd MM YYYY HH:mm')
+    date() {
+      return this.$moment(this.eSlot.start).format('dddd MM YYYY HH:mm')
     },
   },
 }
