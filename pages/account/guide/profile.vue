@@ -1,11 +1,7 @@
 <template>
-  <v-container
-    v-if="guide && guide.user"
-    class="justify-center">
+  <v-container v-if="guide && guide.user" class="justify-center">
     <v-row class="pa-16 pa-md-4 mt-md-4">
-      <v-col
-        cols="12"
-        md="2" class="abstract mx-md-6">
+      <v-col cols="12" md="2" class="abstract mx-md-6">
         <v-row class="photo mb-4">
           <nuxt-img
             v-if="guide.user.picture && guide.user.picture.data"
@@ -32,14 +28,8 @@
         </v-row>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="7"
-        class="summary">
-        <v-row
-          justify-md="start"
-          justify="center"
-          class="location">
+      <v-col cols="12" md="7" class="summary">
+        <v-row justify-md="start" justify="center" class="location">
           <guide-location
             color="description"
             :guide="guide"
@@ -51,7 +41,8 @@
         <v-row
           justify-md="start"
           justify="center"
-          class="text-center text-md-right">
+          class="text-center text-md-right"
+        >
           <guide-profile-name
             v-if="guide.user"
             :user="guide.user"

@@ -34,7 +34,16 @@
 
 <script>
 export default {
-  props: ['value', 'disabled'],
+  props: {
+    value: {
+      type: Number,
+      default: 0,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       content: this.value,

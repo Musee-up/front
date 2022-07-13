@@ -1,8 +1,6 @@
 <template>
   <v-row>
-    <v-col
-      cols="12"
-      :md="cols.right">
+    <v-col cols="12" :md="cols.right">
       <v-row v-for="(item, i) in right" :key="i" class="my-4">
         <component :is="item" class="right"></component>
       </v-row>
@@ -10,9 +8,7 @@
 
     <v-col> </v-col>
 
-    <v-col
-      cols="12"
-      :md="cols.middle">
+    <v-col cols="12" :md="cols.middle">
       <v-row>
         <account-guide-dashboard-profile :user="user">
         </account-guide-dashboard-profile>

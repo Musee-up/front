@@ -24,10 +24,8 @@ export default{
   props: {
     experiences: {
       type: Array as PropType<Array<Experience>>,
-      default: () => [],
+      required: true
     },
   },
 }
 </script>
-
-<style lang="scss" scoped></style>

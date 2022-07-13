@@ -1,30 +1,30 @@
 [
-	{
-		"label": "pages.account.guide.dashboard",
-		"link": "/account/guide"
-	},
-	{
-		"label": "pages.account.guide.experiences",
-		"link": "/account/guide/experiences"
-	},
-	{
-		"label": "pages.account.guide.calendar",
-		"link": "/account/guide/calendar"
-	},
-	{
-		"label": "pages.account.guide.messages",
-		"link": "/account/guide/messages"
-	},
-	{
-		"label": "pages.account.guide.account",
-		"link": "/account/guide/account"
-	},
-	{
-		"label": "pages.account.guide.publish",
-		"link": "/account/experiences"
-	},
-	{
-		"label": "Mon profile",
-		"link": "/account/guide/profile"
-	}
+  {
+    "label": "pages.account.guide.dashboard",
+    "link": "/account/guide"
+  },
+  {
+    "label": "pages.account.guide.experiences",
+    "link": "/account/guide/experiences"
+  },
+  {
+    "label": "pages.account.guide.calendar",
+    "link": "/account/guide/calendar"
+  },
+  {
+    "label": "pages.account.guide.messages",
+    "link": "/account/guide/messages"
+  },
+  {
+    "label": "pages.account.guide.account",
+    "link": "/account/guide/account"
+  },
+  {
+    "label": "pages.account.guide.publish",
+    "link": "/account/experiences"
+  },
+  {
+    "label": "Mon profile",
+    "link": "/account/guide/profile"
+  }
 ]

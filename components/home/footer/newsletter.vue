@@ -1,7 +1,5 @@
 <template>
-  <v-col
-    cols="12"
-    md="3">
+  <v-col cols="12" md="3">
     <v-list>
       <v-list-item>
         {{ $t('Abonnez vous a la newsletter!') }}
@@ -19,13 +17,11 @@
               color="$white"
               class="description--text"
               label="Écrivez votre mail ici..."
-              ></v-text-field>
+            ></v-text-field>
           </v-col>
 
           <v-col cols="12" md="6">
-            <v-row
-              align="center"
-              justify="center">
+            <v-row align="center" justify="center">
               <base-blue-button>
                 {{ $t("S'abonner") }}
               </base-blue-button>

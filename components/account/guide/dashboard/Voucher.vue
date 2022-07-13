@@ -3,10 +3,7 @@
     <v-card-title class="pa-4 text-center">
       <h2 class="black--text">
         {{ title.label }}
-        <v-icon
-          large
-          color="primary"
-          class="mx-2">
+        <v-icon large color="primary" class="mx-2">
           {{ title.icon }}
         </v-icon>
       </h2>

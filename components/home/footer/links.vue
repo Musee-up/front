@@ -6,19 +6,14 @@
         :key="index"
         md="4"
         cols="12"
-        >
-
+      >
         <h1 class="back--text">
           {{ category.title }}
         </h1>
 
-        <v-row
-          v-for="(link, i) in category.links"
-          :key="i"
-          class="my-2"
-          >
+        <v-row v-for="(link, i) in category.links" :key="i" class="my-2">
           <NuxtLink :to="link.link">
-          {{ link.title }}
+            {{ link.title }}
           </NuxtLink>
         </v-row>
       </v-col>
