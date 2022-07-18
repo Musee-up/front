@@ -1,5 +1,6 @@
 <template>
   <experience-list-horizontal
+    v-if="experiences"
     link="/account/experiences/"
     :experiences="experiences"
   ></experience-list-horizontal>

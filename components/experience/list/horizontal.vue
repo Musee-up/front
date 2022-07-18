@@ -1,24 +1,21 @@
 <template>
   <v-container>
-    <v-row
-      v-if="experiences"
-      >
+    <v-row v-if="experiences">
       <v-col
         v-for="(experience, i) in experiences.slice(0, 2)"
         :key="i"
         cols="12"
         md="4"
         class="pa-4"
-        >
+      >
         <v-card elevation="0" class="mx-auto rounded-xl">
           <nuxt-link :to="`${link}${experience.id}`">
-            {{ photo }}
-            <!-- <like-overview -->
-            <!--   v-if="photo" -->
-            <!--   :width="width" -->
-            <!--   :photo="photo" -->
-            <!-- > -->
-            <!-- </like-overview> -->
+            <like-overview
+              v-if="photo"
+              :width="width"
+              :photo="photo(experience)"
+            >
+            </like-overview>
           </nuxt-link>
 
           <v-card-title>
@@ -32,9 +29,9 @@
               <v-col>
                 <p class="text-center">
                   {{
-                  $t('components.experience.price', {
-                  n: experience.price || 0,
-                  })
+                    $t('components.experience.price', {
+                      n: experience.price || 0,
+                    })
                   }}
                 </p>
               </v-col>
@@ -68,13 +65,16 @@ export default {
     url: process.env.API_URL,
   }),
   computed: {
-    photo () {
-      const photos = this.experience.photos
-      if (!photos?.data?.length) return;
-      return this.url + photos.data[0].attributes.formats.thumbnail.url
-    },
     width() {
       return verticalWidth(this.$vuetify.breakpoint);
+    },
+  },
+  methods: {
+    photo(experience) {
+      console.log(experience);
+      const photos = experience.photos
+      if (!photos?.length) return;
+      return this.url + photos[0].formats.thumbnail.url
     },
   },
 }

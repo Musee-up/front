@@ -1,5 +1,11 @@
 <template>
-  <v-footer app center flat bottom outlined fixed class="pa-0 pt-4">
+  <v-footer
+    padless
+    app
+    bottom
+    outlined
+    fixed
+    class="pa-0 pt-4">
     <v-container fluid class="pa-0">
       <v-row justify="center">
         <v-col

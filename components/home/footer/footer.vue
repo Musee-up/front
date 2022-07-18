@@ -1,5 +1,5 @@
 <template>
-  <v-footer app center flat bottom fixed absolute>
+  <v-footer app center flat bottom absolute>
     <v-container fluid class="justify-space-between pa-4">
       <v-divider class="my-4"></v-divider>
       <v-row justify="center">

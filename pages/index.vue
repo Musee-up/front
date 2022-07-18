@@ -12,11 +12,14 @@
   </v-container>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .header {
   background: url('@/static/home_bg.svg');
   background-size: cover;
   height: 905px;
+  @include for-phone-only {
+    height: 500px;
+  }
 }
 
 .wrapper {

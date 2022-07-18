@@ -72,6 +72,8 @@ export default defineNuxtConfig({
     url: `${backendUrl}/api`,
   },
   apollo: {
+    errorHandler: '~/plugins/apollo-error-handler.js',
+
     clientConfigs: {
       default: {
         httpEndpoint: `${backendUrl}/graphql`,

@@ -3,7 +3,6 @@
     <v-app-bar v-if="!$vuetify.breakpoint.mobile" class="nav-bar">
       <v-container>
         <v-row>
-          <v-col></v-col>
           <v-col v-for="(item, index) in links" :key="index">
             <nuxt-link :to="item.link">
               <p>
@@ -11,7 +10,6 @@
               </p>
             </nuxt-link>
           </v-col>
-          <v-col></v-col>
         </v-row>
         <v-spacer></v-spacer>
       </v-container>

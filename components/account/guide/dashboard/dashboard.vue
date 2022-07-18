@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row class="px-4">
     <v-col cols="12" :md="cols.right">
       <v-row v-for="(item, i) in right" :key="i" class="my-4">
         <component :is="item" class="right"></component>

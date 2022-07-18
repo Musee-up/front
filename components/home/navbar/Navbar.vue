@@ -25,7 +25,7 @@
       </v-col>
 
       <v-col>
-        <v-menu pa-0 ma-0 offset-y>
+        <v-menu offset-y>
           <template #activator="{ on, attrs }">
             <v-btn
               style="background-color: transparent"

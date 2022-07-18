@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="my-2 d-flex">
-    <v-row justify="center" class="px-12 justify-space-between">
+    <v-row justify="center" class="px-md-12 justify-space-between">
       <v-col cols="12" md="2">
         <v-row justify="center">
           <nuxt-img
@@ -47,14 +47,12 @@ export default {
   computed: {
     width() {
       return verticalWidth(
-        this.$vuetify.breakpoint.name,
-        this.$vuetify.breakpoint.width
+        this.$vuetify.breakpoint
       )
     },
     height() {
       return verticalHeight(
-        this.$vuetify.breakpoint.name,
-        this.$vuetify.breakpoint.width
+        this.$vuetify.breakpoint
       )
     },
     date() {

@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import Experience from '@/types/Experience'
 import experienceQuery from '@/graphql/queries/experienceHome'
 
 export default {
@@ -21,11 +22,7 @@ export default {
     experiences: {
       query: experienceQuery,
       update(query) {
-        const experiences = query.experiences.data.map((experience) => ({
-          id: experience.id,
-          ...experience.attributes,
-        }))
-        return experiences
+        return Experience.mapList(query.experiences)
       },
     },
   },

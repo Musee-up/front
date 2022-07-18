@@ -1,5 +1,7 @@
 import { flatten, flattenList } from './tools'
 import User from './User'
+import Experience from './Experience'
+
 import {
   // ExperienceRelationResponseCollection,
   FavoritePlaceEntityResponse,
@@ -58,7 +60,9 @@ class Guide implements GuideDAO {
     this.languages = input.languages?.data.map(flattenList).map((x) => x.value)
     this.favorite_place = flatten(input.favorite_place)
     this.experienceSlots = input.experienceSlots
-    this.experiences = input.experiences?.data.map(flattenList)
+    if (input.experiences) {
+      this.experiences = Experience.mapList(input.experiences)
+    }
     this.user = User.map(input.user)
   }
 }

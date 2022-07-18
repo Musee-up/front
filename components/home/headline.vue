@@ -1,7 +1,7 @@
 <template>
   <v-row align="center" justify="center" class="mt-0 mt-md-16">
-    <v-col class="text-center">
-      <v-row>
+    <v-col class="text-center pa-4">
+      <v-row justify="center">
         <h1>
           {{ $t('components.home.headline.create') }}
         </h1>
@@ -19,6 +19,7 @@
 </template>
 
 <style lang="scss" scoped>
+
 .col {
   > * {
     justify-content: center;

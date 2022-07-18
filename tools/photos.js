@@ -1,4 +1,4 @@
-const verticalHeight = ({breakpointName, width}) => {
+const verticalHeight = ({ name, width }) => {
   return {
     // 'xs': width,
     xs: 130,
@@ -6,16 +6,16 @@ const verticalHeight = ({breakpointName, width}) => {
     md: 130,
     lg: 130,
     xl: 130,
-  }[breakpointName]
+  }[name]
 }
 
-const verticalWidth = ({name, width}) => {
+const verticalWidth = ({ name, width }) => {
   return {
     // 'xs': width,
     xs: 240,
     sm: 288,
-    md: 288,
-    lg: 288,
+    md: 238,
+    lg: 238,
     xl: 288,
   }[name]
 }
