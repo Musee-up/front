@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     ],
 
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [{ src: 'https://js.stripe.com/v3/' }],
   },
   env: {
     API_URL: backendUrl,
@@ -72,7 +73,7 @@ export default defineNuxtConfig({
     url: `${backendUrl}/api`,
   },
   apollo: {
-    errorHandler: '~/plugins/apollo-error-handler.js',
+    // errorHandler: '~/plugins/apollo-error-handler.js',
 
     clientConfigs: {
       default: {

@@ -17,8 +17,8 @@
             color="blue"
             :src="require('@/static/logo_white.svg')"
             to="/"
-            width="80%"
-            height="80%"
+            width="80"
+            height="80"
           >
           </NuxtLink>
         </div>

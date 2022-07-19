@@ -12,9 +12,9 @@
         </v-btn>
       </template>
       <v-card @click="dialog = !dialog">
-        <account-guide-navigation-links> </account-guide-navigation-links>
-        <!-- <account-client-navigation-links> -->
-        <!-- </account-client-navigation-links> -->
+        <account-guide-navigation-links v-if="isGuide">
+        </account-guide-navigation-links>
+        <account-client-navigation-links> </account-client-navigation-links>
       </v-card>
       <v-footer fixed>
         <v-spacer></v-spacer>
@@ -27,11 +27,21 @@
 </template>
 
 <script>
+import query from '@/graphql/queries/account/client/role.gql'
+
 export default {
   data() {
     return {
       dialog: false,
     }
+  },
+  apollo: {
+    isGuide: {
+      query,
+      update(data) {
+        return data.me.role.name === 'Guide'
+      },
+    },
   },
   methods: {
     openDialog() {

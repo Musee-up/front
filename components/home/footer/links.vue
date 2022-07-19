@@ -7,11 +7,11 @@
         md="4"
         cols="12"
       >
-      <v-row class="my-2">
-        <h1 class="black--text">
-          {{ category.title }}
-        </h1>
-      </v-row>
+        <v-row class="my-2">
+          <h1 class="black--text">
+            {{ category.title }}
+          </h1>
+        </v-row>
 
         <v-row v-for="(link, i) in category.links" :key="i" class="my-2">
           <NuxtLink :to="link.link">

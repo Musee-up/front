@@ -14,30 +14,28 @@
           </span>
         </v-card-title>
         <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col cols="12" sm="6">
-                <v-text-field
-                  v-model="username"
-                  :label="$t('components.home.navbar.register.firstname') + '*'"
-                  autocomplete="new-firstname"
-                  :rules="rules.name"
-                  required
-                >
-                </v-text-field>
-              </v-col>
-              <v-col cols="12" sm="6">
-                <v-text-field
-                  :label="$t('components.home.navbar.register.lastname') + '*'"
-                  autocomplete="new-lastname"
-                  :rules="rules.name"
-                  required
-                >
-                </v-text-field>
-              </v-col>
-            </v-row>
+          <v-row>
+            <v-col cols="12" sm="6">
+              <v-text-field
+                v-model="username"
+                :label="$t('components.home.navbar.register.firstname') + '*'"
+                autocomplete="new-firstname"
+                :rules="rules.name"
+                required
+              >
+              </v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6">
+              <v-text-field
+                :label="$t('components.home.navbar.register.lastname') + '*'"
+                autocomplete="new-lastname"
+                :rules="rules.name"
+                required
+              >
+              </v-text-field>
+            </v-col>
 
-            <v-row cols="12">
+            <v-col cols="12">
               <v-text-field
                 v-model="email"
                 :label="$t('components.home.navbar.register.email') + '*'"
@@ -48,8 +46,8 @@
                 required
               >
               </v-text-field>
-            </v-row>
-            <v-row cols="12">
+            </v-col>
+            <v-col cols="12">
               <v-text-field
                 v-model="password"
                 :label="$t('components.home.navbar.register.password') + '*'"
@@ -58,8 +56,13 @@
                 required
               >
               </v-text-field>
-            </v-row>
-          </v-container>
+            </v-col>
+            <v-col>
+              <v-checkbox v-model="isGuide" label="Je suis guide">
+                Je suis guide
+              </v-checkbox>
+            </v-col>
+          </v-row>
           <small>
             {{ $t('components.home.navbar.register.description') }}
           </small>
@@ -102,6 +105,8 @@
 </template>
 
 <script>
+import mutation from '@/graphql/mutations/guide/create.gql'
+
 export default {
   data: () => ({
     rules: {
@@ -119,6 +124,7 @@ export default {
         },
       ],
     },
+    isGuide: false,
     username: '',
     email: '',
     password: '',
@@ -127,8 +133,23 @@ export default {
     snackbar: false,
     error: '',
   }),
+  computed: {
+    redirect() {
+      return `/account/` + this.isGuide ? 'guide' : 'client'
+    },
+  },
 
   methods: {
+    createGuide() {
+      this.$apollo.mutate({
+        mutation,
+        variables: {
+          input: {
+            user: this.$strapi.user.id,
+          },
+        },
+      })
+    },
     validate() {
       this.$strapi
         .register({
@@ -138,7 +159,10 @@ export default {
         })
         .then(() => this.$apolloHelpers.onLogin(this.$strapi.getToken()))
         .then(() => {
-          this.router.push('/account/client')
+          if (this.isGuide) this.createGuide()
+        })
+        .then(() => {
+          this.router.push(this.redirect)
         })
         .catch((_) => {
           this.error = 'Invalid email or password'

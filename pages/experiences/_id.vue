@@ -55,6 +55,8 @@
 import experienceQuery from '@/graphql/queries/experienceProfile'
 import Experience from '@/types/Experience'
 
+console.log(experienceQuery)
+
 export default {
   data() {
     return {

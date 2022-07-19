@@ -21,7 +21,7 @@ export default {
     }
   },
   apollo: {
-    experiences(): Array<Experience> {
+    experiences() {
       return {
         query: this.query,
         variables() {
@@ -29,7 +29,7 @@ export default {
             guideID: this.$route.query.guideID,
           }
         },
-        update(query): Array<Experience> {
+        update(query) {
           const experiences = Experience.mapList(query.experiences)
           return experiences
         },

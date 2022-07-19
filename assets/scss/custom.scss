@@ -15,7 +15,7 @@ h1 {
   font-size: 70px;
   @include for-phone-only {
     font-size: 35px;
-	white-space: pre-line !important;
+    white-space: pre-line !important;
   }
 }
 

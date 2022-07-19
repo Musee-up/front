@@ -1,0 +1,7 @@
+mutation ($input: GuideInput!) {
+  createGuide(data: $input) {
+    data {
+      id
+    }
+  }
+}

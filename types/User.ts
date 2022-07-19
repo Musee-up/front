@@ -11,8 +11,9 @@ import {
   UsersPermissionsUserEntityResponseCollection,
 } from '@/graphql/generated'
 
-class User implements UserDAO {
+class User {
   // role?: Maybe<UsersPermissionsRoleEntityResponse>;
+  role?: Maybe<string>
   // rooms?: Maybe<RoomRelationResponseCollection>;
   // friends?: Maybe<UsersPermissionsUserRelationResponseCollection>;
   // guide?: Maybe<GuideEntityResponse>;
@@ -54,9 +55,10 @@ class User implements UserDAO {
   }
 
   constructor(id: Maybe<Scalars['ID']>, input: UserDAO) {
+    // this.confirmed = input.confirmed
+    // this.socketID = input.socketID
     this.id = id
     this.blocked = input.blocked
-    // this.confirmed = input.confirmed
     this.createdAt = input.createdAt
     this.email = input.email
     this.firstname = input.firstname
@@ -64,10 +66,10 @@ class User implements UserDAO {
     this.location = input.location
     this.phone = input.phone
     this.provider = input.provider
-    this.socketID = input.socketID
     this.updatedAt = input.updatedAt
     this.username = input.username
     this.picture = flatten(input.picture)
+    this.role = input.role?.data?.attributes?.name
     if (input.bookings) this.bookings = Booking.mapList(input.bookings)
   }
 }

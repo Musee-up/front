@@ -2,6 +2,7 @@ yarn.lock
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
+bun.lockb
 .output
 .output/*
 /logs

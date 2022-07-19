@@ -1,10 +1,7 @@
 <template>
   <v-container v-if="guide && guide.user" class="justify-center">
     <v-row class="pa-16 pa-md-4 mt-md-4">
-      <v-col
-        order="1"
-        order-md="0"
-        cols="12" md="2" class="abstract mx-md-6">
+      <v-col order="1" order-md="0" cols="12" md="2" class="abstract mx-md-6">
         <v-row class="photo mb-4">
           <nuxt-img
             v-if="guide.user.picture && guide.user.picture.data"
@@ -31,10 +28,7 @@
         </v-row>
       </v-col>
 
-      <v-col
-        order="2"
-        order-md="1"
-        cols="12" md="7" class="summary">
+      <v-col order="2" order-md="1" cols="12" md="7" class="summary">
         <v-row justify-md="start" justify="center" class="location">
           <guide-location
             color="description"
@@ -69,9 +63,7 @@
           </v-row>
         </div>
       </v-col>
-      <v-col
-        order="0"
-        order-md="2">
+      <v-col order="0" order-md="2">
         <v-row>
           <v-btn color="primary" icon @click="edit = !edit">
             <v-icon color="primary">

@@ -1,19 +1,12 @@
 <template>
-  <v-footer
-    padless
-    app
-    bottom
-    outlined
-    fixed
-    class="pa-0 pt-4">
+  <v-footer padless app bottom outlined fixed class="pa-0 pt-4">
     <v-container fluid class="pa-0">
       <v-row justify="center">
         <v-col
           v-for="(action, index) in actions"
           :key="index"
           cols="3"
-          class="text-center pa-0 mx-4"
-          style="max-width: max-content"
+          class="text-center pa-0 mx-4 width-max-content"
         >
           <nuxt-link :to="action.link">
             <v-icon large color="primary">
@@ -24,8 +17,10 @@
             {{ action.label }}
           </p>
         </v-col>
-        <v-col class="text-center mx-4" style="max-width: max-content" cols="3">
-          <core-client-layout></core-client-layout>
+        <v-col
+          v-if="$strapi.user"
+          class="text-center mx-4 width-max-content" cols="3">
+          <!-- <core-client-layout></core-client-layout> -->
         </v-col>
       </v-row>
     </v-container>
@@ -57,3 +52,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.width-max-content {
+  max-width: max-content;
+}
+</style>

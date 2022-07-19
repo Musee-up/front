@@ -19,7 +19,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 .col {
   > * {
     justify-content: center;

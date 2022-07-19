@@ -46,14 +46,10 @@ export default {
   },
   computed: {
     width() {
-      return verticalWidth(
-        this.$vuetify.breakpoint
-      )
+      return verticalWidth(this.$vuetify.breakpoint)
     },
     height() {
-      return verticalHeight(
-        this.$vuetify.breakpoint
-      )
+      return verticalHeight(this.$vuetify.breakpoint)
     },
     date() {
       return this.$moment(this.voucher.date).format('DD/MM/YY')

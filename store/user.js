@@ -64,10 +64,11 @@ export const getters = {
     return state.me?.friends?.data
   },
   getFriend: (state, id) => {
-    return state.me?.friends.data.filter((x) => x.id === id)
+    return state.me?.friends?.data.filter((x) => x.id === id)
   },
   getSocketId: (state) => {
     return state.me?.socketID
   },
   getCore: (state) => state.me,
+  isGuide: (state) => state.me.role === 'guide',
 }
