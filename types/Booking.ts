@@ -9,7 +9,7 @@ import {
   BookingEntityResponse,
   BookingEntityResponseCollection,
   BookingEntity,
-  ExperienceSlotEntityResponse,
+  slotEntityResponse,
   Booking as BookingDAO,
 } from '@/graphql/generated'
 
@@ -39,7 +39,7 @@ class Booking {
   constructor(id: Maybe<Scalars['ID']>, input: BookingDAO) {
     this.id = id
     this.experience = Experience.map(input.experience)
-    this.slot = Slot.map(input.experience_slot)
+    this.slot = Slot.map(input.slot)
     this.size = input.size
     // this.user = User.map(input.user)
   }

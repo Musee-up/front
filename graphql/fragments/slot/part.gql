@@ -1,7 +1,7 @@
 #import "../CoreExperiencePart.gql"
 #import "../guide/one.gql"
 
-fragment Slot on ExperienceSlot {
+fragment Slot on Slot {
   start
   end
   guide {

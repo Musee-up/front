@@ -1,6 +1,0 @@
-#import "../fragments/slot/one.gql"
-query experienceSlot($id: ID!) {
-  experienceSlot(id: $id) {
-    ...Slot
-  }
-}

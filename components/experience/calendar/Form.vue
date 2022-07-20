@@ -115,7 +115,7 @@ export default {
           },
         })
         .catch((error) => {
-          console.log('createExperienceSlot', error)
+          console.log('createslot', error)
           console.log(error)
         })
 

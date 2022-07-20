@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
+require('dotenv').config()
 
 const backendUrl = process.env.API_URL || 'http://localhost:1337'
 
@@ -18,7 +19,10 @@ export default defineNuxtConfig({
     ],
 
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: 'https://js.stripe.com/v3/' }],
+    script: [
+      { src: 'https://js.stripe.com/v3/' },
+      // { src: 'http://localhost:1337/plugins/strapi-stripe/static/stripe.js' }
+    ],
   },
   env: {
     API_URL: backendUrl,
@@ -53,6 +57,7 @@ export default defineNuxtConfig({
   },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/dotenv',
     '@nuxt/image',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',

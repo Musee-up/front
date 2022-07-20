@@ -29,7 +29,7 @@
         <v-list>
           <v-list-item v-for="(slot, index) in slots" :key="index">
             <v-btn text @click="submit(slot)">
-              <experience-booking-form-hour-item :e_slot="slot.attributes">
+              <experience-booking-form-hour-item :e_slot="slot">
               </experience-booking-form-hour-item>
             </v-btn>
             <v-divider></v-divider>

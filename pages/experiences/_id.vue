@@ -5,7 +5,7 @@
   >
     <v-row class="justify-center">
       <v-col class="text-left">
-        <h1 class="dark--text" style="font-size: 40px">
+        <h1 class="dark--text exp-title">
           {{ experience.title }}
         </h1>
       </v-col>
@@ -54,8 +54,6 @@
 <script>
 import experienceQuery from '@/graphql/queries/experienceProfile'
 import Experience from '@/types/Experience'
-
-console.log(experienceQuery)
 
 export default {
   data() {
@@ -125,6 +123,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.exp-title {
+  font-size: 40px;
+}
+
 .exp-description {
   white-space: pre-line;
 }

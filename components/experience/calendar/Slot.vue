@@ -177,7 +177,7 @@ export default {
             },
           },
         })
-        .then((result) => result.data.createExperienceSlot.data.id)
+        .then((result) => result.data.createslot.data.id)
         .catch((e) => {
           console.log('create Slot')
           console.log(e)

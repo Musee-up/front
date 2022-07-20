@@ -5,23 +5,17 @@
       cols="8"
       class="d-flex justify-space-between header-navbar"
     >
-      <v-spacer v-if="$vuetify.breakpoint.xlOnly"></v-spacer>
-
       <v-col>
-        <div
-          class="rounded-lg primary justify-center align-center"
-          style="width: 50px; height: 50px"
-        >
-          <NuxtLink
-            class="mt-1"
-            color="blue"
+        <v-row justify="center" align="center">
+          <nuxt-link
+            class="d-flex rounded-lg primary justify-center align-center"
             :src="require('@/static/logo_white.svg')"
             to="/"
-            width="80"
-            height="80"
+            style="width: 50px; height: 50px"
           >
-          </NuxtLink>
-        </div>
+            <nuxt-img width="40" height="40" src="/logo_white.svg"> </nuxt-img>
+          </nuxt-link>
+        </v-row>
       </v-col>
 
       <v-col>
@@ -60,8 +54,6 @@
           </NuxtLink>
         </v-btn>
       </v-col>
-
-      <v-spacer v-if="$vuetify.breakpoint.xlOnly"></v-spacer>
     </v-container>
   </v-app-bar>
 </template>

@@ -1,5 +1,5 @@
-mutation deleteExperienceSlot($id: ID!) {
-  deleteExperienceSlot(id: $id) {
+mutation deleteSlot($id: ID!) {
+  deleteSlot(id: $id) {
     data {
       id
     }

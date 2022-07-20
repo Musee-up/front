@@ -5,16 +5,16 @@ import Guide from './Guide'
 import {
   Scalars,
   Maybe,
-  ExperienceSlot as ExperienceSlotDAO,
-  ExperienceSlotEntityResponse,
-  ExperienceSlotEntity,
-  ExperienceSlotEntityResponseCollection,
-  ExperienceSlotRelationResponseCollection,
+  slot as slotDAO,
+  slotEntityResponse,
+  slotEntity,
+  slotEntityResponseCollection,
+  slotRelationResponseCollection,
   GuideEntityResponse,
   ExperienceEntityResponse,
 } from '@/graphql/generated'
 
-class ExperienceSlot implements ExperienceSlotDAO {
+class slot implements slotDAO {
   id: Maybe<Scalars['ID']>
   // bookings?: Maybe<BookingRelationResponseCollection>
   createdAt?: Maybe<Scalars['DateTime']>
@@ -24,30 +24,23 @@ class ExperienceSlot implements ExperienceSlotDAO {
   start: Scalars['DateTime']
   updatedAt?: Maybe<Scalars['DateTime']>
 
-  static fromEntity(
-    entity: Maybe<ExperienceSlotEntity> | undefined
-  ): ExperienceSlot | void {
-    if (!entity)
-      throw new Error('ExperienceSlot.fromEntity: entity is undefined')
+  static fromEntity(entity: Maybe<slotEntity> | undefined): slot | void {
+    if (!entity) throw new Error('slot.fromEntity: entity is undefined')
     if (!entity.id || !entity.attributes)
-      throw new Error(
-        'ExperienceSlot.fromEntity: id or attributes is undefined'
-      )
+      throw new Error('slot.fromEntity: id or attributes is undefined')
 
-    return new ExperienceSlot(entity.id, entity.attributes)
+    return new slot(entity.id, entity.attributes)
   }
 
-  static mapList(
-    list: ExperienceSlotRelationResponseCollection
-  ): ExperienceSlot {
-    return list.data.map(ExperienceSlot.fromEntity)
+  static mapList(list: slotRelationResponseCollection): slot {
+    return list.data.map(slot.fromEntity)
   }
 
-  static map(input: ExperienceSlotEntityResponse): ExperienceSlot {
-    return ExperienceSlot.fromEntity(input.data)
+  static map(input: slotEntityResponse): slot {
+    return slot.fromEntity(input.data)
   }
 
-  constructor(id: Maybe<Scalars['ID']>, input: ExperienceSlotDAO) {
+  constructor(id: Maybe<Scalars['ID']>, input: slotDAO) {
     this.id = id
     this.createdAt = input.createdAt
     this.end = input.end
@@ -62,4 +55,4 @@ class ExperienceSlot implements ExperienceSlotDAO {
   }
 }
 
-export default ExperienceSlot
+export default slot

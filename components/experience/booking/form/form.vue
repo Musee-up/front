@@ -82,8 +82,8 @@ export default {
     },
     hours() {
       const day = new Date(this.day).getDate()
-      const hours = this.slots.data.filter(
-        (slot) => new Date(slot.attributes.start).getDate() === day
+      const hours = this.slots.filter(
+        (slot) => new Date(slot.start).getDate() === day
       )
       return hours
     },

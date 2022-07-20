@@ -124,6 +124,7 @@ export default {
 .photo {
   width: 70%;
 }
+
 .my-div {
   width: 11px !important;
 }

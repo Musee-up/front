@@ -7,7 +7,7 @@ import {
   UploadFile,
   ExperienceEntityResponse,
   ExperienceEntity,
-  ExperienceSlotRelationResponseCollection,
+  slotRelationResponseCollection,
   ExperienceEntityResponseCollection,
   GuideEntityResponse,
   UploadFileRelationResponseCollection,
@@ -80,8 +80,8 @@ class Experience implements ExperienceDAO {
     this.photos = input.photos?.data.map(flattenList)
     this.types = input.types?.data.map(flatten)
 
-    if (input.experienceSlots) {
-      this.slots = Slot.mapList(input.experienceSlots)
+    if (input.slots) {
+      this.slots = Slot.mapList(input.slots)
     }
     if (input.guide) {
       this.guide = Guide.map(input.guide)

@@ -23,7 +23,7 @@ fragment FullExperience on ExperienceEntityResponse {
       guide {
         ...GuideResponse
       }
-      experienceSlots {
+      slots {
         ...SlotsResponse
       }
     }

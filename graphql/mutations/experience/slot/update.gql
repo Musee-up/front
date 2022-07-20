@@ -1,5 +1,5 @@
-mutation updateExperienceSlot($id: ID!, $input: ExperienceSlotInput!) {
-  updateExperienceSlot(id: $id, data: $input) {
+mutation updateSlot($id: ID!, $input: slotInput!) {
+  updateSlot(id: $id, data: $input) {
     data {
       id
     }

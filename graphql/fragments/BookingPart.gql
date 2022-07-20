@@ -8,7 +8,7 @@ fragment BookingPart on BookingRelationResponseCollection {
       types {
         ...ExperienceTypePart
       }
-      experience_slot {
+      slot {
         ...Slot
       }
     }

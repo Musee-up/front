@@ -23,7 +23,7 @@ fragment CoreGuidePart on GuideEntityResponse {
           }
         }
       }
-      experienceSlots {
+      slots {
         data {
           id
           attributes {

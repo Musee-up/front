@@ -13,7 +13,7 @@ query user($id: ID!) {
             id
             attributes {
               size
-              experience_slot {
+              slot {
                 ...SlotResponse
               }
               experience {

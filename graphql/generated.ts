@@ -29,7 +29,6 @@ export type Booking = {
   __typename?: 'Booking'
   createdAt?: Maybe<Scalars['DateTime']>
   experience?: Maybe<ExperienceEntityResponse>
-  experience_slot?: Maybe<ExperienceSlotEntityResponse>
   size?: Maybe<Scalars['Int']>
   updatedAt?: Maybe<Scalars['DateTime']>
   user?: Maybe<UsersPermissionsUserEntityResponse>
@@ -56,7 +55,6 @@ export type BookingFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<BookingFiltersInput>>>
   createdAt?: InputMaybe<DateTimeFilterInput>
   experience?: InputMaybe<ExperienceFiltersInput>
-  experience_slot?: InputMaybe<ExperienceSlotFiltersInput>
   id?: InputMaybe<IdFilterInput>
   not?: InputMaybe<BookingFiltersInput>
   or?: InputMaybe<Array<InputMaybe<BookingFiltersInput>>>
@@ -67,7 +65,6 @@ export type BookingFiltersInput = {
 
 export type BookingInput = {
   experience?: InputMaybe<Scalars['ID']>
-  experience_slot?: InputMaybe<Scalars['ID']>
   size?: InputMaybe<Scalars['Int']>
   user?: InputMaybe<Scalars['ID']>
 }
@@ -136,10 +133,10 @@ export enum Enum_Language_Value {
 
 export type Experience = {
   __typename?: 'Experience'
+  bookings?: Maybe<BookingRelationResponseCollection>
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
   duration?: Maybe<Scalars['Time']>
-  experienceSlots?: Maybe<ExperienceSlotRelationResponseCollection>
   groupSize?: Maybe<Scalars['Int']>
   guide?: Maybe<GuideEntityResponse>
   handifriendly?: Maybe<Scalars['Boolean']>
@@ -151,6 +148,7 @@ export type Experience = {
   photos?: Maybe<UploadFileRelationResponseCollection>
   price?: Maybe<Scalars['Float']>
   publishedAt?: Maybe<Scalars['DateTime']>
+  slots?: Maybe<SlotRelationResponseCollection>
   stars?: Maybe<Scalars['Float']>
   themes?: Maybe<ThemeRelationResponseCollection>
   title?: Maybe<Scalars['String']>
@@ -159,8 +157,8 @@ export type Experience = {
   updatedAt?: Maybe<Scalars['DateTime']>
 }
 
-export type ExperienceExperienceSlotsArgs = {
-  filters?: InputMaybe<ExperienceSlotFiltersInput>
+export type ExperienceBookingsArgs = {
+  filters?: InputMaybe<BookingFiltersInput>
   pagination?: InputMaybe<PaginationArg>
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
@@ -180,6 +178,12 @@ export type ExperienceLocalizationsArgs = {
 
 export type ExperiencePhotosArgs = {
   filters?: InputMaybe<UploadFileFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type ExperienceSlotsArgs = {
+  filters?: InputMaybe<SlotFiltersInput>
   pagination?: InputMaybe<PaginationArg>
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
@@ -215,10 +219,10 @@ export type ExperienceEntityResponseCollection = {
 
 export type ExperienceFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ExperienceFiltersInput>>>
+  bookings?: InputMaybe<BookingFiltersInput>
   createdAt?: InputMaybe<DateTimeFilterInput>
   description?: InputMaybe<StringFilterInput>
   duration?: InputMaybe<TimeFilterInput>
-  experienceSlots?: InputMaybe<ExperienceSlotFiltersInput>
   groupSize?: InputMaybe<IntFilterInput>
   guide?: InputMaybe<GuideFiltersInput>
   handifriendly?: InputMaybe<BooleanFilterInput>
@@ -232,6 +236,7 @@ export type ExperienceFiltersInput = {
   or?: InputMaybe<Array<InputMaybe<ExperienceFiltersInput>>>
   price?: InputMaybe<FloatFilterInput>
   publishedAt?: InputMaybe<DateTimeFilterInput>
+  slots?: InputMaybe<SlotFiltersInput>
   stars?: InputMaybe<FloatFilterInput>
   themes?: InputMaybe<ThemeFiltersInput>
   title?: InputMaybe<StringFilterInput>
@@ -241,9 +246,9 @@ export type ExperienceFiltersInput = {
 }
 
 export type ExperienceInput = {
+  bookings?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   description?: InputMaybe<Scalars['String']>
   duration?: InputMaybe<Scalars['Time']>
-  experienceSlots?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   groupSize?: InputMaybe<Scalars['Int']>
   guide?: InputMaybe<Scalars['ID']>
   handifriendly?: InputMaybe<Scalars['Boolean']>
@@ -253,6 +258,7 @@ export type ExperienceInput = {
   photos?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   price?: InputMaybe<Scalars['Float']>
   publishedAt?: InputMaybe<Scalars['DateTime']>
+  slots?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   stars?: InputMaybe<Scalars['Float']>
   themes?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   title?: InputMaybe<Scalars['String']>
@@ -263,67 +269,6 @@ export type ExperienceInput = {
 export type ExperienceRelationResponseCollection = {
   __typename?: 'ExperienceRelationResponseCollection'
   data: Array<ExperienceEntity>
-}
-
-export type ExperienceSlot = {
-  __typename?: 'ExperienceSlot'
-  bookings?: Maybe<BookingRelationResponseCollection>
-  createdAt?: Maybe<Scalars['DateTime']>
-  end?: Maybe<Scalars['DateTime']>
-  experience?: Maybe<ExperienceEntityResponse>
-  guide?: Maybe<GuideEntityResponse>
-  start: Scalars['DateTime']
-  updatedAt?: Maybe<Scalars['DateTime']>
-}
-
-export type ExperienceSlotBookingsArgs = {
-  filters?: InputMaybe<BookingFiltersInput>
-  pagination?: InputMaybe<PaginationArg>
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-}
-
-export type ExperienceSlotEntity = {
-  __typename?: 'ExperienceSlotEntity'
-  attributes?: Maybe<ExperienceSlot>
-  id?: Maybe<Scalars['ID']>
-}
-
-export type ExperienceSlotEntityResponse = {
-  __typename?: 'ExperienceSlotEntityResponse'
-  data?: Maybe<ExperienceSlotEntity>
-}
-
-export type ExperienceSlotEntityResponseCollection = {
-  __typename?: 'ExperienceSlotEntityResponseCollection'
-  data: Array<ExperienceSlotEntity>
-  meta: ResponseCollectionMeta
-}
-
-export type ExperienceSlotFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ExperienceSlotFiltersInput>>>
-  bookings?: InputMaybe<BookingFiltersInput>
-  createdAt?: InputMaybe<DateTimeFilterInput>
-  end?: InputMaybe<DateTimeFilterInput>
-  experience?: InputMaybe<ExperienceFiltersInput>
-  guide?: InputMaybe<GuideFiltersInput>
-  id?: InputMaybe<IdFilterInput>
-  not?: InputMaybe<ExperienceSlotFiltersInput>
-  or?: InputMaybe<Array<InputMaybe<ExperienceSlotFiltersInput>>>
-  start?: InputMaybe<DateTimeFilterInput>
-  updatedAt?: InputMaybe<DateTimeFilterInput>
-}
-
-export type ExperienceSlotInput = {
-  bookings?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  end?: InputMaybe<Scalars['DateTime']>
-  experience?: InputMaybe<Scalars['ID']>
-  guide?: InputMaybe<Scalars['ID']>
-  start?: InputMaybe<Scalars['DateTime']>
-}
-
-export type ExperienceSlotRelationResponseCollection = {
-  __typename?: 'ExperienceSlotRelationResponseCollection'
-  data: Array<ExperienceSlotEntity>
 }
 
 export type ExperienceType = {
@@ -472,13 +417,15 @@ export type FloatFilterInput = {
 export type GenericMorph =
   | Booking
   | Experience
-  | ExperienceSlot
   | ExperienceType
   | FavoritePlace
   | Guide
   | I18NLocale
   | Language
   | Room
+  | Slot
+  | StrapiStripeStrapiStripePayment
+  | StrapiStripeStrapiStripeProduct
   | Theme
   | UploadFile
   | UsersPermissionsPermission
@@ -490,23 +437,17 @@ export type Guide = {
   background?: Maybe<Scalars['String']>
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
-  experienceSlots?: Maybe<ExperienceSlotRelationResponseCollection>
   experiences?: Maybe<ExperienceRelationResponseCollection>
   favorite_place?: Maybe<FavoritePlaceEntityResponse>
   headline?: Maybe<Scalars['String']>
   interests?: Maybe<Scalars['JSON']>
   languages?: Maybe<LanguageRelationResponseCollection>
   location?: Maybe<Scalars['String']>
+  slots?: Maybe<SlotRelationResponseCollection>
   specialties?: Maybe<Scalars['JSON']>
   updatedAt?: Maybe<Scalars['DateTime']>
   user?: Maybe<UsersPermissionsUserEntityResponse>
   workExperiences?: Maybe<Scalars['JSON']>
-}
-
-export type GuideExperienceSlotsArgs = {
-  filters?: InputMaybe<ExperienceSlotFiltersInput>
-  pagination?: InputMaybe<PaginationArg>
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
 export type GuideExperiencesArgs = {
@@ -518,6 +459,12 @@ export type GuideExperiencesArgs = {
 
 export type GuideLanguagesArgs = {
   filters?: InputMaybe<LanguageFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type GuideSlotsArgs = {
+  filters?: InputMaybe<SlotFiltersInput>
   pagination?: InputMaybe<PaginationArg>
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
@@ -544,7 +491,6 @@ export type GuideFiltersInput = {
   background?: InputMaybe<StringFilterInput>
   createdAt?: InputMaybe<DateTimeFilterInput>
   description?: InputMaybe<StringFilterInput>
-  experienceSlots?: InputMaybe<ExperienceSlotFiltersInput>
   experiences?: InputMaybe<ExperienceFiltersInput>
   favorite_place?: InputMaybe<FavoritePlaceFiltersInput>
   headline?: InputMaybe<StringFilterInput>
@@ -554,6 +500,7 @@ export type GuideFiltersInput = {
   location?: InputMaybe<StringFilterInput>
   not?: InputMaybe<GuideFiltersInput>
   or?: InputMaybe<Array<InputMaybe<GuideFiltersInput>>>
+  slots?: InputMaybe<SlotFiltersInput>
   specialties?: InputMaybe<JsonFilterInput>
   updatedAt?: InputMaybe<DateTimeFilterInput>
   user?: InputMaybe<UsersPermissionsUserFiltersInput>
@@ -563,13 +510,13 @@ export type GuideFiltersInput = {
 export type GuideInput = {
   background?: InputMaybe<Scalars['String']>
   description?: InputMaybe<Scalars['String']>
-  experienceSlots?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   experiences?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   favorite_place?: InputMaybe<Scalars['ID']>
   headline?: InputMaybe<Scalars['String']>
   interests?: InputMaybe<Scalars['JSON']>
   languages?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   location?: InputMaybe<Scalars['String']>
+  slots?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   specialties?: InputMaybe<Scalars['JSON']>
   user?: InputMaybe<Scalars['ID']>
   workExperiences?: InputMaybe<Scalars['JSON']>
@@ -738,7 +685,6 @@ export type Mutation = {
   createBooking?: Maybe<BookingEntityResponse>
   createExperience?: Maybe<ExperienceEntityResponse>
   createExperienceLocalization?: Maybe<ExperienceEntityResponse>
-  createExperienceSlot?: Maybe<ExperienceSlotEntityResponse>
   createExperienceType?: Maybe<ExperienceTypeEntityResponse>
   createExperienceTypeLocalization?: Maybe<ExperienceTypeEntityResponse>
   createFavoritePlace?: Maybe<FavoritePlaceEntityResponse>
@@ -747,6 +693,9 @@ export type Mutation = {
   createLanguage?: Maybe<LanguageEntityResponse>
   createLanguageLocalization?: Maybe<LanguageEntityResponse>
   createRoom?: Maybe<RoomEntityResponse>
+  createSlot?: Maybe<SlotEntityResponse>
+  createStrapiStripeStrapiStripePayment?: Maybe<StrapiStripeStrapiStripePaymentEntityResponse>
+  createStrapiStripeStrapiStripeProduct?: Maybe<StrapiStripeStrapiStripeProductEntityResponse>
   createTheme?: Maybe<ThemeEntityResponse>
   createThemeLocalization?: Maybe<ThemeEntityResponse>
   createUploadFile?: Maybe<UploadFileEntityResponse>
@@ -756,12 +705,14 @@ export type Mutation = {
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse
   deleteBooking?: Maybe<BookingEntityResponse>
   deleteExperience?: Maybe<ExperienceEntityResponse>
-  deleteExperienceSlot?: Maybe<ExperienceSlotEntityResponse>
   deleteExperienceType?: Maybe<ExperienceTypeEntityResponse>
   deleteFavoritePlace?: Maybe<FavoritePlaceEntityResponse>
   deleteGuide?: Maybe<GuideEntityResponse>
   deleteLanguage?: Maybe<LanguageEntityResponse>
   deleteRoom?: Maybe<RoomEntityResponse>
+  deleteSlot?: Maybe<SlotEntityResponse>
+  deleteStrapiStripeStrapiStripePayment?: Maybe<StrapiStripeStrapiStripePaymentEntityResponse>
+  deleteStrapiStripeStrapiStripeProduct?: Maybe<StrapiStripeStrapiStripeProductEntityResponse>
   deleteTheme?: Maybe<ThemeEntityResponse>
   deleteUploadFile?: Maybe<UploadFileEntityResponse>
   /** Delete an existing role */
@@ -781,13 +732,15 @@ export type Mutation = {
   resetPassword?: Maybe<UsersPermissionsLoginPayload>
   updateBooking?: Maybe<BookingEntityResponse>
   updateExperience?: Maybe<ExperienceEntityResponse>
-  updateExperienceSlot?: Maybe<ExperienceSlotEntityResponse>
   updateExperienceType?: Maybe<ExperienceTypeEntityResponse>
   updateFavoritePlace?: Maybe<FavoritePlaceEntityResponse>
   updateFileInfo: UploadFileEntityResponse
   updateGuide?: Maybe<GuideEntityResponse>
   updateLanguage?: Maybe<LanguageEntityResponse>
   updateRoom?: Maybe<RoomEntityResponse>
+  updateSlot?: Maybe<SlotEntityResponse>
+  updateStrapiStripeStrapiStripePayment?: Maybe<StrapiStripeStrapiStripePaymentEntityResponse>
+  updateStrapiStripeStrapiStripeProduct?: Maybe<StrapiStripeStrapiStripeProductEntityResponse>
   updateTheme?: Maybe<ThemeEntityResponse>
   updateUploadFile?: Maybe<UploadFileEntityResponse>
   /** Update an existing role */
@@ -810,10 +763,6 @@ export type MutationCreateExperienceLocalizationArgs = {
   data?: InputMaybe<ExperienceInput>
   id?: InputMaybe<Scalars['ID']>
   locale?: InputMaybe<Scalars['I18NLocaleCode']>
-}
-
-export type MutationCreateExperienceSlotArgs = {
-  data: ExperienceSlotInput
 }
 
 export type MutationCreateExperienceTypeArgs = {
@@ -857,6 +806,18 @@ export type MutationCreateRoomArgs = {
   data: RoomInput
 }
 
+export type MutationCreateSlotArgs = {
+  data: SlotInput
+}
+
+export type MutationCreateStrapiStripeStrapiStripePaymentArgs = {
+  data: StrapiStripeStrapiStripePaymentInput
+}
+
+export type MutationCreateStrapiStripeStrapiStripeProductArgs = {
+  data: StrapiStripeStrapiStripeProductInput
+}
+
 export type MutationCreateThemeArgs = {
   data: ThemeInput
   locale?: InputMaybe<Scalars['I18NLocaleCode']>
@@ -889,10 +850,6 @@ export type MutationDeleteExperienceArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']>
 }
 
-export type MutationDeleteExperienceSlotArgs = {
-  id: Scalars['ID']
-}
-
 export type MutationDeleteExperienceTypeArgs = {
   id: Scalars['ID']
   locale?: InputMaybe<Scalars['I18NLocaleCode']>
@@ -913,6 +870,18 @@ export type MutationDeleteLanguageArgs = {
 }
 
 export type MutationDeleteRoomArgs = {
+  id: Scalars['ID']
+}
+
+export type MutationDeleteSlotArgs = {
+  id: Scalars['ID']
+}
+
+export type MutationDeleteStrapiStripeStrapiStripePaymentArgs = {
+  id: Scalars['ID']
+}
+
+export type MutationDeleteStrapiStripeStrapiStripeProductArgs = {
   id: Scalars['ID']
 }
 
@@ -977,11 +946,6 @@ export type MutationUpdateExperienceArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']>
 }
 
-export type MutationUpdateExperienceSlotArgs = {
-  data: ExperienceSlotInput
-  id: Scalars['ID']
-}
-
 export type MutationUpdateExperienceTypeArgs = {
   data: ExperienceTypeInput
   id: Scalars['ID']
@@ -1012,6 +976,21 @@ export type MutationUpdateLanguageArgs = {
 
 export type MutationUpdateRoomArgs = {
   data: RoomInput
+  id: Scalars['ID']
+}
+
+export type MutationUpdateSlotArgs = {
+  data: SlotInput
+  id: Scalars['ID']
+}
+
+export type MutationUpdateStrapiStripeStrapiStripePaymentArgs = {
+  data: StrapiStripeStrapiStripePaymentInput
+  id: Scalars['ID']
+}
+
+export type MutationUpdateStrapiStripeStrapiStripeProductArgs = {
+  data: StrapiStripeStrapiStripeProductInput
   id: Scalars['ID']
 }
 
@@ -1069,8 +1048,6 @@ export type Query = {
   booking?: Maybe<BookingEntityResponse>
   bookings?: Maybe<BookingEntityResponseCollection>
   experience?: Maybe<ExperienceEntityResponse>
-  experienceSlot?: Maybe<ExperienceSlotEntityResponse>
-  experienceSlots?: Maybe<ExperienceSlotEntityResponseCollection>
   experienceType?: Maybe<ExperienceTypeEntityResponse>
   experienceTypes?: Maybe<ExperienceTypeEntityResponseCollection>
   experiences?: Maybe<ExperienceEntityResponseCollection>
@@ -1085,6 +1062,12 @@ export type Query = {
   me?: Maybe<UsersPermissionsMe>
   room?: Maybe<RoomEntityResponse>
   rooms?: Maybe<RoomEntityResponseCollection>
+  slot?: Maybe<SlotEntityResponse>
+  slots?: Maybe<SlotEntityResponseCollection>
+  strapiStripeStrapiStripePayment?: Maybe<StrapiStripeStrapiStripePaymentEntityResponse>
+  strapiStripeStrapiStripePayments?: Maybe<StrapiStripeStrapiStripePaymentEntityResponseCollection>
+  strapiStripeStrapiStripeProduct?: Maybe<StrapiStripeStrapiStripeProductEntityResponse>
+  strapiStripeStrapiStripeProducts?: Maybe<StrapiStripeStrapiStripeProductEntityResponseCollection>
   theme?: Maybe<ThemeEntityResponse>
   themes?: Maybe<ThemeEntityResponseCollection>
   uploadFile?: Maybe<UploadFileEntityResponse>
@@ -1108,16 +1091,6 @@ export type QueryBookingsArgs = {
 export type QueryExperienceArgs = {
   id?: InputMaybe<Scalars['ID']>
   locale?: InputMaybe<Scalars['I18NLocaleCode']>
-}
-
-export type QueryExperienceSlotArgs = {
-  id?: InputMaybe<Scalars['ID']>
-}
-
-export type QueryExperienceSlotsArgs = {
-  filters?: InputMaybe<ExperienceSlotFiltersInput>
-  pagination?: InputMaybe<PaginationArg>
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
 export type QueryExperienceTypeArgs = {
@@ -1190,6 +1163,36 @@ export type QueryRoomArgs = {
 
 export type QueryRoomsArgs = {
   filters?: InputMaybe<RoomFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type QuerySlotArgs = {
+  id?: InputMaybe<Scalars['ID']>
+}
+
+export type QuerySlotsArgs = {
+  filters?: InputMaybe<SlotFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type QueryStrapiStripeStrapiStripePaymentArgs = {
+  id?: InputMaybe<Scalars['ID']>
+}
+
+export type QueryStrapiStripeStrapiStripePaymentsArgs = {
+  filters?: InputMaybe<StrapiStripeStrapiStripePaymentFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type QueryStrapiStripeStrapiStripeProductArgs = {
+  id?: InputMaybe<Scalars['ID']>
+}
+
+export type QueryStrapiStripeStrapiStripeProductsArgs = {
+  filters?: InputMaybe<StrapiStripeStrapiStripeProductFiltersInput>
   pagination?: InputMaybe<PaginationArg>
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
@@ -1288,6 +1291,221 @@ export type RoomInput = {
 export type RoomRelationResponseCollection = {
   __typename?: 'RoomRelationResponseCollection'
   data: Array<RoomEntity>
+}
+
+export type Slot = {
+  __typename?: 'Slot'
+  bookings?: Maybe<BookingRelationResponseCollection>
+  createdAt?: Maybe<Scalars['DateTime']>
+  end?: Maybe<Scalars['DateTime']>
+  experience?: Maybe<ExperienceEntityResponse>
+  guide?: Maybe<GuideEntityResponse>
+  start?: Maybe<Scalars['DateTime']>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export type SlotBookingsArgs = {
+  filters?: InputMaybe<BookingFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type SlotEntity = {
+  __typename?: 'SlotEntity'
+  attributes?: Maybe<Slot>
+  id?: Maybe<Scalars['ID']>
+}
+
+export type SlotEntityResponse = {
+  __typename?: 'SlotEntityResponse'
+  data?: Maybe<SlotEntity>
+}
+
+export type SlotEntityResponseCollection = {
+  __typename?: 'SlotEntityResponseCollection'
+  data: Array<SlotEntity>
+  meta: ResponseCollectionMeta
+}
+
+export type SlotFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<SlotFiltersInput>>>
+  bookings?: InputMaybe<BookingFiltersInput>
+  createdAt?: InputMaybe<DateTimeFilterInput>
+  end?: InputMaybe<DateTimeFilterInput>
+  experience?: InputMaybe<ExperienceFiltersInput>
+  guide?: InputMaybe<GuideFiltersInput>
+  id?: InputMaybe<IdFilterInput>
+  not?: InputMaybe<SlotFiltersInput>
+  or?: InputMaybe<Array<InputMaybe<SlotFiltersInput>>>
+  start?: InputMaybe<DateTimeFilterInput>
+  updatedAt?: InputMaybe<DateTimeFilterInput>
+}
+
+export type SlotInput = {
+  bookings?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  end?: InputMaybe<Scalars['DateTime']>
+  experience?: InputMaybe<Scalars['ID']>
+  guide?: InputMaybe<Scalars['ID']>
+  start?: InputMaybe<Scalars['DateTime']>
+}
+
+export type SlotRelationResponseCollection = {
+  __typename?: 'SlotRelationResponseCollection'
+  data: Array<SlotEntity>
+}
+
+export type StrapiStripeStrapiStripePayment = {
+  __typename?: 'StrapiStripeStrapiStripePayment'
+  createdAt?: Maybe<Scalars['DateTime']>
+  customerEmail: Scalars['String']
+  customerName: Scalars['String']
+  isTxnSuccessful?: Maybe<Scalars['Boolean']>
+  stripeProduct?: Maybe<StrapiStripeStrapiStripeProductEntityResponse>
+  transactionId: Scalars['String']
+  txnAmount: Scalars['Float']
+  txnDate: Scalars['DateTime']
+  txnErrorMessage?: Maybe<Scalars['String']>
+  txnMessage?: Maybe<Scalars['String']>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export type StrapiStripeStrapiStripePaymentEntity = {
+  __typename?: 'StrapiStripeStrapiStripePaymentEntity'
+  attributes?: Maybe<StrapiStripeStrapiStripePayment>
+  id?: Maybe<Scalars['ID']>
+}
+
+export type StrapiStripeStrapiStripePaymentEntityResponse = {
+  __typename?: 'StrapiStripeStrapiStripePaymentEntityResponse'
+  data?: Maybe<StrapiStripeStrapiStripePaymentEntity>
+}
+
+export type StrapiStripeStrapiStripePaymentEntityResponseCollection = {
+  __typename?: 'StrapiStripeStrapiStripePaymentEntityResponseCollection'
+  data: Array<StrapiStripeStrapiStripePaymentEntity>
+  meta: ResponseCollectionMeta
+}
+
+export type StrapiStripeStrapiStripePaymentFiltersInput = {
+  and?: InputMaybe<
+    Array<InputMaybe<StrapiStripeStrapiStripePaymentFiltersInput>>
+  >
+  createdAt?: InputMaybe<DateTimeFilterInput>
+  customerEmail?: InputMaybe<StringFilterInput>
+  customerName?: InputMaybe<StringFilterInput>
+  id?: InputMaybe<IdFilterInput>
+  isTxnSuccessful?: InputMaybe<BooleanFilterInput>
+  not?: InputMaybe<StrapiStripeStrapiStripePaymentFiltersInput>
+  or?: InputMaybe<
+    Array<InputMaybe<StrapiStripeStrapiStripePaymentFiltersInput>>
+  >
+  stripeProduct?: InputMaybe<StrapiStripeStrapiStripeProductFiltersInput>
+  transactionId?: InputMaybe<StringFilterInput>
+  txnAmount?: InputMaybe<FloatFilterInput>
+  txnDate?: InputMaybe<DateTimeFilterInput>
+  txnErrorMessage?: InputMaybe<StringFilterInput>
+  txnMessage?: InputMaybe<StringFilterInput>
+  updatedAt?: InputMaybe<DateTimeFilterInput>
+}
+
+export type StrapiStripeStrapiStripePaymentInput = {
+  customerEmail?: InputMaybe<Scalars['String']>
+  customerName?: InputMaybe<Scalars['String']>
+  isTxnSuccessful?: InputMaybe<Scalars['Boolean']>
+  stripeProduct?: InputMaybe<Scalars['ID']>
+  transactionId?: InputMaybe<Scalars['String']>
+  txnAmount?: InputMaybe<Scalars['Float']>
+  txnDate?: InputMaybe<Scalars['DateTime']>
+  txnErrorMessage?: InputMaybe<Scalars['String']>
+  txnMessage?: InputMaybe<Scalars['String']>
+}
+
+export type StrapiStripeStrapiStripePaymentRelationResponseCollection = {
+  __typename?: 'StrapiStripeStrapiStripePaymentRelationResponseCollection'
+  data: Array<StrapiStripeStrapiStripePaymentEntity>
+}
+
+export type StrapiStripeStrapiStripeProduct = {
+  __typename?: 'StrapiStripeStrapiStripeProduct'
+  createdAt?: Maybe<Scalars['DateTime']>
+  currency: Scalars['String']
+  description: Scalars['String']
+  interval?: Maybe<Scalars['String']>
+  isSubscription?: Maybe<Scalars['Boolean']>
+  price: Scalars['Float']
+  productImage: UploadFileEntityResponse
+  slug: Scalars['String']
+  stripePayment?: Maybe<StrapiStripeStrapiStripePaymentRelationResponseCollection>
+  stripePlanId?: Maybe<Scalars['String']>
+  stripePriceId?: Maybe<Scalars['String']>
+  stripeProductId: Scalars['String']
+  title: Scalars['String']
+  trialPeriodDays?: Maybe<Scalars['Int']>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export type StrapiStripeStrapiStripeProductStripePaymentArgs = {
+  filters?: InputMaybe<StrapiStripeStrapiStripePaymentFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type StrapiStripeStrapiStripeProductEntity = {
+  __typename?: 'StrapiStripeStrapiStripeProductEntity'
+  attributes?: Maybe<StrapiStripeStrapiStripeProduct>
+  id?: Maybe<Scalars['ID']>
+}
+
+export type StrapiStripeStrapiStripeProductEntityResponse = {
+  __typename?: 'StrapiStripeStrapiStripeProductEntityResponse'
+  data?: Maybe<StrapiStripeStrapiStripeProductEntity>
+}
+
+export type StrapiStripeStrapiStripeProductEntityResponseCollection = {
+  __typename?: 'StrapiStripeStrapiStripeProductEntityResponseCollection'
+  data: Array<StrapiStripeStrapiStripeProductEntity>
+  meta: ResponseCollectionMeta
+}
+
+export type StrapiStripeStrapiStripeProductFiltersInput = {
+  and?: InputMaybe<
+    Array<InputMaybe<StrapiStripeStrapiStripeProductFiltersInput>>
+  >
+  createdAt?: InputMaybe<DateTimeFilterInput>
+  currency?: InputMaybe<StringFilterInput>
+  description?: InputMaybe<StringFilterInput>
+  id?: InputMaybe<IdFilterInput>
+  interval?: InputMaybe<StringFilterInput>
+  isSubscription?: InputMaybe<BooleanFilterInput>
+  not?: InputMaybe<StrapiStripeStrapiStripeProductFiltersInput>
+  or?: InputMaybe<
+    Array<InputMaybe<StrapiStripeStrapiStripeProductFiltersInput>>
+  >
+  price?: InputMaybe<FloatFilterInput>
+  slug?: InputMaybe<StringFilterInput>
+  stripePayment?: InputMaybe<StrapiStripeStrapiStripePaymentFiltersInput>
+  stripePlanId?: InputMaybe<StringFilterInput>
+  stripePriceId?: InputMaybe<StringFilterInput>
+  stripeProductId?: InputMaybe<StringFilterInput>
+  title?: InputMaybe<StringFilterInput>
+  trialPeriodDays?: InputMaybe<IntFilterInput>
+  updatedAt?: InputMaybe<DateTimeFilterInput>
+}
+
+export type StrapiStripeStrapiStripeProductInput = {
+  currency?: InputMaybe<Scalars['String']>
+  description?: InputMaybe<Scalars['String']>
+  interval?: InputMaybe<Scalars['String']>
+  isSubscription?: InputMaybe<Scalars['Boolean']>
+  price?: InputMaybe<Scalars['Float']>
+  productImage?: InputMaybe<Scalars['ID']>
+  slug?: InputMaybe<Scalars['String']>
+  stripePayment?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  stripePlanId?: InputMaybe<Scalars['String']>
+  stripePriceId?: InputMaybe<Scalars['String']>
+  stripeProductId?: InputMaybe<Scalars['String']>
+  title?: InputMaybe<Scalars['String']>
+  trialPeriodDays?: InputMaybe<Scalars['Int']>
 }
 
 export type StringFilterInput = {

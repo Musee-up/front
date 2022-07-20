@@ -7,7 +7,7 @@ import {
   FavoritePlaceEntityResponse,
   LanguageRelationResponseCollection,
   // UsersPermissionsUserEntityResponse,
-  ExperienceSlotRelationResponseCollection,
+  slotRelationResponseCollection,
   GuideEntityResponseCollection,
   Scalars,
   Guide as GuideDAO,
@@ -21,7 +21,7 @@ class Guide implements GuideDAO {
   background?: Maybe<Scalars['String']>
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
-  experienceSlots?: Maybe<ExperienceSlotRelationResponseCollection>
+  slots?: Maybe<slotRelationResponseCollection>
   experiences?: any // Maybe<ExperienceRelationResponseCollection>
   favorite_place?: Maybe<FavoritePlaceEntityResponse>
   headline?: Maybe<Scalars['String']>
@@ -59,7 +59,7 @@ class Guide implements GuideDAO {
     this.location = input.location
     this.languages = input.languages?.data.map(flattenList).map((x) => x.value)
     this.favorite_place = flatten(input.favorite_place)
-    this.experienceSlots = input.experienceSlots
+    this.slots = input.slots
     if (input.experiences) {
       this.experiences = Experience.mapList(input.experiences)
     }

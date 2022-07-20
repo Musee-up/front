@@ -7,8 +7,8 @@
   >
     <v-card color="grey lighten-4" min-width="350px" flat>
       <v-toolbar :color="selectedEvent.color" dark>
-        <v-toolbar-title v-if="experienceSlot">
-          {{ experienceSlot }}
+        <v-toolbar-title v-if="slot">
+          {{ slot }}
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon @click.prevent="deleteSlot">
@@ -34,15 +34,15 @@
 <script>
 import { mapGetters } from 'vuex'
 import deleteSlot from '@/graphql/mutations/Experience/slot/delete'
-import updateExperienceSlot from '@/graphql/mutations/experience/slot/update'
-import experienceSlotQuery from '@/graphql/queries/experienceSlot'
+import updateslot from '@/graphql/mutations/experience/slot/update'
+import slotQuery from '@/graphql/queries/slot'
 import Slot from '@/types/Slot'
 
 export default {
   props: ['selectedEvent', 'open', 'selectedElement'],
   data() {
     return {
-      experienceSlot: null,
+      slot: null,
       selectedOpen: this.open,
     }
   },
@@ -52,15 +52,15 @@ export default {
     }),
   },
   apollo: {
-    experienceSlot: {
-      query: experienceSlotQuery,
+    slot: {
+      query: slotQuery,
       variables() {
         return {
           id: this.selectedEvent.id.toString(),
         }
       },
       update(data) {
-        const slot = Slot.map(data.experienceSlot)
+        const slot = Slot.map(data.slot)
         return slot.experience?.title || 'No experience'
       },
     },
@@ -72,7 +72,7 @@ export default {
     associateExperience(id) {
       this.$apollo
         .mutate({
-          mutation: updateExperienceSlot,
+          mutation: updateslot,
           variables: {
             id: this.selectedEvent.id.toString(),
             input: {
