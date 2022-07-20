@@ -37,8 +37,12 @@
 
     <v-card-actions class="justify-center">
       <div v-if="stripeKey">
-        <StripeElements v-slot="{ elements }" ref="elms" :stripe-key="stripeKey">
-        <StripeElement ref="card" type="card" :elements="elements" />
+        <StripeElements
+          v-slot="{ elements }"
+          ref="elms"
+          :stripe-key="stripeKey"
+        >
+          <StripeElement ref="card" type="card" :elements="elements" />
         </StripeElements>
       </div>
 
