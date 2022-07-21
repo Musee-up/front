@@ -5,16 +5,24 @@
       fullscreen
       hide-overlay
       transition="dialog-bottom-transition"
-    >
+      >
       <template #activator="{ on, attrs }">
         <v-btn color="primary" icon v-bind="attrs" v-on="on">
           <v-icon large color="primary"> mdi-menu </v-icon>
         </v-btn>
       </template>
       <v-card @click="dialog = !dialog">
-        <account-guide-navigation-links v-if="isGuide">
-        </account-guide-navigation-links>
-        <account-client-navigation-links> </account-client-navigation-links>
+        <div
+          v-if="$strapi.user"
+          >
+          <account-guide-navigation-links v-if="isGuide">
+          </account-guide-navigation-links>
+          <account-client-navigation-links> </account-client-navigation-links>
+        </div>
+
+        <core-visitor-action v-else>
+        </core-visitor-action>
+
       </v-card>
       <v-footer fixed>
         <v-spacer></v-spacer>

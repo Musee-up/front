@@ -1,11 +1,7 @@
 <template>
   <v-list>
     <v-list-item key="0" class="transparent">
-      <v-btn class="pa-0" text @click.prevent="logout">
-        <p class="ma-0 font-weight-regular">
-          {{ $t('components.home.navbar.userActions.logout') }}
-        </p>
-      </v-btn>
+      <core-logout></core-logout>
     </v-list-item>
 
     <v-list-item v-for="(item, index) in user.actions" :key="index + 1">
@@ -38,12 +34,7 @@ export default {
       },
     }
   },
-  methods: {
-    logout() {
-      this.$strapi.logout()
-      this.$router.push('/')
-    },
-  },
+  
 }
 </script>
 

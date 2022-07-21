@@ -18,11 +18,11 @@
           </p>
         </v-col>
         <v-col
-          v-if="$strapi.user"
           class="text-center mx-4 width-max-content"
           cols="3"
         >
-          <!-- <core-client-layout></core-client-layout> -->
+          <core-client-layout
+            ></core-client-layout>
         </v-col>
       </v-row>
     </v-container>

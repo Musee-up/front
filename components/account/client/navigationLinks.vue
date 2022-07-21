@@ -38,7 +38,10 @@
       </v-list-item-content>
     </v-list-item>
 
-    <v-list nav dense class="actions my-4">
+    <v-list nav dense class="actions my-4 pb-8">
+      <v-list-item>
+        <core-logout></core-logout>
+      </v-list-item>
       <v-list-item v-for="(item, i) in help" :key="i" class="action">
         <v-list-item-icon>
           <nuxt-link :to="item.link">
