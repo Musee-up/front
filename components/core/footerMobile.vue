@@ -17,12 +17,8 @@
             {{ action.label }}
           </p>
         </v-col>
-        <v-col
-          class="text-center mx-4 width-max-content"
-          cols="3"
-        >
-          <core-client-layout
-            ></core-client-layout>
+        <v-col class="text-center mx-4 width-max-content" cols="3">
+          <core-client-layout></core-client-layout>
         </v-col>
       </v-row>
     </v-container>

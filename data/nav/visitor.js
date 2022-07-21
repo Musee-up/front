@@ -24,5 +24,4 @@ const visitor = {
     },
   ],
 }
-export default visitor;
-
+export default visitor
