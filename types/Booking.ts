@@ -18,7 +18,7 @@ class Booking {
   // createdAt?: Maybe<Scalars['DateTime']>
   experience?: Experience
   slot?: Slot
-  size?: Maybe<Scalars['Int']>
+  groupSize?: Maybe<Scalars['Int']>
   // updatedAt?: Maybe<Scalars['DateTime']>
   // user?: User
 

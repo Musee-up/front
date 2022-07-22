@@ -4,7 +4,7 @@ fragment BookingPart on BookingRelationResponseCollection {
   data {
     id
     attributes {
-      size
+      groupSize
       types {
         ...ExperienceTypePart
       }

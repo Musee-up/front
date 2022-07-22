@@ -12,7 +12,7 @@ query user($id: ID!) {
           data {
             id
             attributes {
-              size
+              groupSize
               slot {
                 ...SlotResponse
               }

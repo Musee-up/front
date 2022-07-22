@@ -75,7 +75,7 @@ export default {
       return {
         size: 10,
         slot: this.selectedSlot,
-        unitPrice: 18,
+        amount: 18,
         total: 18 * 10,
         group: this.group,
       }
