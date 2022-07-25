@@ -19,6 +19,8 @@ class slot implements slotDAO {
   // bookings?: Maybe<BookingRelationResponseCollection>
   createdAt?: Maybe<Scalars['DateTime']>
   end: Maybe<Scalars['DateTime']>
+  amountPerAge: any
+  groupSize: any
   guide: Guide
   experience: Maybe<Experience>
   start: Scalars['DateTime']
@@ -46,6 +48,9 @@ class slot implements slotDAO {
     this.end = input.end
     this.start = input.start
     this.updatedAt = input.updatedAt
+    this.groupSize = input.groupSize
+    this.amountPerAge = input.amountPerAge
+
     if (input.guide?.data) {
       this.guide = Guide.map(input.guide)
     }

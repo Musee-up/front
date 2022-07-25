@@ -17,9 +17,8 @@
         </experience-booking-form-date>
       </v-row>
 
-      <v-row class="my-4">
+      <v-row v-if="day" class="my-4">
         <experience-booking-form-hour
-          v-if="day"
           class="booking"
           :slots="hours"
           @submit="(slot) => (selectedSlot = slot)"
@@ -27,13 +26,19 @@
         </experience-booking-form-hour>
       </v-row>
 
-      <v-row class="my-4">
-        <experience-booking-form-group @submit="(v) => (group = v)">
+      <v-row v-if="selectedSlot" class="my-4">
+        <experience-booking-form-group v-model="quantityPerAges">
         </experience-booking-form-group>
       </v-row>
-      <v-row>
-        <p class="primary--text">
-          {{ group }}
+      <v-row v-if="selectedSlot" justify="center">
+        <p class="primary--text text-center">
+          Total:
+          {{
+            calculateAmountPerAgeTotal(
+              calculateAmountPerAge(selectedSlot.amountPerAge, quantityPerAges)
+            )
+          }}
+          Euros
         </p>
       </v-row>
     </v-card-text>
@@ -49,6 +54,11 @@
 </template>
 
 <script>
+import {
+  quantityPerAges,
+  calculateAmountPerAge,
+  calculateAmountPerAgeTotal,
+} from '@/types/Group.ts'
 import Experience from '@/types/Experience'
 
 export default {
@@ -64,21 +74,26 @@ export default {
   },
   data() {
     return {
+      quantityPerAges,
       selectedSlot: null,
-      group: null,
       day: null,
       dates: [],
     }
   },
   computed: {
     booking() {
-      return {
-        size: 10,
-        slot: this.selectedSlot,
-        amount: 18,
-        total: 18 * 10,
-        group: this.group,
-      }
+      return !this.selectedSlot
+        ? null
+        : {
+            slot: this.selectedSlot,
+            quantityPerAges: this.quantityPerAges,
+            amount: calculateAmountPerAgeTotal(
+              calculateAmountPerAge(
+                this.selectedSlot?.amountPerAge,
+                this.quantityPerAges
+              )
+            ),
+          }
     },
     hours() {
       const day = new Date(this.day).getDate()
@@ -94,6 +109,8 @@ export default {
     )
   },
   methods: {
+    calculateAmountPerAge,
+    calculateAmountPerAgeTotal,
     allowedDates(date) {
       return this.dates.includes(date)
     },

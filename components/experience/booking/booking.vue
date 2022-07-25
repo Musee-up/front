@@ -32,16 +32,14 @@
         <v-divider></v-divider>
         <account-client-bookings-attributes :e-slot="booking.slot">
         </account-client-bookings-attributes>
-      <stripe-elements
-        v-if="stripeKey"
-        v-slot="{ elements }"
-        ref="elms"
-        :stripe-key="stripeKey"
+        <stripe-elements
+          v-if="stripeKey"
+          v-slot="{ elements }"
+          ref="elms"
+          :stripe-key="stripeKey"
         >
-        <stripe-element ref="card" type="card" :elements="elements" />
-      </stripe-elements>
-
-
+          <stripe-element ref="card" type="card" :elements="elements" />
+        </stripe-elements>
       </v-container>
     </v-card-text>
 
@@ -53,6 +51,7 @@
       >
         {{ $t('components.experience.booking.submit') }}
       </v-btn>
+      <core-snackbar v-model="snackbar" :error="error"> </core-snackbar>
     </v-card-actions>
   </v-card>
 </template>
@@ -84,8 +83,10 @@ export default {
   },
   data() {
     return {
-      stripeKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+      snackbar: false,
       menu: false,
+      errror: null,
+      stripeKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     }
   },
   methods: {
@@ -93,15 +94,15 @@ export default {
       const groupComponent = this.$refs.elms
       const cardComponent = this.$refs.card
       const cardElement = cardComponent.stripeElement
-
-      let token;
+      let token
 
       try {
         token = await groupComponent.instance.createToken(cardElement)
       } catch (err) {
-        this.err = err.response?.data?.error
+        this.snackbar = true
+        this.error = err.response?.data?.error
       }
-      console.log(token)
+      console.log()
 
       this.$apollo
         .mutate({
@@ -109,16 +110,20 @@ export default {
           variables: {
             input: {
               experience: this.experience.id,
-              groupSize: this.booking.groupSize,
+              quantityPerAge: this.booking.quantityPerAges,
               user: this.$strapi.user.id,
               slot: this.booking.slot.id,
-              amount: 10,
-              token
+              amount: this.booking.amount,
+              token,
             },
           },
         })
         .then(() => this.$emit('success'))
-        .catch((error) => console.log(error))
+        .catch((error) => {
+          this.snackbar = true
+          this.error = error
+          console.log(error)
+        })
     },
   },
 }
