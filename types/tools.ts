@@ -11,5 +11,4 @@ const flatten = (obj: any) => {
     ...d?.attributes,
   }
 }
-
 export { flatten, flattenList }

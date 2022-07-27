@@ -31,3 +31,34 @@ const rating = {
 }
 
 export { guide, experience, rating }
+
+// {
+//   "adult": {
+//     "amount": 0
+//   },
+//   "teenager": {
+//     "amount": 0
+//   },
+//   "children": {
+//     "amount": 0
+//   },
+//   "baby": {
+//     "amount": 0
+//   },
+// }{
+//   "adult": {
+//     "quantity": 0
+//   },
+//   "teenager": {
+//     "quantity": 0
+//   },
+//   "children": {
+//     "quantity": 0
+//   },
+//   "baby": {
+//     "quantity": 0
+//   },
+// }
+
+
+

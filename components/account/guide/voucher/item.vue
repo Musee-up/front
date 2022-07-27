@@ -5,18 +5,18 @@
         <v-row justify="center">
           <nuxt-img
             class="rounded-xl"
-            :width="width"
-            :height="height"
+            :width="img.width"
+            :height="img.height"
             fit="cover"
-            :src="voucher.img"
+            :src="img.url"
           >
           </nuxt-img>
         </v-row>
       </v-col>
 
       <v-col cols="12" md="4" class="pb-0 text-center">
-        <p>{{ voucher.title }}</p>
-        <p>{{ voucher.type }}</p>
+        <p>{{ experience.title }}</p>
+        <p>{{  }}</p>
       </v-col>
 
       <v-col cols="12" class="pa-0 text-center" md="2">
@@ -35,24 +35,35 @@
 </template>
 
 <script>
-import { verticalWidth, verticalHeight } from '@/tools/photos.js'
+import Booking from '@/types/Booking'
+import { verticalWidth, verticalHeight, getFormatFromBreakpoint } from '@/tools/photos.js'
 
 export default {
-  props: ['voucher'],
+  props: {
+    booking: {
+      type: Booking,
+      required: true,
+    },
+  },
   data() {
     return {
+      experience: this.booking?.experience,
       icon: 'mdi-ticket-confirmation',
     }
   },
   computed: {
-    width() {
-      return verticalWidth(this.$vuetify.breakpoint)
-    },
-    height() {
-      return verticalHeight(this.$vuetify.breakpoint)
+    img() {
+      return {
+        url: getFormatFromBreakpoint(
+          this.experience.photos[0]?.formats,
+          this.$vuetify.breakpoint.name,
+        ),
+        width: verticalWidth(this.$vuetify.breakpoint),
+        height: verticalHeight(this.$vuetify.breakpoint)
+      }
     },
     date() {
-      return this.$moment(this.voucher.date).format('DD/MM/YY')
+      return this.$moment(this.booking.createdAt).format('DD/MM/YY')
     },
   },
 }

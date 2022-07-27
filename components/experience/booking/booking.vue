@@ -51,7 +51,7 @@
       >
         {{ $t('components.experience.booking.submit') }}
       </v-btn>
-      <core-snackbar v-model="snackbar" :error="error"> </core-snackbar>
+      <core-snackbar v-if="error" v-model="snackbar" :error="error"> </core-snackbar>
     </v-card-actions>
   </v-card>
 </template>
@@ -85,7 +85,7 @@ export default {
     return {
       snackbar: false,
       menu: false,
-      errror: null,
+      error: null,
       stripeKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     }
   },
@@ -114,6 +114,7 @@ export default {
               user: this.$strapi.user.id,
               slot: this.booking.slot.id,
               amount: this.booking.amount,
+              guide: this.guide.id,
               token,
             },
           },

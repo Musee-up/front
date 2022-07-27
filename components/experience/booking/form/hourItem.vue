@@ -8,13 +8,18 @@
     </v-col>
 
     <v-col>
-      <p>5 places restantes</p>
+      <p>{{remainingPlaces}} places restantes</p>
     </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
+  computed: {
+    remainingPlaces() {
+      return this.e_slot.groupSize.max - this.e_slot.groupSize.current
+    }
+  },
   props: {
     e_slot: {
       type: Object,

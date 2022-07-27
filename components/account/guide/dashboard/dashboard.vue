@@ -5,8 +5,7 @@
         <component :is="item" class="right"></component>
       </v-row>
     </v-col>
-
-    <v-col> </v-col>
+    <v-spacer></v-spacer>
 
     <v-col cols="12" :md="cols.middle">
       <v-row>
@@ -15,7 +14,8 @@
       </v-row>
 
       <v-row>
-        <account-guide-dashboard-voucher> </account-guide-dashboard-voucher>
+        <account-guide-voucher
+          :bookings="guide.bookings"> </account-guide-voucher>
       </v-row>
     </v-col>
   </v-row>
@@ -37,6 +37,7 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user/getCore',
+      guide: 'guide/getCore',
     }),
     cols() {
       switch (this.$vuetify.breakpoint.name) {

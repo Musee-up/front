@@ -2,7 +2,7 @@
   <v-container>
     <v-row
       justify="center"
-      justify-md="right"
+      justify-md="end"
       class="text-center text-md-right"
     >
       <h2 class="summary-title my-md-4 title--text">

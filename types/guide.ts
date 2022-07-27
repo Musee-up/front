@@ -1,5 +1,7 @@
 import { flatten, flattenList } from './tools'
 import User from './User'
+import Booking from './Booking'
+import Slot from './Booking'
 import Experience from './Experience'
 
 import {
@@ -7,7 +9,6 @@ import {
   FavoritePlaceEntityResponse,
   LanguageRelationResponseCollection,
   // UsersPermissionsUserEntityResponse,
-  slotRelationResponseCollection,
   GuideEntityResponseCollection,
   Scalars,
   Guide as GuideDAO,
@@ -21,11 +22,12 @@ class Guide implements GuideDAO {
   background?: Maybe<Scalars['String']>
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
-  slots?: Maybe<slotRelationResponseCollection>
-  experiences?: any // Maybe<ExperienceRelationResponseCollection>
+  slots?: Maybe<Array<Slot>>
+  experiences?: Maybe<Array<Experience>>
   favorite_place?: Maybe<FavoritePlaceEntityResponse>
   headline?: Maybe<Scalars['String']>
   interests?: Maybe<Scalars['JSON']>
+  bookings?: Maybe<Array<Booking>>
   languages?: Array<string>
   location?: Maybe<Scalars['String']>
   specialties?: Maybe<Scalars['JSON']>
@@ -44,6 +46,9 @@ class Guide implements GuideDAO {
     return guideList.data.map(Guide.fromEntity)
   }
 
+  static getAllBookings(guide: Guide): Array<any> {
+    return guide.experiences.map((experience: Experience) => experience.bookings)
+  }
   static map(GuideInput: GuideEntityResponse): Guide {
     return Guide.fromEntity(GuideInput.data)
   }
@@ -59,7 +64,11 @@ class Guide implements GuideDAO {
     this.location = input.location
     this.languages = input.languages?.data.map(flattenList).map((x) => x.value)
     this.favorite_place = flatten(input.favorite_place)
-    this.slots = input.slots
+    // this.slots = input.slots
+    if (input.bookings) {
+      console.log(input.bookings)
+      this.bookings = Booking.mapList(input.bookings)
+    }
     if (input.experiences) {
       this.experiences = Experience.mapList(input.experiences)
     }

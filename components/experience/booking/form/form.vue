@@ -42,7 +42,7 @@
         </p>
       </v-row>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions v-if="booking">
       <experience-booking-summary
         :booking="booking"
         :experience="experience"
@@ -87,6 +87,7 @@ export default {
         : {
             slot: this.selectedSlot,
             quantityPerAges: this.quantityPerAges,
+          guide: this.experience.guide.id,
             amount: calculateAmountPerAgeTotal(
               calculateAmountPerAge(
                 this.selectedSlot?.amountPerAge,

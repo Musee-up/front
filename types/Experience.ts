@@ -1,5 +1,6 @@
 import { flatten, flattenList } from './tools'
 import Guide from './Guide'
+import Booking from './Booking'
 import Slot from './Slot'
 import {
   Scalars,
@@ -17,6 +18,7 @@ import {
   ThemeRelationResponseCollection,
   Enum_Experience_Transportation,
   Experience as ExperienceDAO,
+  BookingRelationResponseCollection,
 } from '@/graphql/generated'
 
 class Experience implements ExperienceDAO {
@@ -24,7 +26,8 @@ class Experience implements ExperienceDAO {
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
   duration?: Maybe<Scalars['Time']>
-  slots?
+  bookings?: Maybe<Booking>
+  slots?: Maybe<Array<Slot>>
   groupSize?: Maybe<Scalars['Int']>
   guide?: Guide
   handifriendly?: Maybe<Scalars['Boolean']>
@@ -76,7 +79,6 @@ class Experience implements ExperienceDAO {
 
     this.localizations = input.localizations
     // this.localizations = input.localizations?.data.map(flattenList)
-    // this.photos = input.photos
     this.photos = input.photos?.data.map(flattenList)
     this.types = input.types?.data.map(flatten)
 

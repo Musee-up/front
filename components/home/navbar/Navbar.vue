@@ -39,8 +39,9 @@
         </v-menu>
       </v-col>
 
-      <v-col v-for="link in links" :key="link.title">
-        <NuxtLink :to="link.link"> {{ link.title }}</NuxtLink>
+      <v-col v-for="link in links" :key="link.title" class="text-center">
+        <NuxtLink
+        :to="link.link"> {{ link.title }}</NuxtLink>
       </v-col>
 
       <v-col>

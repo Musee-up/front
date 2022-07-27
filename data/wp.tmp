@@ -1,0 +1,4 @@
+inc/src/admin/metabox.php:                      'rz_time_availability',
+inc/src/submission/modules/publish/publish.php:                         'rz_time_availability'
+inc/src/listing/appointments.php:        $this->periods = Rz()->jsoning( 'rz_time_availability', $this->listing->id );
+templates/metabox/listing/reservation-availability.php:    'id' => 'rz_time_availability',

@@ -23,9 +23,10 @@ const quantityPerAges: QuantityPerAges = {
     quantity: 0,
   },
 }
-
 const calculateAmountPerAge = (amountPerAge: any, quantityPerAge: any) =>
   Object.keys(quantityPerAge).map((age) => {
+    if (!amountPerAge[age])
+      throw new Error(`Age ${age} is not defined in amountPerAge`)
     return {
       age,
       amount: amountPerAge[age].amount * quantityPerAge[age].quantity,

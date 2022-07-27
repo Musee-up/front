@@ -1,5 +1,7 @@
 #import "./CoreExperiencePart.gql"
 #import "./GuideProfile.gql"
+#import "./ExternalUser.gql"
+#import "./CoreUser.gql"
 
 fragment CoreGuidePart on GuideEntityResponse {
   data {
@@ -20,6 +22,26 @@ fragment CoreGuidePart on GuideEntityResponse {
           id
           attributes {
             ...CoreExperiencePart
+          }
+        }
+      }
+      bookings {
+        data {
+          id
+          attributes {
+            user {
+              ...ExternalUser
+            }
+            createdAt
+            amount
+            experience {
+              data {
+                id
+                attributes {
+                  ...CoreExperiencePart
+                }
+              }
+            }
           }
         }
       }

@@ -12,7 +12,7 @@
     <template #activator="{ on, attrs }">
       <v-text-field
         v-model="groupAbstract"
-        label="choisissez votre groupe"
+        :label="label"
         style="align-self: center"
         hide-details="auto"
         rounded
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { QuantityPerAges } from '@/types/Group.ts'
+import { QuantityPerAges } from '@/types/Group'
 
 export default {
   props: {
@@ -73,6 +73,7 @@ export default {
     return {
       menu: false,
       groupAbstract: '',
+      label: "choisissez votre groupe",
     }
   },
   computed: {
@@ -86,6 +87,10 @@ export default {
   watch: {
     value(val) {
       this.$emit('input', val)
+      this.label = this.value.map(
+        (quantityPerAge, i) =>
+          `${i} - ${quantityPerAge.quantity}`
+      ).join(', ')
     },
   },
   methods: {
