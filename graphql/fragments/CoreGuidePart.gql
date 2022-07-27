@@ -41,7 +41,7 @@ fragment CoreGuidePart on GuideEntityResponse {
               data {
                 id
                 attributes {
-                  size
+                  groupSize
                   user {
                     data {
                       id

@@ -27,20 +27,23 @@
 
     <v-card active-class="rounded-xl" class="rounded-xl card">
       <v-card-text>
-        <v-row v-for="(type, i) in group" :key="i">
+        <v-row v-for="(quantityPerAge, i) in value" :key="i">
           <v-col>
             <p>
               {{ i }}
             </p>
           </v-col>
           <v-col cols="8">
-            <core-number-input v-model="type.model" :disabled="total >= max">
+            <core-number-input
+              v-model="quantityPerAge.quantity"
+              :disabled="total >= maxGroupSize"
+            >
             </core-number-input>
           </v-col>
         </v-row>
         <v-row>
           {{ total }}
-          {{ max }}
+          {{ maxGroupSize }}
         </v-row>
       </v-card-text>
 
@@ -53,43 +56,41 @@
 </template>
 
 <script>
+import { QuantityPerAges } from '@/types/Group.ts'
+
 export default {
+  props: {
+    value: {
+      type: QuantityPerAges,
+      default: '',
+    },
+    maxGroupSize: {
+      type: Number,
+      default: 10,
+    },
+  },
   data() {
     return {
-      max: 10,
-      adult: 0,
       menu: false,
-      selectedSlot: [],
       groupAbstract: '',
-      group: {
-        adult: {
-          model: 0,
-        },
-        teenager: {
-          model: 0,
-        },
-        children: {
-          model: 0,
-        },
-        baby: {
-          model: 0,
-        },
-      },
     }
   },
   computed: {
     total() {
-      return Object.values(this.group).reduce((acc, cur) => acc + cur.model, 0)
+      return Object.values(this.value).reduce(
+        (acc, age) => acc + age.quantity,
+        0
+      )
     },
   },
   watch: {
-    group(val) {
+    value(val) {
       this.$emit('input', val)
     },
   },
   methods: {
     submit() {
-      this.$emit('submit', this.group)
+      this.$emit('input', this.value)
       this.groupAbstract = this.total + ' personnes'
       this.menu = false
     },

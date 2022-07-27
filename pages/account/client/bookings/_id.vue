@@ -112,7 +112,7 @@ export default {
         icon: 'mdi-map-marker',
       },
       {
-        text: this.booking.size + ' personnes',
+        text: this.booking.groupSize + ' personnes',
         icon: 'mdi-account-multiple',
       },
     ]

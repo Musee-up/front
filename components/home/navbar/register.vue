@@ -89,17 +89,7 @@
           </v-btn>
         </v-card-actions>
       </v-form>
-      <v-snackbar
-        v-model="snackbar"
-        color="error"
-        :timeout="snackbarTimeout"
-        class="text-center"
-        rounded="xl"
-      >
-        <p class="ma-0 white--text">
-          {{ error }}
-        </p>
-      </v-snackbar>
+      <core-snackbar v-model="snackbar" :error="error"> </core-snackbar>
     </v-card>
   </v-dialog>
 </template>
@@ -129,7 +119,6 @@ export default {
     email: '',
     password: '',
     dialog: false,
-    snackbarTimeout: 5000,
     snackbar: false,
     error: '',
   }),

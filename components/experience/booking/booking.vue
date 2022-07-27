@@ -32,20 +32,18 @@
         <v-divider></v-divider>
         <account-client-bookings-attributes :e-slot="booking.slot">
         </account-client-bookings-attributes>
-      </v-container>
-    </v-card-text>
-
-    <v-card-actions class="justify-center">
-      <div v-if="stripeKey">
-        <StripeElements
+        <stripe-elements
+          v-if="stripeKey"
           v-slot="{ elements }"
           ref="elms"
           :stripe-key="stripeKey"
         >
-          <StripeElement ref="card" type="card" :elements="elements" />
-        </StripeElements>
-      </div>
+          <stripe-element ref="card" type="card" :elements="elements" />
+        </stripe-elements>
+      </v-container>
+    </v-card-text>
 
+    <v-card-actions class="justify-center">
       <v-btn
         color="primary"
         class="rounded-xl white--text"
@@ -53,6 +51,7 @@
       >
         {{ $t('components.experience.booking.submit') }}
       </v-btn>
+      <core-snackbar v-model="snackbar" :error="error"> </core-snackbar>
     </v-card-actions>
   </v-card>
 </template>
@@ -84,26 +83,47 @@ export default {
   },
   data() {
     return {
-      stripeKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+      snackbar: false,
       menu: false,
+      errror: null,
+      stripeKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     }
   },
   methods: {
-    createBooking() {
+    async createBooking() {
+      const groupComponent = this.$refs.elms
+      const cardComponent = this.$refs.card
+      const cardElement = cardComponent.stripeElement
+      let token
+
+      try {
+        token = await groupComponent.instance.createToken(cardElement)
+      } catch (err) {
+        this.snackbar = true
+        this.error = err.response?.data?.error
+      }
+      console.log()
+
       this.$apollo
         .mutate({
           mutation: createBooking,
           variables: {
             input: {
               experience: this.experience.id,
-              size: this.booking.size,
+              quantityPerAge: this.booking.quantityPerAges,
               user: this.$strapi.user.id,
               slot: this.booking.slot.id,
+              amount: this.booking.amount,
+              token,
             },
           },
         })
         .then(() => this.$emit('success'))
-        .catch((error) => console.log(error))
+        .catch((error) => {
+          this.snackbar = true
+          this.error = error
+          console.log(error)
+        })
     },
   },
 }

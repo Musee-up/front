@@ -18,7 +18,7 @@
           {{
             $t('components.account.client.bookings.attributes.price', {
               total: booking.total,
-              unit: booking.unitPrice,
+              unit: booking.amount,
             })
           }}
         </p>

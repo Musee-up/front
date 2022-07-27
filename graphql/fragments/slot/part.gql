@@ -7,6 +7,8 @@ fragment Slot on Slot {
   guide {
     ...GuideResponse
   }
+  amountPerAge
+  groupSize
   experience {
     data {
       id
