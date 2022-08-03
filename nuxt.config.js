@@ -5,6 +5,14 @@ const backendUrl = process.env.API_URL || 'http://localhost:1337'
 
 export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
+   typescript: {
+    strict: true,
+     typeCheck: {
+      eslint: {
+        files: './**/*.{ts,js,vue}'
+      }
+    }
+  },
   head: {
     titleTemplate: '%s - musée up',
     title: 'musée up',

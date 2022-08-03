@@ -7,7 +7,6 @@
       <div>
         <v-btn rounded @click.prevent="createExperience">
           {{ $t('common.add') }}
-          {{ guideID }}
         </v-btn>
         <v-chip>
           {{ $t('components.experience.creation.template.incomplete') }}
@@ -67,9 +66,11 @@
       </v-col>
 
       <v-col>
-        <v-row class="justify-end">
-          <experience-creation-price-picker> </experience-creation-price-picker>
-        </v-row>
+        <v-container>
+          <experience-creation-price-picker>
+          </experience-creation-price-picker>
+
+        </v-container>
       </v-col>
     </v-row>
   </v-container>
@@ -79,13 +80,23 @@
 import { mapGetters } from 'vuex'
 import createExperience from '@/graphql/mutations/experience/create'
 import updateExperience from '@/graphql/mutations/experience/update'
+import Experience from '@/types/Experience'
 
 export default {
-  props: ['experience', 'currentId'],
+  props: {
+    experience: {
+      type: Experience,
+      required: true,
+    },
+    currentId: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       model: {
-        photoIDs: [],
+        photos: [],
         title: null,
         description: null,
       },
@@ -117,7 +128,7 @@ export default {
     this.id = this.currentId
 
     if (!this.experience) return
-    this.model = this.experience.attributes
+    this.model = this.experience
     let { languages, themes, types } = this.model
     this.model_att = { languages, themes, types }
     ;[languages, themes, types] = Object.values(this.model_att).map((a) =>
@@ -129,7 +140,7 @@ export default {
   },
   methods: {
     onUpload(data) {
-      this.model.photoIDs = data
+      this.model.photos = data
     },
     updateAttribute(att) {
       this.att = att
@@ -147,11 +158,9 @@ export default {
             id: this.id,
             input: {
               ...this.att,
+              ...this.model,
               guide: this.guideID,
-              title: this.model.title,
-              description: this.model.description,
               duration: '00:03:00.000',
-              photos: this.model.photoIDs,
             },
           },
         })

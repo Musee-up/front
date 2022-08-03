@@ -1,10 +1,6 @@
 <template>
   <v-container>
-    <v-row
-      justify="center"
-      justify-md="end"
-      class="text-center text-md-right"
-    >
+    <v-row justify="center" justify-md="end" class="text-center text-md-right">
       <h2 class="summary-title my-md-4 title--text">
         {{ $t('pages.account.client.bookings.id.summary') }}
       </h2>

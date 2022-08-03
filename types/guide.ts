@@ -17,25 +17,25 @@ import {
   GuideEntityResponse,
 } from '@/graphql/generated'
 
-class Guide implements GuideDAO {
+class Guide {
   id?: Maybe<Scalars['ID']>
   background?: Maybe<Scalars['String']>
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
-  slots?: Maybe<Array<Slot>>
-  experiences?: Maybe<Array<Experience>>
+  slots?: Array<Slot>
+  experiences?: Array<Experience>
   favorite_place?: Maybe<FavoritePlaceEntityResponse>
   headline?: Maybe<Scalars['String']>
   interests?: Maybe<Scalars['JSON']>
-  bookings?: Maybe<Array<Booking>>
+  bookings?: Array<Booking>
   languages?: Array<string>
   location?: Maybe<Scalars['String']>
   specialties?: Maybe<Scalars['JSON']>
   updatedAt?: Maybe<Scalars['DateTime']>
-  user?: any
+  user?: Maybe<User>
   workExperiences?: Maybe<Scalars['JSON']>
 
-  static fromEntity(entity: Maybe<GuideEntity> | undefined): Guide {
+  static fromEntity(entity: Maybe<GuideEntity> | undefined): Maybe<Guide> {
     if (!entity) throw new Error('Guide.fromEntity: entity is undefined')
     if (!entity.id || !entity.attributes)
       throw new Error('Guide.fromEntity: id or attributes is undefined')
@@ -43,13 +43,15 @@ class Guide implements GuideDAO {
   }
 
   static mapList(guideList: GuideEntityResponseCollection): Array<Guide> {
-    return guideList.data.map(Guide.fromEntity)
+    return guideList.data.map(x => x && Guide.fromEntity(x))
   }
 
-  static getAllBookings(guide: Guide): Array<any> {
-    return guide.experiences.map((experience: Experience) => experience.bookings)
+  static getAllBookings(guide: Guide): Array<Booking> {
+    return guide.experiences.map(
+      (experience: Experience) => experience.bookings
+    )
   }
-  static map(GuideInput: GuideEntityResponse): Guide {
+  static map(GuideInput: GuideEntityResponse): Maybe<Guide> {
     return Guide.fromEntity(GuideInput.data)
   }
 
@@ -64,7 +66,7 @@ class Guide implements GuideDAO {
     this.location = input.location
     this.languages = input.languages?.data.map(flattenList).map((x) => x.value)
     this.favorite_place = flatten(input.favorite_place)
-    // this.slots = input.slots
+    this.slots = input.slots || []
     if (input.bookings) {
       console.log(input.bookings)
       this.bookings = Booking.mapList(input.bookings)

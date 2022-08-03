@@ -14,32 +14,32 @@ import {
   ExperienceEntityResponse,
 } from '@/graphql/generated'
 
-class slot implements slotDAO {
+class Slot implements slotDAO {
   id: Maybe<Scalars['ID']>
   // bookings?: Maybe<BookingRelationResponseCollection>
   createdAt?: Maybe<Scalars['DateTime']>
   end: Maybe<Scalars['DateTime']>
   amountPerAge: any
   groupSize: any
-  guide: Guide
+  guide: Maybe<Guide>
   experience: Maybe<Experience>
   start: Scalars['DateTime']
   updatedAt?: Maybe<Scalars['DateTime']>
 
-  static fromEntity(entity: Maybe<slotEntity> | undefined): slot | void {
+  static fromEntity(entity: Maybe<slotEntity> | undefined): Maybe<Slot> {
     if (!entity) throw new Error('slot.fromEntity: entity is undefined')
     if (!entity.id || !entity.attributes)
       throw new Error('slot.fromEntity: id or attributes is undefined')
 
-    return new slot(entity.id, entity.attributes)
+    return new Slot(entity.id, entity.attributes)
   }
 
-  static mapList(list: slotRelationResponseCollection): slot {
-    return list.data.map(slot.fromEntity)
+  static mapList(list: slotRelationResponseCollection): Array<Maybe<Slot>> {
+    return list.data.map(Slot.fromEntity)
   }
 
-  static map(input: slotEntityResponse): slot {
-    return slot.fromEntity(input.data)
+  static map(input: slotEntityResponse): Maybe<Slot> {
+    return Slot.fromEntity(input.data)
   }
 
   constructor(id: Maybe<Scalars['ID']>, input: slotDAO) {
@@ -60,4 +60,4 @@ class slot implements slotDAO {
   }
 }
 
-export default slot
+export default Slot

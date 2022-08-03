@@ -3,9 +3,8 @@
     <v-row class="d-flex justify-center">
       <v-col cols="12" md="8">
         <v-row>
-          <account-guide-dashboard-profile
-            :user="{}"
-          ></account-guide-dashboard-profile>
+          <account-guide-dashboard-profile :user="user">
+          </account-guide-dashboard-profile>
         </v-row>
         <v-row class="text-center">
           <p>
@@ -48,6 +47,11 @@
 <script>
 export default {
   layout: 'account-client',
+  computed: {
+    ...mapGetters({
+      user: 'user/getCore',
+    })
+  },
   data() {
     return {
       cards: [

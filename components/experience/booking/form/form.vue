@@ -87,7 +87,7 @@ export default {
         : {
             slot: this.selectedSlot,
             quantityPerAges: this.quantityPerAges,
-          guide: this.experience.guide.id,
+            guide: this.experience.guide.id,
             amount: calculateAmountPerAgeTotal(
               calculateAmountPerAge(
                 this.selectedSlot?.amountPerAge,

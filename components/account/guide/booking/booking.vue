@@ -1,5 +1,5 @@
 <template>
-  <v-card class="vouchers rounded-xl" rounded outlined>
+  <v-card class="bookings rounded-xl" rounded outlined>
     <v-card-title class="pa-4 text-center">
       <h2 class="black--text">
         {{ title.label }}
@@ -14,8 +14,8 @@
     <v-card-text class="pb-3">
       <v-list v-for="(booking, i) in bookings" :key="i">
         <v-list-item>
-          <account-guide-voucher-item :voucher="booking">
-          </account-guide-voucher-item>
+          <account-guide-booking-item :booking="booking">
+          </account-guide-booking-item>
         </v-list-item>
 
         <v-divider v-if="i != 2" class="my-2"></v-divider>
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.vouchers {
+.bookings {
   height: fit-content;
   width: 100%;
 }

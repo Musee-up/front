@@ -51,7 +51,8 @@
       >
         {{ $t('components.experience.booking.submit') }}
       </v-btn>
-      <core-snackbar v-if="error" v-model="snackbar" :error="error"> </core-snackbar>
+      <core-snackbar v-if="error" v-model="snackbar" :error="error">
+      </core-snackbar>
     </v-card-actions>
   </v-card>
 </template>

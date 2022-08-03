@@ -27,7 +27,7 @@ class Experience implements ExperienceDAO {
   description?: Maybe<Scalars['String']>
   duration?: Maybe<Scalars['Time']>
   bookings?: Maybe<Booking>
-  slots?: Maybe<Array<Slot>>
+  slots?: Array<Maybe<Slot>>
   groupSize?: Maybe<Scalars['Int']>
   guide?: Guide
   handifriendly?: Maybe<Scalars['Boolean']>
@@ -48,15 +48,18 @@ class Experience implements ExperienceDAO {
   languages?: Maybe<LanguageRelationResponseCollection>
   themes?: Maybe<ThemeRelationResponseCollection>
 
-  static fromEntity(entity: Maybe<ExperienceEntity> | undefined): Experience {
-    return new Experience(entity?.id || 'noId', entity?.attributes || {})
+  static fromEntity(entity: Maybe<ExperienceEntity> | undefined): Maybe<Experience> {
+    if (!entity) throw new Error('Experience.fromEntity: entity is undefined')
+    if (!entity.id || !entity.attributes)
+      throw new Error('Experience.fromEntity: id or attributes is undefined')
+    return new Experience(entity?.id, entity?.attributes)
   }
 
-  static mapList(list: ExperienceEntityResponseCollection): Experience {
+  static mapList(list: ExperienceEntityResponseCollection): Array<Maybe<Experience>> {
     return list.data.map(Experience.fromEntity)
   }
 
-  static map(input: ExperienceEntityResponse): Experience {
+  static map(input: ExperienceEntityResponse): Maybe<Experience> {
     return Experience.fromEntity(input.data)
   }
 

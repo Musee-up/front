@@ -21,7 +21,7 @@ class User {
   // confirmed?: Maybe<Scalars['Boolean']>
   id?: Maybe<Scalars['ID']>
   blocked?: Maybe<Scalars['Boolean']>
-  bookings?: Maybe<BookingRelationResponseCollection>
+  bookings?: Array<Maybe<Booking>>
   createdAt?: Maybe<Scalars['DateTime']>
   email: Scalars['String']
   firstname?: Maybe<Scalars['String']>

@@ -1,7 +1,7 @@
 <template>
   <v-row class="px-4">
     <v-col cols="12" :md="cols.right">
-      <v-row v-for="(item, i) in right" :key="i" class="my-4">
+      <v-row v-for="(item, i) in right" :key="i" class="mb-4">
         <component :is="item" class="right"></component>
       </v-row>
     </v-col>
@@ -13,9 +13,9 @@
         </account-guide-dashboard-profile>
       </v-row>
 
-      <v-row>
-        <account-guide-voucher
-          :bookings="guide.bookings"> </account-guide-voucher>
+      <v-row v-if="guide.bookings">
+        <account-guide-booking :bookings="guide.bookings">
+        </account-guide-booking>
       </v-row>
     </v-col>
   </v-row>

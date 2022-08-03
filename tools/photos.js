@@ -20,16 +20,14 @@ const verticalWidth = ({ name, width }) => {
   }[name]
 }
 
-const getFormatFromBreakpoint = (formats, breakpoint) => {
-  return {
+const getFormatFromBreakpoint = (url, formats, breakpoint) => {
+  return url + ({
     xs: formats?.thumbnail,
     sm: formats?.thumbnail,
     md: formats?.medium,
     lg: formats?.large,
     xl: formats?.large,
-  }[breakpoint]?.url
+  }[breakpoint]?.url || formats?.thumbnail?.url)
 }
-
-
 
 export { verticalWidth, verticalHeight, getFormatFromBreakpoint }

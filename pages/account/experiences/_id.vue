@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import Experience from '@/types/Experience'
 import experienceQuery from '@/graphql/queries/experienceProfile'
 
 export default {
@@ -26,7 +27,9 @@ export default {
         },
       })
       .then((x) => {
-        this.experience = x.data.experience.data
+        console.log(x.data.experience)
+        this.experience = Experience.map(x.data.experience)
+        console.log('experience', this.experience)
       })
       .catch((err) => console.log(err))
   },

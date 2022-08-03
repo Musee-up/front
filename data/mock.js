@@ -59,6 +59,3 @@ export { guide, experience, rating }
 //     "quantity": 0
 //   },
 // }
-
-
-

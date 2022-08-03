@@ -1,29 +1,35 @@
 <template v-if="user">
-  <v-container fluid class="">
-    <v-row class="d-flex justify-center">
+  <v-container fluid>
+    <v-row justify="center">
       <v-avatar color="primary" size="100">
-        <nuxt-img style="width: inherit" :src="portrait"> </nuxt-img>
+        <nuxt-img v-if="img" :src="img"> </nuxt-img>
       </v-avatar>
     </v-row>
 
-    <v-row class="d-flex justify-center">
-      <h2>Bienvenue {{ user.firstame }}</h2>
+    <v-row justify="center">
+      <h2>Bienvenue {{ user.firstname }}</h2>
     </v-row>
 
-    <v-row class="d-flex justify-center">
+    <v-row justify="center">
       <slot> </slot>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import User from '@/types/User'
+
 export default {
-  props: ['user'],
+  props: {
+    user: {
+      type: User,
+      required: true,
+    },
+  },
   data() {
     return {
-      portrait: '/portrait.png',
-      location: 'Ile de France, France',
+      img: process.env.API_URL + this.user.picture?.formats.thumbnail.url,
     }
-  },
+  }
 }
 </script>

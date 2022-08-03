@@ -73,7 +73,7 @@ export default {
     return {
       menu: false,
       groupAbstract: '',
-      label: "choisissez votre groupe",
+      label: 'choisissez votre groupe',
     }
   },
   computed: {
@@ -87,10 +87,9 @@ export default {
   watch: {
     value(val) {
       this.$emit('input', val)
-      this.label = this.value.map(
-        (quantityPerAge, i) =>
-          `${i} - ${quantityPerAge.quantity}`
-      ).join(', ')
+      this.label = this.value
+        .map((quantityPerAge, i) => `${i} - ${quantityPerAge.quantity}`)
+        .join(', ')
     },
   },
   methods: {

@@ -3,12 +3,12 @@
     label="Tarifs par catégorie d'ages"
     icon="mdi-account-group"
   >
-    <v-row v-for="(i, index) in peopleType" :key="index" class="my-2">
+    <v-row v-for="(rageAnge, index) in peopleType" :key="index" class="my-2">
       <v-container>
         <v-row style="align-items: center">
           <v-col class="my-0 py-0">
             <p class="ma-0">
-              {{ $t('components.experience.creation.pricePicker.item.title') }}
+              {{ index }}
             </p>
             <p class="ma-0 description-list--text">
               <small>
@@ -22,6 +22,7 @@
           </v-col>
           <v-col class="my-0 py-0" cols="4">
             <v-text-field
+              v-model="rageAnge.amount"
               hide-details="auto"
               outlined
               class="rounded-xl pa-2"
@@ -38,10 +39,22 @@
 </template>
 
 <script>
+import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated';
+
+import {
+  amountPerAgeDefault
+} from '@/types/Group'
+
 export default {
+  props: {
+    value: {
+      type: ComponentAmountPerAgeAmountPerAge,
+      default: () => amountPerAgeDefault,
+    },
+  },
   data() {
     return {
-      peopleType: [...Array(4).keys()],
+      peopleType: amountPerAgeDefault,
       menu2: false,
     }
   },

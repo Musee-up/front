@@ -1,16 +1,15 @@
 <template>
   <default-layout>
-    <v-app-bar v-if="!$vuetify.breakpoint.mobile"
-      class="nav-bar pa-2">
-        <v-row align="center">
-          <v-col v-for="(item, index) in links" :key="index">
-            <nuxt-link :to="item.link">
-              <p class="text-center">
-                {{ $t(item.label) }}
-              </p>
-            </nuxt-link>
-          </v-col>
-        </v-row>
+    <v-app-bar v-if="!$vuetify.breakpoint.mobile" class="nav-bar pa-2">
+      <v-row align="center">
+        <v-col v-for="(item, index) in links" :key="index">
+          <nuxt-link :to="item.link">
+            <p class="text-center">
+              {{ $t(item.label) }}
+            </p>
+          </nuxt-link>
+        </v-col>
+      </v-row>
     </v-app-bar>
     <Nuxt></Nuxt>
   </default-layout>

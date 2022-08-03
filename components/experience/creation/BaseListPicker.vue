@@ -21,7 +21,7 @@
     </template>
     <v-card v-if="menu2">
       <v-container>
-        <slot></slot>
+        <slot :value="model" @input="x => model = x"></slot>
 
         <v-row class="justify-end">
           <base-blue-button>
@@ -36,6 +36,10 @@
 <script>
 export default {
   props: {
+    value: {
+      type: Object,
+      default: () => {},
+    },
     label: {
       type: String,
       default: '',
@@ -43,6 +47,16 @@ export default {
     icon: {
       type: String,
       default: '',
+    },
+  },
+  computed: {
+    model: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit('input', value);
+      },
     },
   },
   data() {
