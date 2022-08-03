@@ -21,7 +21,7 @@
     </template>
     <v-card v-if="menu2">
       <v-container>
-        <slot :value="model" @input="x => model = x"></slot>
+        <slot :value="model" @input="(x) => this.$emit('input', x)"></slot>
 
         <v-row class="justify-end">
           <base-blue-button>
@@ -49,20 +49,21 @@ export default {
       default: '',
     },
   },
-  computed: {
-    model: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit('input', value);
-      },
-    },
-  },
   data() {
     return {
       menu2: false,
     }
+  },
+  computed: {
+    model: {
+      get() {
+        return this.value
+      },
+      set(value) {
+        console.log('value changed')
+        this.$emit('input', value)
+      },
+    },
   },
 }
 </script>

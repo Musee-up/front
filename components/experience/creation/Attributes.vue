@@ -78,6 +78,7 @@ export default {
   },
   watch: {
     att() {
+      console.log('props att', this.$props.att)
       Object.entries(this.$props.att).forEach(
         ([k, v]) => (this.attributes[k].model = v)
       )

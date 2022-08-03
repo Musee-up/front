@@ -3,9 +3,9 @@
     label="Tarifs par catégorie d'ages"
     icon="mdi-account-group"
   >
-    <v-row v-for="(rageAnge, index) in peopleType" :key="index" class="my-2">
+    <v-row v-for="(rageAnge, index) in value" :key="index" class="my-2">
       <v-container>
-        <v-row style="align-items: center">
+        <v-row align="center">
           <v-col class="my-0 py-0">
             <p class="ma-0">
               {{ index }}
@@ -39,11 +39,9 @@
 </template>
 
 <script>
-import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated';
+import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated'
 
-import {
-  amountPerAgeDefault
-} from '@/types/Group'
+import { amountPerAgeDefault } from '@/types/Group'
 
 export default {
   props: {
@@ -52,11 +50,13 @@ export default {
       default: () => amountPerAgeDefault,
     },
   },
-  data() {
-    return {
-      peopleType: amountPerAgeDefault,
-      menu2: false,
-    }
+  watch: {
+    value: {
+      handler(newValue) {
+        this.$emit('input', newValue)
+      },
+      deep: true,
+    },
   },
 }
 </script>

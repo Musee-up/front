@@ -21,7 +21,7 @@ class Booking {
   updatedAt?: Maybe<Scalars['DateTime']>
   user?: Maybe<User>
 
-  static fromEntity(entity: Maybe<BookingEntity> | undefined ): Maybe<Booking> {
+  static fromEntity(entity: Maybe<BookingEntity> | undefined): Maybe<Booking> {
     if (!entity) throw new Error('Booking.fromEntity: entity is undefined')
     if (!entity?.id) throw new Error('Booking.fromEntity: entity is undefined')
     return new Booking(entity.id, entity?.attributes || {})
@@ -29,7 +29,7 @@ class Booking {
 
   static mapList(list: BookingEntityResponseCollection): Array<Booking> {
     if (!list?.data) throw new Error('Booking.mapList: list is undefined')
-    return list.data.map(x => x && Booking.fromEntity(x) as Booking)
+    return list.data.map((x) => x && (Booking.fromEntity(x) as Booking))
   }
 
   static map(input: BookingEntityResponse): Maybe<Booking> {

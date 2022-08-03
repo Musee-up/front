@@ -43,7 +43,7 @@ class Guide {
   }
 
   static mapList(guideList: GuideEntityResponseCollection): Array<Guide> {
-    return guideList.data.map(x => x && Guide.fromEntity(x))
+    return guideList.data.map((x) => x && Guide.fromEntity(x) as Guide)
   }
 
   static getAllBookings(guide: Guide): Array<Booking> {

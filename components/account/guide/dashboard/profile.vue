@@ -30,6 +30,6 @@ export default {
     return {
       img: process.env.API_URL + this.user.picture?.formats.thumbnail.url,
     }
-  }
+  },
 }
 </script>

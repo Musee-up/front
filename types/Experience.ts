@@ -21,13 +21,13 @@ import {
   BookingRelationResponseCollection,
 } from '@/graphql/generated'
 
-class Experience implements ExperienceDAO {
+class Experience {
   id?: Maybe<Scalars['ID']>
   createdAt?: Maybe<Scalars['DateTime']>
   description?: Maybe<Scalars['String']>
   duration?: Maybe<Scalars['Time']>
   bookings?: Maybe<Booking>
-  slots?: Array<Maybe<Slot>>
+  slots?: Array<Slot>
   groupSize?: Maybe<Scalars['Int']>
   guide?: Guide
   handifriendly?: Maybe<Scalars['Boolean']>
@@ -42,21 +42,24 @@ class Experience implements ExperienceDAO {
   title?: Maybe<Scalars['String']>
   updatedAt?: Maybe<Scalars['DateTime']>
 
-  // types?: Maybe<ExperienceTypeRelationResponseCollection>
-  types?: any
   transportation?: Maybe<Enum_Experience_Transportation>
-  languages?: Maybe<LanguageRelationResponseCollection>
-  themes?: Maybe<ThemeRelationResponseCollection>
+  languages?: Array<String>
+  types?: Array<String>
+  themes?: Array<String>
 
-  static fromEntity(entity: Maybe<ExperienceEntity> | undefined): Maybe<Experience> {
+  static fromEntity(
+    entity: Maybe<ExperienceEntity> | undefined
+  ): Maybe<Experience> {
     if (!entity) throw new Error('Experience.fromEntity: entity is undefined')
     if (!entity.id || !entity.attributes)
       throw new Error('Experience.fromEntity: id or attributes is undefined')
     return new Experience(entity?.id, entity?.attributes)
   }
 
-  static mapList(list: ExperienceEntityResponseCollection): Array<Maybe<Experience>> {
-    return list.data.map(Experience.fromEntity)
+  static mapList(
+    list: ExperienceEntityResponseCollection
+  ): Array<Experience> {
+    return list.data.map(x => x && Experience.fromEntity(x) as Experience)
   }
 
   static map(input: ExperienceEntityResponse): Maybe<Experience> {
@@ -71,7 +74,6 @@ class Experience implements ExperienceDAO {
     this.groupSize = input.groupSize
     this.handifriendly = input.handifriendly
     this.language = input.language
-    this.languages = input.languages
     this.locale = input.locale
     this.location = input.location
     this.price = input.price
@@ -82,8 +84,10 @@ class Experience implements ExperienceDAO {
 
     this.localizations = input.localizations
     // this.localizations = input.localizations?.data.map(flattenList)
+    this.languages = input.languages?.data.map(flattenList)
+    this.themes = input.themes?.data.map(flattenList)
+    this.types = input.types?.data.map(flattenList)
     this.photos = input.photos?.data.map(flattenList)
-    this.types = input.types?.data.map(flatten)
 
     if (input.slots) {
       this.slots = Slot.mapList(input.slots)

@@ -9,7 +9,7 @@
           :height="img.height"
           fit="cover"
           :src="img.url"
-          >
+        >
         </nuxt-img>
       </v-row>
     </v-col>
@@ -55,15 +55,17 @@ export default {
   },
   computed: {
     img() {
-      return !this.experience.photos ? null : {
-        url: getFormatFromBreakpoint(
-          process.env.API_URL,
-          this.experience.photos[0].formats,
-          this.$vuetify.breakpoint.name
-        ),
-        width: verticalWidth(this.$vuetify.breakpoint),
-        height: verticalHeight(this.$vuetify.breakpoint),
-      }
+      return !this.experience.photos
+        ? null
+        : {
+            url: getFormatFromBreakpoint(
+              process.env.API_URL,
+              this.experience.photos[0].formats,
+              this.$vuetify.breakpoint.name
+            ),
+            width: verticalWidth(this.$vuetify.breakpoint),
+            height: verticalHeight(this.$vuetify.breakpoint),
+          }
     },
     date() {
       return this.$moment(this.booking.createdAt).format('DD/MM/YY')

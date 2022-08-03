@@ -32,7 +32,7 @@ export default {
           text: String,
         }
       ],
-      default: () => [],
+      required: true,
     },
   },
 }

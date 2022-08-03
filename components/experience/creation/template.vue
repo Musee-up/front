@@ -36,6 +36,9 @@
 
     <v-row>
       <v-col cols="12" md="6">
+        <p>
+          {{ model_att }}
+        </p>
         <experience-creation-attributes
           :att="model_att"
           @update="updateAttribute"
@@ -44,7 +47,7 @@
 
         <v-divider class="my-9"></v-divider>
 
-        <v-row class="d-flex flex-row">
+        <v-row>
           <h3 class="black--text py-4">
             {{
               $t('components.experience.creation.template.description.title')
@@ -69,7 +72,6 @@
         <v-container>
           <experience-creation-price-picker>
           </experience-creation-price-picker>
-
         </v-container>
       </v-col>
     </v-row>
@@ -132,7 +134,7 @@ export default {
     let { languages, themes, types } = this.model
     this.model_att = { languages, themes, types }
     ;[languages, themes, types] = Object.values(this.model_att).map((a) =>
-      a?.data.map((x) => x.id)
+      a?.map((x) => x.id)
     )
 
     this.model_att = { languages, themes, types }

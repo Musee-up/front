@@ -136,22 +136,25 @@ export type ComponentAmountPerAgeAmountPerAgeInput = {
 export type ComponentDiscountPerGroupSizeDiscountPerGroupSize = {
   __typename?: 'ComponentDiscountPerGroupSizeDiscountPerGroupSize';
   discount?: Maybe<Scalars['Float']>;
-  groupSize?: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
+  max?: Maybe<Scalars['Int']>;
+  min?: Maybe<Scalars['Int']>;
 };
 
 export type ComponentDiscountPerGroupSizeDiscountPerGroupSizeFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentDiscountPerGroupSizeDiscountPerGroupSizeFiltersInput>>>;
   discount?: InputMaybe<FloatFilterInput>;
-  groupSize?: InputMaybe<IntFilterInput>;
+  max?: InputMaybe<IntFilterInput>;
+  min?: InputMaybe<IntFilterInput>;
   not?: InputMaybe<ComponentDiscountPerGroupSizeDiscountPerGroupSizeFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentDiscountPerGroupSizeDiscountPerGroupSizeFiltersInput>>>;
 };
 
 export type ComponentDiscountPerGroupSizeDiscountPerGroupSizeInput = {
   discount?: InputMaybe<Scalars['Float']>;
-  groupSize?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['ID']>;
+  max?: InputMaybe<Scalars['Int']>;
+  min?: InputMaybe<Scalars['Int']>;
 };
 
 export type DateTimeFilterInput = {

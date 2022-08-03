@@ -1,8 +1,6 @@
 <template>
-  <v-card
-    rounded="xl"
-  >
-    <v-card-title>
+  <v-card rounded="xl">
+    <v-card-title class="text-center">
       <h4 class="text-h5 text-center">
         {{
           $t('components.experience.creation.pricePicker.title', { price: 18 })
@@ -11,40 +9,50 @@
     </v-card-title>
 
     <v-container>
-      <v-row
-        v-for="(component, index) in components"
-        :key="index"
-        class="mx-4">
-        <component :is="component.name" v-bind="component.data"></component>
+      <p>
+        {{ components }}
+      </p>
+      <v-row v-for="(component, index) in components" :key="index" class="mx-4">
+        <component
+        :is="component.name" v-bind="component.data"></component>
       </v-row>
     </v-container>
   </v-card>
 </template>
 
 <script>
-import {
-  amountPerAgeDefault
-} from '@/types/Group'
+import { amountPerAgeDefault } from '@/types/Group'
 
 export default {
-  data () {
+  data() {
     return {
       components: [
         {
           name: 'experience-creation-price-picker-item',
-          data: {}
+          data: {
+            model: amountPerAgeDefault,
+          },
         },
         {
           name: 'experience-creation-reduction-picker',
-          data: {}
+          data: {},
         },
         {
           name: 'experience-creation-threshold-picker',
-          data: {}
-        }
+          data: {},
+        },
       ],
       AgeRange: Object.keys(amountPerAgeDefault),
     }
   },
+  watch: {
+    components: {
+      handler(newValue) {
+        console.log('components new value', newValue)
+        this.$emit('input', newValue)
+      },
+      deep: true,
+    },
+  }
 }
 </script>

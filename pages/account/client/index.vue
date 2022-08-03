@@ -50,7 +50,7 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user/getCore',
-    })
+    }),
   },
   data() {
     return {

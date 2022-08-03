@@ -1,4 +1,4 @@
-import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated';
+import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated'
 
 const amountPerAgeDefault = {
   baby: {
@@ -29,7 +29,12 @@ class QuantityPerAges {
   children: AgeModel
   baby: AgeModel
 
-  constructor(adult: AgeModel, teenager: AgeModel, children: AgeModel, baby: AgeModel) {
+  constructor(
+    adult: AgeModel,
+    teenager: AgeModel,
+    children: AgeModel,
+    baby: AgeModel
+  ) {
     this.adult = adult
     this.teenager = teenager
     this.children = children
