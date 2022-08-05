@@ -56,10 +56,8 @@ class Experience {
     return new Experience(entity?.id, entity?.attributes)
   }
 
-  static mapList(
-    list: ExperienceEntityResponseCollection
-  ): Array<Experience> {
-    return list.data.map(x => x && Experience.fromEntity(x) as Experience)
+  static mapList(list: ExperienceEntityResponseCollection): Array<Experience> {
+    return list.data.map((x) => x && (Experience.fromEntity(x) as Experience))
   }
 
   static map(input: ExperienceEntityResponse): Maybe<Experience> {

@@ -21,7 +21,7 @@
     </template>
     <v-card v-if="menu2">
       <v-container>
-        <slot :value="model" @input="(x) => this.$emit('input', x)"></slot>
+        <slot :value="model" @input="(x) => $emit('input', x)"></slot>
 
         <v-row class="justify-end">
           <base-blue-button>

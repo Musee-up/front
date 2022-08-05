@@ -13,8 +13,7 @@
         {{ components }}
       </p>
       <v-row v-for="(component, index) in components" :key="index" class="mx-4">
-        <component
-        :is="component.name" v-bind="component.data"></component>
+        <component :is="component.name" v-model="component.data"></component>
       </v-row>
     </v-container>
   </v-card>
@@ -22,37 +21,49 @@
 
 <script>
 import { amountPerAgeDefault } from '@/types/Group'
+import Experience from '@/types/Experience'
 
 export default {
+  props: {
+    value: {
+      type: Experience,
+      required: true,
+    },
+  },
   data() {
     return {
       components: [
         {
           name: 'experience-creation-price-picker-item',
-          data: {
-            model: amountPerAgeDefault,
-          },
+          data: this.value?.amountPerAge || amountPerAgeDefault,
         },
         {
           name: 'experience-creation-reduction-picker',
-          data: {},
+          data: this.value?.discountPerGroupSize || [],
         },
         {
           name: 'experience-creation-threshold-picker',
           data: {},
         },
       ],
-      AgeRange: Object.keys(amountPerAgeDefault),
     }
   },
   watch: {
     components: {
       handler(newValue) {
-        console.log('components new value', newValue)
-        this.$emit('input', newValue)
+        const [amountPerAge, discountPerGroupSize, threshold] = Object.values(
+          newValue
+        ).map((x) => x.data)
+        const value = {
+          amountPerAge,
+          discountPerGroupSize,
+          threshold,
+        }
+        console.log(value)
+        this.$emit('input', value)
       },
       deep: true,
     },
-  }
+  },
 }
 </script>

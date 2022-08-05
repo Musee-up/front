@@ -41,13 +41,11 @@
 <script>
 import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated'
 
-import { amountPerAgeDefault } from '@/types/Group'
-
 export default {
   props: {
     value: {
       type: ComponentAmountPerAgeAmountPerAge,
-      default: () => amountPerAgeDefault,
+      required: true,
     },
   },
   watch: {

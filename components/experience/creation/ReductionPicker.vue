@@ -3,54 +3,75 @@
     label="Tarifs par nbr. de places achetées"
     icon="mdi-sale"
   >
-    <v-row v-for="(reduction, index) in value" :key="index" class="my-2">
+    <v-row v-for="(discount, index) in discounts" :key="index" class="my-2">
       <v-container>
-        <v-row style="align-items: center">
-          <v-col class="my-0 py-0">
-            <p class="ma-0">De {{ reduction.min }} a {{reduction.max}} places</p>
-          </v-col>
-          <v-col class="my-0 py-0" cols="4">
-            <v-text-field
-              hide-details="auto"
-              outlined
-              class="rounded-xl pa-2"
-              label="Prix"
-            ></v-text-field>
-          </v-col>
-        </v-row>
+        <core-range-discount v-model="discount.model"></core-range-discount>
+
         <v-row class="mx-2 pa-1">
           <v-divider></v-divider>
         </v-row>
       </v-container>
     </v-row>
-<v-row style="align-items: center">
-          <v-col class="my-0 py-0">
-            <p class="ma-0">De {{ reduction.min }} a {{reduction.max}} places</p>
-          </v-col>
-          <v-col class="my-0 py-0" cols="4">
-            <v-text-field
-              hide-details="auto"
-              outlined
-              class="rounded-xl pa-2"
-              label="Prix"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row class="mx-2 pa-1">
-          <v-divider></v-divider>
-        </v-row>
 
+    <v-row>
+      <v-col>
+        <core-range-discount v-model="defaultDiscount"></core-range-discount>
+      </v-col>
+      <v-col cols="2">
+        <v-btn icon @click="addDiscount">
+          <v-icon color="primary">mdi-plus</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
+
+    <v-row class="mx-2 pa-1">
+      <v-divider></v-divider>
+    </v-row>
   </experience-creation-base-list-picker>
 </template>
 
 <script>
-import { Maybe, ComponentDiscountPerGroupSizeDiscountPerGroupSize } from '@/graphql/generated'
+import {
+  Maybe,
+  ComponentDiscountPerGroupSizeDiscountPerGroupSize,
+} from '@/graphql/generated'
 
 export default {
   props: {
     value: {
       type: Array<Maybe<ComponentDiscountPerGroupSizeDiscountPerGroupSize>>,
       default: () => [],
+    },
+  },
+  data() {
+    return {
+      discounts: this.value.map((x) => ({
+        model: x,
+      })),
+      defaultDiscount: {
+        min: 0,
+        max: 100,
+        discount: 10,
+      },
+    }
+  },
+  watch: {
+    discounts: {
+      handler(newValue) {
+        const input = newValue.map((x) => x.model)
+        console.log(input)
+        this.$emit('input', input)
+      },
+      deep: true,
+    },
+  },
+  methods: {
+    addDiscount() {
+      this.discounts.push({
+        model: {
+          ...this.defaultDiscount,
+        },
+      })
     },
   },
 }

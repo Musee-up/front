@@ -69,10 +69,12 @@
       </v-col>
 
       <v-col>
-        <v-container>
-          <experience-creation-price-picker>
-          </experience-creation-price-picker>
-        </v-container>
+        <experience-creation-price-picker v-model="model">
+        </experience-creation-price-picker>
+        <p>
+          {{ model.amountPerAge }}
+          {{ model.discountPerGroupSize }}
+        </p>
       </v-col>
     </v-row>
   </v-container>
