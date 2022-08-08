@@ -23,9 +23,7 @@
 </template>
 
 <script>
-import {
-  ComponentDiscountPerGroupSizeDiscountPerGroupSize,
-} from '@/graphql/generated'
+import { ComponentDiscountPerGroupSizeDiscountPerGroupSize } from '@/graphql/generated'
 
 export default {
   props: {
@@ -53,6 +51,7 @@ export default {
   watch: {
     range: {
       handler(newValue) {
+        newValue.discount = parseInt(newValue.discount)
         this.$emit('input', newValue)
       },
       deep: true,
