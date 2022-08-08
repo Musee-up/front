@@ -8,6 +8,35 @@ fragment CoreExperiencePart on Experience {
   groupSize
   handifriendly
   location
+  amountPerAge {
+    baby {
+      id
+      amount
+    }
+    adult {
+      id
+      amount
+    }
+    teenager {
+      id
+      amount
+    }
+    children {
+      id
+      amount
+    }
+  }
+  discountPerGroupSize {
+    id
+    discount
+    min
+    max
+  }
+  thresholds {
+    id
+    groupSizeMin
+    groupSizeMax
+  }
   photos {
     data {
       attributes {

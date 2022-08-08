@@ -37,15 +37,15 @@ export default {
   data() {
     return {
       dialog: false,
+      isGuide: false,
     }
   },
-  apollo: {
-    isGuide: {
-      query,
-      update(data) {
-        return data.me.role.name === 'Guide'
-      },
-    },
+  mounted() {
+    if (!this.$strapi.user) {
+      return ;
+    }
+    this.isGuide = this.$apollo.query({ query })
+      .then(data => data?.me?.role?.name === 'Guide')
   },
   methods: {
     openDialog() {

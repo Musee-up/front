@@ -21,12 +21,11 @@
 
 <script>
 import { amountPerAgeDefault } from '@/types/Group'
-import Experience from '@/types/Experience'
 
 export default {
   props: {
     value: {
-      type: Experience,
+      type: Object,
       required: true,
     },
   },
@@ -43,7 +42,12 @@ export default {
         },
         {
           name: 'experience-creation-threshold-picker',
-          data: {},
+          data: {
+            ...this.value?.thresholds || {
+              groupSizeMin: 1,
+              groupSizeMax: 1,
+            },
+          },
         },
       ],
     }
@@ -51,13 +55,13 @@ export default {
   watch: {
     components: {
       handler(newValue) {
-        const [amountPerAge, discountPerGroupSize, threshold] = Object.values(
+        const [amountPerAge, discountPerGroupSize, thresholds] = Object.values(
           newValue
         ).map((x) => x.data)
         const value = {
           amountPerAge,
           discountPerGroupSize,
-          threshold,
+          thresholds,
         }
         console.log(value)
         this.$emit('input', value)

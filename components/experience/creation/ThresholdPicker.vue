@@ -5,18 +5,19 @@
   >
     <v-row>
       <v-container>
-        <v-row style="align-items: center">
+        <v-row align="center">
           <v-col class="my-0 py-0">
-            <p class="ma-0">Adultes</p>
             <p class="ma-0 description-list--text">
-              <small> 18 ans et plus </small>
+              <small> Nombre de personne min </small>
             </p>
           </v-col>
           <v-col class="my-0 py-0" cols="4">
             <v-text-field
+              v-model.number="thresholds.groupSizeMin"
               hide-details="auto"
               outlined
               class="rounded-xl pa-2"
+              type="number"
               label="Prix"
             ></v-text-field>
           </v-col>
@@ -27,30 +28,24 @@
       </v-container>
     </v-row>
 
-    <v-row class="justify-center">
-      <h4 class="black--text">Ou</h4>
-    </v-row>
-
     <v-row>
       <v-container>
-        <v-row style="align-items: center">
+        <v-row align="center">
           <v-col class="my-0 py-0">
-            <p class="ma-0">Adultes</p>
             <p class="ma-0 description-list--text">
-              <small> 18 ans et plus </small>
+              <small> Nombre de personne max </small>
             </p>
           </v-col>
           <v-col class="my-0 py-0" cols="4">
             <v-text-field
+              v-model.number="thresholds.groupSizeMax"
+              type="number"
               hide-details="auto"
               outlined
               class="rounded-xl pa-2"
               label="Prix"
             ></v-text-field>
           </v-col>
-        </v-row>
-        <v-row class="mx-2 pa-1">
-          <v-divider></v-divider>
         </v-row>
       </v-container>
     </v-row>
@@ -59,12 +54,24 @@
 
 <script>
 export default {
+  props: {
+    value: {
+      type: Object,
+      required: true,
+    }
+  },
   data() {
     return {
-      peopleType: [...Array(4).keys()],
-      time: null,
-      menu2: false,
+      thresholds: this.value || {},
     }
+  },
+  watch: {
+    thresholds: {
+      handler(newValue) {
+        this.$emit('input', newValue)
+      },
+      deep: true,
+    },
   },
 }
 </script>

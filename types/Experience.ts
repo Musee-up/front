@@ -41,11 +41,13 @@ class Experience {
   stars?: Maybe<Scalars['Float']>
   title?: Maybe<Scalars['String']>
   updatedAt?: Maybe<Scalars['DateTime']>
-
   transportation?: Maybe<Enum_Experience_Transportation>
   languages?: Array<String>
   types?: Array<String>
   themes?: Array<String>
+  thresholds: any
+  discountPerGroupSize: any
+  amountPerAge: any
 
   static fromEntity(
     entity: Maybe<ExperienceEntity> | undefined
@@ -86,6 +88,9 @@ class Experience {
     this.themes = input.themes?.data.map(flattenList)
     this.types = input.types?.data.map(flattenList)
     this.photos = input.photos?.data.map(flattenList)
+    this.amountPerAge = input.amountPerAge
+    this.discountPerGroupSize = input.discountPerGroupSize
+    this.thresholds = input.thresholds
 
     if (input.slots) {
       this.slots = Slot.mapList(input.slots)

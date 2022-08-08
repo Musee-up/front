@@ -27,9 +27,8 @@ export default {
         },
       })
       .then((x) => {
-        console.log(x.data.experience)
         this.experience = Experience.map(x.data.experience)
-        console.log('experience', this.experience)
+        console.log('experience profile', this.experience)
       })
       .catch((err) => console.log(err))
   },

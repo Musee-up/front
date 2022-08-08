@@ -22,8 +22,9 @@
           </v-col>
           <v-col class="my-0 py-0" cols="4">
             <v-text-field
-              v-model="rageAnge.amount"
+              v-model.number="rageAnge.amount"
               hide-details="auto"
+              type="number"
               outlined
               class="rounded-xl pa-2"
               label="Prix"

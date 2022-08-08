@@ -74,6 +74,7 @@
         <p>
           {{ model.amountPerAge }}
           {{ model.discountPerGroupSize }}
+          {{ model.thresholds }}
         </p>
       </v-col>
     </v-row>
