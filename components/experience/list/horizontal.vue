@@ -71,7 +71,6 @@ export default {
   },
   methods: {
     photo(experience) {
-      console.log(experience);
       const photos = experience.photos
       if (!photos?.length) return;
       return this.url + photos[0].formats.thumbnail.url

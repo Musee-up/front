@@ -4,7 +4,7 @@
     icon="mdi-account-group"
   >
     <v-row v-for="(rageAnge, index) in value" :key="index" class="my-2">
-      <v-container>
+      <v-container v-if="rageAnge">
         <v-row align="center">
           <v-col class="my-0 py-0">
             <p class="ma-0">

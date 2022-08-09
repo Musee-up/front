@@ -36,9 +36,6 @@
 
     <v-row>
       <v-col cols="12" md="6">
-        <p>
-          {{ model_att }}
-        </p>
         <experience-creation-attributes
           :att="model_att"
           @update="updateAttribute"
@@ -69,20 +66,17 @@
       </v-col>
 
       <v-col>
-        <experience-creation-price-picker v-model="model">
+        <experience-creation-price-picker
+          v-if="model.amountPerAge"
+          v-model="model">
         </experience-creation-price-picker>
-        <p>
-          {{ model.amountPerAge }}
-          {{ model.discountPerGroupSize }}
-          {{ model.thresholds }}
-        </p>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import createExperience from '@/graphql/mutations/experience/create'
 import updateExperience from '@/graphql/mutations/experience/update'
 import Experience from '@/types/Experience'
@@ -132,6 +126,7 @@ export default {
   mounted() {
     this.id = this.currentId
 
+    console.log('template:', this.experience)
     if (!this.experience) return
     this.model = this.experience
     let { languages, themes, types } = this.model
@@ -144,6 +139,9 @@ export default {
     this.att = this.model_att
   },
   methods: {
+    ...mapActions({
+      load: 'guide/load',
+    }),
     onUpload(data) {
       this.model.photos = data
     },
@@ -156,6 +154,10 @@ export default {
     },
     createExperience() {
       const mutation = this.getMutationQuery()
+      delete this.model.photos
+      delete this.model.slots
+      delete this.model.id
+      console.log(this.model)
       this.$apollo
         .mutate({
           mutation,

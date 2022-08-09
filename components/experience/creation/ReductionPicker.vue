@@ -5,7 +5,9 @@
   >
     <v-row v-for="(discount, index) in discounts" :key="index" class="my-2">
       <v-container>
-        <core-range-discount v-model.number.number="discount.model"></core-range-discount>
+        <core-range-discount
+          v-model.number.number="discount.model"
+        ></core-range-discount>
 
         <v-row class="mx-2 pa-1">
           <v-divider></v-divider>

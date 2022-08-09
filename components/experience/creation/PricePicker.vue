@@ -3,15 +3,13 @@
     <v-card-title class="text-center">
       <h4 class="text-h5 text-center">
         {{
-          $t('components.experience.creation.pricePicker.title', { price: 18 })
+          $t('components.experience.creation.pricePicker.title', { price: value.amountPerAge.adult.amount })
         }}
       </h4>
     </v-card-title>
 
     <v-container>
-      <p>
-        {{ components }}
-      </p>
+      <p> {{ value.amountPerAge}}</p>
       <v-row v-for="(component, index) in components" :key="index" class="mx-4">
         <component :is="component.name" v-model="component.data"></component>
       </v-row>
@@ -26,7 +24,14 @@ export default {
   props: {
     value: {
       type: Object,
-      required: true,
+      default: () => ({
+        amountPerAge: amountPerAgeDefault,
+        discountPerGroupSize: [],
+        thresholds: {
+          groupSizeMin: 0,
+          groupSizeMax: 0,
+        },
+      }),
     },
   },
   data() {
@@ -34,19 +39,16 @@ export default {
       components: [
         {
           name: 'experience-creation-price-picker-item',
-          data: this.value?.amountPerAge || amountPerAgeDefault,
+          data: this.value.amountPerAge
         },
         {
           name: 'experience-creation-reduction-picker',
-          data: this.value?.discountPerGroupSize || [],
+          data: this.value.discountPerGroupSize
         },
         {
           name: 'experience-creation-threshold-picker',
           data: {
-            ...this.value?.thresholds || {
-              groupSizeMin: 1,
-              groupSizeMax: 1,
-            },
+            ...this.value.thresholds,
           },
         },
       ],
@@ -59,11 +61,12 @@ export default {
           newValue
         ).map((x) => x.data)
         const value = {
+          ...this.value,
           amountPerAge,
           discountPerGroupSize,
           thresholds,
         }
-        console.log(value)
+        delete value.discountPerGroupSize.id
         this.$emit('input', value)
       },
       deep: true,

@@ -91,6 +91,9 @@ export default defineNuxtConfig({
     clientConfigs: {
       default: {
         httpEndpoint: `${backendUrl}/graphql`,
+        // inMemoryCacheOptions: {
+        //   addTypename: false,
+        // },
       },
     },
   },

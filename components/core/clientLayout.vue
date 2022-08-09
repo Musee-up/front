@@ -42,10 +42,11 @@ export default {
   },
   mounted() {
     if (!this.$strapi.user) {
-      return ;
+      return
     }
-    this.isGuide = this.$apollo.query({ query })
-      .then(data => data?.me?.role?.name === 'Guide')
+    this.isGuide = this.$apollo
+      .query({ query })
+      .then((data) => data?.me?.role?.name === 'Guide')
   },
   methods: {
     openDialog() {

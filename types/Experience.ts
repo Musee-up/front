@@ -3,23 +3,74 @@ import Guide from './Guide'
 import Booking from './Booking'
 import Slot from './Slot'
 import {
+  InputMaybe,
   Scalars,
   Maybe,
   UploadFile,
+  ComponentAgeRangeAdulte,
   ExperienceEntityResponse,
   ExperienceEntity,
-  slotRelationResponseCollection,
+  ComponentThresholdsThresholds,
+  ComponentAmountPerAgeAmountPerAge,
+  ComponentDiscountPerGroupSizeDiscountPerGroupSizeInput,
   ExperienceEntityResponseCollection,
-  GuideEntityResponse,
-  UploadFileRelationResponseCollection,
+  ComponentAmountPerAgeAmountPerAgeInput,
   ExperienceRelationResponseCollection,
-  ExperienceTypeRelationResponseCollection,
-  LanguageRelationResponseCollection,
-  ThemeRelationResponseCollection,
   Enum_Experience_Transportation,
   Experience as ExperienceDAO,
-  BookingRelationResponseCollection,
 } from '@/graphql/generated'
+
+class AgeRangeAdulte {
+  amount?: Maybe<Scalars['Float']>
+  id: Scalars['ID']
+
+  constructor(data: ComponentAgeRangeAdulte) {
+    this.id = data.id
+    this.amount = data.amount
+  }
+}
+
+class AmountPerAge {
+  adult?: Maybe<AgeRangeAdulte>
+  baby?: Maybe<AgeRangeAdulte>
+  children?: Maybe<AgeRangeAdulte>
+  id: Scalars['ID']
+  teenager?: Maybe<AgeRangeAdulte>
+
+  constructor(data: ComponentAmountPerAgeAmountPerAge) {
+    this.id = data.id
+    this.adult = data.adult ? new AgeRangeAdulte(data.adult) : null
+    this.baby = data.baby ? new AgeRangeAdulte(data.baby) : null
+    this.children = data.children ? new AgeRangeAdulte(data.children) : null
+    this.teenager = data.teenager ? new AgeRangeAdulte(data.teenager) : null
+  }
+}
+
+class DiscountPerGroupSize {
+  discount?: Maybe<Scalars['Float']>
+  id?: Maybe<Scalars['ID']>
+  max?: Maybe<Scalars['Int']>
+  min?: Maybe<Scalars['Int']>
+
+    constructor(data: ComponentDiscountPerGroupSizeDiscountPerGroupSizeInput) {
+      this.discount = data.discount
+      this.id = data.id
+      this.max = data.max
+      this.min = data.min
+    }
+}
+
+class ThresholdInput {
+  groupSizeMax?: Maybe<Scalars['Int']>
+  groupSizeMin?: Maybe<Scalars['Int']>
+  id: Scalars['ID']
+
+  constructor(data: ComponentThresholdsThresholds) {
+    this.groupSizeMax = data.groupSizeMax
+    this.groupSizeMin = data.groupSizeMin
+    this.id = data.id
+  }
+}
 
 class Experience {
   id?: Maybe<Scalars['ID']>
@@ -45,9 +96,9 @@ class Experience {
   languages?: Array<String>
   types?: Array<String>
   themes?: Array<String>
-  thresholds: any
-  discountPerGroupSize: any
-  amountPerAge: any
+  thresholds: Maybe<ThresholdInput>
+  discountPerGroupSize: Array<ComponentDiscountPerGroupSizeDiscountPerGroupSizeInput>
+  amountPerAge: Maybe<ComponentAmountPerAgeAmountPerAgeInput>
 
   static fromEntity(
     entity: Maybe<ExperienceEntity> | undefined
@@ -88,9 +139,10 @@ class Experience {
     this.themes = input.themes?.data.map(flattenList)
     this.types = input.types?.data.map(flattenList)
     this.photos = input.photos?.data.map(flattenList)
-    this.amountPerAge = input.amountPerAge
-    this.discountPerGroupSize = input.discountPerGroupSize
-    this.thresholds = input.thresholds
+
+    this.amountPerAge = input.amountPerAge && new AmountPerAge(input.amountPerAge)
+    this.discountPerGroupSize = input.discountPerGroupSize?.map(x => new DiscountPerGroupSize(x))
+    this.thresholds = input.thresholds && new ThresholdInput(input.thresholds)
 
     if (input.slots) {
       this.slots = Slot.mapList(input.slots)

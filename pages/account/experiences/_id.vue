@@ -28,7 +28,6 @@ export default {
       })
       .then((x) => {
         this.experience = Experience.map(x.data.experience)
-        console.log('experience profile', this.experience)
       })
       .catch((err) => console.log(err))
   },
