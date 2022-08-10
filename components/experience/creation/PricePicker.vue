@@ -3,13 +3,15 @@
     <v-card-title class="text-center">
       <h4 class="text-h5 text-center">
         {{
-          $t('components.experience.creation.pricePicker.title', { price: value.amountPerAge.adult.amount })
+          $t('components.experience.creation.pricePicker.title', {
+            price: value.amountPerAge.adult.amount,
+          })
         }}
       </h4>
     </v-card-title>
 
     <v-container>
-      <p> {{ value.amountPerAge}}</p>
+      <p>{{ value.amountPerAge }}</p>
       <v-row v-for="(component, index) in components" :key="index" class="mx-4">
         <component :is="component.name" v-model="component.data"></component>
       </v-row>
@@ -39,11 +41,11 @@ export default {
       components: [
         {
           name: 'experience-creation-price-picker-item',
-          data: this.value.amountPerAge
+          data: this.value.amountPerAge,
         },
         {
           name: 'experience-creation-reduction-picker',
-          data: this.value.discountPerGroupSize
+          data: this.value.discountPerGroupSize,
         },
         {
           name: 'experience-creation-threshold-picker',

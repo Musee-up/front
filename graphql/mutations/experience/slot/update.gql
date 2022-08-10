@@ -1,4 +1,4 @@
-mutation updateSlot($id: ID!, $input: slotInput!) {
+mutation updateSlot($id: ID!, $input: SlotInput!) {
   updateSlot(id: $id, data: $input) {
     data {
       id

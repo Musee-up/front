@@ -52,12 +52,12 @@ class DiscountPerGroupSize {
   max?: Maybe<Scalars['Int']>
   min?: Maybe<Scalars['Int']>
 
-    constructor(data: ComponentDiscountPerGroupSizeDiscountPerGroupSizeInput) {
-      this.discount = data.discount
-      this.id = data.id
-      this.max = data.max
-      this.min = data.min
-    }
+  constructor(data: ComponentDiscountPerGroupSizeDiscountPerGroupSizeInput) {
+    this.discount = data.discount
+    this.id = data.id
+    this.max = data.max
+    this.min = data.min
+  }
 }
 
 class ThresholdInput {
@@ -140,8 +140,11 @@ class Experience {
     this.types = input.types?.data.map(flattenList)
     this.photos = input.photos?.data.map(flattenList)
 
-    this.amountPerAge = input.amountPerAge && new AmountPerAge(input.amountPerAge)
-    this.discountPerGroupSize = input.discountPerGroupSize?.map(x => new DiscountPerGroupSize(x))
+    this.amountPerAge =
+      input.amountPerAge && new AmountPerAge(input.amountPerAge)
+    this.discountPerGroupSize = input.discountPerGroupSize?.map(
+      (x) => new DiscountPerGroupSize(x)
+    )
     this.thresholds = input.thresholds && new ThresholdInput(input.thresholds)
 
     if (input.slots) {

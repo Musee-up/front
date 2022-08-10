@@ -1,4 +1,4 @@
-mutation createSlot($input: slotInput!) {
+mutation createSlot($input: SlotInput!) {
   createSlot(data: $input) {
     data {
       id

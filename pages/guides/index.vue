@@ -7,7 +7,7 @@
       :filters="filters"
     ></guide-filters>
 
-    <v-row justify="left" align="center">
+    <v-row justify="start" align="center">
       <v-col v-for="(guide, i) in guides" :key="i" cols="12" md="4" xl="3">
         <guide-list-item :guide="guide" class="guide"> </guide-list-item>
       </v-col>

@@ -56,13 +56,11 @@
 </template>
 
 <script>
-import { QuantityPerAges } from '@/types/Group'
-
 export default {
   props: {
     value: {
-      type: QuantityPerAges,
-      default: '',
+      type: Object,
+      required: true
     },
     maxGroupSize: {
       type: Number,

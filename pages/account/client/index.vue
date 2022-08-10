@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="d-flex justify-center">
+    <v-row justify="center">
       <v-col cols="12" md="8">
         <v-row>
           <account-guide-dashboard-profile :user="user">
@@ -45,13 +45,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   layout: 'account-client',
-  computed: {
-    ...mapGetters({
-      user: 'user/getCore',
-    }),
-  },
   data() {
     return {
       cards: [
@@ -81,6 +78,11 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'user/getCore',
+    }),
   },
 }
 </script>

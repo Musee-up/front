@@ -1,6 +1,6 @@
 #import "../fragments/slot/one.gql"
 query slot($id: ID!) {
   slot(id: $id) {
-    ...Slot
+    ...SlotResponse
   }
 }

@@ -20,6 +20,7 @@
       <v-row v-if="day" class="my-4">
         <experience-booking-form-hour
           class="booking"
+          :group-size-max="experience.thresholds.groupSizeMax"
           :slots="hours"
           @submit="(slot) => (selectedSlot = slot)"
         >
@@ -35,8 +36,7 @@
           Total:
           {{
             calculateAmountPerAgeTotal(
-              calculateAmountPerAge(selectedSlot.amountPerAge, quantityPerAges)
-            )
+              calculateAmountPerAge(experience.amountPerAge, quantityPerAges))
           }}
           Euros
         </p>
@@ -82,7 +82,8 @@ export default {
   },
   computed: {
     booking() {
-      return !this.selectedSlot
+      console.log(this.experience)
+      return !this.selectedSlot || !this.experience?.amountPerAge
         ? null
         : {
             slot: this.selectedSlot,
@@ -90,7 +91,7 @@ export default {
             guide: this.experience.guide.id,
             amount: calculateAmountPerAgeTotal(
               calculateAmountPerAge(
-                this.selectedSlot?.amountPerAge,
+                this.experience?.amountPerAge,
                 this.quantityPerAges
               )
             ),

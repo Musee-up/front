@@ -78,10 +78,10 @@ export default {
 
         if (!exp) return
 
-        const languages = exp.languages?.data
-          .map((x) => x.attributes.value)
+        const languages = exp.languages?.
+          map((x) => x.attributes.value)
           .join(', ')
-        const themes = exp.themes?.data.map((x) => x.attributes.name).join(', ')
+        const themes = exp.themes?.map((x) => x.attributes.name).join(', ')
         const groupSizeSyntax = this.$t('pages.experiences.n_visite', {
           n: exp.groupSize,
         })

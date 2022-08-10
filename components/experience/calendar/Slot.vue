@@ -95,7 +95,7 @@ export default {
         this.extendOriginal = null
       }
     },
-    startTime(tms) {
+    async startTime(tms) {
       const mouse = this.toTime(tms)
 
       if (this.dragEvent && this.dragTime === null) {
@@ -111,7 +111,7 @@ export default {
 
         if (!this.createEvent) return
         try {
-          this.createEvent.id = this.createApiSlot(this.createEvent)
+          this.createEvent.id = await this.createApiSlot(this.createEvent)
           this.events.push(this.createEvent)
         } catch (e) {
           console.log(e)
@@ -177,10 +177,14 @@ export default {
             },
           },
         })
-        .then((result) => result.data.createslot.data.id)
+        .then((result) =>
+          {
+            console.log(result);
+            return result.data.createSlot.data.id
+          })
         .catch((e) => {
           console.log('create Slot')
-          console.log(e)
+          console.error(e)
         })
     },
     updateEvent(event) {
@@ -188,11 +192,18 @@ export default {
 
       const start = new Date(event.start).toISOString()
       const end = new Date(event.end).toISOString()
+      const id = event.id.toString()
+
+      console.log(
+        id,
+        start,
+        end
+      )
       this.$apollo
         .mutate({
           mutation: updateSlot,
           variables: {
-            id: event.id.toString(),
+            id,
             input: {
               start,
               end,
@@ -201,12 +212,13 @@ export default {
         })
         .catch((e) => {
           console.log('updateEvent')
-          console.log(e)
+          console.error(e)
         })
     },
     showEvent({ nativeEvent, event }) {
       const open = () => {
         this.selectedEvent = event
+        console.log(event)
         this.selectedElement = nativeEvent.target
         requestAnimationFrame(() =>
           requestAnimationFrame(() => (this.selectedOpen = true))

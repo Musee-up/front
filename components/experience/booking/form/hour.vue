@@ -29,7 +29,9 @@
         <v-list>
           <v-list-item v-for="(slot, index) in slots" :key="index">
             <v-btn text @click="submit(slot)">
-              <experience-booking-form-hour-item :e_slot="slot">
+              <experience-booking-form-hour-item
+                :group-size-max="groupSizeMax"
+                :e-slot="slot">
               </experience-booking-form-hour-item>
             </v-btn>
             <v-divider></v-divider>
@@ -41,8 +43,19 @@
 </template>
 
 <script>
+import Slot from '@/types/Slot'
+
 export default {
-  props: ['slots'],
+  props: {
+    groupSizeMax: {
+      type: Number,
+      required: true,
+    },
+    slots: {
+      type: Array<Slot>,
+      required: true,
+    },
+  },
   data() {
     return {
       menu: false,

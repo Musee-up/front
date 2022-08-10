@@ -20,7 +20,7 @@ class Slot implements slotDAO {
   createdAt?: Maybe<Scalars['DateTime']>
   end: Maybe<Scalars['DateTime']>
   amountPerAge: any
-  groupSize: any
+  groupSize: Number
   guide: Maybe<Guide>
   experience: Maybe<Experience>
   start: Scalars['DateTime']

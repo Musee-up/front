@@ -46,6 +46,9 @@ export default {
       selectedOpen: this.open,
     }
   },
+  mounted() {
+    console.log(this.selectedEvent)
+  },
   computed: {
     ...mapGetters({
       experiences: 'guide/getExperiences',
@@ -56,10 +59,11 @@ export default {
       query: slotQuery,
       variables() {
         return {
-          id: this.selectedEvent.id.toString(),
+          id: this.selectedEvent.id,
         }
       },
       update(data) {
+        console.log(data)
         const slot = Slot.map(data.slot)
         return slot.experience?.title || 'No experience'
       },
@@ -90,8 +94,10 @@ export default {
           variables: {
             id: this.selectedEvent.id.toString(),
           },
+          refetchQueries: ['guideAccount'],
         })
         .then(() => this.$emit('remove', this.selectedEvent.id))
+        .catch(console.error)
     },
   },
 }

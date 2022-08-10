@@ -68,7 +68,8 @@
       <v-col>
         <experience-creation-price-picker
           v-if="model.amountPerAge"
-          v-model="model">
+          v-model="model"
+        >
         </experience-creation-price-picker>
       </v-col>
     </v-row>

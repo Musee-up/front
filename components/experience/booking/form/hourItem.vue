@@ -2,8 +2,8 @@
   <v-row>
     <v-col>
       <p>
-        {{ e_slot.start | moment('hh:mm') }}
-        - {{ e_slot.end | moment('hh:mm') }}
+        {{ eSlot.start | moment('hh:mm') }}
+        - {{ eSlot.end | moment('hh:mm') }}
       </p>
     </v-col>
 
@@ -14,16 +14,22 @@
 </template>
 
 <script>
+import Slot from '@/types/Slot'
+
 export default {
   props: {
-    e_slot: {
-      type: Object,
+    groupSizeMax: {
+      type: Number,
+      required: true,
+    },
+    eSlot: {
+      type: Slot,
       required: true,
     },
   },
   computed: {
     remainingPlaces() {
-      return this.e_slot.groupSize.max - this.e_slot.groupSize.current
+      return this.groupSizeMax - this.eSlot.groupSize
     },
   },
 }
