@@ -177,11 +177,10 @@ export default {
             },
           },
         })
-        .then((result) =>
-          {
-            console.log(result);
-            return result.data.createSlot.data.id
-          })
+        .then((result) => {
+          console.log(result)
+          return result.data.createSlot.data.id
+        })
         .catch((e) => {
           console.log('create Slot')
           console.error(e)
@@ -194,11 +193,7 @@ export default {
       const end = new Date(event.end).toISOString()
       const id = event.id.toString()
 
-      console.log(
-        id,
-        start,
-        end
-      )
+      console.log(id, start, end)
       this.$apollo
         .mutate({
           mutation: updateSlot,

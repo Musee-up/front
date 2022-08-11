@@ -31,7 +31,8 @@
             <v-btn text @click="submit(slot)">
               <experience-booking-form-hour-item
                 :group-size-max="groupSizeMax"
-                :e-slot="slot">
+                :e-slot="slot"
+              >
               </experience-booking-form-hour-item>
             </v-btn>
             <v-divider></v-divider>

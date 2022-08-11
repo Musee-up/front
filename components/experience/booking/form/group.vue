@@ -60,7 +60,7 @@ export default {
   props: {
     value: {
       type: Object,
-      required: true
+      required: true,
     },
     maxGroupSize: {
       type: Number,

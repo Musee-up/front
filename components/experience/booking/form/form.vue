@@ -36,7 +36,8 @@
           Total:
           {{
             calculateAmountPerAgeTotal(
-              calculateAmountPerAge(experience.amountPerAge, quantityPerAges))
+              calculateAmountPerAge(experience.amountPerAge, quantityPerAges)
+            )
           }}
           Euros
         </p>
