@@ -26,8 +26,13 @@ export default defineNuxtConfig({
       { name: 'format-detection', content: 'telephone=no' },
     ],
 
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      // { rel:"stylesheet", href:"//unpkg.com/leaflet/dist/leaflet.css"},
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
     script: [
+      // { src:"//unpkg.com/leaflet/dist/leaflet.js" },
+      // { src:"//unpkg.com/vue2-leaflet" },
       { src: 'https://js.stripe.com/v3/' },
       // { src: 'http://localhost:1337/plugins/strapi-stripe/static/stripe.js' }
     ],
@@ -52,6 +57,7 @@ export default defineNuxtConfig({
       src: '@/plugins/socketio',
       mode: 'client',
     },
+     '~/plugins/client/leaflet.client',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
