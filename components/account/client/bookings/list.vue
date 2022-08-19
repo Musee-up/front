@@ -9,10 +9,11 @@
         class="pa-md-4"
       >
         <v-card elevation="0" class="mx-auto rounded-xl">
-          <nuxt-link :to="`/account/client/bookings/${id}`">
-            <like-overview :width="width" photo="/exp_photo.png">
-            </like-overview>
-          </nuxt-link>
+          <like-thumbnail-experience
+            :experience="experience"
+            :link="`/account/client/bookings/${id}`"
+          >
+          </like-thumbnail-experience>
 
           <v-card-title class="justify-center">
             <h3 class="ml-md-2 my-md-1 title--text">{{ experience.title }}</h3>

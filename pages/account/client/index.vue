@@ -68,13 +68,13 @@ export default {
           title: 'pages.account.client.favorites',
           icon: 'mdi-heart',
           text: 'pages.account.client.cards.favorites',
-          link: '',
+          link: '/account/client/favorites',
         },
         {
           title: 'pages.account.client.help',
           icon: 'mdi-information',
           text: 'pages.account.client.cards.help',
-          link: '',
+          link: '/contact',
         },
       ],
     }

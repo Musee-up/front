@@ -9,18 +9,16 @@
         class="pa-4"
       >
         <v-card elevation="0" class="mx-auto rounded-xl">
-          <nuxt-link :to="`${link}${experience.id}`">
-            <like-overview
-              v-if="photo"
-              :width="width"
-              :photo="photo(experience)"
-            >
-            </like-overview>
-          </nuxt-link>
+          <like-thumbnail-experience
+            :experience="experience"
+            :link="`${link}${experience.id}`"
+          >
+          </like-thumbnail-experience>
 
           <v-card-title>
             <h3 class="ml-2 my-1 title--text">{{ experience.title }}</h3>
           </v-card-title>
+
           <v-card-text>
             <v-row>
               <v-col cols="12" md="6">
@@ -45,9 +43,8 @@
 </template>
 
 <script>
-
 import { rating } from '@/data/mock'
-import {verticalWidth } from '@/tools/photos.js'
+import Experience from '@/types/Experience'
 
 export default {
   props: {
@@ -64,18 +61,6 @@ export default {
     rating,
     url: process.env.API_URL,
   }),
-  computed: {
-    width() {
-      return verticalWidth(this.$vuetify.breakpoint);
-    },
-  },
-  methods: {
-    photo(experience) {
-      const photos = experience.photos
-      if (!photos?.length) return;
-      return this.url + photos[0].formats.thumbnail.url
-    },
-  },
 }
 </script>
 

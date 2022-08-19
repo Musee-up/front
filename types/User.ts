@@ -32,6 +32,7 @@ class User {
   provider?: Maybe<Scalars['String']>
   updatedAt?: Maybe<Scalars['DateTime']>
   username: Scalars['String']
+  favorite: any
 
   static fromEntity(
     entity: Maybe<UsersPermissionsUserEntity> | undefined
@@ -70,6 +71,7 @@ class User {
     this.username = input.username
     this.picture = flatten(input.picture)
     this.role = input.role?.data?.attributes?.name
+    this.favorite = input.favorite
     if (input.bookings) this.bookings = Booking.mapList(input.bookings)
   }
 }
