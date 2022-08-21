@@ -1,5 +1,5 @@
 #import "./CoreExperiencePart.gql"
-#import "./GuideProfile.gql"
+#import "./guide/thumbnail.gql"
 
 fragment CoreUser on UsersPermissionsUser {
   location
@@ -19,10 +19,7 @@ fragment CoreUser on UsersPermissionsUser {
     }
     guides {
       data {
-        id
-        attributes {
-          ...GuideProfile
-        }
+        ...GuideThumbnail
       }
     }
   }

@@ -1,0 +1,23 @@
+fragment GuideThumbnail on GuideEntity {
+  id
+  attributes {
+    location
+    user {
+      data {
+        id
+        attributes {
+          firstname
+          lastname
+          location
+          picture {
+            data {
+              attributes {
+                formats
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

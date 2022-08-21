@@ -11,7 +11,7 @@
     <v-row><h2>Mes guides favoris</h2></v-row>
     <v-row>
       <v-col v-for="(guide, i) in guides" :key="i">
-        <guide-list-item guide="guide"></guide-list-item>
+        <guide-list-item :guide="guide"></guide-list-item>
       </v-col>
     </v-row>
   </v-container>

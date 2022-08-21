@@ -3,11 +3,13 @@
     <v-row justify="center" class="my-md-8">
       <v-col cols="12" md="2" class="abstract mx-md-6">
         <v-row justify-md="start" class="photo">
-          <like-overview
-            :width="width"
-            :photo="url + guide.user.picture.formats.thumbnail.url"
-          >
-          </like-overview>
+          <like-thumbnail-guide :guide="guide" :link="`/guides/${guide.id}`">
+            <guide-location
+              color="white"
+              :guide="guide.location"
+              class="guide-location"
+              ></guide-location>
+          </like-thumbnail-guide>
         </v-row>
 
         <v-row class="my-4">
@@ -25,7 +27,7 @@
             color="description"
             :location="guide.location"
             class="location-value"
-          >
+            >
           </guide-location>
         </v-row>
 
@@ -33,7 +35,7 @@
           <guide-profile-name
             v-if="guide.user"
             :user="guide.user"
-          ></guide-profile-name>
+            ></guide-profile-name>
         </v-row>
 
         <v-row justify-md="start">

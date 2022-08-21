@@ -1,6 +1,6 @@
 <template v-if="guide && user">
   <v-card elevation="0" class="mx-auto rounded-xl justify-center text-center">
-    <like-thumbnail-guide :guide="guide" :link="`/guides/${id}`">
+    <like-thumbnail-guide :guide="guide" :link="`/guides/${guide.id}`">
       <guide-location
         color="white"
         :guide="guide.location"
