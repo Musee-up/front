@@ -8,7 +8,7 @@
               color="white"
               :guide="guide.location"
               class="guide-location"
-              ></guide-location>
+            ></guide-location>
           </like-thumbnail-guide>
         </v-row>
 
@@ -27,7 +27,7 @@
             color="description"
             :location="guide.location"
             class="location-value"
-            >
+          >
           </guide-location>
         </v-row>
 
@@ -35,7 +35,7 @@
           <guide-profile-name
             v-if="guide.user"
             :user="guide.user"
-            ></guide-profile-name>
+          ></guide-profile-name>
         </v-row>
 
         <v-row justify-md="start">
