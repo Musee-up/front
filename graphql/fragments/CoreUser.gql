@@ -1,3 +1,6 @@
+#import "./CoreExperiencePart.gql"
+#import "./guide/thumbnail.gql"
+
 fragment CoreUser on UsersPermissionsUser {
   location
   firstname
@@ -5,6 +8,21 @@ fragment CoreUser on UsersPermissionsUser {
   email
   phone
   location
+  favorite {
+    experiences {
+      data {
+        id
+        attributes {
+          ...CoreExperiencePart
+        }
+      }
+    }
+    guides {
+      data {
+        ...GuideThumbnail
+      }
+    }
+  }
   picture {
     data {
       attributes {

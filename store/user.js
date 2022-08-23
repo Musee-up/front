@@ -30,6 +30,7 @@ export const actions = {
     return load(client, commit, userGuideQuery, id)
   },
   load(commit) {
+    if (!this.$strapi.user) return
     const id = this.$strapi.user.id
     const client = this.app.apolloProvider.defaultClient
     load(client, commit, singleUserQuery, id)
@@ -68,6 +69,9 @@ export const getters = {
   },
   getSocketId: (state) => {
     return state.me?.socketID
+  },
+  getFavorites: (state) => {
+    return state.me?.favorite
   },
   getCore: (state) => state.me,
   isGuide: (state) => state.me.role === 'guide',

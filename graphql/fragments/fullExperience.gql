@@ -1,4 +1,3 @@
-#import "./ExternalUser.gql"
 #import "./ThemePart.gql"
 #import "./LanguagePart.gql"
 #import "./CoreExperiencePart.gql"

@@ -6,7 +6,7 @@
         <home-searchbar class="searchbar"> </home-searchbar>
       </v-col>
     </v-row>
-    <!-- <home-experiences></home-experiences> -->
+    <home-experiences></home-experiences>
     <about-heritage class="pt-xs-0 pt-16"></about-heritage>
     <home-partnership></home-partnership>
   </v-container>

@@ -171,6 +171,32 @@ export type ComponentDiscountPerGroupSizeDiscountPerGroupSizeInput = {
   min?: InputMaybe<Scalars['Int']>
 }
 
+export type ComponentFavoriteFavorite = {
+  __typename?: 'ComponentFavoriteFavorite'
+  experiences?: Maybe<ExperienceRelationResponseCollection>
+  guides?: Maybe<GuideRelationResponseCollection>
+  id: Scalars['ID']
+}
+
+export type ComponentFavoriteFavoriteExperiencesArgs = {
+  filters?: InputMaybe<ExperienceFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  publicationState?: InputMaybe<PublicationState>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type ComponentFavoriteFavoriteGuidesArgs = {
+  filters?: InputMaybe<GuideFiltersInput>
+  pagination?: InputMaybe<PaginationArg>
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type ComponentFavoriteFavoriteInput = {
+  experiences?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  guides?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  id?: InputMaybe<Scalars['ID']>
+}
+
 export type ComponentStartThresholdsStartThresholds = {
   __typename?: 'ComponentStartThresholdsStartThresholds'
   id: Scalars['ID']
@@ -527,6 +553,7 @@ export type GenericMorph =
   | ComponentAgeRangeAdulte
   | ComponentAmountPerAgeAmountPerAge
   | ComponentDiscountPerGroupSizeDiscountPerGroupSize
+  | ComponentFavoriteFavorite
   | ComponentStartThresholdsStartThresholds
   | ComponentThresholdsThresholds
   | Experience
@@ -640,6 +667,11 @@ export type GuideInput = {
   specialties?: InputMaybe<Scalars['JSON']>
   user?: InputMaybe<Scalars['ID']>
   workExperiences?: InputMaybe<Scalars['JSON']>
+}
+
+export type GuideRelationResponseCollection = {
+  __typename?: 'GuideRelationResponseCollection'
+  data: Array<GuideEntity>
 }
 
 export type I18NLocale = {
@@ -1761,6 +1793,7 @@ export type UsersPermissionsUser = {
   confirmed?: Maybe<Scalars['Boolean']>
   createdAt?: Maybe<Scalars['DateTime']>
   email: Scalars['String']
+  favorite?: Maybe<ComponentFavoriteFavorite>
   firstname?: Maybe<Scalars['String']>
   friends?: Maybe<UsersPermissionsUserRelationResponseCollection>
   guide?: Maybe<GuideEntityResponse>
@@ -1844,6 +1877,7 @@ export type UsersPermissionsUserInput = {
   confirmationToken?: InputMaybe<Scalars['String']>
   confirmed?: InputMaybe<Scalars['Boolean']>
   email?: InputMaybe<Scalars['String']>
+  favorite?: InputMaybe<ComponentFavoriteFavoriteInput>
   firstname?: InputMaybe<Scalars['String']>
   friends?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   guide?: InputMaybe<Scalars['ID']>
