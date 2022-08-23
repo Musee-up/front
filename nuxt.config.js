@@ -57,7 +57,7 @@ export default defineNuxtConfig({
       src: '@/plugins/socketio',
       mode: 'client',
     },
-    '~/plugins/client/leaflet.client',
+    // '~/plugins/client/leaflet.client',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
