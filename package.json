@@ -2,6 +2,9 @@
   "name": "musee_up",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "v16.14.2"
+  },
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",

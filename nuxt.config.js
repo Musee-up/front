@@ -28,7 +28,7 @@ export default defineNuxtConfig({
 
     link: [
       // { rel:"stylesheet", href:"//unpkg.com/leaflet/dist/leaflet.css"},
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
     script: [
       // { src:"//unpkg.com/leaflet/dist/leaflet.js" },
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
       src: '@/plugins/socketio',
       mode: 'client',
     },
-     '~/plugins/client/leaflet.client',
+    '~/plugins/client/leaflet.client',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
