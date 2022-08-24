@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import { ComponentDiscountPerGroupSizeDiscountPerGroupSize } from '@/graphql/generated'
+// import { ComponentDiscountPerGroupSizeDiscountPerGroupSize } from '@/graphql/generated'
 
 export default {
   props: {
     value: {
-      type: ComponentDiscountPerGroupSizeDiscountPerGroupSize,
+      type: Object,
       required: true,
     },
   },
