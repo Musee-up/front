@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated'
+//import { ComponentAmountPerAgeAmountPerAge } from '@/graphql/generated'
 
 export default {
   props: {
     value: {
-      type: ComponentAmountPerAgeAmountPerAge,
+      type: Object,
       required: true,
     },
   },
