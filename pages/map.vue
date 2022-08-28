@@ -1,13 +1,14 @@
 <template>
-  <main-map></main-map>
+  <div></div>
+  <!-- <main-map></main-map> -->
 </template>
 
 <script>
-import mainMap from '~/lazy-components/mainMap'
+// import mainMap from '~/lazy-components/mainMap'
 
 export default {
   components: {
-    mainMap,
+    //    mainMap,
   },
 }
 </script>
