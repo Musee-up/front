@@ -29,6 +29,7 @@
     <v-col md="4" class="ma-4">
       <v-row justify="center">
         <nuxt-img
+          provider="static"
           height="200"
           width="200"
           src="/logo_white.svg"

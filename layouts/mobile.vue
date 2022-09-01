@@ -4,7 +4,9 @@
     <v-main>
       <div>
         <NuxtLink to="/">
-          <nuxt-img src="/logo_white.svg"> </nuxt-img>
+          <nuxt-img
+          provider="static"
+          src="/logo_white.svg"> </nuxt-img>
         </NuxtLink>
       </div>
 

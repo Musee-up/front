@@ -14,7 +14,7 @@
         cols="3"
         class="d-flex justify-center"
       >
-        <nuxt-img style="width: 100%" :src="partner.photo"></nuxt-img>
+        <nuxt-img provider="static" style="width: 100%" :src="partner.photo"></nuxt-img>
       </v-col>
     </v-row>
   </v-container>

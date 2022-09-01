@@ -17,6 +17,7 @@
         >
           <v-row justify="center">
             <nuxt-img
+              provider="static"
               :height="cols"
               :width="cols"
               class="rounded-circle"

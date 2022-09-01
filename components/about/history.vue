@@ -15,7 +15,9 @@
       </v-row>
     </v-col>
     <v-col md="4">
-      <nuxt-img src="/about/photo_duet.png"></nuxt-img>
+      <nuxt-img
+        provider="static"
+        src="/about/photo_duet.png"></nuxt-img>
     </v-col>
   </v-row>
 </template>

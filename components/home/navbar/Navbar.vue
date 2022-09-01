@@ -13,7 +13,9 @@
             to="/"
             style="width: 50px; height: 50px"
           >
-            <nuxt-img width="40" height="40" src="/logo_white.svg"> </nuxt-img>
+            <nuxt-img
+            provider="static"
+            width="40" height="40" src="/logo_white.svg"> </nuxt-img>
           </nuxt-link>
         </v-row>
       </v-col>

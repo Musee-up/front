@@ -13,6 +13,7 @@
         >
           <v-col v-if="members[index].photo">
             <nuxt-img
+              provider="static"
               width="200"
               height="200"
               :src="members[index].photo"

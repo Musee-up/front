@@ -28,7 +28,9 @@
       </v-row>
     </v-col>
     <v-col sm="4">
-      <nuxt-img src="/about_demo_mobile.png"></nuxt-img>
+      <nuxt-img
+        provider="static"
+        src="/about_demo_mobile.png"></nuxt-img>
     </v-col>
   </v-row>
 </template>

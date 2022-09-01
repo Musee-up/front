@@ -19,6 +19,7 @@
             outlined
           >
             <nuxt-img
+              provider="static"
               width="fit-content"
               :src="photos[index]"
               class="justify-self-center"

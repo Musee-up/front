@@ -37,13 +37,16 @@ export default defineNuxtConfig({
       // { src: 'http://localhost:1337/plugins/strapi-stripe/static/stripe.js' }
     ],
   },
+  // image: {
+  //   strapi: {
+  //     baseURL: backendUrl + '/uploads/'
+  //   }
+  // },
   env: {
     API_URL: backendUrl,
   },
-  router: {
-    middleware: ['userAgent'],
-  },
   ssr: true,
+  // target: 'static',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/scss/custom.scss', '@/assets/scss/colors.scss'],
@@ -72,13 +75,13 @@ export default defineNuxtConfig({
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/dotenv',
-    '@nuxt/image',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/strapi',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxt/image',
     '@nuxtjs/apollo',
     '@nuxt/http',
     '@nuxtjs/axios',
@@ -136,6 +139,9 @@ export default defineNuxtConfig({
     tslib: 'tslib/tslib.es6.js',
     ufo: 'ufo/dist/index.cjs',
   },
+  // serverMiddleware: {
+  //   '/_ipx': '~/server/middleware/ipx.js'
+  // },
   build: {
     transpile: [
       'graphql',
